@@ -1,0 +1,40 @@
+{
+  "passed": 19,
+  "total": 19,
+  "geometry": {
+    "originalWorldBoxes": 176473,
+    "currentWorldBoxes": 176612,
+    "addedStage03Foundations": 130,
+    "originalTerrainVertices": 34042,
+    "newTerrainVertices": 34042,
+    "originalTerrainTriangles": 65012,
+    "newTerrainTriangles": 65012,
+    "changedTerrainHeightVertices": 9017,
+    "maxHeightDifference": 1.027,
+    "minimumDelta": -0.6804,
+    "maximumDelta": 1.027,
+    "originalFootprintTerrainSpreadMeters": 0.3403,
+    "newFootprintTerrainSpreadMeters": 0.1324,
+    "legacyBuildings": 84,
+    "legacyEntrances": 298,
+    "roads": 52,
+    "maxRoadSlope": 0.0900000000000002
+  },
+  "runtime": {
+    "sourceWorldConstructMs": 5668,
+    "stage03WorldConstructMs": 6895,
+    "diagnosticSampleHeightCalls": 4000,
+    "baselineSampleMs": 40.25,
+    "stage03SampleMs": 44.99,
+    "note": "CPU only, non-deterministic; NOT measured 1080p render performance or user device FPS"
+  },
+  "hardware": {
+    "targetResolutionPx": [
+      1920,
+      1080
+    ],
+    "minimumFPS": 50,
+    "measuredOnGPU": false,
+    "verified": false
+  }
+}

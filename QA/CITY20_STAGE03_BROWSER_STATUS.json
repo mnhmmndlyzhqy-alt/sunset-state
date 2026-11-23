@@ -1,0 +1,13 @@
+{
+  "stage": 3,
+  "targetInternalWidth": 1920,
+  "targetInternalHeight": 1080,
+  "minimumFPS": 50,
+  "browserAttempted": true,
+  "browserExecutablePresent": true,
+  "liveGameScreenshotObtained": false,
+  "reason": "Enterprise-managed Chromium policy has URLBlocklist '*'; headless game load/screenshot timed out. No GPU benchmark report obtained.",
+  "targetReached": null,
+  "userHardwareMeasured": false,
+  "cpuRegressionSuite": "QA/CITY20_STAGE03_ACCEPTANCE.json"
+}

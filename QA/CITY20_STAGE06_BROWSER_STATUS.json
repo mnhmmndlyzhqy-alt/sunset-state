@@ -1,0 +1,10 @@
+{
+  "stage": 6,
+  "attempted": true,
+  "method": "Chromium --headless --no-sandbox --disable-gpu file URL",
+  "result": "Timeout after 15 seconds before DOM/document output or real GPU frame metrics",
+  "headlessExitCode": 124,
+  "gpu50FPSVerified": false,
+  "drawingBuffer1920x1080Verified": false,
+  "note": "The Chrome headless environment cannot prove frame rate on the user hardware. Compare with ?city20qa=1&city20skylineOff=1 on the same machine."
+}

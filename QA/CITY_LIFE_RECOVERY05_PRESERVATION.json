@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-22",
+  "previousZip": "SUNSET_STATE_PRE_RECOVERY05_BACKUP.zip",
+  "originalFiles": 253,
+  "allOriginalFilesPresent": true,
+  "modifiedPreviousFiles": [
+    "PROJECT/CITY20_PROGRESS.json",
+    "QA/DEEP_AUDIT_FULLWORLD.json",
+    "QA/PHYSICS_RECOVERY04_ACCEPTANCE.json",
+    "QA/run_deep_audit_acceptance.cjs",
+    "QA/run_physics_recovery04.cjs",
+    "README_CITY20_HE.md",
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "modifiedGameplayFiles": [
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "unchangedOriginalCount": 245,
+  "referenceHashSha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+  "nothingDeleted": true,
+  "fpsVerified": false
+}

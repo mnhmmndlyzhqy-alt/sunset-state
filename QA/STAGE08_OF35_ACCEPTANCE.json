@@ -1,0 +1,168 @@
+{
+  "stage": 8,
+  "deviceGpuTested": false,
+  "realScreenshot": false,
+  "passed": 28,
+  "total": 28,
+  "failures": [],
+  "stats": {
+    "stage": 8,
+    "issue": "S01-BL-05",
+    "buildingCount": 130,
+    "windowBays": 1586,
+    "glazing": 1586,
+    "trim": 1586,
+    "sills": 1586,
+    "mullions": 1076,
+    "doorwayBaysSkipped": 138,
+    "setbackTierRowsSkipped": 7,
+    "sideWindows": 1025,
+    "rearWindows": 561,
+    "rotatedBuildingsCovered": 34,
+    "faces": {
+      "north": 561,
+      "east": 519,
+      "west": 506
+    },
+    "byKind": {
+      "tower": 257,
+      "villa": 795,
+      "civic": 195,
+      "midrise": 53,
+      "warehouse": 151,
+      "service": 8,
+      "resort": 127
+    },
+    "visualMeshesAdded": 5834,
+    "collisionsAdded": 0,
+    "breaksGlass": false,
+    "actualOpeningsCut": false,
+    "gpu1080pVerified": false
+  },
+  "tests": [
+    {
+      "label": "stage08_runtime_installed",
+      "pass": true
+    },
+    {
+      "label": "stage08_applied_exactly_once",
+      "pass": true
+    },
+    {
+      "label": "all_130_city20_structures_covered",
+      "pass": true
+    },
+    {
+      "label": "three_target_faces_present",
+      "pass": true
+    },
+    {
+      "label": "southern_previous_facade_not_reduplicated",
+      "pass": true
+    },
+    {
+      "label": "windows_match_counts",
+      "pass": true
+    },
+    {
+      "label": "metadata_complete",
+      "pass": true
+    },
+    {
+      "label": "materials_existing_and_glass_present",
+      "pass": true
+    },
+    {
+      "label": "no_physics_modification",
+      "pass": true
+    },
+    {
+      "label": "no_vehicle_route_or_entrance_count_changes",
+      "pass": true
+    },
+    {
+      "label": "stage07_34_rotations_persist",
+      "pass": true
+    },
+    {
+      "label": "stage07_original_boxes_unchanged_by_the_facade_patch",
+      "pass": true,
+      "details": {
+        "unchanged": 188644
+      }
+    },
+    {
+      "label": "low_geometry_overhead",
+      "pass": true,
+      "details": {
+        "added": 5834,
+        "total": 194478
+      }
+    },
+    {
+      "label": "every_mesh_finite_and_nonzero",
+      "pass": true
+    },
+    {
+      "label": "distance_LoD_set_and_bounded",
+      "pass": true
+    },
+    {
+      "label": "no_nearby_solid_created_for_fake_windows",
+      "pass": true
+    },
+    {
+      "label": "stage09_primary_windows_preserved",
+      "pass": true
+    },
+    {
+      "label": "glass_bays_have_reveals_and_sills",
+      "pass": true
+    },
+    {
+      "label": "windows_grouped_by_actual_site_kind",
+      "pass": true
+    },
+    {
+      "label": "no_extra_dynamic_door_or_structural_plan",
+      "pass": true
+    },
+    {
+      "label": "benchmark_flags_are_honest",
+      "pass": true
+    },
+    {
+      "label": "all_window_glazing_is_attached_to_real_wall_planes",
+      "pass": true,
+      "details": []
+    },
+    {
+      "label": "doorways_have_no_opaque_faux_glass_bays",
+      "pass": true,
+      "details": []
+    },
+    {
+      "label": "1348plus_bays_on_side_and_rear",
+      "pass": true,
+      "details": {
+        "panes": 1586
+      }
+    },
+    {
+      "label": "old_reference_map_and_3d_models_retained",
+      "pass": true
+    },
+    {
+      "label": "stage08_loaded_after_stage07_before_engine",
+      "pass": true
+    },
+    {
+      "label": "A_B_off_controls_present",
+      "pass": true
+    },
+    {
+      "label": "baseline_multi_floor_interiors_still_active",
+      "pass": true
+    }
+  ]
+}

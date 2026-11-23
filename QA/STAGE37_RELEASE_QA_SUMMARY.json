@@ -1,0 +1,74 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 37,
+  "programmeTotal": 105,
+  "class": "conservative runtime GL renderer optimization, native GPU verification pending",
+  "baseSourceSha256": "fb9bbe6c612d2f3447ec4a78182f89f1853ed044ef4730b0457bdc54125e318a",
+  "baseSiteSha256": "051800318166654ce50bd865bc06537b962fef84fe930365ae9fae47b2e728d0",
+  "sourcePathsPreserved": 1141,
+  "priorSitePathsPreserved": 174,
+  "changedSourcePaths": [
+    "PROJECT/105_STAGE_PLAN_HE.md",
+    "SITE_FILE_MANIFEST.json",
+    "START_GAME.html",
+    "engine44.js",
+    "index.html"
+  ],
+  "newSourcePaths": 31,
+  "oldSourceDataBackupsVerified": true,
+  "tests": {
+    "renderAcceptance": [
+      70,
+      70
+    ],
+    "siteAudit": [
+      1216,
+      1216
+    ],
+    "save": [
+      95,
+      95
+    ],
+    "vehicleCcd": [
+      39,
+      39
+    ],
+    "interiors": [
+      13,
+      13
+    ],
+    "characters": [
+      35,
+      35
+    ],
+    "vehicleTraffic": [
+      37,
+      37
+    ],
+    "wildlife": [
+      46,
+      46
+    ],
+    "stage36Profiler": [
+      33,
+      33
+    ],
+    "stage36Integration": [
+      16,
+      16
+    ]
+  },
+  "boundedCullingSample": 14059,
+  "worldStaticObjects": 196817,
+  "lookupMicrobenchmarkMs": {
+    "legacy": 18.771,
+    "indexed": 2.702
+  },
+  "lookupMicrobenchmarkRatio": 6.947,
+  "hardwareGpuMeasured": false,
+  "fullHd50fpsVerified": false,
+  "deployedToPublicSite": false,
+  "unavailableEarlierHistoricalSource": "PROJECT/STAGE36_SOURCE_PROVENANCE_HE.md",
+  "optOut": "?stage37RenderOff=1",
+  "nextStage": 38
+}

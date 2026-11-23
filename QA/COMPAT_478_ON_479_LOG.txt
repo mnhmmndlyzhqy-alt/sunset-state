@@ -1,0 +1,75 @@
+{
+  "version": "4.7.8",
+  "passed": 14,
+  "total": 14,
+  "ms": 7535,
+  "details": {
+    "reeds": 23,
+    "bankStones": 9,
+    "streetBeds": 8,
+    "optionalMeshes": 48,
+    "allOnLand": true,
+    "noTimberPlatformAdded": true,
+    "maxViewDistance": 180,
+    "usesPerformanceGuard475": true
+  },
+  "trafficOffroad": 0,
+  "checks": [
+    [
+      "script_loaded_once",
+      true
+    ],
+    [
+      "real_roads_preserved",
+      true
+    ],
+    [
+      "native_full_hd_code_kept",
+      true
+    ],
+    [
+      "new_guards_are_versioned",
+      true
+    ],
+    [
+      "grade_cap_not_regressed",
+      true
+    ],
+    [
+      "bounded_optional_detail",
+      true
+    ],
+    [
+      "new_details_have_no_colliders",
+      true
+    ],
+    [
+      "all_new_detail_on_dry_land",
+      true
+    ],
+    [
+      "no_fake_water_or_timber_path",
+      true
+    ],
+    [
+      "crocodiles_still_in_water",
+      true
+    ],
+    [
+      "traffic_still_spawns_on_roads",
+      true
+    ],
+    [
+      "npc_predictive_braking",
+      true
+    ],
+    [
+      "npc_does_not_brake_for_sidecar",
+      true
+    ],
+    [
+      "npc_regression_22_routes",
+      true
+    ]
+  ]
+}

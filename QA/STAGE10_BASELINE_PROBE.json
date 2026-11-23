@@ -1,0 +1,137 @@
+{
+  "stage": 10,
+  "world": {
+    "boxes": 194478,
+    "solids": 3230,
+    "portals": 429,
+    "active": 214,
+    "city20": 130
+  },
+  "stats": {
+    "priorDeepAudit": {
+      "revision": 1,
+      "commercialVenues": 60,
+      "storefrontDetailsAdded": 342,
+      "compactFoyersDecorated": 28,
+      "compactInteriorDetailsAdded": 56,
+      "planterSitesMoved": 55,
+      "planterPiecesMoved": 222,
+      "lampsMoved": 13,
+      "treesMoved": 19,
+      "gardenShrubsMoved": 22,
+      "unresolvedPlanters": 181,
+      "unresolvedLamps": 30,
+      "unresolvedTrees": 0,
+      "unresolvedShrubs": 0,
+      "unsafePlantersBefore": 236,
+      "unsafePlantersAfter": 181,
+      "unsafeTreesBefore": 5,
+      "unsafeTreesAfter": 0,
+      "unsafeGardenShrubsBefore": 7,
+      "unsafeGardenShrubsAfter": 0,
+      "geometryAdded": 398,
+      "collisionsAdded": 0,
+      "portalChanges": 0,
+      "roadChanges": 0,
+      "referenceChanged": false,
+      "gpuFpsVerified": false
+    },
+    "stage15": {
+      "stage": 15,
+      "portalsScanned": 298,
+      "frontagesDetailed": 298,
+      "planters": 596,
+      "bollards": 596,
+      "lightPosts": 99,
+      "curbEdges": 298,
+      "geometryAdded": 2284,
+      "collisionsAdded": 0,
+      "roadRoutesChanged": 0,
+      "portalsChanged": 0,
+      "gpuFpsVerified": false
+    },
+    "stage16": {
+      "stage": 16,
+      "treeClusters": 12,
+      "trees": 48,
+      "shrubs": 60,
+      "planterGreens": 596,
+      "geometryAdded": 752,
+      "collisionsAdded": 0,
+      "roadsChanged": 0,
+      "portalsChanged": 0,
+      "gpuFpsVerified": false
+    },
+    "stage04": {
+      "stage": 4,
+      "issue": "S01-BL-01",
+      "baselinePortals": 298,
+      "baselineActive": 83,
+      "activeBuildings": 84,
+      "orphanDescriptorsKept": 215,
+      "orphanVisualsRemoved": 3152,
+      "newEntranceId": 298,
+      "activeAfter": 84,
+      "activeBuildingCoverageAfter": 84,
+      "roadCountUnchanged": true,
+      "originalIdsPreserved": true,
+      "oneCompactHotelOpened": true,
+      "gpuVisualVerified": false,
+      "glassRaised": 1,
+      "centerBarRemoved": 1,
+      "collisionFootprintsDelta": 2,
+      "portalCountAfter": 299,
+      "newGeometry": 7,
+      "unchangedHistoricalPortalIds": true,
+      "liveDoorRecords": 84
+    }
+  },
+  "byKind": {
+    "planter-base": {
+      "total": 166,
+      "bad": 0,
+      "water": 0,
+      "road": 0
+    },
+    "plant-canopy": {
+      "total": 166,
+      "bad": 0,
+      "water": 0,
+      "road": 0
+    },
+    "safety-bollard": {
+      "total": 166,
+      "bad": 0,
+      "water": 0,
+      "road": 0
+    },
+    "planter-shrub": {
+      "total": 166,
+      "bad": 0,
+      "water": 0,
+      "road": 0
+    },
+    "streetlamp-post": {
+      "total": 28,
+      "bad": 0,
+      "water": 0,
+      "road": 0
+    },
+    "streetlamp-head": {
+      "total": 28,
+      "bad": 0,
+      "water": 0,
+      "road": 0
+    }
+  },
+  "byPortal": {
+    "active": {
+      "count": 166,
+      "green": 166
+    },
+    "inactive": {}
+  },
+  "reason": {},
+  "nearestPortals": [],
+  "sample": []
+}

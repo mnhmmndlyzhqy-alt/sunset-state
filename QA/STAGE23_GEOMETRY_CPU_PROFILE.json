@@ -1,0 +1,966 @@
+{
+  "stage": 23,
+  "generatedAt": "2026-11-22T20:48:24.399Z",
+  "environment": "Actual cumulative SUNSET STATE world + real GLRenderer CPU culling & packing + FAKE GL",
+  "measurements": {
+    "actualWebGLDrawCalls": null,
+    "gpuRenderTimeMs": null,
+    "gpuResidentMemoryBytes": null,
+    "realFps": null,
+    "hardware1080p50FpsVerified": false,
+    "footprintIsEstimateNotMeasuredVRAM": true
+  },
+  "world": {
+    "staticSourceObjects": 194555,
+    "dynamicSourceObjectsSnapshot": 1942,
+    "pedestrianCount": 238,
+    "roadCount": 52,
+    "activePortalCount": 429,
+    "geometryByLayer": [
+      {
+        "key": "4",
+        "count": 88513
+      },
+      {
+        "key": "0",
+        "count": 55842
+      },
+      {
+        "key": "3",
+        "count": 35662
+      },
+      {
+        "key": "2",
+        "count": 8102
+      },
+      {
+        "key": "5",
+        "count": 6342
+      },
+      {
+        "key": "1",
+        "count": 94
+      }
+    ],
+    "geometryByShapeTop25": [
+      {
+        "key": "grade_east",
+        "count": 87498
+      },
+      {
+        "key": "cube",
+        "count": 43288
+      },
+      {
+        "key": "grade_west",
+        "count": 31180
+      },
+      {
+        "key": "reference_slab469",
+        "count": 16350
+      },
+      {
+        "key": "rounded",
+        "count": 5940
+      },
+      {
+        "key": "urban_crown",
+        "count": 4202
+      },
+      {
+        "key": "cylinder",
+        "count": 1981
+      },
+      {
+        "key": "wedge",
+        "count": 1561
+      },
+      {
+        "key": "sphere",
+        "count": 902
+      },
+      {
+        "key": "rounded_smooth",
+        "count": 633
+      },
+      {
+        "key": "reference_step469",
+        "count": 164
+      },
+      {
+        "key": "reference_prow469",
+        "count": 124
+      },
+      {
+        "key": "coast_hip_roof465",
+        "count": 117
+      },
+      {
+        "key": "cone",
+        "count": 86
+      },
+      {
+        "key": "urban_frond",
+        "count": 80
+      },
+      {
+        "key": "signal_visors473",
+        "count": 76
+      },
+      {
+        "key": "reference_octagon469",
+        "count": 74
+      },
+      {
+        "key": "reference_round469",
+        "count": 51
+      },
+      {
+        "key": "cabin",
+        "count": 27
+      },
+      {
+        "key": "rim",
+        "count": 10
+      },
+      {
+        "key": "s11_residential_concrete",
+        "count": 9
+      },
+      {
+        "key": "s11_residential_paint",
+        "count": 9
+      },
+      {
+        "key": "s11_residential_metal",
+        "count": 9
+      },
+      {
+        "key": "s11_residential_glass",
+        "count": 9
+      },
+      {
+        "key": "s11_residential_blueglass",
+        "count": 9
+      }
+    ],
+    "geometryByMaterialTop25": [
+      {
+        "key": "lawn443",
+        "count": 56919
+      },
+      {
+        "key": "concrete",
+        "count": 43184
+      },
+      {
+        "key": "paint",
+        "count": 18856
+      },
+      {
+        "key": "asphalt",
+        "count": 14893
+      },
+      {
+        "key": "metal",
+        "count": 12131
+      },
+      {
+        "key": "none",
+        "count": 7694
+      },
+      {
+        "key": "building_window",
+        "count": 7513
+      },
+      {
+        "key": "foliage",
+        "count": 7026
+      },
+      {
+        "key": "anodized471",
+        "count": 5000
+      },
+      {
+        "key": "paving",
+        "count": 3715
+      },
+      {
+        "key": "glass",
+        "count": 3628
+      },
+      {
+        "key": "stone",
+        "count": 3557
+      },
+      {
+        "key": "masonry",
+        "count": 3485
+      },
+      {
+        "key": "light_emissive",
+        "count": 1743
+      },
+      {
+        "key": "wood",
+        "count": 1132
+      },
+      {
+        "key": "bark",
+        "count": 954
+      },
+      {
+        "key": "rubber",
+        "count": 510
+      },
+      {
+        "key": "travertine471",
+        "count": 441
+      },
+      {
+        "key": "tower_glass469",
+        "count": 343
+      },
+      {
+        "key": "fabric",
+        "count": 329
+      },
+      {
+        "key": "brickwork",
+        "count": 310
+      },
+      {
+        "key": "sealed_concrete472",
+        "count": 298
+      },
+      {
+        "key": "traffic_lens473",
+        "count": 228
+      },
+      {
+        "key": "vehicle_glass444",
+        "count": 149
+      },
+      {
+        "key": "translucent_glass",
+        "count": 129
+      }
+    ],
+    "staticInstancePayloadIfAllUploadedMiB": 14.84,
+    "dynamicInstancePayloadSnapshotKiB": 151.72,
+    "instanceBytesPerObject": 80
+  },
+  "viewCulling": [
+    {
+      "name": "spawn_district",
+      "origin": [
+        -88.15,
+        8.3,
+        -54
+      ],
+      "fullWorldSource": 194555,
+      "visibleStaticCandidates": 46727,
+      "spatialCells": 409,
+      "globalCandidates": 8267,
+      "skylineCandidates": 922,
+      "cullingInitMs": 182.474,
+      "cullCacheCalls": {
+        "runs": 12,
+        "medianMs": 0.001,
+        "p95Ms": 0.02,
+        "maxMs": 0.02
+      },
+      "movedRefreshes": [
+        {
+          "cameraShiftMeters": 35,
+          "elapsedMs": 70.244,
+          "visibleStaticCandidates": 44680
+        },
+        {
+          "cameraShiftMeters": 75,
+          "elapsedMs": 72.997,
+          "visibleStaticCandidates": 42524
+        },
+        {
+          "cameraShiftMeters": 115,
+          "elapsedMs": 66.425,
+          "visibleStaticCandidates": 40002
+        }
+      ],
+      "possibleStaticInstancePayloadMiB": 3.56,
+      "shapesTop12": [
+        {
+          "key": "cube",
+          "count": 19655
+        },
+        {
+          "key": "grade_west",
+          "count": 8898
+        },
+        {
+          "key": "grade_east",
+          "count": 8897
+        },
+        {
+          "key": "reference_slab469",
+          "count": 2453
+        },
+        {
+          "key": "rounded",
+          "count": 2286
+        },
+        {
+          "key": "urban_crown",
+          "count": 2017
+        },
+        {
+          "key": "cylinder",
+          "count": 1051
+        },
+        {
+          "key": "sphere",
+          "count": 372
+        },
+        {
+          "key": "rounded_smooth",
+          "count": 365
+        },
+        {
+          "key": "wedge",
+          "count": 338
+        },
+        {
+          "key": "signal_visors473",
+          "count": 60
+        },
+        {
+          "key": "reference_octagon469",
+          "count": 56
+        }
+      ],
+      "layers": [
+        {
+          "key": "4",
+          "count": 26758
+        },
+        {
+          "key": "3",
+          "count": 12450
+        },
+        {
+          "key": "2",
+          "count": 5781
+        },
+        {
+          "key": "5",
+          "count": 1644
+        },
+        {
+          "key": "1",
+          "count": 94
+        }
+      ]
+    },
+    {
+      "name": "shift_200m_east",
+      "origin": [
+        111.85,
+        8.3,
+        -54
+      ],
+      "fullWorldSource": 194555,
+      "visibleStaticCandidates": 34637,
+      "spatialCells": 409,
+      "globalCandidates": 8267,
+      "skylineCandidates": 922,
+      "cullingInitMs": 160.493,
+      "cullCacheCalls": {
+        "runs": 12,
+        "medianMs": 0.001,
+        "p95Ms": 0.06,
+        "maxMs": 0.06
+      },
+      "movedRefreshes": [
+        {
+          "cameraShiftMeters": 35,
+          "elapsedMs": 67.313,
+          "visibleStaticCandidates": 31569
+        },
+        {
+          "cameraShiftMeters": 75,
+          "elapsedMs": 60.442,
+          "visibleStaticCandidates": 28305
+        },
+        {
+          "cameraShiftMeters": 115,
+          "elapsedMs": 64.525,
+          "visibleStaticCandidates": 25765
+        }
+      ],
+      "possibleStaticInstancePayloadMiB": 2.64,
+      "shapesTop12": [
+        {
+          "key": "cube",
+          "count": 12392
+        },
+        {
+          "key": "grade_west",
+          "count": 7494
+        },
+        {
+          "key": "grade_east",
+          "count": 7493
+        },
+        {
+          "key": "reference_slab469",
+          "count": 1967
+        },
+        {
+          "key": "urban_crown",
+          "count": 1612
+        },
+        {
+          "key": "rounded",
+          "count": 1567
+        },
+        {
+          "key": "cylinder",
+          "count": 773
+        },
+        {
+          "key": "wedge",
+          "count": 609
+        },
+        {
+          "key": "sphere",
+          "count": 302
+        },
+        {
+          "key": "rounded_smooth",
+          "count": 230
+        },
+        {
+          "key": "reference_octagon469",
+          "count": 44
+        },
+        {
+          "key": "signal_visors473",
+          "count": 33
+        }
+      ],
+      "layers": [
+        {
+          "key": "4",
+          "count": 20496
+        },
+        {
+          "key": "3",
+          "count": 9069
+        },
+        {
+          "key": "2",
+          "count": 4045
+        },
+        {
+          "key": "5",
+          "count": 933
+        },
+        {
+          "key": "1",
+          "count": 94
+        }
+      ]
+    },
+    {
+      "name": "shift_400m_north",
+      "origin": [
+        -88.15,
+        8.3,
+        -454
+      ],
+      "fullWorldSource": 194555,
+      "visibleStaticCandidates": 36985,
+      "spatialCells": 409,
+      "globalCandidates": 8267,
+      "skylineCandidates": 922,
+      "cullingInitMs": 142.742,
+      "cullCacheCalls": {
+        "runs": 12,
+        "medianMs": 0.001,
+        "p95Ms": 0.012,
+        "maxMs": 0.012
+      },
+      "movedRefreshes": [
+        {
+          "cameraShiftMeters": 35,
+          "elapsedMs": 69.815,
+          "visibleStaticCandidates": 35062
+        },
+        {
+          "cameraShiftMeters": 75,
+          "elapsedMs": 66.887,
+          "visibleStaticCandidates": 33279
+        },
+        {
+          "cameraShiftMeters": 115,
+          "elapsedMs": 65.082,
+          "visibleStaticCandidates": 30797
+        }
+      ],
+      "possibleStaticInstancePayloadMiB": 2.82,
+      "shapesTop12": [
+        {
+          "key": "cube",
+          "count": 13319
+        },
+        {
+          "key": "grade_west",
+          "count": 8437
+        },
+        {
+          "key": "grade_east",
+          "count": 8433
+        },
+        {
+          "key": "reference_slab469",
+          "count": 2160
+        },
+        {
+          "key": "urban_crown",
+          "count": 2155
+        },
+        {
+          "key": "rounded",
+          "count": 1210
+        },
+        {
+          "key": "cylinder",
+          "count": 512
+        },
+        {
+          "key": "wedge",
+          "count": 262
+        },
+        {
+          "key": "sphere",
+          "count": 148
+        },
+        {
+          "key": "rounded_smooth",
+          "count": 130
+        },
+        {
+          "key": "reference_octagon469",
+          "count": 57
+        },
+        {
+          "key": "reference_prow469",
+          "count": 31
+        }
+      ],
+      "layers": [
+        {
+          "key": "4",
+          "count": 21131
+        },
+        {
+          "key": "3",
+          "count": 9092
+        },
+        {
+          "key": "2",
+          "count": 5781
+        },
+        {
+          "key": "5",
+          "count": 887
+        },
+        {
+          "key": "1",
+          "count": 94
+        }
+      ]
+    },
+    {
+      "name": "high_aerial_over_district",
+      "origin": [
+        61.85,
+        155,
+        -54
+      ],
+      "fullWorldSource": 194555,
+      "visibleStaticCandidates": 109328,
+      "spatialCells": 409,
+      "globalCandidates": 8267,
+      "skylineCandidates": 922,
+      "cullingInitMs": 114.878,
+      "cullCacheCalls": {
+        "runs": 12,
+        "medianMs": 0.001,
+        "p95Ms": 0.073,
+        "maxMs": 0.073
+      },
+      "movedRefreshes": [
+        {
+          "cameraShiftMeters": 35,
+          "elapsedMs": 39.662,
+          "visibleStaticCandidates": 108495
+        },
+        {
+          "cameraShiftMeters": 75,
+          "elapsedMs": 36.83,
+          "visibleStaticCandidates": 107885
+        },
+        {
+          "cameraShiftMeters": 115,
+          "elapsedMs": 38.406,
+          "visibleStaticCandidates": 107175
+        }
+      ],
+      "possibleStaticInstancePayloadMiB": 8.34,
+      "shapesTop12": [
+        {
+          "key": "cube",
+          "count": 33683
+        },
+        {
+          "key": "grade_east",
+          "count": 28901
+        },
+        {
+          "key": "grade_west",
+          "count": 28424
+        },
+        {
+          "key": "reference_slab469",
+          "count": 5266
+        },
+        {
+          "key": "rounded",
+          "count": 4913
+        },
+        {
+          "key": "urban_crown",
+          "count": 3730
+        },
+        {
+          "key": "cylinder",
+          "count": 1484
+        },
+        {
+          "key": "wedge",
+          "count": 819
+        },
+        {
+          "key": "sphere",
+          "count": 687
+        },
+        {
+          "key": "rounded_smooth",
+          "count": 528
+        },
+        {
+          "key": "reference_step469",
+          "count": 164
+        },
+        {
+          "key": "reference_prow469",
+          "count": 124
+        }
+      ],
+      "layers": [
+        {
+          "key": "4",
+          "count": 63770
+        },
+        {
+          "key": "3",
+          "count": 34363
+        },
+        {
+          "key": "2",
+          "count": 8102
+        },
+        {
+          "key": "5",
+          "count": 2999
+        },
+        {
+          "key": "1",
+          "count": 94
+        }
+      ]
+    },
+    {
+      "name": "far_district_west",
+      "origin": [
+        -478.15,
+        8.3,
+        126
+      ],
+      "fullWorldSource": 194555,
+      "visibleStaticCandidates": 59820,
+      "spatialCells": 409,
+      "globalCandidates": 8267,
+      "skylineCandidates": 922,
+      "cullingInitMs": 200.892,
+      "cullCacheCalls": {
+        "runs": 12,
+        "medianMs": 0.001,
+        "p95Ms": 0.013,
+        "maxMs": 0.013
+      },
+      "movedRefreshes": [
+        {
+          "cameraShiftMeters": 35,
+          "elapsedMs": 78.873,
+          "visibleStaticCandidates": 59647
+        },
+        {
+          "cameraShiftMeters": 75,
+          "elapsedMs": 83.743,
+          "visibleStaticCandidates": 59641
+        },
+        {
+          "cameraShiftMeters": 115,
+          "elapsedMs": 87.995,
+          "visibleStaticCandidates": 57973
+        }
+      ],
+      "possibleStaticInstancePayloadMiB": 4.56,
+      "shapesTop12": [
+        {
+          "key": "cube",
+          "count": 28027
+        },
+        {
+          "key": "grade_west",
+          "count": 10751
+        },
+        {
+          "key": "grade_east",
+          "count": 10749
+        },
+        {
+          "key": "reference_slab469",
+          "count": 3841
+        },
+        {
+          "key": "rounded",
+          "count": 2594
+        },
+        {
+          "key": "urban_crown",
+          "count": 1596
+        },
+        {
+          "key": "cylinder",
+          "count": 824
+        },
+        {
+          "key": "sphere",
+          "count": 399
+        },
+        {
+          "key": "rounded_smooth",
+          "count": 352
+        },
+        {
+          "key": "wedge",
+          "count": 118
+        },
+        {
+          "key": "urban_frond",
+          "count": 80
+        },
+        {
+          "key": "reference_step469",
+          "count": 73
+        }
+      ],
+      "layers": [
+        {
+          "key": "4",
+          "count": 31961
+        },
+        {
+          "key": "3",
+          "count": 16990
+        },
+        {
+          "key": "2",
+          "count": 8102
+        },
+        {
+          "key": "5",
+          "count": 2673
+        },
+        {
+          "key": "1",
+          "count": 94
+        }
+      ]
+    }
+  ],
+  "packingBenchmarks": [
+    {
+      "items": 512,
+      "instanceBytes": 40960,
+      "allocateEveryTime": {
+        "runs": 8,
+        "medianMs": 0.78,
+        "p95Ms": 1.518,
+        "maxMs": 1.518
+      },
+      "scratchReuse": {
+        "runs": 8,
+        "medianMs": 0.774,
+        "p95Ms": 0.873,
+        "maxMs": 0.873
+      }
+    },
+    {
+      "items": 4096,
+      "instanceBytes": 327680,
+      "allocateEveryTime": {
+        "runs": 8,
+        "medianMs": 4.681,
+        "p95Ms": 7.793,
+        "maxMs": 7.793
+      },
+      "scratchReuse": {
+        "runs": 8,
+        "medianMs": 4.414,
+        "p95Ms": 6.764,
+        "maxMs": 6.764
+      }
+    },
+    {
+      "items": 16000,
+      "instanceBytes": 1280000,
+      "allocateEveryTime": {
+        "runs": 8,
+        "medianMs": 16.462,
+        "p95Ms": 27.624,
+        "maxMs": 27.624
+      },
+      "scratchReuse": {
+        "runs": 8,
+        "medianMs": 15.596,
+        "p95Ms": 32.697,
+        "maxMs": 32.697
+      }
+    }
+  ],
+  "processMemoryMiB": {
+    "heapUsed": 210.9,
+    "heapTotal": 282.9,
+    "rss": 380.4
+  },
+  "caveats": [
+    "The static instance payload is a theoretical array size, NOT measured VRAM or GPU uploads",
+    "Visible candidates use real renderer culling but do not imply drawn triangles or GL calls",
+    "Shape grouping is instanced, and draw calls depend on actual GL pass execution",
+    "CPU timing from this machine cannot establish 1920x1080 >=50FPS performance"
+  ],
+  "checks": [
+    {
+      "id": "real_game_world_and_source_renderable",
+      "pass": true
+    },
+    {
+      "id": "real_production_renderer_prototype_exposed_in_QA",
+      "pass": true
+    },
+    {
+      "id": "view_visible_candidates_nonempty_spawn_district",
+      "pass": true
+    },
+    {
+      "id": "view_candidates_lte_full_world_plus_tiles_spawn_district",
+      "pass": true
+    },
+    {
+      "id": "renderer_scene_reused_during_camera_moves_spawn_district",
+      "pass": true
+    },
+    {
+      "id": "view_visible_candidates_nonempty_shift_200m_east",
+      "pass": true
+    },
+    {
+      "id": "view_candidates_lte_full_world_plus_tiles_shift_200m_east",
+      "pass": true
+    },
+    {
+      "id": "renderer_scene_reused_during_camera_moves_shift_200m_east",
+      "pass": true
+    },
+    {
+      "id": "view_visible_candidates_nonempty_shift_400m_north",
+      "pass": true
+    },
+    {
+      "id": "view_candidates_lte_full_world_plus_tiles_shift_400m_north",
+      "pass": true
+    },
+    {
+      "id": "renderer_scene_reused_during_camera_moves_shift_400m_north",
+      "pass": true
+    },
+    {
+      "id": "view_visible_candidates_nonempty_high_aerial_over_district",
+      "pass": true
+    },
+    {
+      "id": "view_candidates_lte_full_world_plus_tiles_high_aerial_over_district",
+      "pass": true
+    },
+    {
+      "id": "renderer_scene_reused_during_camera_moves_high_aerial_over_district",
+      "pass": true
+    },
+    {
+      "id": "view_visible_candidates_nonempty_far_district_west",
+      "pass": true
+    },
+    {
+      "id": "view_candidates_lte_full_world_plus_tiles_far_district_west",
+      "pass": true
+    },
+    {
+      "id": "renderer_scene_reused_during_camera_moves_far_district_west",
+      "pass": true
+    },
+    {
+      "id": "pack_bytes_512",
+      "pass": true
+    },
+    {
+      "id": "pack_optin_reuse_numeric_equality_512",
+      "pass": true
+    },
+    {
+      "id": "pack_bytes_4096",
+      "pass": true
+    },
+    {
+      "id": "pack_optin_reuse_numeric_equality_4096",
+      "pass": true
+    },
+    {
+      "id": "pack_bytes_16000",
+      "pass": true
+    },
+    {
+      "id": "pack_optin_reuse_numeric_equality_16000",
+      "pass": true
+    },
+    {
+      "id": "dynamic_geometry_real_game",
+      "pass": true
+    }
+  ],
+  "passed": 24,
+  "total": 24
+}

@@ -1,0 +1,90 @@
+{
+  "stage": 22,
+  "createdAt": "2026-11-23T11:16:15.948Z",
+  "environment": "Node/V8 and real SUNSET Game + world, fake renderer",
+  "instrumentation": "elapsed CPU wall clock for constructor and selected hot paths",
+  "hardwareGPUAvailable": false,
+  "measuredFramesPerSecond": null,
+  "gpuExecutionMilliseconds": null,
+  "native1920x1080Fps50Verified": false,
+  "simulatedCanvas1920x1080Only": true,
+  "scriptAndWorldInitMs": 31119.8,
+  "loadedExternalGameScripts": 91,
+  "world": {
+    "staticBoxes": 196817,
+    "entranceDescriptors": 429,
+    "roadSegments": 52,
+    "pedestrians": 238
+  },
+  "processMemoryMB": {
+    "heapUsed": 337,
+    "rss": 466.1,
+    "external": 2.2
+  },
+  "cpuBenchmarks": [
+    {
+      "label": "active outdoor dynamic geometry",
+      "samples": 90,
+      "sourceItems": 1954,
+      "p50Ms": 3.295,
+      "p95Ms": 10.542,
+      "worstMs": 16.115,
+      "meanMs": 4.224
+    },
+    {
+      "label": "outdoor lights",
+      "samples": 100,
+      "sourceItems": 11,
+      "p50Ms": 0.014,
+      "p95Ms": 0.023,
+      "worstMs": 0.131,
+      "meanMs": 0.017
+    },
+    {
+      "label": "real scene selection",
+      "samples": 100,
+      "sourceItems": 196817,
+      "p50Ms": 0,
+      "p95Ms": 0,
+      "worstMs": 0.003,
+      "meanMs": 0
+    }
+  ],
+  "checks": [
+    {
+      "id": "real_cumulative_game_constructor_succeeded",
+      "pass": true
+    },
+    {
+      "id": "all_loaded_scripts_present",
+      "pass": true
+    },
+    {
+      "id": "original_roads_retained",
+      "pass": true
+    },
+    {
+      "id": "all_portal_descriptors_retained",
+      "pass": true
+    },
+    {
+      "id": "full_world_geometry_retained",
+      "pass": true
+    },
+    {
+      "id": "cumulative_NPCs_present",
+      "pass": true
+    },
+    {
+      "id": "stage22_unmodified_in_normal_play",
+      "pass": true
+    },
+    {
+      "id": "no_real_GPU_renderer_in_CPU_profile",
+      "pass": true
+    }
+  ],
+  "passed": 8,
+  "total": 8,
+  "warning": "Simulation is CPU/JS-only with a fake rendering backend; NEVER extrapolate these timings to game FPS or GPU throughput."
+}

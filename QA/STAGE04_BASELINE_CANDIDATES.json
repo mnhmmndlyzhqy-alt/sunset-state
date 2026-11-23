@@ -1,0 +1,1723 @@
+{
+  "counts": {
+    "ready": {
+      "length": 84,
+      "withPlan": 84,
+      "withShell": 83,
+      "withPlanAndShell": 83,
+      "withPlanUnready": 0,
+      "withPlanAndFoyer": 84,
+      "nonwater": 84,
+      "allPlanNonwater": 83,
+      "withRoad": 6,
+      "clearApproach": 84
+    },
+    "unready": {
+      "length": 215,
+      "withPlan": 215,
+      "withShell": 0,
+      "withPlanAndShell": 0,
+      "withPlanUnready": 0,
+      "withPlanAndFoyer": 215,
+      "nonwater": 99,
+      "allPlanNonwater": 0,
+      "withRoad": 7,
+      "clearApproach": 212
+    }
+  },
+  "unready": [
+    {
+      "id": 81,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        703,
+        -766.72
+      ],
+      "bcoords": [
+        703,
+        -749
+      ],
+      "entrance": {
+        "x": 703,
+        "z": -766.67,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 82,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -882,
+        616.53
+      ],
+      "bcoords": [
+        -882,
+        625
+      ],
+      "entrance": {
+        "x": -882,
+        "z": 616.58,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 83,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        730,
+        756.28
+      ],
+      "bcoords": [
+        730,
+        765
+      ],
+      "entrance": {
+        "x": 730,
+        "z": 756.33,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 84,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        756,
+        461.78
+      ],
+      "bcoords": [
+        756,
+        477
+      ],
+      "entrance": {
+        "x": 756,
+        "z": 461.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 85,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        780,
+        -469.22
+      ],
+      "bcoords": [
+        780,
+        -455
+      ],
+      "entrance": {
+        "x": 780,
+        "z": -469.17,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 86,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -856,
+        -841.22
+      ],
+      "bcoords": [
+        -856,
+        -828
+      ],
+      "entrance": {
+        "x": -856,
+        "z": -841.17,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 87,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -677,
+        987.78
+      ],
+      "bcoords": [
+        -677,
+        1001
+      ],
+      "entrance": {
+        "x": -677,
+        "z": 987.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 88,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -467,
+        991.28
+      ],
+      "bcoords": [
+        -467,
+        1000
+      ],
+      "entrance": {
+        "x": -467,
+        "z": 991.33,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 89,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        846,
+        932.78
+      ],
+      "bcoords": [
+        846,
+        947
+      ],
+      "entrance": {
+        "x": 846,
+        "z": 932.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 90,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        1065,
+        796.78
+      ],
+      "bcoords": [
+        1065,
+        810
+      ],
+      "entrance": {
+        "x": 1065,
+        "z": 796.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 91,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -430,
+        740.78
+      ],
+      "bcoords": [
+        -430,
+        754
+      ],
+      "entrance": {
+        "x": -430,
+        "z": 740.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 92,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -186,
+        740.78
+      ],
+      "bcoords": [
+        -186,
+        754
+      ],
+      "entrance": {
+        "x": -186,
+        "z": 740.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 93,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        58,
+        876.78
+      ],
+      "bcoords": [
+        58,
+        890
+      ],
+      "entrance": {
+        "x": 58,
+        "z": 876.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 94,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        302,
+        876.78
+      ],
+      "bcoords": [
+        302,
+        890
+      ],
+      "entrance": {
+        "x": 302,
+        "z": 876.83,
+        "width": 3.2,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 95,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -806.3831583298743,
+        -842.0478207708151
+      ],
+      "bcoords": [
+        -806.3831583298743,
+        -812.0478676487692
+      ],
+      "entrance": {
+        "x": -806.3831583298743,
+        "z": -842.0478207708151,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 96,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -809.325064169243,
+        -723.174537302279
+      ],
+      "bcoords": [
+        -809.325064169243,
+        -700.9108240390196
+      ],
+      "entrance": {
+        "x": -809.325064169243,
+        "z": -723.174537302279,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 97,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -809.6998278647661,
+        -620.6978627498542
+      ],
+      "bcoords": [
+        -809.6998278647661,
+        -595.5660420334898
+      ],
+      "entrance": {
+        "x": -809.6998278647661,
+        "z": -620.6978627498542,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 98,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -806.2613304015249,
+        -507.4748128327122
+      ],
+      "bcoords": [
+        -806.2613304015249,
+        -486.82354084029794
+      ],
+      "entrance": {
+        "x": -806.2613304015249,
+        "z": -507.4748128327122,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 99,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -807.6564710978419,
+        -395.40391094312537
+      ],
+      "bcoords": [
+        -807.6564710978419,
+        -377.7491935780272
+      ],
+      "entrance": {
+        "x": -807.6564710978419,
+        "z": -395.40391094312537,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 100,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -810.8308883681893,
+        -296.06996141227893
+      ],
+      "bcoords": [
+        -810.8308883681893,
+        -270.4293874274008
+      ],
+      "entrance": {
+        "x": -810.8308883681893,
+        "z": -296.06996141227893,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 101,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -808.7641382347792,
+        -190.1906471369369
+      ],
+      "bcoords": [
+        -808.7641382347792,
+        -164.48002659715712
+      ],
+      "entrance": {
+        "x": -808.7641382347792,
+        "z": -190.1906471369369,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 102,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -809.9067667163908,
+        -82.37239911936223
+      ],
+      "bcoords": [
+        -809.9067667163908,
+        -54.73504252033308
+      ],
+      "entrance": {
+        "x": -809.9067667163908,
+        "z": -82.37239911936223,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 103,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -812.7989540174603,
+        35.075169015275314
+      ],
+      "bcoords": [
+        -812.7989540174603,
+        54.714472949970514
+      ],
+      "entrance": {
+        "x": -812.7989540174603,
+        "z": 35.075169015275314,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 104,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": true,
+      "obstacles": 0,
+      "coords": [
+        -811.2146801687777,
+        134.60089691385627
+      ],
+      "bcoords": [
+        -811.2146801687777,
+        162.28545680595562
+      ],
+      "entrance": {
+        "x": -811.2146801687777,
+        "z": 134.60089691385627,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 105,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -807.3530264738947,
+        247.8199808068527
+      ],
+      "bcoords": [
+        -807.3530264738947,
+        272.62281313631684
+      ],
+      "entrance": {
+        "x": -807.3530264738947,
+        "z": 247.8199808068527,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 106,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -808.4933229591697,
+        348.3952192030335
+      ],
+      "bcoords": [
+        -808.4933229591697,
+        377.61744882166386
+      ],
+      "entrance": {
+        "x": -808.4933229591697,
+        "z": 348.3952192030335,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 107,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -806.6830551624298,
+        465.48192241142505
+      ],
+      "bcoords": [
+        -806.6830551624298,
+        488.62072522798553
+      ],
+      "entrance": {
+        "x": -806.6830551624298,
+        "z": 465.48192241142505,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 108,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -810.1636377181858,
+        787.6966890859836
+      ],
+      "bcoords": [
+        -810.1636377181858,
+        809.1117604449391
+      ],
+      "entrance": {
+        "x": -810.1636377181858,
+        "z": 787.6966890859836,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 109,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -702.6626577563584,
+        -834.6088830350712
+      ],
+      "bcoords": [
+        -702.6626577563584,
+        -810.3850189936347
+      ],
+      "entrance": {
+        "x": -702.6626577563584,
+        "z": -834.6088830350712,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 110,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -699.5181049052626,
+        -729.0179767597514
+      ],
+      "bcoords": [
+        -699.5181049052626,
+        -700.2591663217172
+      ],
+      "entrance": {
+        "x": -699.5181049052626,
+        "z": -729.0179767597514,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 111,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -702.5594369098544,
+        -624.6413757739869
+      ],
+      "bcoords": [
+        -702.5594369098544,
+        -596.1253737243824
+      ],
+      "entrance": {
+        "x": -702.5594369098544,
+        "z": -624.6413757739869,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 112,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -704.8859466221184,
+        -513.1441697665072
+      ],
+      "bcoords": [
+        -704.8859466221184,
+        -486.30947832763195
+      ],
+      "entrance": {
+        "x": -704.8859466221184,
+        "z": -513.1441697665072,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 113,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -704.1318907402456,
+        -395.9171524254419
+      ],
+      "bcoords": [
+        -704.1318907402456,
+        -377.65939761931077
+      ],
+      "entrance": {
+        "x": -704.1318907402456,
+        "z": -395.9171524254419,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 114,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -704.6023847144097,
+        -287.1150345351128
+      ],
+      "bcoords": [
+        -704.6023847144097,
+        -267.3961567785591
+      ],
+      "entrance": {
+        "x": -704.6023847144097,
+        "z": -287.1150345351128,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 115,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -698.9897644091398,
+        -184.84442668715957
+      ],
+      "bcoords": [
+        -698.9897644091398,
+        -163.28593467269093
+      ],
+      "entrance": {
+        "x": -698.9897644091398,
+        "z": -184.84442668715957,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 116,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -704.240070162341,
+        -77.64844599138479
+      ],
+      "bcoords": [
+        -704.240070162341,
+        -56.173820151016116
+      ],
+      "entrance": {
+        "x": -704.240070162341,
+        "z": -77.64844599138479,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 117,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -705.2902481667697,
+        25.362296365965157
+      ],
+      "bcoords": [
+        -705.2902481667697,
+        52.169063532259315
+      ],
+      "entrance": {
+        "x": -705.2902481667697,
+        "z": 25.362296365965157,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 118,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -698.4182390291244,
+        137.64872958296445
+      ],
+      "bcoords": [
+        -698.4182390291244,
+        159.4264428941533
+      ],
+      "entrance": {
+        "x": -698.4182390291244,
+        "z": 137.64872958296445,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 119,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -699.985194047913,
+        244.55323055567686
+      ],
+      "bcoords": [
+        -699.985194047913,
+        270.5744561031461
+      ],
+      "entrance": {
+        "x": -699.985194047913,
+        "z": 244.55323055567686,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 120,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -704.8950385246426,
+        360.8673106135754
+      ],
+      "bcoords": [
+        -704.8950385246426,
+        379.4162348108366
+      ],
+      "entrance": {
+        "x": -704.8950385246426,
+        "z": 360.8673106135754,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 121,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": true,
+      "roadNear": true,
+      "obstacles": 0,
+      "coords": [
+        -702.2320028673857,
+        465.60305213504006
+      ],
+      "bcoords": [
+        -702.2320028673857,
+        488.48678139410913
+      ],
+      "entrance": {
+        "x": -702.2320028673857,
+        "z": 465.60305213504006,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 122,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -700.5458883475512,
+        682.5687164267944
+      ],
+      "bcoords": [
+        -700.5458883475512,
+        701.3151270579547
+      ],
+      "entrance": {
+        "x": -700.5458883475512,
+        "z": 682.5687164267944,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 123,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -594.4806384313852,
+        -836.2818535466726
+      ],
+      "bcoords": [
+        -594.4806384313852,
+        -810.5973431998864
+      ],
+      "entrance": {
+        "x": -594.4806384313852,
+        "z": -836.2818535466726,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 124,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -590.816269243136,
+        -721.6950818680274
+      ],
+      "bcoords": [
+        -590.816269243136,
+        -701.0050404360518
+      ],
+      "entrance": {
+        "x": -590.816269243136,
+        "z": -721.6950818680274,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 125,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -595.4767875298858,
+        675.9199418319109
+      ],
+      "bcoords": [
+        -595.4767875298858,
+        699.0940205049701
+      ],
+      "entrance": {
+        "x": -595.4767875298858,
+        "z": 675.9199418319109,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 126,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -597.1897591110319,
+        782.1223711883137
+      ],
+      "bcoords": [
+        -597.1897591110319,
+        810.0781900696456
+      ],
+      "entrance": {
+        "x": -597.1897591110319,
+        "z": 782.1223711883137,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 127,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -487.0467244386673,
+        -732.5723459263612
+      ],
+      "bcoords": [
+        -487.0467244386673,
+        -702.8307966752909
+      ],
+      "entrance": {
+        "x": -487.0467244386673,
+        "z": -732.5723459263612,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 128,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -486.6977145951241,
+        679.1719402004452
+      ],
+      "bcoords": [
+        -486.6977145951241,
+        700.8765710983425
+      ],
+      "entrance": {
+        "x": -486.6977145951241,
+        "z": 679.1719402004452,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 129,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -487.6934902649373,
+        783.2181758717121
+      ],
+      "bcoords": [
+        -487.6934902649373,
+        810.7539742905647
+      ],
+      "entrance": {
+        "x": -487.6934902649373,
+        "z": 783.2181758717121,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 130,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -378.68231205269694,
+        -830.5786159757339
+      ],
+      "bcoords": [
+        -378.68231205269694,
+        -812.6857286975719
+      ],
+      "entrance": {
+        "x": -378.68231205269694,
+        "z": -830.5786159757339,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 131,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 1,
+      "coords": [
+        -377.1925181634724,
+        -725.4332203368471
+      ],
+      "bcoords": [
+        -377.1925181634724,
+        -699.3056326028891
+      ],
+      "entrance": {
+        "x": -377.1925181634724,
+        "z": -725.4332203368471,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 132,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -376.4961864668876,
+        684.2014981747558
+      ],
+      "bcoords": [
+        -376.4961864668876,
+        702.8323107836768
+      ],
+      "entrance": {
+        "x": -376.4961864668876,
+        "z": 684.2014981747558,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 133,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -377.81309699453413,
+        782.5329047527117
+      ],
+      "bcoords": [
+        -377.81309699453413,
+        811.9602876389399
+      ],
+      "entrance": {
+        "x": -377.81309699453413,
+        "z": 782.5329047527117,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 134,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -270.6046606171876,
+        -836.2614372608299
+      ],
+      "bcoords": [
+        -270.6046606171876,
+        -809.1189603293315
+      ],
+      "entrance": {
+        "x": -270.6046606171876,
+        "z": -836.2614372608299,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 135,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -272.5482950732112,
+        -733.8392129069474
+      ],
+      "bcoords": [
+        -272.5482950732112,
+        -704.2261448088102
+      ],
+      "entrance": {
+        "x": -272.5482950732112,
+        "z": -733.8392129069474,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 136,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -271.3681297302246,
+        686.1185696209501
+      ],
+      "bcoords": [
+        -271.3681297302246,
+        704.8120062486269
+      ],
+      "entrance": {
+        "x": -271.3681297302246,
+        "z": 686.1185696209501,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 137,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -268.3341746162623,
+        793.8364633111702
+      ],
+      "bcoords": [
+        -268.3341746162623,
+        811.4140573125333
+      ],
+      "entrance": {
+        "x": -268.3341746162623,
+        "z": 793.8364633111702,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 138,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -158.02650915458798,
+        -832.3221670078859
+      ],
+      "bcoords": [
+        -158.02650915458798,
+        -809.4464975860901
+      ],
+      "entrance": {
+        "x": -158.02650915458798,
+        "z": -832.3221670078859,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 139,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": false,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -161.4489194303751,
+        792.3888362702634
+      ],
+      "bcoords": [
+        -161.4489194303751,
+        810.9552740030922
+      ],
+      "entrance": {
+        "x": -161.4489194303751,
+        "z": 792.3888362702634,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    },
+    {
+      "id": 140,
+      "ready": false,
+      "plan": true,
+      "planReady": true,
+      "shell": false,
+      "b": false,
+      "planFoyer": true,
+      "water": true,
+      "onRoad": false,
+      "roadNear": false,
+      "obstacles": 0,
+      "coords": [
+        -53.39074016176164,
+        -833.8476209706208
+      ],
+      "bcoords": [
+        -53.39074016176164,
+        -808.4094093851745
+      ],
+      "entrance": {
+        "x": -53.39074016176164,
+        "z": -833.8476209706208,
+        "width": 3.85,
+        "facing": "north"
+      },
+      "dist": 0
+    }
+  ],
+  "candidates": [],
+  "world": {
+    "solids": 1322,
+    "boxes": 188130,
+    "portals": 299,
+    "plans": 299,
+    "stage42DoorStats": {
+      "apertures": 289,
+      "doors": 298,
+      "removedSolidFootprints": 293,
+      "removedFacadePieces": 478
+    }
+  }
+}

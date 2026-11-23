@@ -1,0 +1,17 @@
+{
+  "tests": {
+    "delta_world_boxes_77": true,
+    "new_world_meshes_77": true,
+    "all_7_real_interior_scenes_get_10_parts": true,
+    "same_world_solids": true,
+    "same_prop_solids": true,
+    "same_roads": true,
+    "same_portals_and_access": true,
+    "same_interior_solids_lights_pickups_doors_rooms": true,
+    "same_inside_entrance_and_lift": true
+  },
+  "passed": 9,
+  "total": 9,
+  "on": 194555,
+  "off": 194478
+}

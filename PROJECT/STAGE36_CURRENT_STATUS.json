@@ -1,0 +1,24 @@
+{
+  "stage": 36,
+  "programTotal": 105,
+  "completed": true,
+  "gpuHardwareMeasured": false,
+  "realFpsMeasured": false,
+  "cpuProfilerSyntheticTests": 33,
+  "cpuProfilerSyntheticTotal": 33,
+  "sixBoundedCpuScenarios": 6,
+  "sampledStaticObjects": 7030,
+  "sourceProvenance": "PROJECT/STAGE36_SOURCE_PROVENANCE_HE.md",
+  "nextStage": 37,
+  "cumulativeIntegrationPassed": 16,
+  "cumulativeIntegrationTotal": 16,
+  "cpuRegressions": {
+    "save": 95,
+    "collision": 39,
+    "interiors": 13,
+    "characters": 35,
+    "vehicles": 37,
+    "wildlife": 46
+  },
+  "allPriorBaselineSourceRecovered": false
+}

@@ -1,0 +1,575 @@
+{
+  "stage": 11,
+  "issueId": "S01-ST-02",
+  "tests": 118,
+  "passed": 118,
+  "failed": [],
+  "world": {
+    "postCount": 28,
+    "headCount": 28,
+    "activeDoors": 214,
+    "roads": 52,
+    "boxes": 194478,
+    "solids": 3230
+  },
+  "stage11": {
+    "stage": 11,
+    "issueId": "S01-ST-02",
+    "historicalUnresolvedLamps": 30,
+    "originallyAuthoredLamps": 99,
+    "livePosts": 28,
+    "liveHeads": 28,
+    "activeOwnerPosts": 28,
+    "inactiveOwnerPosts": 0,
+    "pairedPosts": 28,
+    "unsafeHorizontalSites": 0,
+    "misalignedBasesOver2cm": 0,
+    "floatingBasesOver20cm": 0,
+    "buriedBasesOver20cm": 0,
+    "maxAbsoluteBaseOffset": 0.012,
+    "issues": [],
+    "gpuVerified": false,
+    "real1080pFpsVerified": false,
+    "orphanHeads": 0,
+    "cleared": true,
+    "preRepair": {
+      "unsafeSites": 0,
+      "misalignedBasesOver2cm": 22,
+      "floatingBasesOver20cm": 3,
+      "buriedBasesOver20cm": 2,
+      "maximumAbsOffset": 0.3778
+    },
+    "horizontalRelocations": 0,
+    "heightCorrections": 25,
+    "relocatedPairs": [],
+    "heightCorrectionSample": [
+      {
+        "id": 2,
+        "verticalMeters": -0.1034
+      },
+      {
+        "id": 5,
+        "verticalMeters": 0.0362
+      },
+      {
+        "id": 8,
+        "verticalMeters": -0.0954
+      },
+      {
+        "id": 11,
+        "verticalMeters": -0.1788
+      },
+      {
+        "id": 14,
+        "verticalMeters": 0.0599
+      },
+      {
+        "id": 17,
+        "verticalMeters": -0.0271
+      },
+      {
+        "id": 20,
+        "verticalMeters": 0.0286
+      },
+      {
+        "id": 23,
+        "verticalMeters": -0.2247
+      },
+      {
+        "id": 26,
+        "verticalMeters": -0.3177
+      },
+      {
+        "id": 29,
+        "verticalMeters": -0.1072
+      },
+      {
+        "id": 35,
+        "verticalMeters": -0.0226
+      },
+      {
+        "id": 38,
+        "verticalMeters": -0.0417
+      }
+    ],
+    "unresolvedAttempts": [],
+    "geometryAdded": 0,
+    "collisionBodiesAdded": 0,
+    "worldChanged": true,
+    "classification": "historical_stale_with_live_height_issues"
+  },
+  "checks": [
+    {
+      "label": "Stage 11 module activated",
+      "pass": true
+    },
+    {
+      "label": "Stage 11 enabled in normal game",
+      "pass": true
+    },
+    {
+      "label": "Correct stage and bug ID",
+      "pass": true
+    },
+    {
+      "label": "Historic unresolved 30 retained as audit context",
+      "pass": true
+    },
+    {
+      "label": "Original authored lamp count retained",
+      "pass": true
+    },
+    {
+      "label": "28 real post/head pairs in active world",
+      "pass": true
+    },
+    {
+      "label": "All live lamp owners active",
+      "pass": true
+    },
+    {
+      "label": "All lamp heads paired",
+      "pass": true
+    },
+    {
+      "label": "No invented XY relocation",
+      "pass": true
+    },
+    {
+      "label": "22 lamp bases misaligned over 2cm before repair",
+      "pass": true
+    },
+    {
+      "label": "Five significant height discrepancies identified",
+      "pass": true
+    },
+    {
+      "label": "Worst initial ground gap approx 38 cm",
+      "pass": true
+    },
+    {
+      "label": "25 height corrections applied (over 1.5 cm)",
+      "pass": true
+    },
+    {
+      "label": "All live placements safe and grounded",
+      "pass": true
+    },
+    {
+      "label": "Post bottoms match the terrain to within 1.5 cm",
+      "pass": true
+    },
+    {
+      "label": "Strict post-fix audit passes",
+      "pass": true
+    },
+    {
+      "label": "No unresolved lamp issues",
+      "pass": true
+    },
+    {
+      "label": "No extra geometry or colliders",
+      "pass": true
+    },
+    {
+      "label": "52 roads preserved",
+      "pass": true
+    },
+    {
+      "label": "All 214 live doors preserved",
+      "pass": true
+    },
+    {
+      "label": "All collision and renderer object counts preserved",
+      "pass": true
+    },
+    {
+      "label": "Original CITY20 stage15 metrics unchanged",
+      "pass": true
+    },
+    {
+      "label": "Stage 10 plant safety preserved",
+      "pass": true
+    },
+    {
+      "label": "Stage 8 windows remain present",
+      "pass": true
+    },
+    {
+      "label": "lamp 2 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 2 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 2 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 5 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 5 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 5 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 8 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 8 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 8 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 11 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 11 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 11 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 14 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 14 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 14 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 17 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 17 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 17 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 20 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 20 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 20 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 23 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 23 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 23 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 26 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 26 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 26 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 29 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 29 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 29 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 32 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 32 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 32 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 35 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 35 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 35 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 38 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 38 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 38 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 41 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 41 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 41 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 44 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 44 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 44 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 47 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 47 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 47 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 50 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 50 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 50 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 53 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 53 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 53 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 56 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 56 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 56 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 59 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 59 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 59 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 62 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 62 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 62 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 65 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 65 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 65 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 68 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 68 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 68 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 71 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 71 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 71 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 74 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 74 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 74 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 77 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 77 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 77 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 80 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 80 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 80 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "lamp 287 has exactly one head",
+      "pass": true
+    },
+    {
+      "label": "lamp 287 sits on terrain",
+      "pass": true
+    },
+    {
+      "label": "lamp 287 head shares XY",
+      "pass": true
+    },
+    {
+      "label": "Synthetic carriageway overlap detected",
+      "pass": true
+    },
+    {
+      "label": "One synthetic unsafe lamp relocated",
+      "pass": true
+    },
+    {
+      "label": "Head moves together with pole",
+      "pass": true
+    },
+    {
+      "label": "Synthetic relocation lands at safe position",
+      "pass": true
+    },
+    {
+      "label": "Relocated lamp is still grounded",
+      "pass": true
+    },
+    {
+      "label": "When every candidate is unsafe, no invented safe site is used",
+      "pass": true
+    },
+    {
+      "label": "Missing or detached light-head is flagged",
+      "pass": true
+    },
+    {
+      "label": "World restored after synthetic tests",
+      "pass": true
+    },
+    {
+      "label": "Real-world stage11 stats preserved after injections",
+      "pass": true
+    },
+    {
+      "label": "No false GPU / native FPS verification",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "stage": 26,
+  "recordedAt": "2026-11-22",
+  "baseArchive": "SUNSET_STATE_STAGE25_OF35_FULL.zip",
+  "allCompletedTestsPassed": true,
+  "allSevenTestsCompleted": false,
+  "originalHistoricalOutputFilesRestoredAfterRerun": true,
+  "source": "Actual subprocess exit codes captured in this stage; counts in countsPreviouslyKnown are historical references, not new assertions",
+  "tests": [
+    {
+      "script": "QA/run_stage16_of35_acceptance.cjs",
+      "status": "passed",
+      "seconds": 25.35,
+      "scope": "actual Stage16 module / GPU mocked",
+      "countsPreviouslyKnown": "7815/7815",
+      "newExitCode": 0
+    },
+    {
+      "script": "QA/run_stage17_of35_acceptance.cjs",
+      "status": "timed_out",
+      "seconds": null,
+      "scope": "retail deep traversal",
+      "countsPreviouslyKnown": "927/927 in earlier Stage17 only",
+      "newExitCode": null
+    },
+    {
+      "script": "QA/run_stage19_of35_acceptance.cjs",
+      "status": "passed",
+      "seconds": 29.7,
+      "scope": "actual save/load on game / fake renderer",
+      "countsPreviouslyKnown": "95/95",
+      "newExitCode": 0
+    },
+    {
+      "script": "QA/run_stage20_navigation_acceptance.cjs",
+      "status": "passed",
+      "seconds": 29.73,
+      "scope": "actual pedestrian walking / fake renderer",
+      "countsPreviouslyKnown": "22/22",
+      "newExitCode": 0
+    },
+    {
+      "script": "QA/run_stage21_high_speed_acceptance.cjs",
+      "status": "passed",
+      "seconds": 0.33,
+      "scope": "actual CCD module / fake renderer",
+      "countsPreviouslyKnown": "39/39",
+      "newExitCode": 0
+    },
+    {
+      "script": "QA/run_stage22_benchmark_acceptance.cjs",
+      "status": "passed",
+      "seconds": 0.12,
+      "scope": "benchmark deterministic fixture; not GPU",
+      "countsPreviouslyKnown": "52/52",
+      "newExitCode": 0
+    },
+    {
+      "script": "QA/run_stage23_profiler_acceptance.cjs",
+      "status": "passed",
+      "seconds": 0.11,
+      "scope": "WebGL fake draws / no real GPU",
+      "countsPreviouslyKnown": "51/51",
+      "newExitCode": 0
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+  "schema": "SUNSET_STAGE26_CPU_EVIDENCE_V1",
+  "stage": 26,
+  "originalRegisterPath": "QA/STAGE01_15_BUG_REGISTER.json",
+  "computedAt": "2026-11-22T21:43:43.917Z",
+  "source": "Real Game + World construction with fake renderer, NOT screenshot or GPU",
+  "currentSourceStage": 25,
+  "issueCount": 25,
+  "checks": 51,
+  "passed": 51,
+  "failures": [],
+  "issues": [
+    {
+      "issueId": "S01-RD-01",
+      "sourceStage": 2,
+      "originalClassification": "confirmed-data-anomaly",
+      "sourceEvidence": "QA/STAGE01_15_DEEP_METRICS.json roadMetrics.sharp; world.roads461",
+      "checks": [
+        {
+          "name": "northRing real roadway exists",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "northRing no historic 175-180 degree reversal",
+          "passed": true,
+          "extra": {
+            "maxTurnDeg": 27.46829221257628
+          }
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-RD-02",
+      "sourceStage": 3,
+      "originalClassification": "confirmed-data-anomaly",
+      "sourceEvidence": "QA/STAGE01_15_DEEP_METRICS.json roadMetrics.sharp",
+      "checks": [
+        {
+          "name": "privateSpine real roadway exists",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "privateSpine 136 degree defect no longer present",
+          "passed": true,
+          "extra": {
+            "maxTurnDeg": 74.7584855422006
+          }
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-BL-01",
+      "sourceStage": 4,
+      "originalClassification": "verified-code-data-gap",
+      "sourceEvidence": "QA/STAGE01_15_DEEP_METRICS.json; engine44.js nearestEntrance",
+      "checks": [
+        {
+          "name": "legacy entrance inventory",
+          "passed": true,
+          "extra": {
+            "active": 214,
+            "dormant": 215
+          }
+        },
+        {
+          "name": "legacy base 84 usable entries preserved",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-BL-02",
+      "sourceStage": 5,
+      "originalClassification": "verified-code-data-gap",
+      "sourceEvidence": "assets/city20_stage02.js; PROJECT/CITY20_PROGRESS.json stage2 actualDeliverable",
+      "checks": [
+        {
+          "name": "130 CITY20 mapped entries are active",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "no eligible entry without a physical doorway",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-BL-03",
+      "sourceStage": 6,
+      "originalClassification": "verified-code-design-limitation",
+      "sourceEvidence": "QA/STAGE01_15_DEEP_METRICS.json entranceFacingTypes",
+      "checks": [
+        {
+          "name": "entrances no longer all north-facing",
+          "passed": true,
+          "extra": {
+            "faces": [
+              "east",
+              "west",
+              "north",
+              "south"
+            ]
+          }
+        },
+        {
+          "name": "stage06 linked direction/audit module still loaded",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-BL-04",
+      "sourceStage": 7,
+      "originalClassification": "verified-code-design-limitation",
+      "sourceEvidence": "assets/city20_stage02.js makeMassing/addMesh",
+      "checks": [
+        {
+          "name": "34 real building rotations retained",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "road geometry and active entrances survive alignment",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-BL-05",
+      "sourceStage": 8,
+      "originalClassification": "verified-code-design-limitation",
+      "sourceEvidence": "assets/city20_stage09.js facadeZ",
+      "checks": [
+        {
+          "name": "side/back window bays survive",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "original window facets retain trims/sills",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-BL-06",
+      "sourceStage": 9,
+      "originalClassification": "heuristic-spatial-flag",
+      "sourceEvidence": "QA/STAGE01_15_DEEP_METRICS.json portalsWaterClassified/portalsReadyInWater",
+      "checks": [
+        {
+          "name": "coastal audit distinguishes active from abandoned doors",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "no active coastal entrance placed in water",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-ST-01",
+      "sourceStage": 10,
+      "originalClassification": "heuristic-spatial-flag",
+      "sourceEvidence": "QA/STAGE01_15_DEEP_METRICS.json stageGeometry.planter-shrub; QA/DEEP_AUDIT_FULLWORLD.json",
+      "checks": [
+        {
+          "name": "live planters audited against paths",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "live planters paired and do not block doors",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-ST-02",
+      "sourceStage": 11,
+      "originalClassification": "heuristic-spatial-flag",
+      "sourceEvidence": "QA/DEEP_AUDIT_FULLWORLD.json auditStats.unresolvedLamps",
+      "checks": [
+        {
+          "name": "original corrected street lamps preserved",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "lamp ground placement no longer outlier",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-ST-03",
+      "sourceStage": 12,
+      "originalClassification": "verified-code-data-gap",
+      "sourceEvidence": "assets/city20_stage15.js; QA/STAGE01_15_DEEP_METRICS.json stageGeometry.15",
+      "checks": [
+        {
+          "name": "actual street prop collision bodies preserved",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "actual spatial collision arrangement preserved",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-IN-01",
+      "sourceStage": 13,
+      "originalClassification": "verified-coverage-gap",
+      "sourceEvidence": "QA/DEEP_AUDIT_FULLWORLD.json runtimeStages; assets/city20_stage11.js; assets/city20_stage13.js",
+      "checks": [
+        {
+          "name": "all 7 historical narrow foyers furnished",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "original foyer furnishings still in game geometry",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-IN-02",
+      "sourceStage": 14,
+      "originalClassification": "verified-code-design-limitation",
+      "sourceEvidence": "assets/city20_stage13.js stats.actualDynamicLightsAdded; assets/city20_stage10.js",
+      "checks": [
+        {
+          "name": "actual interior lighting module active",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "interior lighting has a runtime scene resolver",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-IN-03",
+      "sourceStage": 15,
+      "originalClassification": "verified-code-design-limitation",
+      "sourceEvidence": "assets/city20_stage11.js; stage12.js; stage13.js; PROJECT/CITY20_PROGRESS.json",
+      "checks": [
+        {
+          "name": "physical interior furnishing module installed",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "interior furniture collision is bounded",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-GL-01",
+      "sourceStage": 16,
+      "originalClassification": "verified-code-data-gap",
+      "sourceEvidence": "assets/city20_stage09.js; world.glassPanels; QA/STAGE01_15_DEEP_METRICS.json",
+      "checks": [
+        {
+          "name": "actual 864 new glass panes and 124 legacy retained",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "all 130 facades retain breakable selection",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-RT-01",
+      "sourceStage": 17,
+      "originalClassification": "previously-fixed-in-accumulated-source",
+      "sourceEvidence": "assets/city20_stage14.js; assets/city20_deep_audit_repair.js; QA/DEEP_AUDIT_FULLWORLD.json",
+      "checks": [
+        {
+          "name": "60 recovered facades retained",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "59 actual shops and 6 street services distinguished",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-WL-01",
+      "sourceStage": 18,
+      "originalClassification": "verified-code-design-limitation",
+      "sourceEvidence": "engine44.js select Wildlife43Renderer near crocodileBudget; PROJECT/ANIMAL_RECOVERY_PHASE03_REPORT_HE.md",
+      "checks": [
+        {
+          "name": "8 crocodile actors still in simulation",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "three-tier crocodile LOD source components shipped",
+          "passed": true,
+          "extra": {
+            "lodAssets": [
+              "crocodile_hi.js",
+              "crocodile_mid.js",
+              "crocodile_far.js"
+            ],
+            "triangles": [
+              195560,
+              64156,
+              9532
+            ]
+          }
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-SV-01",
+      "sourceStage": 19,
+      "originalClassification": "verified-code-data-gap",
+      "sourceEvidence": "engine44.js saveProfile/saveMissions30/saveVisitRewards; assets/life_445.js",
+      "checks": [
+        {
+          "name": "stage19 save supports slots and import schemas",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "game save-load entrypoints remain installed",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-AI-01",
+      "sourceStage": 20,
+      "originalClassification": "requires-live-verification",
+      "sourceEvidence": "PROJECT/CITY_LIFE_RECOVERY_PHASE05_REPORT_HE.md",
+      "checks": [
+        {
+          "name": "live pedestrian recovery module installed",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "navigation recovery has real detour planner",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-PH-01",
+      "sourceStage": 21,
+      "originalClassification": "requires-live-verification",
+      "sourceEvidence": "PROJECT/PHYSICS_RECOVERY_PHASE04_REPORT_HE.md",
+      "checks": [
+        {
+          "name": "actual high speed collision module installed",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "continuous collision uses actual physics methods",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-PF-01",
+      "sourceStage": 22,
+      "originalClassification": "release-verification-gap",
+      "sourceEvidence": "PROJECT/RECOVERY_STATUS.json visualQA; QA/STAGE01_15_MANUAL_HE.md",
+      "checks": [
+        {
+          "name": "GPU benchmark tool installed but does NOT certify this run",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "native capture target recorded as 1080p 50FPS",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-PF-02",
+      "sourceStage": 23,
+      "originalClassification": "verified-scale-risk",
+      "sourceEvidence": "QA/STAGE01_15_DEEP_METRICS.json; START_GAME.html; engine44.js",
+      "checks": [
+        {
+          "name": "draw call profiler exists and is default disabled",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "world geometry inventory retained",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-PR-01",
+      "sourceStage": 24,
+      "originalClassification": "verified-metadata-error",
+      "sourceEvidence": "PROJECT/CITY20_PROGRESS.json; PROJECT/RECOVERY_STATUS.json",
+      "checks": [
+        {
+          "name": "current 35-stage programme canonical ordering",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "all issue IDs linked to evidence ledger",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-PU-01",
+      "sourceStage": 25,
+      "originalClassification": "verified-delivery-limitation",
+      "sourceEvidence": "START_GAME.html script references",
+      "checks": [
+        {
+          "name": "Stage25 site packaging integrity recorded",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "launcher and index are real bundled files",
+          "passed": true,
+          "extra": null
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 2,
+      "passed": 2,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    },
+    {
+      "issueId": "S01-QA-01",
+      "sourceStage": 26,
+      "originalClassification": "test-coverage-gap",
+      "sourceEvidence": "BUG_PROTOCOL_476_ORIGINAL_HE.md; PROJECT/PHYSICS_RECOVERY_PHASE04_REPORT_HE.md",
+      "checks": [
+        {
+          "name": "25-issue original registry unchanged and loaded by collector",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "browser collector opt-in only and separate local download",
+          "passed": true,
+          "extra": null
+        },
+        {
+          "name": "CPU run explicitly has no real GPU or gameplay verification",
+          "passed": true,
+          "extra": {
+            "renderBackend": "FAKE RENDERER FOR CPU QA",
+            "realGPU": false
+          }
+        }
+      ],
+      "runtimeCpu": true,
+      "hardwareGpu": false,
+      "manualGameplay": false,
+      "checked": 3,
+      "passed": 3,
+      "failures": [],
+      "technicalState": "current_game_cpu_contracts_passed",
+      "closureState": "technical_evidence_collected_not_native_visual_or_gpu_signoff"
+    }
+  ],
+  "worldSnapshot": {
+    "roads": 52,
+    "boxes": 194555,
+    "portals": 429,
+    "activePortals": 214,
+    "shops": 59,
+    "glass": 988,
+    "characters": 238,
+    "crocodiles": 8
+  },
+  "verification": {
+    "cpuRuntime": true,
+    "gameSourceExecuted": true,
+    "actualBrowserGameFrames": false,
+    "nativeHardwareGPU": false,
+    "fps50at1920x1080": false,
+    "historicalIssuesHardwareVerified": 0
+  },
+  "nextManualValidation": "Open START_GAME.html?stage26qa=1 via server and export screenshot + JSON records from the live game"
+}

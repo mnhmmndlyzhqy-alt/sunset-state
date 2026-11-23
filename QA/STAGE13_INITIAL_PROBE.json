@@ -1,0 +1,228 @@
+{
+  "stage11": {
+    "stage": 11,
+    "readyPortals": 83,
+    "decoratedLobbies": 76,
+    "skippedWithoutPlan": 0,
+    "skippedSmallFoyer": 7,
+    "geometryAdded": 684,
+    "collisionsAdded": 0,
+    "gpuFpsVerified": false
+  },
+  "stage12": {
+    "stage": 12,
+    "readyPortals": 83,
+    "zonedLobbies": 71,
+    "skippedWithoutPlan": 0,
+    "skippedSmall": 12,
+    "geometryAdded": 710,
+    "collisionsAdded": 0,
+    "gpuFpsVerified": false
+  },
+  "stage13orig": {
+    "stage": 13,
+    "readyPortals": 83,
+    "litLobbies": 71,
+    "skippedWithoutPlan": 0,
+    "skippedSmall": 12,
+    "geometryAdded": 639,
+    "collisionsAdded": 0,
+    "corridorWidth": 2.8,
+    "actualDynamicLightsAdded": 0,
+    "gpuFpsVerified": false
+  },
+  "portals": 429,
+  "legacy": 83,
+  "decoratedOfLegacy": 76,
+  "missing": [
+    {
+      "id": 1,
+      "p": [
+        -346.1745537064923,
+        -247.6
+      ],
+      "building": [
+        -372,
+        -244
+      ],
+      "name": "heritage",
+      "foyer": {
+        "x": -372,
+        "z": -250.66,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "floors": 5,
+      "facing": "east",
+      "nearestRoad": {
+        "x": -346.1745537064923,
+        "z": -247.6,
+        "width": 3.85,
+        "facing": "east"
+      },
+      "hasInterior": true
+    },
+    {
+      "id": 24,
+      "p": [
+        409.5220552883623,
+        -139.6
+      ],
+      "building": [
+        384,
+        -136
+      ],
+      "name": "hotel",
+      "foyer": {
+        "x": 384,
+        "z": -142.66,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "floors": 8,
+      "facing": "east",
+      "nearestRoad": {
+        "x": 409.5220552883623,
+        "z": -139.6,
+        "width": 3.85,
+        "facing": "east"
+      },
+      "hasInterior": true
+    },
+    {
+      "id": 35,
+      "p": [
+        -20.65751615580637,
+        76.4
+      ],
+      "building": [
+        -48,
+        80
+      ],
+      "name": "hotel",
+      "foyer": {
+        "x": -48,
+        "z": 73.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "floors": 10,
+      "facing": "east",
+      "nearestRoad": {
+        "x": -20.65751615580637,
+        "z": 76.4,
+        "width": 3.85,
+        "facing": "east"
+      },
+      "hasInterior": true
+    },
+    {
+      "id": 50,
+      "p": [
+        84.18650832451414,
+        184.4
+      ],
+      "building": [
+        60,
+        188
+      ],
+      "name": "glass",
+      "foyer": {
+        "x": 60,
+        "z": 181.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "floors": 15,
+      "facing": "east",
+      "nearestRoad": {
+        "x": 84.18650832451414,
+        "z": 184.4,
+        "width": 3.85,
+        "facing": "east"
+      },
+      "hasInterior": true
+    },
+    {
+      "id": 62,
+      "p": [
+        197.1509785077581,
+        292.4
+      ],
+      "building": [
+        168,
+        296
+      ],
+      "name": "heritage",
+      "foyer": {
+        "x": 168,
+        "z": 289.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "floors": 5,
+      "facing": "east",
+      "nearestRoad": {
+        "x": 197.1509785077581,
+        "z": 292.4,
+        "width": 3.85,
+        "facing": "east"
+      },
+      "hasInterior": true
+    },
+    {
+      "id": 67,
+      "p": [
+        -344.0426891862368,
+        400.4
+      ],
+      "building": [
+        -372,
+        404
+      ],
+      "name": "heritage",
+      "foyer": {
+        "x": -372,
+        "z": 397.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "floors": 8,
+      "facing": "east",
+      "nearestRoad": {
+        "x": -344.0426891862368,
+        "z": 400.4,
+        "width": 3.85,
+        "facing": "east"
+      },
+      "hasInterior": true
+    },
+    {
+      "id": 78,
+      "p": [
+        290.6556618869584,
+        356.28
+      ],
+      "building": [
+        265,
+        352.5
+      ],
+      "name": "hotel",
+      "foyer": {
+        "x": 265,
+        "z": 345.507,
+        "w": 7.2,
+        "d": 3.5910000000000006
+      },
+      "floors": 7,
+      "facing": "east",
+      "nearestRoad": {
+        "x": 290.6556618869584,
+        "z": 356.28,
+        "width": 3.85,
+        "facing": "east"
+      },
+      "hasInterior": true
+    }
+  ]
+}

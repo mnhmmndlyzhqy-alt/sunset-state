@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "sourceBackup": "SUNSET_STATE_PRE_RECOVERY06_BACKUP.zip",
+  "sourceFileCount": 267,
+  "sourceFilesPreserved": 267,
+  "byteIdenticalFiles": 258,
+  "modifiedExistingFiles": [
+    "PROJECT/CITY20_PROGRESS.json",
+    "QA/CITY_LIFE_RECOVERY05_ACCEPTANCE.json",
+    "QA/CITY_LIFE_RECOVERY05_CROWD.json",
+    "QA/DEEP_AUDIT_FULLWORLD.json",
+    "QA/PHYSICS_RECOVERY04_ACCEPTANCE.json",
+    "QA/run_city_life_recovery05.cjs",
+    "README_CITY20_HE.md",
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "newPhase06Files": [
+    "PROJECT/PERFORMANCE_RECOVERY_PHASE06_REPORT_HE.md",
+    "PROJECT/RECOVERY_PHASE07_WORKORDER_HE.md",
+    "QA/HISTORIC_PRE_RECOVERY06/run_city_life_recovery05.original.cjs",
+    "QA/PERFORMANCE_RECOVERY06_ACCEPTANCE.json",
+    "QA/PERFORMANCE_RECOVERY06_MANUAL_CHECKLIST_HE.md",
+    "QA/run_performance_recovery06.cjs",
+    "assets/performance_recovery_phase06.js"
+  ],
+  "disallowedChanges": [],
+  "missingExistingFiles": [],
+  "originalReferenceSHA256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+  "gameEngineKept": true,
+  "gpu1080p50Verified": false
+}

@@ -1,0 +1,218 @@
+{
+  "stage": 23,
+  "kind": "unit with FAKE WebGL fixtures; NO hardware profiling",
+  "generatedAt": "2026-11-22T20:52:38.155Z",
+  "hardwareFps50Verified": false,
+  "passed": 51,
+  "total": 51,
+  "failures": [],
+  "checks": [
+    {
+      "id": "stage23_loaded_before_engine",
+      "pass": true
+    },
+    {
+      "id": "stage22_legacy_load_order_unchanged",
+      "pass": true
+    },
+    {
+      "id": "stage21_legacy_load_order_unchanged",
+      "pass": true
+    },
+    {
+      "id": "stage23_installed_after_previous_patches",
+      "pass": true
+    },
+    {
+      "id": "all_real_scripts_exist",
+      "pass": true,
+      "details": {
+        "length": 82
+      }
+    },
+    {
+      "id": "source_never_mutates_world_saves_or_gfx_resolution",
+      "pass": true
+    },
+    {
+      "id": "default_run_is_disabled",
+      "pass": true
+    },
+    {
+      "id": "default_game_tick_remains_same",
+      "pass": true
+    },
+    {
+      "id": "ab_disable_flag_restores_baseline",
+      "pass": true
+    },
+    {
+      "id": "explicit_url_optin",
+      "pass": true
+    },
+    {
+      "id": "percentile_empty_is_null",
+      "pass": true
+    },
+    {
+      "id": "percentile_median",
+      "pass": true
+    },
+    {
+      "id": "percentile_high",
+      "pass": true
+    },
+    {
+      "id": "byteLength_typed_array",
+      "pass": true
+    },
+    {
+      "id": "byteLength_array_buffer",
+      "pass": true
+    },
+    {
+      "id": "byteLength_gl_size_number",
+      "pass": true
+    },
+    {
+      "id": "byteLength_null",
+      "pass": true
+    },
+    {
+      "id": "byteLength_negative_size_rejected",
+      "pass": true
+    },
+    {
+      "id": "fixture_gl_hooks_supported",
+      "pass": true
+    },
+    {
+      "id": "original_return_of_draw_preserved",
+      "pass": true
+    },
+    {
+      "id": "triangles_instancing_correct",
+      "pass": true
+    },
+    {
+      "id": "one_instanced_draw_recorded",
+      "pass": true
+    },
+    {
+      "id": "drawarrays_triangle_count",
+      "pass": true
+    },
+    {
+      "id": "drawElements_count",
+      "pass": true
+    },
+    {
+      "id": "drawarrays_instanced_count",
+      "pass": true
+    },
+    {
+      "id": "offscreen_pass_tracked_without_gl_getparam",
+      "pass": true
+    },
+    {
+      "id": "zero_vertex_draw_still_counted",
+      "pass": true
+    },
+    {
+      "id": "buffer_upload_byte_count",
+      "pass": true
+    },
+    {
+      "id": "buffer_subdata_count",
+      "pass": true
+    },
+    {
+      "id": "outside_capture_gl_events_ignored",
+      "pass": true
+    },
+    {
+      "id": "webgl_original_methods_restored",
+      "pass": true
+    },
+    {
+      "id": "original_gl_called_exactly",
+      "pass": true
+    },
+    {
+      "id": "no_real_gl_refused",
+      "pass": true
+    },
+    {
+      "id": "read_only_gl_method_fails_closed",
+      "pass": true
+    },
+    {
+      "id": "failed_partial_install_restored",
+      "pass": true
+    },
+    {
+      "id": "summary_counts_drawcalls",
+      "pass": true
+    },
+    {
+      "id": "summary_reports_upload_bytes",
+      "pass": true
+    },
+    {
+      "id": "summary_reports_static_candidates",
+      "pass": true
+    },
+    {
+      "id": "summary_does_not_forge_gpu_metrics",
+      "pass": true
+    },
+    {
+      "id": "summary_includes_original_frame_samples",
+      "pass": true
+    },
+    {
+      "id": "optin_installs_frame_hook",
+      "pass": true
+    },
+    {
+      "id": "double_install_is_noop",
+      "pass": true
+    },
+    {
+      "id": "new_tick_keeps_original_value",
+      "pass": true
+    },
+    {
+      "id": "no_hook_until_user_presses_start",
+      "pass": true
+    },
+    {
+      "id": "capture_can_start_after_real_tick",
+      "pass": true
+    },
+    {
+      "id": "capture_hook_does_not_change_game_logic",
+      "pass": true
+    },
+    {
+      "id": "capture_stops_and_restores_gl",
+      "pass": true
+    },
+    {
+      "id": "capture_keeps_game_dynamic_function",
+      "pass": true
+    },
+    {
+      "id": "capture_reports_draw_and_world_candidates",
+      "pass": true
+    },
+    {
+      "id": "capture_denies_real_gpu_proof",
+      "pass": true
+    },
+    {
+      "id": "second_stop_is_safe",
+      "pass": true
+    }
+  ]
+}

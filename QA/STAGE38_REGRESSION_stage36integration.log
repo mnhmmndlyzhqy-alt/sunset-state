@@ -1,0 +1,13 @@
+{
+  "passed": 16,
+  "total": 16,
+  "activeFrames": 10,
+  "world": {
+    "boxes": 196817,
+    "roads": 52,
+    "portals": 429,
+    "shops": 59,
+    "pedestrians": 238
+  },
+  "failed": []
+}

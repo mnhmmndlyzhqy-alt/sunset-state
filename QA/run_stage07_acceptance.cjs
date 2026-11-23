@@ -1,0 +1,25 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const script=fs.readFileSync(__dirname+'/../assets/city20_stage07.js','utf8');
+const kinds=['villa','resort','warehouse','service','civic','midrise','tower'];
+const plans=Array.from({length:130},(_,i)=>({id:'test-'+i,kind:kinds[i%7],x:i*30,z:i*40,width:14,depth:12,baseY:2,height:16}));
+const world=()=>({city20DistrictBuildings:plans,city20Stage06Stats:{stage:6},boxes:[],solids:[1,2],roads461:Array(52).fill({}),entrancePortals:Array(298).fill({})});
+function run(search){let context={Heatline:{box:(x,y,z,w,h,d,c)=>({x,y,z,w,h,d,color:c}),finishReferenceBuildings469:w=>w},location:{search},URLSearchParams,globalThis:null};context.globalThis=context;vm.createContext(context);vm.runInContext(script,context);const w=world();context.Heatline.finishReferenceBuildings469(w);return {w,api:context.Heatline.city20Stage07};}
+const on=run('?city20qa=1'),off=run('?city20architectureOff=1');
+assert.equal(on.w.city20Stage07Stats.buildingsDetailed,130);
+assert.equal(off.w.boxes.length,0);
+assert.equal(on.w.roads461.length,52);assert.equal(on.w.entrancePortals.length,298);assert.equal(on.w.solids.length,2);
+assert.equal(on.w.city20Stage07Stats.geometryAdded,on.w.boxes.length);
+assert(on.w.boxes.length>350&&on.w.boxes.length<650);
+assert(on.w.boxes.every(b=>b.city20Stage07&&b.visibilityCap<=2800&&b.lodMax===b.visibilityCap));
+assert(on.w.boxes.every(b=>Number.isFinite(b.x+b.y+b.z+b.w+b.h+b.d)&&b.w>0&&b.h>0&&b.d>0));
+for(const k of kinds)assert(on.w.city20Stage07Stats.kindCounts[k]>0);
+assert(on.w.boxes.some(b=>b.city20Stage07Kind==='balcony'));
+assert(on.w.boxes.some(b=>b.city20Stage07Kind==='loading_canopy'));
+assert(on.w.boxes.some(b=>b.city20Stage07Kind==='civic_pier'));
+assert(on.w.boxes.some(b=>b.city20Stage07Kind==='tower_spandrel'));
+assert.equal(on.api.improve(on.w),on.w.city20Stage07Stats);
+assert.equal(on.w.boxes.length,on.w.city20Stage07Stats.geometryAdded);
+const html=fs.readFileSync(__dirname+'/../START_GAME.html','utf8');
+assert(html.indexOf('city20_stage07.js')>html.indexOf('city20_stage06.js'));
+const report={stage:7,passed:true,tests:17,buildings:130,geometry:on.w.boxes.length,byKind:on.w.city20Stage07Stats.kindCounts,features:on.w.city20Stage07Stats.features,roadCount:52,entrances:298,gpu1080p50Verified:false};
+fs.writeFileSync(__dirname+'/CITY20_STAGE07_ACCEPTANCE.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));

@@ -1,0 +1,2 @@
+Stage17: 927/927 passed; stores 59 exits 59 purchases 58 outdoor 6 errors 0
+elapsed=28.26 s memory=594192 KB

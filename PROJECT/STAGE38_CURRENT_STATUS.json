@@ -1,0 +1,59 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 38,
+  "programmeTotal": 105,
+  "completed": true,
+  "nextStage": 39,
+  "baseSource": "SUNSET_STATE_STAGE37_OF105_FULL.zip",
+  "baseSite": "SUNSET_STATE_STAGE37_GITHUB_PAGES_SITE.zip",
+  "sourcePreservationRequired": true,
+  "historicalSourceLimitation": "PROJECT/STAGE36_SOURCE_PROVENANCE_HE.md",
+  "renderOnlyLoDObjects": 4944,
+  "worldObjects": 196817,
+  "qa": {
+    "stage38LOD": [
+      84,
+      84
+    ],
+    "stage37Renderer": [
+      70,
+      70
+    ],
+    "save": [
+      95,
+      95
+    ],
+    "vehicleCCD": [
+      39,
+      39
+    ],
+    "interiors": [
+      13,
+      13
+    ],
+    "characters": [
+      35,
+      35
+    ],
+    "traffic": [
+      37,
+      37
+    ],
+    "wildlife": [
+      46,
+      46
+    ],
+    "stage36Profiler": [
+      33,
+      33
+    ],
+    "stage36Integration": [
+      16,
+      16
+    ]
+  },
+  "nativeGpuVerified": false,
+  "fullHd50FpsVerified": false,
+  "publicDeployment": false,
+  "optOut": "?stage38LodOff=1"
+}

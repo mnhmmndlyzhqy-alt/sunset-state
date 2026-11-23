@@ -1,0 +1,173 @@
+{
+  "stage": 36,
+  "kind": "synthetic unit tests; NOT real GPU",
+  "checks": [
+    {
+      "name": "module_present_without_flag",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "default_is_disabled",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "default_install_returns_false",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "default_does_not_patch_tick",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "six_explicit_scenes",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "percentile_p95",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "metrics_does_not_guess_missing",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "software_gpu_detected",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "hardware_gpu_detected",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "unknown_gpu_not_accepted",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "synthetic_summary_expected_pacing",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "synthetic_summary_qualifies_only_under_all_conditions",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "synthetic_summary_clearly_labels_manual_scene",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "false_fullhd_never_certified",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "invalid_game_mode_not_certified",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "missing_hardware_identity_not_certified",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "optin_installs_once",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "optin_wraps_real_game_tick",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "begin_requires_manual_confirmation",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "begin_refuses_invalid_scene",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "begin_capture_accepts_valid_scene",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_generates_record",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_counts_real_wrapped_webgl_calls",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_counts_real_buffer_upload_bytes",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_includes_player_and_camera_positions",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_does_not_certify_fake_gpu",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_recovers_original_update",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_recovers_original_draw",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_recovers_original_gl",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "capture_stops_without_residual_state",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "csv_has_scene_and_frame_columns",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "export_report_only_records_not_telemetry",
+      "pass": true,
+      "note": ""
+    },
+    {
+      "name": "game_update_still_runs",
+      "pass": true,
+      "note": ""
+    }
+  ],
+  "passed": 33,
+  "total": 33
+}

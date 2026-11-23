@@ -1,0 +1,749 @@
+{
+  "enabled": true,
+  "livePosts": 28,
+  "boxes": 194478,
+  "solids": 3230,
+  "roads": 52,
+  "entrances": 429,
+  "activeEntries": 214,
+  "planters": {
+    "stage": 10,
+    "issueId": "S01-ST-01",
+    "historicalUnresolvedBeforeStage04": 181,
+    "historicalOriginallyAuthored": 596,
+    "historicalOrphanVisualsRemoved": 3152,
+    "livePlanterSites": 166,
+    "liveShrubs": 166,
+    "liveCanopies": 166,
+    "liveBollards": 166,
+    "activeOwnedSites": 166,
+    "orphanSites": 0,
+    "unsafeSites": 0,
+    "unsafeFootprints": 0,
+    "unsafeRoad": 0,
+    "unsafeWater": 0,
+    "blockedWalkways": 0,
+    "solidOverlaps": 0,
+    "unpairedSites": 0,
+    "suspicious": [],
+    "gpuVerified": false,
+    "frameRateVerified": false,
+    "classification": "historical_orphan_decor_removed",
+    "movedSites": 0,
+    "movedPieces": 0,
+    "relocationActions": [],
+    "unresolvedAttempts": [],
+    "worldGeometryAdded": 0,
+    "newCollisions": 0,
+    "worldMutated": false
+  },
+  "facade": {
+    "stage": 8,
+    "issue": "S01-BL-05",
+    "buildingCount": 130,
+    "windowBays": 1586,
+    "glazing": 1586,
+    "trim": 1586,
+    "sills": 1586,
+    "mullions": 1076,
+    "doorwayBaysSkipped": 138,
+    "setbackTierRowsSkipped": 7,
+    "sideWindows": 1025,
+    "rearWindows": 561,
+    "rotatedBuildingsCovered": 34,
+    "faces": {
+      "north": 561,
+      "east": 519,
+      "west": 506
+    },
+    "byKind": {
+      "tower": 257,
+      "villa": 795,
+      "civic": 195,
+      "midrise": 53,
+      "warehouse": 151,
+      "service": 8,
+      "resort": 127
+    },
+    "visualMeshesAdded": 5834,
+    "collisionsAdded": 0,
+    "breaksGlass": false,
+    "actualOpeningsCut": false,
+    "gpu1080pVerified": false
+  },
+  "stage09": {
+    "stage": 9,
+    "issueId": "S01-BL-06",
+    "source": "reference469.coast signed terrain mask",
+    "gpuVerified": false,
+    "renderedScreenshotVerified": false,
+    "worldMutated": false,
+    "totalPortals": 429,
+    "activePortals": 214,
+    "dormantPortals": 215,
+    "waterClassifiedAll": 116,
+    "dormantWaterDescriptors": 116,
+    "activeWaterAtDoor": 0,
+    "activeWaterWithin6m": 0,
+    "nearestActiveShore": 11.5,
+    "nearestApproachShore6m": 4.966,
+    "nearShoreAt8m": [
+      {
+        "portalId": 369,
+        "shoreAt8m": 1.734,
+        "minimum6m": 4.966
+      }
+    ],
+    "invalidPortals": [],
+    "flags": [],
+    "classification": "historical_inactive_descriptors_only"
+  },
+  "stage11": {
+    "stage": 11,
+    "issueId": "S01-ST-02",
+    "historicalUnresolvedLamps": 30,
+    "originallyAuthoredLamps": 99,
+    "livePosts": 28,
+    "liveHeads": 28,
+    "activeOwnerPosts": 28,
+    "inactiveOwnerPosts": 0,
+    "pairedPosts": 28,
+    "unsafeHorizontalSites": 0,
+    "misalignedBasesOver2cm": 0,
+    "floatingBasesOver20cm": 0,
+    "buriedBasesOver20cm": 0,
+    "maxAbsoluteBaseOffset": 0.012,
+    "issues": [],
+    "gpuVerified": false,
+    "real1080pFpsVerified": false,
+    "orphanHeads": 0,
+    "cleared": true,
+    "preRepair": {
+      "unsafeSites": 0,
+      "misalignedBasesOver2cm": 22,
+      "floatingBasesOver20cm": 3,
+      "buriedBasesOver20cm": 2,
+      "maximumAbsOffset": 0.3778
+    },
+    "horizontalRelocations": 0,
+    "heightCorrections": 25,
+    "relocatedPairs": [],
+    "heightCorrectionSample": [
+      {
+        "id": 2,
+        "verticalMeters": -0.1034
+      },
+      {
+        "id": 5,
+        "verticalMeters": 0.0362
+      },
+      {
+        "id": 8,
+        "verticalMeters": -0.0954
+      },
+      {
+        "id": 11,
+        "verticalMeters": -0.1788
+      },
+      {
+        "id": 14,
+        "verticalMeters": 0.0599
+      },
+      {
+        "id": 17,
+        "verticalMeters": -0.0271
+      },
+      {
+        "id": 20,
+        "verticalMeters": 0.0286
+      },
+      {
+        "id": 23,
+        "verticalMeters": -0.2247
+      },
+      {
+        "id": 26,
+        "verticalMeters": -0.3177
+      },
+      {
+        "id": 29,
+        "verticalMeters": -0.1072
+      },
+      {
+        "id": 35,
+        "verticalMeters": -0.0226
+      },
+      {
+        "id": 38,
+        "verticalMeters": -0.0417
+      }
+    ],
+    "unresolvedAttempts": [],
+    "geometryAdded": 0,
+    "collisionBodiesAdded": 0,
+    "worldChanged": true,
+    "classification": "historical_stale_with_live_height_issues"
+  },
+  "entries": [
+    {
+      "id": 2,
+      "kind": "streetlamp-head",
+      "x": -300.79741715146696,
+      "y": 6.133556078894318,
+      "z": -271.025,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 2,
+      "kind": "streetlamp-post",
+      "x": -300.79741715146696,
+      "y": 4.513556078894318,
+      "z": -271.025,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 5,
+      "kind": "streetlamp-head",
+      "x": -23.475,
+      "y": 5.709931860856978,
+      "z": -291.0119350885088,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 5,
+      "kind": "streetlamp-post",
+      "x": -23.475,
+      "y": 4.089931860856977,
+      "z": -291.0119350885088,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 8,
+      "kind": "streetlamp-head",
+      "x": 287.92499999999995,
+      "y": 16.18911596669717,
+      "z": -284.27000000000004,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 8,
+      "kind": "streetlamp-post",
+      "x": 287.92499999999995,
+      "y": 14.569115966697169,
+      "z": -284.27000000000004,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 11,
+      "kind": "streetlamp-head",
+      "x": -412.21422590229656,
+      "y": 8.258835372152864,
+      "z": -181.52499999999998,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 11,
+      "kind": "streetlamp-post",
+      "x": -412.21422590229656,
+      "y": 6.638835372152864,
+      "z": -181.52499999999998,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 14,
+      "kind": "streetlamp-head",
+      "x": -149.3542207972333,
+      "y": 7.256549489778647,
+      "z": -170.975,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 14,
+      "kind": "streetlamp-post",
+      "x": -149.3542207972333,
+      "y": 5.636549489778646,
+      "z": -170.975,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 17,
+      "kind": "streetlamp-head",
+      "x": -28.475,
+      "y": 6.280644070107036,
+      "z": -151.42,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 17,
+      "kind": "streetlamp-post",
+      "x": -28.475,
+      "y": 4.660644070107036,
+      "z": -151.42,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 20,
+      "kind": "streetlamp-head",
+      "x": 122.87678269522266,
+      "y": 10.081307613573347,
+      "z": -172.525,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 20,
+      "kind": "streetlamp-post",
+      "x": 122.87678269522266,
+      "y": 8.461307613573346,
+      "z": -172.525,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 23,
+      "kind": "streetlamp-head",
+      "x": 403.1714384537935,
+      "y": 10.611298256431986,
+      "z": -167.63500000000002,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 23,
+      "kind": "streetlamp-post",
+      "x": 403.1714384537935,
+      "y": 8.991298256431985,
+      "z": -167.63500000000002,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 26,
+      "kind": "streetlamp-head",
+      "x": -373.45687383397484,
+      "y": 15.098641349289702,
+      "z": -46.52499999999998,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 26,
+      "kind": "streetlamp-post",
+      "x": -373.45687383397484,
+      "y": 13.478641349289703,
+      "z": -46.52499999999998,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 29,
+      "kind": "streetlamp-head",
+      "x": 413.7495299099991,
+      "y": 6.903963617988595,
+      "z": -37.47500000000002,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 29,
+      "kind": "streetlamp-post",
+      "x": 413.7495299099991,
+      "y": 5.2839636179885945,
+      "z": -37.47500000000002,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 32,
+      "kind": "streetlamp-head",
+      "x": -162.80741219645833,
+      "y": 13.916494779522868,
+      "z": 48.805531251803046,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 32,
+      "kind": "streetlamp-post",
+      "x": -162.80741219645833,
+      "y": 12.296494779522867,
+      "z": 48.805531251803046,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 35,
+      "kind": "streetlamp-head",
+      "x": -19.05776965984257,
+      "y": 7.209250790255598,
+      "z": 81.15357478360377,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 35,
+      "kind": "streetlamp-post",
+      "x": -19.05776965984257,
+      "y": 5.589250790255598,
+      "z": 81.15357478360377,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 38,
+      "kind": "streetlamp-head",
+      "x": 189.87280317869036,
+      "y": 5.502045318742239,
+      "z": 54.525000000000006,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 38,
+      "kind": "streetlamp-post",
+      "x": 189.87280317869036,
+      "y": 3.8820453187422395,
+      "z": 54.525000000000006,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 41,
+      "kind": "streetlamp-head",
+      "x": 355.475,
+      "y": 5.6105787848444635,
+      "z": 58.17980170443654,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 41,
+      "kind": "streetlamp-post",
+      "x": 355.475,
+      "y": 3.9905787848444634,
+      "z": 58.17980170443654,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 44,
+      "kind": "streetlamp-head",
+      "x": -373.70193053719584,
+      "y": 23.83406589680883,
+      "z": 169.47500000000002,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 44,
+      "kind": "streetlamp-post",
+      "x": -373.70193053719584,
+      "y": 22.21406589680883,
+      "z": 169.47500000000002,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 47,
+      "kind": "streetlamp-head",
+      "x": -166.525,
+      "y": 16.102245362718413,
+      "z": 188.71294558090622,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 47,
+      "kind": "streetlamp-post",
+      "x": -166.525,
+      "y": 14.482245362718412,
+      "z": 188.71294558090622,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 50,
+      "kind": "streetlamp-head",
+      "x": 85.78625482047795,
+      "y": 6.134452144330929,
+      "z": 189.1535747836038,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 50,
+      "kind": "streetlamp-post",
+      "x": 85.78625482047795,
+      "y": 4.514452144330928,
+      "z": 189.1535747836038,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 53,
+      "kind": "streetlamp-head",
+      "x": 365.525,
+      "y": 4.807800055326373,
+      "z": 123.88116652033759,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 53,
+      "kind": "streetlamp-post",
+      "x": 365.525,
+      "y": 3.187800055326373,
+      "z": 123.88116652033759,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 56,
+      "kind": "streetlamp-head",
+      "x": -255.475,
+      "y": 21.693288641148673,
+      "z": 243.33,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 56,
+      "kind": "streetlamp-post",
+      "x": -255.475,
+      "y": 20.073288641148675,
+      "z": 243.33,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 59,
+      "kind": "streetlamp-head",
+      "x": -58.525,
+      "y": 8.32128727682221,
+      "z": 292.37182516193013,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 59,
+      "kind": "streetlamp-post",
+      "x": -58.525,
+      "y": 6.701287276822209,
+      "z": 292.37182516193013,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 62,
+      "kind": "streetlamp-head",
+      "x": 198.75072500372193,
+      "y": 6.700583557402093,
+      "z": 297.15357478360374,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 62,
+      "kind": "streetlamp-post",
+      "x": 198.75072500372193,
+      "y": 5.080583557402094,
+      "z": 297.15357478360374,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 65,
+      "kind": "streetlamp-head",
+      "x": 414.73587863550523,
+      "y": 3.6927242539233145,
+      "z": 286.525,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 65,
+      "kind": "streetlamp-post",
+      "x": 414.73587863550523,
+      "y": 2.0727242539233144,
+      "z": 286.525,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 68,
+      "kind": "streetlamp-head",
+      "x": -302.74735653792044,
+      "y": 16.583249696427764,
+      "z": 365.0502468638122,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 68,
+      "kind": "streetlamp-post",
+      "x": -302.74735653792044,
+      "y": 14.963249696427763,
+      "z": 365.0502468638122,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 71,
+      "kind": "streetlamp-head",
+      "x": -146.525,
+      "y": 9.5634055252075,
+      "z": 407.8380087032728,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 71,
+      "kind": "streetlamp-post",
+      "x": -146.525,
+      "y": 7.943405525207499,
+      "z": 407.8380087032728,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 74,
+      "kind": "streetlamp-head",
+      "x": 31.475,
+      "y": 6.000715646851277,
+      "z": 380.3871557513066,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 74,
+      "kind": "streetlamp-post",
+      "x": 31.475,
+      "y": 4.380715646851277,
+      "z": 380.3871557513066,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 77,
+      "kind": "streetlamp-head",
+      "x": 177.475,
+      "y": 4.971307207076116,
+      "z": 410.80859381247313,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 77,
+      "kind": "streetlamp-post",
+      "x": 177.475,
+      "y": 3.351307207076116,
+      "z": 410.80859381247313,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 80,
+      "kind": "streetlamp-head",
+      "x": 418.67,
+      "y": 3.3488210644121628,
+      "z": 401.525,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 80,
+      "kind": "streetlamp-post",
+      "x": 418.67,
+      "y": 1.7288210644121627,
+      "z": 401.525,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    },
+    {
+      "id": 287,
+      "kind": "streetlamp-head",
+      "x": -263.66999999999996,
+      "y": 14.61230258063555,
+      "z": -50.025000000000006,
+      "w": 0.56,
+      "h": 0.18,
+      "d": 0.56
+    },
+    {
+      "id": 287,
+      "kind": "streetlamp-post",
+      "x": -263.66999999999996,
+      "y": 12.992302580635549,
+      "z": -50.025000000000006,
+      "w": 0.14,
+      "h": 3.24,
+      "d": 0.14
+    }
+  ]
+}

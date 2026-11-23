@@ -1,0 +1,256 @@
+{
+  "test": "STAGE02_35_NORTH_RING_REAL_WORLD_CPU",
+  "stage": 2,
+  "totalStages": 35,
+  "kind": "real engine/World and vehicle kinematics without GPU",
+  "data": {
+    "roadCount": 52,
+    "samples": 279,
+    "waypointsBefore": 17,
+    "waypointsAfter": 16,
+    "beforeLengthMeters": 1593.8670081803793,
+    "afterLengthMeters": 1549.7900851034565,
+    "reversePathRemovedMeters": 44.07692307692287,
+    "rawMaxBendDegrees": 27.46829221257628,
+    "sampleMaxBendDegrees": 6.1723168578087915,
+    "worldBuildMs": 7007,
+    "buildings": 84,
+    "portals": 298,
+    "solids": 1322,
+    "geometry": 190604,
+    "bridgeIndex": {
+      "segments": 618,
+      "cells": 343
+    },
+    "roadProfileIndex": {
+      "segments": 3334,
+      "cells": 1311
+    }
+  },
+  "simulations": [
+    {
+      "dir": 1,
+      "initialIndex": 63,
+      "frames": 364,
+      "finalX": -443.6708032755988,
+      "finalZ": -429.990876373546,
+      "passedBend": true,
+      "invalid": 0,
+      "offroad": 0,
+      "minHP": 100,
+      "finished": false
+    },
+    {
+      "dir": -1,
+      "initialIndex": 100,
+      "frames": 327,
+      "finalX": -555.0653524736373,
+      "finalZ": -436.89867171480523,
+      "passedBend": true,
+      "invalid": 0,
+      "offroad": 0,
+      "minHP": 100,
+      "finished": false
+    }
+  ],
+  "passed": 23,
+  "total": 23,
+  "failed": [],
+  "checks": [
+    {
+      "name": "prior_source_is_saved",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "name": "fixed_source_removes_only_bad_waypoint",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "name": "raw_road_now_has_16_reference_waypoints",
+      "passed": true,
+      "detail": {
+        "points": 16
+      }
+    },
+    {
+      "name": "reverse_waypoint_absent",
+      "passed": true,
+      "detail": {
+        "oldBacktrackedPoint": {
+          "x": -545.0865384615385,
+          "z": -432
+        },
+        "index": -1
+      }
+    },
+    {
+      "name": "no_sharp_95_degree_turn_on_north_ring",
+      "passed": true,
+      "detail": {
+        "maxAngle": 27.46829221257628,
+        "angles": []
+      }
+    },
+    {
+      "name": "reference_route_has_eastward_continuity",
+      "passed": true,
+      "detail": {
+        "violations": 0
+      }
+    },
+    {
+      "name": "preserves_all_nonerroneous_anchors",
+      "passed": true
+    },
+    {
+      "name": "removed_44m_of_double_traversal_only",
+      "passed": true,
+      "detail": {
+        "beforeLength": 1593.8670081803793,
+        "afterLength": 1549.7900851034565,
+        "removed": 44.07692307692287
+      }
+    },
+    {
+      "name": "all_other_route_waypoints_still_present",
+      "passed": true,
+      "detail": {
+        "roadCount": 52
+      }
+    },
+    {
+      "name": "full_game_world_builds",
+      "passed": true,
+      "detail": {
+        "roads": 52,
+        "portals": 298
+      }
+    },
+    {
+      "name": "all_sampled_road_coordinates_finite",
+      "passed": true
+    },
+    {
+      "name": "rendered_road_samples_no_reverse",
+      "passed": true,
+      "detail": {
+        "maxSampleAngle": 6.1723168578087915,
+        "samples": 279
+      }
+    },
+    {
+      "name": "road_sampling_preserves_changed_reference_endpoints",
+      "passed": true
+    },
+    {
+      "name": "road_surface_index_detects_centerline",
+      "passed": true,
+      "detail": {
+        "checked": 56
+      }
+    },
+    {
+      "name": "fixed_curve_present_in_real_world",
+      "passed": true,
+      "detail": {
+        "nearbySamples": 50
+      }
+    },
+    {
+      "name": "road_collision_and_navigation_same_centerline",
+      "passed": true,
+      "detail": {
+        "badSamples": 0,
+        "checked": 13
+      }
+    },
+    {
+      "name": "bridge_and_ground_profile_can_resolve_road",
+      "passed": true,
+      "detail": {
+        "resolved": 13,
+        "checked": 13
+      }
+    },
+    {
+      "name": "real_AI_vehicle_crosses_repaired_segment_direction_1",
+      "passed": true,
+      "detail": {
+        "dir": 1,
+        "initialIndex": 63,
+        "frames": 364,
+        "finalX": -443.6708032755988,
+        "finalZ": -429.990876373546,
+        "passedBend": true,
+        "invalid": 0,
+        "offroad": 0,
+        "minHP": 100,
+        "finished": false
+      }
+    },
+    {
+      "name": "real_AI_vehicle_remains_on_road_direction_1",
+      "passed": true,
+      "detail": {
+        "dir": 1,
+        "initialIndex": 63,
+        "frames": 364,
+        "finalX": -443.6708032755988,
+        "finalZ": -429.990876373546,
+        "passedBend": true,
+        "invalid": 0,
+        "offroad": 0,
+        "minHP": 100,
+        "finished": false
+      }
+    },
+    {
+      "name": "real_AI_vehicle_crosses_repaired_segment_direction_-1",
+      "passed": true,
+      "detail": {
+        "dir": -1,
+        "initialIndex": 100,
+        "frames": 327,
+        "finalX": -555.0653524736373,
+        "finalZ": -436.89867171480523,
+        "passedBend": true,
+        "invalid": 0,
+        "offroad": 0,
+        "minHP": 100,
+        "finished": false
+      }
+    },
+    {
+      "name": "real_AI_vehicle_remains_on_road_direction_-1",
+      "passed": true,
+      "detail": {
+        "dir": -1,
+        "initialIndex": 100,
+        "frames": 327,
+        "finalX": -555.0653524736373,
+        "finalZ": -436.89867171480523,
+        "passedBend": true,
+        "invalid": 0,
+        "offroad": 0,
+        "minHP": 100,
+        "finished": false
+      }
+    },
+    {
+      "name": "other_game_systems_preserved",
+      "passed": true,
+      "detail": {
+        "mappedBuildings": 130,
+        "buildingCount": 84
+      }
+    },
+    {
+      "name": "chosen_reference_map_file_identical",
+      "passed": true
+    }
+  ],
+  "complete": true,
+  "native1080FPSConfirmed": false
+}

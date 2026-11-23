@@ -1,0 +1,64 @@
+{
+  "stage": 25,
+  "kind": "real Chromium DOM from local markup, JS disabled; browser network blocked by administrator",
+  "httpSubpath": "Verified separately by Python standard-library HTTP test",
+  "limitations": [
+    "No browser HTTP navigation",
+    "No script execution",
+    "No real GPU/WebGL2",
+    "No 50FPS hardware benchmark"
+  ],
+  "checks": [
+    {
+      "name": "actual_chromium_dom_title",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_play_button",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_canvas",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_82_script_tags",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_css_applied",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_menu_text",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_main_title",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_document_utf8",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_second_entry_same_title",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_second_entry_play_button",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_custom_404",
+      "passed": true
+    },
+    {
+      "name": "actual_chromium_404_link",
+      "passed": true
+    }
+  ],
+  "passed": 12,
+  "total": 12,
+  "gpuValid": false
+}

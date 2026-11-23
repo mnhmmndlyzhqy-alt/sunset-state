@@ -1,0 +1,38 @@
+{
+  "original_count": 275,
+  "final_count": 288,
+  "original_missing": [],
+  "original_modified": [
+    "QA/CITY20_BASELINE_STAGE01.json",
+    "QA/CITY20_STAGE02_ACCEPTANCE.json",
+    "QA/CITY20_STAGE03_ACCEPTANCE.json",
+    "QA/CITY20_STAGE04_ACCEPTANCE.json",
+    "QA/CITY20_STAGE05_ACCEPTANCE.json",
+    "QA/CITY20_STAGE06_ACCEPTANCE.json",
+    "QA/CITY_LIFE_RECOVERY05_ACCEPTANCE.json",
+    "QA/CITY_LIFE_RECOVERY05_CROWD.json",
+    "QA/DEEP_AUDIT_FULLWORLD.json",
+    "QA/PERFORMANCE_RECOVERY06_ACCEPTANCE.json",
+    "QA/PHYSICS_RECOVERY04_ACCEPTANCE.json",
+    "README_CITY20_HE.md",
+    "START_GAME.html"
+  ],
+  "original_unchanged_count": 262,
+  "new_files": [
+    "PROJECT/RECOVERY07_FINAL_QA_REPORT.md",
+    "PROJECT/RECOVERY_STATUS.json",
+    "QA/RECOVERY07_CPU_SMOKE.json",
+    "QA/RECOVERY07_GLTF_VALIDATION.json",
+    "QA/RECOVERY07_ORIGINAL_HASHES.json",
+    "QA/RECOVERY07_PRESERVATION.json",
+    "QA/RECOVERY07_REGRESSIONS.json",
+    "QA/RECOVERY07_REGRESSIONS.log",
+    "QA/RECOVERY07_VISUAL_MANUAL_STEPS.md",
+    "QA/recovery07_live_checklist.js",
+    "QA/run_recovery07_regressions.py",
+    "QA/run_recovery07_smoke.cjs",
+    "QA/validate_recovery07_gltf.py"
+  ],
+  "reference_sha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+  "engine44_sha256": "6316f1473c5d1a5dd2acdcb88e92c29b7677dc33cba7977cdbf5805d2be826ce"
+}

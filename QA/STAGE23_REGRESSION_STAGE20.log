@@ -1,0 +1,22 @@
+STAGE20 OBSTACLE {"x":19.282314572967934,"z":14.208445046431203,"minDistance":0.02984647553237707,"detourEntered":77,"maxXDeviation":1.9370834391111842,"stats":{"installed":true,"calls":520,"sidewalkTicks":242,"waitingTicks":15,"detourPlans":1,"detoursCompleted":1,"detoursAborted":0,"rejectedCandidates":4,"blockedCrossingReroutes":0,"blockedCurbReversals":0,"nearbyQueries":187,"maxTrackedWaitingSeconds":0.7500000000000001,"offCalls":0}}
+STAGE20 CROWD {
+  people: 60,
+  moved: 60,
+  bad: null,
+  stats: {
+    installed: true,
+    calls: 11550,
+    sidewalkTicks: 8439,
+    waitingTicks: 285,
+    detourPlans: 2,
+    detoursCompleted: 2,
+    detoursAborted: 0,
+    rejectedCandidates: 349,
+    blockedCrossingReroutes: 1,
+    blockedCurbReversals: 0,
+    nearbyQueries: 942,
+    maxTrackedWaitingSeconds: 8.04999999999998,
+    offCalls: 0
+  }
+}
+STAGE20 ACCEPTANCE 22/22

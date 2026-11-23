@@ -1,0 +1,123 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 38,
+  "programmeTotal": 105,
+  "releaseStatus": "cumulative CPU-verified browser release; pending GPU visual/FPS validation",
+  "baselineSource": "SUNSET_STATE_STAGE37_OF105_FULL.zip",
+  "baselineSourceSha256": "c957a52e8b325050602a4ebc216570c14674b31a46de8bc793b4a29d6547a00c",
+  "sourceBaselineFilesPreserved": 1173,
+  "sourceBaselineChangedWithBackups": [
+    "PROJECT/105_STAGE_PLAN_HE.md",
+    "SITE_FILE_MANIFEST.json",
+    "START_GAME.html",
+    "engine44.js",
+    "index.html"
+  ],
+  "newSourceFilesBeforeReleaseReport": [
+    "BACKUPS/STAGE38_OF105/BASELINE_SHA256.json",
+    "BACKUPS/STAGE38_OF105/PROJECT/105_STAGE_PLAN_HE.md",
+    "BACKUPS/STAGE38_OF105/SITE_FILE_MANIFEST.json",
+    "BACKUPS/STAGE38_OF105/START_GAME.html",
+    "BACKUPS/STAGE38_OF105/engine44.js",
+    "BACKUPS/STAGE38_OF105/index.html",
+    "PROJECT/STAGE38_CURRENT_STATUS.json",
+    "PROJECT/STAGE38_LOD_REPORT_HE.md",
+    "PROJECT/STAGE38_SITE_MANIFEST.json",
+    "QA/STAGE38_LOD_ACCEPTANCE_RESULT.json",
+    "QA/STAGE38_LOD_WORKLOAD_CPU.json",
+    "QA/STAGE38_MANUAL_GPU_CHECKLIST_HE.md",
+    "QA/STAGE38_REGRESSION_stage19.log",
+    "QA/STAGE38_REGRESSION_stage21.log",
+    "QA/STAGE38_REGRESSION_stage29.log",
+    "QA/STAGE38_REGRESSION_stage30.log",
+    "QA/STAGE38_REGRESSION_stage31.log",
+    "QA/STAGE38_REGRESSION_stage32.log",
+    "QA/STAGE38_REGRESSION_stage36integration.log",
+    "QA/STAGE38_REGRESSION_stage36unit.log",
+    "QA/STAGE38_REGRESSION_stage37.log",
+    "QA/STAGE38_SITE_RELEASE_RESULT.json",
+    "QA/run_stage38_lod_acceptance.cjs",
+    "QA/run_stage38_lod_workload.cjs",
+    "README_STAGE38_GITHUB_PAGES_HE.md",
+    "README_STAGE38_HE.md",
+    "STAGE38_LOD_AB_GUIDE.html",
+    "TOOLS/build_stage38_release.py",
+    "TOOLS/prepare_stage38_files.py",
+    "TOOLS/run_stage38_site_audit.py",
+    "assets/stage38_adaptive_lod.js"
+  ],
+  "siteBaselineFilesPreserved": 178,
+  "siteChangedFiles": [
+    "SITE_FILE_MANIFEST.json",
+    "START_GAME.html",
+    "engine44.js",
+    "index.html"
+  ],
+  "siteNewFiles": [
+    "README_STAGE38_GITHUB_PAGES_HE.md",
+    "README_STAGE38_HE.md",
+    "STAGE38_LOD_AB_GUIDE.html",
+    "assets/stage38_adaptive_lod.js"
+  ],
+  "siteFiles": 182,
+  "siteHttpSha256Passed": 182,
+  "siteJavaScriptSyntaxPassed": 135,
+  "acceptanceTests": {
+    "pass": 84,
+    "total": 84
+  },
+  "stage37RenderingRegression": {
+    "pass": 70,
+    "total": 70
+  },
+  "cumulativeRegressions": {
+    "save": [
+      95,
+      95
+    ],
+    "vehicleCollision": [
+      39,
+      39
+    ],
+    "interiorsShops": [
+      13,
+      13
+    ],
+    "characters": [
+      35,
+      35
+    ],
+    "traffic": [
+      37,
+      37
+    ],
+    "wildlife": [
+      46,
+      46
+    ],
+    "profiler": [
+      33,
+      33
+    ],
+    "profilerIntegration": [
+      16,
+      16
+    ]
+  },
+  "stage38RenderOnlyFoliageParts": 4944,
+  "theoreticalFoliageTriangles": {
+    "before": 1129024,
+    "after": 444312,
+    "reductionPercent": 60.65
+  },
+  "cameraWorkloadCpuEstimatedPctReductionRange": [
+    30.5,
+    51.73
+  ],
+  "nativeGpuMeasured": false,
+  "fullHd50FpsVerified": false,
+  "visualPopCheckVerified": false,
+  "publicDeployed": false,
+  "disableFlag": "?stage38LodOff=1",
+  "historicalSourceLimitation": "PROJECT/STAGE36_SOURCE_PROVENANCE_HE.md"
+}

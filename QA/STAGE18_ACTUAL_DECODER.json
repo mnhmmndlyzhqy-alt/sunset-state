@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "assets": {
+    "crocodile_mid": {
+      "triangles": 64156,
+      "drawables": 24,
+      "clips": 5,
+      "textureImages": 9,
+      "drawNodes": 24,
+      "skins": [
+        12,
+        24
+      ],
+      "ready": true
+    },
+    "crocodile_far": {
+      "triangles": 9532,
+      "drawables": 7,
+      "clips": 5,
+      "textureImages": 9,
+      "drawNodes": 7,
+      "skins": [
+        12,
+        24
+      ],
+      "ready": true
+    }
+  },
+  "gpu": "mock API only",
+  "decode": "production GltfAsset43 via production Wildlife43Renderer.pump",
+  "buffersCreated": 175,
+  "vertexArrays": 31
+}

@@ -1,0 +1,35 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 32,
+  "created": "2026-11-23",
+  "parentSourceArchive": "SUNSET_STATE_STAGE31_OF35_FULL.zip",
+  "parentSourceSha256": "a868098dbbfecdc138ffd1027a8c8ebaf4e190a76dfd23a3b3b08f528bec331d",
+  "originalSourceFilesRetained": 1057,
+  "intentionalOriginalFilesChanged": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "README_35_STAGE_HE.md",
+    "README_GITHUB_PAGES_HE.md",
+    "SITE_FILE_MANIFEST.json",
+    "START_GAME.html",
+    "engine44.js",
+    "index.html"
+  ],
+  "siteArchive": "SUNSET_STATE_STAGE32_GITHUB_PAGES_SITE.zip",
+  "siteArchiveSha256": "9afe35943073c27feb3dee3e8a644cd1aefcc433491c972c4ecaf5c84d9b2ec7",
+  "siteFileCount": 158,
+  "tests": {
+    "wildlife": "46/46",
+    "save": "95/95",
+    "ccd": "39/39",
+    "interior": "13/13",
+    "character": "35/35",
+    "vehicle": "37/37",
+    "siteHttp": "628/628",
+    "siteJsSyntax": "130/130"
+  },
+  "hardwareGPUVerified": false,
+  "native1080pAtLeast50FpsVerified": false,
+  "remoteGitHubPagesDeployment": false,
+  "nextStage": 33
+}

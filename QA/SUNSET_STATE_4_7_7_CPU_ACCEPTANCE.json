@@ -1,0 +1,152 @@
+{
+  "version": "4.7.7",
+  "test": "read-only actual program scripts and game world CPU logic",
+  "date": "2026-11-21",
+  "durationMs": 6213,
+  "checksPassed": 12,
+  "checksTotal": 12,
+  "allPassed": true,
+  "checks": [
+    {
+      "id": "scripts_complete",
+      "passed": true,
+      "details": {
+        "count": 36
+      }
+    },
+    {
+      "id": "road_count_preserved",
+      "passed": true,
+      "details": {
+        "count": 52
+      }
+    },
+    {
+      "id": "road_grade_max_9_percent",
+      "passed": true,
+      "details": {
+        "maxGrade": 0.0900000000000002,
+        "segments": 3354,
+        "tooSteep": 0
+      }
+    },
+    {
+      "id": "road_layers_indexed",
+      "passed": true,
+      "details": {
+        "segments": 3354,
+        "cells": 1315
+      }
+    },
+    {
+      "id": "timber_boardwalk_collision_removed",
+      "passed": true,
+      "details": {
+        "x": 280.4928909952606,
+        "z": -745.0277777777778
+      }
+    },
+    {
+      "id": "all_crocodiles_in_real_water",
+      "passed": true,
+      "details": [
+        {
+          "x": 395,
+          "z": -835,
+          "waterLevel": -12.152092168504407
+        },
+        {
+          "x": 422,
+          "z": -858,
+          "waterLevel": -23.03481481481487
+        },
+        {
+          "x": 445,
+          "z": -856,
+          "waterLevel": -22.95379310344834
+        },
+        {
+          "x": 468,
+          "z": -860,
+          "waterLevel": -10.639999999999986
+        },
+        {
+          "x": 345,
+          "z": -810,
+          "waterLevel": -3.3279050042409315
+        },
+        {
+          "x": 370,
+          "z": -810,
+          "waterLevel": -12.502233531241133
+        },
+        {
+          "x": 322,
+          "z": -758,
+          "waterLevel": -7.542962962962975
+        },
+        {
+          "x": 318,
+          "z": -709,
+          "waterLevel": -8.265402883799814
+        }
+      ]
+    },
+    {
+      "id": "crocodiles_separate_from_flamingos",
+      "passed": true,
+      "details": {
+        "closestDistanceMeters": 96.77055369171184
+      }
+    },
+    {
+      "id": "bridge_crossing_selects_upper_layer",
+      "passed": true,
+      "details": {
+        "matched": "westExpress",
+        "roadHeight": 10.105750772758702,
+        "carSurface": 10.031750772758702
+      }
+    },
+    {
+      "id": "bridge_guard_restricts_car_to_bridge",
+      "passed": true,
+      "details": {
+        "trigger": true,
+        "after": 6.180000000000007,
+        "limit": 6.18
+      }
+    },
+    {
+      "id": "traffic_48_valid_initial_positions",
+      "passed": true,
+      "details": {
+        "cars": 48,
+        "offroad": 0
+      }
+    },
+    {
+      "id": "ai_physics_routes_stay_on_road",
+      "passed": true,
+      "details": {
+        "simulatedCars": 22,
+        "framesPerCar": 550,
+        "offroadTotal": 0,
+        "invalidTotal": 0
+      }
+    },
+    {
+      "id": "native_1080_pipeline_preserved",
+      "passed": true,
+      "details": {
+        "native1080": true,
+        "gpuFpsMeasured": false
+      }
+    }
+  ],
+  "limitations": [
+    "no successful graphical browser test in this container",
+    "no proven 50 FPS at physical 1920x1080 device",
+    "actual game physics and visual regressions still need user GPU checks"
+  ]
+}

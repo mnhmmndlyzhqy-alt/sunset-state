@@ -1,0 +1,43 @@
+{
+  "prior_file_count": 571,
+  "current_file_count": 599,
+  "missing": [],
+  "changed_original_files": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "QA/stage05_bootstrap.cjs",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html"
+  ],
+  "added_file_count": 28,
+  "added": [
+    "BACKUPS/STAGE13_OF35/PROJECT_35_STAGE_PLAN_HE.md",
+    "BACKUPS/STAGE13_OF35/PROJECT_35_STAGE_PROGRESS.json",
+    "BACKUPS/STAGE13_OF35/QA_stage05_bootstrap.cjs",
+    "BACKUPS/STAGE13_OF35/README_35_STAGE_HE.md",
+    "BACKUPS/STAGE13_OF35/SOURCE_STAGE12_SHA256.txt",
+    "BACKUPS/STAGE13_OF35/START_GAME.html",
+    "PROJECT/STAGE13_OF35_REPORT.md",
+    "QA/STAGE13_AB_COMPARISON.json",
+    "QA/STAGE13_AB_OFF.json",
+    "QA/STAGE13_AB_ON.json",
+    "QA/STAGE13_BASE_SHA256.txt",
+    "QA/STAGE13_INITIAL_PROBE.json",
+    "QA/STAGE13_INTERIOR_PROBE.json",
+    "QA/STAGE13_INTERIOR_PROBE_UPDATED.log",
+    "QA/STAGE13_MANUAL_WEBGL_CHECKLIST_HE.md",
+    "QA/STAGE13_OF35_ACCEPTANCE.json",
+    "QA/STAGE13_REGRESSION_STAGE07.log",
+    "QA/STAGE13_REGRESSION_STAGE08.log",
+    "QA/STAGE13_REGRESSION_STAGE10.log",
+    "QA/STAGE13_REGRESSION_STAGE11.log",
+    "QA/STAGE13_REGRESSION_STAGE12.log",
+    "QA/run_stage13_of35_acceptance.cjs",
+    "QA/stage13_ab_snapshot.cjs",
+    "QA/stage13_furnishing_site_probe.cjs",
+    "QA/stage13_interior_probe.cjs",
+    "QA/stage13_probe.cjs",
+    "assets/stage13_interior_runtime.js",
+    "assets/stage13_seven_lobby_furnishing.js"
+  ]
+}

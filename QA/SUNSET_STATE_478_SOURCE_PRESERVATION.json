@@ -1,0 +1,23 @@
+{
+  "baseVersion": "4.7.7",
+  "newVersion": "4.7.8",
+  "originalCount": 89,
+  "originalPresent": 89,
+  "originalIdentical": 87,
+  "modifiedExisting": [
+    "START_GAME.html",
+    "README_FIRST_HE.md"
+  ],
+  "newFiles": [
+    "CHECKPOINT_4_7_8_HE.md",
+    "QA/BASELINE_477_ON_478_LOG.txt",
+    "QA/BROWSER_478_LOG.txt",
+    "QA/BROWSER_478_RESULT.json",
+    "QA/SUNSET_STATE_4_7_8_CPU_ACCEPTANCE.json",
+    "QA/VERIFICATION_LOG_478.txt",
+    "QA/verify_478.cjs",
+    "assets/continuation_478.js"
+  ],
+  "originalMissing": [],
+  "note": "Original ZIP 4.7.7 preserved separately, not nested in full checkpoint to reduce storage."
+}

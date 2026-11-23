@@ -1,0 +1,17 @@
+{
+  "stage": 22,
+  "timestamp": "2026-11-22T20:33:26.829494+00:00",
+  "probeOnly": true,
+  "gameRendered": false,
+  "hardwareGpuVerified": false,
+  "native1080Fps50Verified": false,
+  "measuredGameFps": null,
+  "deviceDriExists": false,
+  "browser": {
+    "webgl2": false,
+    "reason": "getContext(webgl2) returned null"
+  },
+  "errors": [],
+  "adapterClassification": "software-or-unavailable",
+  "conclusion": "GPU-based full-game 1920x1080@50FPS cannot be verified in this container."
+}

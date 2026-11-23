@@ -1,0 +1,542 @@
+{
+  "stage": 38,
+  "baseline": 37,
+  "environment": "real cumulative game, actual CPU renderer culler, no hardware WebGL",
+  "tests": [
+    {
+      "name": "module_available",
+      "pass": true
+    },
+    {
+      "name": "world_unchanged_static_count",
+      "pass": true,
+      "detail": 196817
+    },
+    {
+      "name": "existing_city_52_roads",
+      "pass": true
+    },
+    {
+      "name": "existing_214_active_portals",
+      "pass": true
+    },
+    {
+      "name": "existing_59_shops",
+      "pass": true
+    },
+    {
+      "name": "stage37_renderer_still_present",
+      "pass": true
+    },
+    {
+      "name": "stage36_profiler_still_present",
+      "pass": true
+    },
+    {
+      "name": "eligible_authored_urban_crown",
+      "pass": true,
+      "detail": 4178
+    },
+    {
+      "name": "eligible_authored_urban_frond",
+      "pass": true,
+      "detail": 80
+    },
+    {
+      "name": "eligible_authored_sphere",
+      "pass": true,
+      "detail": 61
+    },
+    {
+      "name": "eligible_authored_cylinder",
+      "pass": true,
+      "detail": 680
+    },
+    {
+      "name": "expanded_renderer_only_proxies",
+      "pass": true,
+      "detail": 201761
+    },
+    {
+      "name": "paired_near_far_counts",
+      "pass": true,
+      "detail": {
+        "high": 4944,
+        "low": 4944
+      }
+    },
+    {
+      "name": "original_world_count_unaffected",
+      "pass": true,
+      "detail": 196817
+    },
+    {
+      "name": "only_authored_mesh_types",
+      "pass": true
+    },
+    {
+      "name": "render_only_flags",
+      "pass": true
+    },
+    {
+      "name": "no_physics_or_save_change",
+      "pass": true
+    },
+    {
+      "name": "no_world_coordinate_change",
+      "pass": true
+    },
+    {
+      "name": "preserve_all_transforms_urban_crown",
+      "pass": true,
+      "detail": 4170
+    },
+    {
+      "name": "no_authored_asset_mutation_urban_crown",
+      "pass": true
+    },
+    {
+      "name": "preserve_all_transforms_urban_frond",
+      "pass": true,
+      "detail": 80
+    },
+    {
+      "name": "no_authored_asset_mutation_urban_frond",
+      "pass": true
+    },
+    {
+      "name": "preserve_all_transforms_sphere",
+      "pass": true,
+      "detail": 14
+    },
+    {
+      "name": "no_authored_asset_mutation_sphere",
+      "pass": true
+    },
+    {
+      "name": "preserve_all_transforms_cylinder",
+      "pass": true,
+      "detail": 680
+    },
+    {
+      "name": "no_authored_asset_mutation_cylinder",
+      "pass": true
+    },
+    {
+      "name": "real_low_mesh_triangles_urban_crown",
+      "pass": true,
+      "detail": {
+        "actual": 100,
+        "declared": 100
+      }
+    },
+    {
+      "name": "actual_triangle_reduction_urban_crown",
+      "pass": true
+    },
+    {
+      "name": "finite_mesh_positions_urban_crown",
+      "pass": true
+    },
+    {
+      "name": "real_low_mesh_triangles_sphere",
+      "pass": true,
+      "detail": {
+        "actual": 168,
+        "declared": 168
+      }
+    },
+    {
+      "name": "actual_triangle_reduction_sphere",
+      "pass": true
+    },
+    {
+      "name": "finite_mesh_positions_sphere",
+      "pass": true
+    },
+    {
+      "name": "real_low_mesh_triangles_urban_frond",
+      "pass": true,
+      "detail": {
+        "actual": 40,
+        "declared": 40
+      }
+    },
+    {
+      "name": "actual_triangle_reduction_urban_frond",
+      "pass": true
+    },
+    {
+      "name": "finite_mesh_positions_urban_frond",
+      "pass": true
+    },
+    {
+      "name": "real_low_mesh_triangles_cylinder",
+      "pass": true,
+      "detail": {
+        "actual": 32,
+        "declared": 32
+      }
+    },
+    {
+      "name": "actual_triangle_reduction_cylinder",
+      "pass": true
+    },
+    {
+      "name": "finite_mesh_positions_cylinder",
+      "pass": true
+    },
+    {
+      "name": "low_mesh_maintains_some_tris",
+      "pass": true
+    },
+    {
+      "name": "theoretical_reduced_triangles",
+      "pass": true,
+      "detail": {
+        "before": 1129024,
+        "after": 444312,
+        "ratio": 0.3935363641516921
+      }
+    },
+    {
+      "name": "no_disappearing_visible_shapes_spawn",
+      "pass": true,
+      "detail": {
+        "left": 0,
+        "old": 4918,
+        "new": 4918
+      }
+    },
+    {
+      "name": "no_unexpected_coverage_spawn",
+      "pass": true,
+      "detail": {
+        "added": 0
+      }
+    },
+    {
+      "name": "static_source_identity_spawn",
+      "pass": true
+    },
+    {
+      "name": "stage37_numeric_cells_spawn",
+      "pass": true
+    },
+    {
+      "name": "no_disappearing_visible_shapes_market",
+      "pass": true,
+      "detail": {
+        "left": 0,
+        "old": 4307,
+        "new": 4307
+      }
+    },
+    {
+      "name": "no_unexpected_coverage_market",
+      "pass": true,
+      "detail": {
+        "added": 0
+      }
+    },
+    {
+      "name": "static_source_identity_market",
+      "pass": true
+    },
+    {
+      "name": "stage37_numeric_cells_market",
+      "pass": true
+    },
+    {
+      "name": "no_disappearing_visible_shapes_aerial",
+      "pass": true,
+      "detail": {
+        "left": 0,
+        "old": 10367,
+        "new": 10367
+      }
+    },
+    {
+      "name": "no_unexpected_coverage_aerial",
+      "pass": true,
+      "detail": {
+        "added": 0
+      }
+    },
+    {
+      "name": "static_source_identity_aerial",
+      "pass": true
+    },
+    {
+      "name": "stage37_numeric_cells_aerial",
+      "pass": true
+    },
+    {
+      "name": "no_disappearing_visible_shapes_west",
+      "pass": true,
+      "detail": {
+        "left": 0,
+        "old": 5220,
+        "new": 5220
+      }
+    },
+    {
+      "name": "no_unexpected_coverage_west",
+      "pass": true,
+      "detail": {
+        "added": 0
+      }
+    },
+    {
+      "name": "static_source_identity_west",
+      "pass": true
+    },
+    {
+      "name": "stage37_numeric_cells_west",
+      "pass": true
+    },
+    {
+      "name": "no_disappearing_visible_shapes_coast",
+      "pass": true,
+      "detail": {
+        "left": 0,
+        "old": 3527,
+        "new": 3527
+      }
+    },
+    {
+      "name": "no_unexpected_coverage_coast",
+      "pass": true,
+      "detail": {
+        "added": 0
+      }
+    },
+    {
+      "name": "static_source_identity_coast",
+      "pass": true
+    },
+    {
+      "name": "stage37_numeric_cells_coast",
+      "pass": true
+    },
+    {
+      "name": "no_disappearing_visible_shapes_street",
+      "pass": true,
+      "detail": {
+        "left": 0,
+        "old": 4301,
+        "new": 4301
+      }
+    },
+    {
+      "name": "no_unexpected_coverage_street",
+      "pass": true,
+      "detail": {
+        "added": 0
+      }
+    },
+    {
+      "name": "static_source_identity_street",
+      "pass": true
+    },
+    {
+      "name": "stage37_numeric_cells_street",
+      "pass": true
+    },
+    {
+      "name": "matching_author_high_low",
+      "pass": true
+    },
+    {
+      "name": "complementary_dither_at_98",
+      "pass": true,
+      "detail": {
+        "high": 1,
+        "low": 0
+      }
+    },
+    {
+      "name": "complementary_dither_at_151",
+      "pass": true,
+      "detail": {
+        "high": 1,
+        "low": 0
+      }
+    },
+    {
+      "name": "complementary_dither_at_169",
+      "pass": true,
+      "detail": {
+        "high": 0.8819241982507289,
+        "low": 0.11807580174927114
+      }
+    },
+    {
+      "name": "complementary_dither_at_193",
+      "pass": true,
+      "detail": {
+        "high": 0.5,
+        "low": 0.5
+      }
+    },
+    {
+      "name": "complementary_dither_at_217",
+      "pass": true,
+      "detail": {
+        "high": 0.11807580174927113,
+        "low": 0.8819241982507289
+      }
+    },
+    {
+      "name": "complementary_dither_at_235",
+      "pass": true,
+      "detail": {
+        "high": 0,
+        "low": 1
+      }
+    },
+    {
+      "name": "complementary_dither_at_288",
+      "pass": true,
+      "detail": {
+        "high": 0,
+        "low": 1
+      }
+    },
+    {
+      "name": "off_rebuilds_scene_and_clears_proxies",
+      "pass": true
+    },
+    {
+      "name": "on_rebuilds_renderer_scene",
+      "pass": true
+    },
+    {
+      "name": "stage37_grid_invalidated_and_recached",
+      "pass": true
+    },
+    {
+      "name": "source_world_fingerprint_unchanged_after_culling",
+      "pass": true
+    },
+    {
+      "name": "renderer_registers_low_mesh_urban_crown_lod38",
+      "pass": true
+    },
+    {
+      "name": "renderer_registers_low_mesh_urban_frond_lod38",
+      "pass": true
+    },
+    {
+      "name": "renderer_registers_low_mesh_sphere_lod38",
+      "pass": true
+    },
+    {
+      "name": "renderer_registers_low_mesh_cylinder_lod38",
+      "pass": true
+    },
+    {
+      "name": "original_urban_glb_vehicles_preserved",
+      "pass": true
+    },
+    {
+      "name": "stage18_bird_wildlife_lod_preserved",
+      "pass": true
+    },
+    {
+      "name": "stage17_shader_dither_preserved",
+      "pass": true
+    },
+    {
+      "name": "stage38_module_activated_by_actual_renderer",
+      "pass": true
+    }
+  ],
+  "passed": 84,
+  "total": 84,
+  "staticWorld": 196817,
+  "eligibleCandidates": {
+    "urban_crown": 4178,
+    "urban_frond": 80,
+    "sphere": 61,
+    "cylinder": 680
+  },
+  "convertedModels": 4944,
+  "meshTriangles": {
+    "original": {
+      "urban_crown": 256,
+      "urban_frond": 80,
+      "sphere": 1216,
+      "cylinder": 56
+    },
+    "low": {
+      "urban_crown": 100,
+      "urban_frond": 40,
+      "sphere": 168,
+      "cylinder": 32
+    }
+  },
+  "theoreticalFoliageTriangles": {
+    "before": 1129024,
+    "after": 444312,
+    "reductionPercent": 60.65
+  },
+  "sampleCameras": [
+    {
+      "name": "spawn",
+      "source": 16281,
+      "baselineCpuVisible": 5143,
+      "optimizedCpuVisible": 5632,
+      "baselineShaderVisible": 4918,
+      "optimizedShaderVisible": 4918,
+      "nearSwitchCount": 729
+    },
+    {
+      "name": "market",
+      "source": 16281,
+      "baselineCpuVisible": 4383,
+      "optimizedCpuVisible": 4947,
+      "baselineShaderVisible": 4307,
+      "optimizedShaderVisible": 4307,
+      "nearSwitchCount": 625
+    },
+    {
+      "name": "aerial",
+      "source": 16281,
+      "baselineCpuVisible": 10560,
+      "optimizedCpuVisible": 11112,
+      "baselineShaderVisible": 10367,
+      "optimizedShaderVisible": 10367,
+      "nearSwitchCount": 598
+    },
+    {
+      "name": "west",
+      "source": 16281,
+      "baselineCpuVisible": 5358,
+      "optimizedCpuVisible": 5536,
+      "baselineShaderVisible": 5220,
+      "optimizedShaderVisible": 5220,
+      "nearSwitchCount": 208
+    },
+    {
+      "name": "coast",
+      "source": 16281,
+      "baselineCpuVisible": 3555,
+      "optimizedCpuVisible": 3765,
+      "baselineShaderVisible": 3527,
+      "optimizedShaderVisible": 3527,
+      "nearSwitchCount": 216
+    },
+    {
+      "name": "street",
+      "source": 16281,
+      "baselineCpuVisible": 4519,
+      "optimizedCpuVisible": 5172,
+      "baselineShaderVisible": 4301,
+      "optimizedShaderVisible": 4301,
+      "nearSwitchCount": 677
+    }
+  ],
+  "actualFpsMeasured": false,
+  "nativeGpuVerified": false
+}

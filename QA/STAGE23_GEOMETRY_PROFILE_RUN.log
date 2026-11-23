@@ -1,0 +1,93 @@
+{
+  "passed": 24,
+  "total": 24,
+  "static": 194555,
+  "dynamic": 1942,
+  "views": [
+    {
+      "name": "spawn_district",
+      "visible": 46727,
+      "payloadMiB": 3.56,
+      "cullMs": 182.474
+    },
+    {
+      "name": "shift_200m_east",
+      "visible": 34637,
+      "payloadMiB": 2.64,
+      "cullMs": 160.493
+    },
+    {
+      "name": "shift_400m_north",
+      "visible": 36985,
+      "payloadMiB": 2.82,
+      "cullMs": 142.742
+    },
+    {
+      "name": "high_aerial_over_district",
+      "visible": 109328,
+      "payloadMiB": 8.34,
+      "cullMs": 114.878
+    },
+    {
+      "name": "far_district_west",
+      "visible": 59820,
+      "payloadMiB": 4.56,
+      "cullMs": 200.892
+    }
+  ],
+  "memory": {
+    "heapUsed": 210.9,
+    "heapTotal": 282.9,
+    "rss": 380.4
+  },
+  "packing": [
+    {
+      "items": 512,
+      "instanceBytes": 40960,
+      "allocateEveryTime": {
+        "runs": 8,
+        "medianMs": 0.78,
+        "p95Ms": 1.518,
+        "maxMs": 1.518
+      },
+      "scratchReuse": {
+        "runs": 8,
+        "medianMs": 0.774,
+        "p95Ms": 0.873,
+        "maxMs": 0.873
+      }
+    },
+    {
+      "items": 4096,
+      "instanceBytes": 327680,
+      "allocateEveryTime": {
+        "runs": 8,
+        "medianMs": 4.681,
+        "p95Ms": 7.793,
+        "maxMs": 7.793
+      },
+      "scratchReuse": {
+        "runs": 8,
+        "medianMs": 4.414,
+        "p95Ms": 6.764,
+        "maxMs": 6.764
+      }
+    },
+    {
+      "items": 16000,
+      "instanceBytes": 1280000,
+      "allocateEveryTime": {
+        "runs": 8,
+        "medianMs": 16.462,
+        "p95Ms": 27.624,
+        "maxMs": 27.624
+      },
+      "scratchReuse": {
+        "runs": 8,
+        "medianMs": 15.596,
+        "p95Ms": 32.697,
+        "maxMs": 32.697
+      }
+    }
+  ]
+}

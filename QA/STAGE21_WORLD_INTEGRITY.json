@@ -1,0 +1,84 @@
+{
+  "stage": 21,
+  "source": "real Game constructor & 194555-box world; fake GL only",
+  "passed": 16,
+  "total": 16,
+  "checks": [
+    {
+      "label": "new guard installed on actual Game",
+      "passed": true
+    },
+    {
+      "label": "road network unmodified",
+      "passed": true
+    },
+    {
+      "label": "door/portal baseline retained",
+      "passed": true
+    },
+    {
+      "label": "building solids still 3230",
+      "passed": true
+    },
+    {
+      "label": "street props still 796",
+      "passed": true
+    },
+    {
+      "label": "existing Stage12 street bodies",
+      "passed": true
+    },
+    {
+      "label": "retail stores 59",
+      "passed": true
+    },
+    {
+      "label": "breaking glass original and new",
+      "passed": true
+    },
+    {
+      "label": "walking nav plugin still available",
+      "passed": true
+    },
+    {
+      "label": "save plugin still available",
+      "passed": true
+    },
+    {
+      "label": "eight crocodiles still run",
+      "passed": true
+    },
+    {
+      "label": "world rendering geometry unchanged",
+      "passed": true
+    },
+    {
+      "label": "real spatial grid exposes multiple street colliders",
+      "passed": true
+    },
+    {
+      "label": "real world swept guard detects actual obstacles",
+      "passed": true
+    },
+    {
+      "label": "original bridge collision layering and surveyed raised roads exist",
+      "passed": true
+    },
+    {
+      "label": "original north street route intact",
+      "passed": true
+    }
+  ],
+  "fails": [],
+  "realColliderSweeps": {
+    "tested": 180,
+    "sweepable": 180,
+    "contacts": 180,
+    "countByKind": {
+      "planter-base": 84,
+      "safety-bollard": 83,
+      "streetlamp-post": 13
+    }
+  },
+  "gpuVerified": false
+}

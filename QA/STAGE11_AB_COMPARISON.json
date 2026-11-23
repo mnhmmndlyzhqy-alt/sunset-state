@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "worldMetricsEqual": true,
+  "allPostAndHeadXYUnchanged": true,
+  "postAndHeadYUpdated": 50,
+  "lampsWithHeightCorrection": 25,
+  "fixturesVerified": 56,
+  "priorSystemStatsEqual": true
+}

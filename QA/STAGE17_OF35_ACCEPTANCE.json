@@ -1,0 +1,28 @@
+{
+  "stage": 17,
+  "issue": "S01-RT-01",
+  "checks": 927,
+  "passed": 927,
+  "failed": [],
+  "counts": {
+    "contracted": 60,
+    "decoratedPieces": 342,
+    "indoorStoresOn60": 54,
+    "outdoorServicesOn60": 6,
+    "extraIndoorStores": 5,
+    "realEEntered": 59,
+    "realEExited": 59,
+    "freeStreetDoors": 59,
+    "aislesToCounterReachable": 59,
+    "purchases": 58,
+    "bankServices": 1,
+    "realStreetServiceE": 6,
+    "realStreetPurchases": 6
+  },
+  "claims": {
+    "cpuGameTest": true,
+    "domHudMocked": true,
+    "realWebGLValidated": false,
+    "native1080pFpsValidated": false
+  }
+}

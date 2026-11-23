@@ -1,0 +1,352 @@
+{
+  "stage": 7,
+  "engine": "real Game under CPU fake renderer",
+  "gpuVerified": false,
+  "renderedScreenshot": false,
+  "pass": 23,
+  "total": 23,
+  "failed": [],
+  "tests": [
+    {
+      "name": "stage07_loaded",
+      "pass": true
+    },
+    {
+      "name": "strictly_130_reference_mapped_buildings",
+      "pass": true
+    },
+    {
+      "name": "all_52_road_routes_preserved",
+      "pass": true
+    },
+    {
+      "name": "historical_and_CITY20_portal_counts_unchanged",
+      "pass": true
+    },
+    {
+      "name": "original_84_legacy_buildings_preserved",
+      "pass": true
+    },
+    {
+      "name": "215_archived_portals_stay_disabled",
+      "pass": true
+    },
+    {
+      "name": "stage04_stage05_stage06_still_present",
+      "pass": true
+    },
+    {
+      "name": "all_new_rotations_are_noncardinal",
+      "pass": true,
+      "detail": {
+        "rotated": 34
+      }
+    },
+    {
+      "name": "only_single_storey_compact_buildings_rotated",
+      "pass": true,
+      "detail": {
+        "eligible": 65,
+        "rotated": 34
+      }
+    },
+    {
+      "name": "no_static_world_geometry_deleted",
+      "pass": true,
+      "detail": {
+        "boxes": 194478,
+        "original": 188408
+      }
+    },
+    {
+      "name": "rotated_collision_cells_are_indexed_and_finite",
+      "pass": true,
+      "detail": {
+        "added": 1750,
+        "actual": 1750
+      }
+    },
+    {
+      "name": "all_district_center_coordinates_remain_reference_locked",
+      "pass": true
+    },
+    {
+      "name": "no_rotated_site_has_empty_mesh_or_collision_footprint",
+      "pass": true
+    },
+    {
+      "name": "stage07_source_did_not_change_legacy_entry_positions",
+      "pass": true
+    },
+    {
+      "name": "all_214_exterior_doors_still_registered",
+      "pass": true
+    },
+    {
+      "name": "single_floor_interiors_only",
+      "pass": true,
+      "detail": {
+        "compact": 65
+      }
+    },
+    {
+      "name": "none_of_65_multifloor_elevators_or_dynamic_door_motions_rotated",
+      "pass": true
+    },
+    {
+      "name": "all_noncardinal_animated_door_meshes_finite",
+      "pass": true,
+      "detail": {
+        "doorPass": 34,
+        "bad": []
+      }
+    },
+    {
+      "name": "all_noncardinal_entrances_have_clear_exterior_access",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "all_noncardinal_entrances_have_clear_indoor_approach",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "enter_and_leave_every_rotated_building",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "all_rotated_interior_scenes_match_exterior_orientation",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "no_game_logic_exceptions",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "summary": {
+    "rotated": 34,
+    "unchanged": 96,
+    "oneFloorEligible": 65,
+    "addedCollisionCells": 1750,
+    "originalBuildings": 84,
+    "roads": 52,
+    "activeEntrances": 214
+  },
+  "rotations": [
+    {
+      "id": "CANAL_WEST_SOUTH-003",
+      "portalId": 305,
+      "yawDeg": 15.5,
+      "street": "keysMiddleLoop"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-005",
+      "portalId": 307,
+      "yawDeg": -9.5,
+      "street": "northKeys"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-008",
+      "portalId": 310,
+      "yawDeg": 24.6,
+      "street": "privateSpine469"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-014",
+      "portalId": 316,
+      "yawDeg": -15.4,
+      "street": "keysCanals"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-015",
+      "portalId": 317,
+      "yawDeg": -19.4,
+      "street": "keysMiddleLoop"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-016",
+      "portalId": 318,
+      "yawDeg": 13.9,
+      "street": "keysCrossing"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-020",
+      "portalId": 322,
+      "yawDeg": -24.6,
+      "street": "southRing"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-023",
+      "portalId": 325,
+      "yawDeg": 24.6,
+      "street": "privateSpine469"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-024",
+      "portalId": 326,
+      "yawDeg": 24.6,
+      "street": "privateSpine469"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-027",
+      "portalId": 329,
+      "yawDeg": 24.6,
+      "street": "privateSpine469"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-041",
+      "portalId": 343,
+      "yawDeg": 24.6,
+      "street": "privateSpine469"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-043",
+      "portalId": 345,
+      "yawDeg": -24.6,
+      "street": "privateSpine469"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-044",
+      "portalId": 346,
+      "yawDeg": -24.6,
+      "street": "keysMiddleLoop"
+    },
+    {
+      "id": "CANAL_WEST_SOUTH-058",
+      "portalId": 360,
+      "yawDeg": -20.7,
+      "street": "keysCanals"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-008",
+      "portalId": 370,
+      "yawDeg": -24.6,
+      "street": "northRing"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-010",
+      "portalId": 372,
+      "yawDeg": 7.2,
+      "street": "keysCanals"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-011",
+      "portalId": 373,
+      "yawDeg": -12.4,
+      "street": "keysCanals"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-012",
+      "portalId": 374,
+      "yawDeg": -20.2,
+      "street": "keysCanals"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-014",
+      "portalId": 376,
+      "yawDeg": 24.6,
+      "street": "northKeys"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-015",
+      "portalId": 377,
+      "yawDeg": -19.7,
+      "street": "northRing"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-016",
+      "portalId": 378,
+      "yawDeg": 24.6,
+      "street": "northKeys"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-020",
+      "portalId": 382,
+      "yawDeg": 12.2,
+      "street": "northKeys"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-021",
+      "portalId": 383,
+      "yawDeg": 12.1,
+      "street": "northKeys"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-023",
+      "portalId": 385,
+      "yawDeg": -24.6,
+      "street": "northRing"
+    },
+    {
+      "id": "CANAL_WEST_NORTH-028",
+      "portalId": 390,
+      "yawDeg": 14.6,
+      "street": "keysCanals"
+    },
+    {
+      "id": "NORTHWEST_PORT-003",
+      "portalId": 405,
+      "yawDeg": -24.6,
+      "street": "cargoEntry"
+    },
+    {
+      "id": "NORTHWEST_PORT-009",
+      "portalId": 411,
+      "yawDeg": -13.8,
+      "street": "northRing"
+    },
+    {
+      "id": "NORTHWEST_PORT-010",
+      "portalId": 412,
+      "yawDeg": 24.6,
+      "street": "northRing"
+    },
+    {
+      "id": "NORTHWEST_PORT-012",
+      "portalId": 414,
+      "yawDeg": -24.6,
+      "street": "northRing"
+    },
+    {
+      "id": "AIRFIELD_PERIMETER_EAST-001",
+      "portalId": 417,
+      "yawDeg": -7.2,
+      "street": "eastCoast"
+    },
+    {
+      "id": "COASTAL_RESORT_ISLANDS-001",
+      "portalId": 418,
+      "yawDeg": 10.3,
+      "street": "isletLink"
+    },
+    {
+      "id": "COASTAL_RESORT_ISLANDS-003",
+      "portalId": 420,
+      "yawDeg": 24.6,
+      "street": "isletLink"
+    },
+    {
+      "id": "COASTAL_RESORT_ISLANDS-010",
+      "portalId": 427,
+      "yawDeg": 7.6,
+      "street": "isletLink"
+    },
+    {
+      "id": "COASTAL_RESORT_ISLANDS-011",
+      "portalId": 428,
+      "yawDeg": 24.6,
+      "street": "isletLink"
+    }
+  ],
+  "unresolved": {
+    "exteriorBad": [],
+    "interiorBad": [],
+    "entryBad": [],
+    "sceneBad": [],
+    "gameErrors": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "project": "SUNSET STATE CITY20",
+  "stage": 4,
+  "priorStage3Entries": 136,
+  "allPriorEntriesRetained": true,
+  "identicalPriorFiles": 128,
+  "changedIntegrationAndReports": [
+    "PROJECT/CITY20_PROGRESS.json",
+    "QA/CITY20_STAGE02_ACCEPTANCE.json",
+    "QA/CITY20_STAGE03_ACCEPTANCE.json",
+    "QA/city20_browser_benchmark.js",
+    "QA/run_stage02_acceptance.cjs",
+    "README_CITY20_HE.md",
+    "START_GAME.html",
+    "assets/districts_461.js"
+  ],
+  "changedOriginalAssets": [
+    "assets/districts_461.js"
+  ],
+  "originalEngineWebGL2Preserved": true,
+  "referenceImageSha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+  "originalStage02BuildingSitesPreserved": true,
+  "originalStage03TerrainAndFootingsPreserved": true,
+  "allThirdPartyModelAndAudioAssetsByteIdentical": true,
+  "singleWorkingArchive": true,
+  "gpu1080p50FpsValidated": false
+}

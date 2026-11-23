@@ -1,0 +1,22 @@
+FAIL actual_world_built {"boxes":194478,"roads":52,"portals":429}
+FAIL QA_live_export_reads_real_game_state {}
+{
+  "total": 30,
+  "passed": 28,
+  "failures": [
+    {
+      "name": "actual_world_built",
+      "pass": false,
+      "data": {
+        "boxes": 194478,
+        "roads": 52,
+        "portals": 429
+      }
+    },
+    {
+      "name": "QA_live_export_reads_real_game_state",
+      "pass": false,
+      "data": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "SUNSET STATE",
+  "stage": 14,
+  "base": "SUNSET_STATE_STAGE13_OF35_FULL.zip",
+  "baseSHA256": "a7c6baaeecb611a5bcbddc545b0f60b52609b779e934b074c97d6b7040d6d26d",
+  "allOriginalFilesPreserved": true,
+  "originalFileCount": 600,
+  "modifiedOriginalFiles": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "QA/stage05_bootstrap.cjs",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "newFileCount": 16,
+  "newFiles": [
+    "BACKUPS/STAGE14_OF35/PROJECT__35_STAGE_PLAN_HE.md.stage13.original",
+    "BACKUPS/STAGE14_OF35/PROJECT__35_STAGE_PROGRESS.json.stage13.original",
+    "BACKUPS/STAGE14_OF35/QA__stage05_bootstrap.cjs.stage13.original",
+    "BACKUPS/STAGE14_OF35/README_35_STAGE_HE.md.stage13.original",
+    "BACKUPS/STAGE14_OF35/SOURCE_STAGE13_SHA256.txt",
+    "BACKUPS/STAGE14_OF35/START_GAME.html.stage13.original",
+    "BACKUPS/STAGE14_OF35/engine44.js.stage13.original",
+    "PROJECT/STAGE14_OF35_REPORT_HE.md",
+    "QA/STAGE14_AB_OFF.json",
+    "QA/STAGE14_MANUAL_WEBGL_CHECKLIST_HE.md",
+    "QA/STAGE14_OF35_ACCEPTANCE.json",
+    "QA/STAGE14_QUICK_AB.json",
+    "QA/run_stage14_of35_acceptance.cjs",
+    "QA/run_stage14_quick_ab.cjs",
+    "QA/stage14_ab_snapshot.cjs",
+    "assets/stage14_interior_lighting.js"
+  ],
+  "verification": {
+    "cpuStage14": "2532/2532",
+    "focusedAB": "39/39",
+    "gpuVisual": false,
+    "native1080p50Fps": false
+  }
+}

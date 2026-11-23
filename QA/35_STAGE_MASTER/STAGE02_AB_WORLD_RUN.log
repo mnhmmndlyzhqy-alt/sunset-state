@@ -1,0 +1,17 @@
+{
+  "passed": 8,
+  "total": 8,
+  "baseline": {
+    "totalRoadSamples": 3406,
+    "northRingSamples": 287,
+    "boxes": 191121,
+    "solids": 1320
+  },
+  "repaired": {
+    "totalRoadSamples": 3398,
+    "northRingSamples": 279,
+    "boxes": 190851,
+    "solids": 1320
+  },
+  "failed": []
+}

@@ -1,0 +1,26 @@
+{
+  "stage": 20,
+  "mode": "disabled A/B on complete Stage19 world; no GPU",
+  "checks": 12,
+  "passed": 12,
+  "failures": [],
+  "baseline": {
+    "minDistance": 17.33264138886265,
+    "maxOffset": 0
+  },
+  "stats": {
+    "installed": true,
+    "calls": 0,
+    "sidewalkTicks": 0,
+    "waitingTicks": 0,
+    "detourPlans": 0,
+    "detoursCompleted": 0,
+    "detoursAborted": 0,
+    "rejectedCandidates": 0,
+    "blockedCrossingReroutes": 0,
+    "blockedCurbReversals": 0,
+    "nearbyQueries": 0,
+    "maxTrackedWaitingSeconds": 0,
+    "offCalls": 520
+  }
+}

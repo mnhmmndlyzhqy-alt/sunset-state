@@ -1,0 +1,199 @@
+{
+  "stage": 30,
+  "basis": "real Stage29 cumulative engine; fake GPU / CPU-character-pose geometry inspection",
+  "passed": 35,
+  "total": 35,
+  "checks": [
+    {
+      "name": "Stage30 installed once after AeroWild, Street V8 and Stage29",
+      "pass": true
+    },
+    {
+      "name": "Original CITY20 and 27-29 buildings exist",
+      "pass": true
+    },
+    {
+      "name": "Original roads, active entrances and shops exist",
+      "pass": true
+    },
+    {
+      "name": "Original colliders and glass preserved",
+      "pass": true
+    },
+    {
+      "name": "Hero A/B switch restores exact Stage29 original pose",
+      "pass": true
+    },
+    {
+      "name": "Hero receives precisely 12 close-up finishing details",
+      "pass": true
+    },
+    {
+      "name": "Hero original geometry and order retained",
+      "pass": true
+    },
+    {
+      "name": "Hero full original mesh count retained",
+      "pass": true
+    },
+    {
+      "name": "Hero nose bridge, tip, lips, eyes and fabric exist",
+      "pass": true
+    },
+    {
+      "name": "Hero face details only use available renderer primitives",
+      "pass": true
+    },
+    {
+      "name": "No hero geometry NaN/negative scale or unbounded visibility",
+      "pass": true
+    },
+    {
+      "name": "Hero pose input unchanged; no movement edits",
+      "pass": true
+    },
+    {
+      "name": "Hero boot pitch/elevation corrected without moving actor",
+      "pass": true
+    },
+    {
+      "name": "Original AeroWild character helmet/straps retained",
+      "pass": true
+    },
+    {
+      "name": "Canvas2D character fallback still draws",
+      "pass": true
+    },
+    {
+      "name": "Vehicle-entry pose is exactly unchanged",
+      "pass": true
+    },
+    {
+      "name": "Airborne pose stays finite",
+      "pass": true
+    },
+    {
+      "name": "NPC close-up retains all Stage32 original meshes",
+      "pass": true
+    },
+    {
+      "name": "NPC details limited to 3-5 near meshes",
+      "pass": true
+    },
+    {
+      "name": "NPC fine details cull inside 16 m",
+      "pass": true
+    },
+    {
+      "name": "NPC source actor state unchanged",
+      "pass": true
+    },
+    {
+      "name": "NPC middle and far distances allocate no extra geometry",
+      "pass": true
+    },
+    {
+      "name": "Distant NPC source pose identical with stage disabled",
+      "pass": true
+    },
+    {
+      "name": "NPC social dialogue animates arm instead of navigation",
+      "pass": true
+    },
+    {
+      "name": "NPC output finite in near/mid/far cases",
+      "pass": true
+    },
+    {
+      "name": "Injured NPC original pose not modified",
+      "pass": true
+    },
+    {
+      "name": "Premium GLB expression preserved and valid",
+      "pass": true
+    },
+    {
+      "name": "Premium GLB speech becomes bounded, not exaggerated",
+      "pass": true
+    },
+    {
+      "name": "Opt-out query parameter restores original expression",
+      "pass": true
+    },
+    {
+      "name": "70 genuine NPCs pose without invalid scene coordinates",
+      "pass": true
+    },
+    {
+      "name": "Per-NPC detail ceiling 5 meshes",
+      "pass": true
+    },
+    {
+      "name": "All original world systems unchanged by character poses",
+      "pass": true
+    },
+    {
+      "name": "Stage30 adds no colliders or save schema modifications",
+      "pass": true
+    },
+    {
+      "name": "Stage30 reports GPU/50FPS explicitly unverified",
+      "pass": true
+    },
+    {
+      "name": "Stage30 loaded after Stage29 and after core engine",
+      "pass": true
+    }
+  ],
+  "fail": [],
+  "summary": {
+    "worldBefore": {
+      "boxes": 196817,
+      "roads": 52,
+      "buildings": 84,
+      "city20": 130,
+      "solids": 3230,
+      "props": 796,
+      "panes": 988,
+      "portals": 214,
+      "shops": 59,
+      "pedestrians": 238
+    },
+    "worldAfter": {
+      "boxes": 196817,
+      "roads": 52,
+      "buildings": 84,
+      "city20": 130,
+      "solids": 3230,
+      "props": 796,
+      "panes": 988,
+      "portals": 214,
+      "shops": 59,
+      "pedestrians": 238
+    },
+    "heroOriginalMeshes": 44,
+    "heroNewMeshes": 12,
+    "npcOriginalNearbyMeshes": 47,
+    "npcExtraNearbyMeshes": 5,
+    "npcMidAdded": 0,
+    "npcFarAdded": 0,
+    "sampledRealNpcs": 70,
+    "stats": {
+      "installed": true,
+      "heroCalls": 3,
+      "heroExtraMeshes": 36,
+      "npcCalls": 74,
+      "npcCloseCalls": 73,
+      "npcExtraMeshes": 171,
+      "premiumFaceCalls": 1,
+      "disabledCalls": 10,
+      "newColliders": 0,
+      "worldMutations": 0,
+      "saveFormatChanges": 0,
+      "hardwareGPUVerified": false,
+      "fullHD50FPSVerified": false,
+      "lastHeroFaceElementsAdvanced": 4
+    },
+    "nativeGpuVerified": false
+  }
+}

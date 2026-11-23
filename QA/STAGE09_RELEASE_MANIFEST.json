@@ -1,0 +1,22 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 9,
+  "basedOn": "SUNSET_STATE_STAGE08_OF35_FULL.zip",
+  "baseArchiveSHA256": "4fde63633fc0ca77961c17004b0964e3754603961af03cfd754de0ab963cc362",
+  "filesInStage08": 463,
+  "filesInStage09BeforeManifest": 489,
+  "gpuVerified": false,
+  "runtimeChange": "non-invasive shoreline portal diagnostic only",
+  "stage09Acceptance": "25/25",
+  "stage08Regression": "28/28",
+  "stage07Regression": "23/23",
+  "smokeCompat": "30/30",
+  "physicsCompat": "29/29",
+  "expectedChangedPreviousFiles": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "QA/stage05_bootstrap.cjs",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html"
+  ]
+}

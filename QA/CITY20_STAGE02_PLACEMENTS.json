@@ -1,0 +1,1952 @@
+[
+  {
+    "id": "CENTRAL_URBAN_BLOCKS-001",
+    "area": "CENTRAL_URBAN_BLOCKS",
+    "kind": "tower",
+    "sourcePx": [
+      673.07,
+      277.66
+    ],
+    "x": -184.119,
+    "z": -289.206,
+    "width": 21.43,
+    "depth": 22.48,
+    "height": 92.15,
+    "baseY": 2.192
+  },
+  {
+    "id": "CENTRAL_URBAN_BLOCKS-002",
+    "area": "CENTRAL_URBAN_BLOCKS",
+    "kind": "tower",
+    "sourcePx": [
+      883.26,
+      442.42
+    ],
+    "x": 246.218,
+    "z": 163.736,
+    "width": 19.33,
+    "depth": 22.32,
+    "height": 82.54,
+    "baseY": 1.705
+  },
+  {
+    "id": "CENTRAL_URBAN_BLOCKS-003",
+    "area": "CENTRAL_URBAN_BLOCKS",
+    "kind": "tower",
+    "sourcePx": [
+      722.59,
+      444
+    ],
+    "x": -82.741,
+    "z": 168.087,
+    "width": 17.76,
+    "depth": 22.38,
+    "height": 96.22,
+    "baseY": 6.724
+  },
+  {
+    "id": "CENTRAL_URBAN_BLOCKS-004",
+    "area": "CENTRAL_URBAN_BLOCKS",
+    "kind": "tower",
+    "sourcePx": [
+      642.94,
+      328.09
+    ],
+    "x": -245.807,
+    "z": -150.572,
+    "width": 21.15,
+    "depth": 23.96,
+    "height": 60.92,
+    "baseY": 6.079
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-001",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      265.78,
+      466.86
+    ],
+    "x": -822.401,
+    "z": 230.937,
+    "width": 16.16,
+    "depth": 9.38,
+    "height": 7.58,
+    "baseY": 2.391
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-002",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      223.15,
+      506.87
+    ],
+    "x": -881.822,
+    "z": 340.914,
+    "width": 13.78,
+    "depth": 11.38,
+    "height": 9.11,
+    "baseY": 3.095
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-003",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      367.2,
+      382.94
+    ],
+    "x": -673.181,
+    "z": 0.234,
+    "width": 15.4,
+    "depth": 9.82,
+    "height": 7.78,
+    "baseY": 3.32
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-004",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      464.51,
+      381.99
+    ],
+    "x": -521.494,
+    "z": -2.384,
+    "width": 14.18,
+    "depth": 13.2,
+    "height": 8.11,
+    "baseY": 3.483
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-005",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      195.19,
+      522.54
+    ],
+    "x": -912.293,
+    "z": 383.999,
+    "width": 15.5,
+    "depth": 10.16,
+    "height": 8.85,
+    "baseY": 3.867
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-006",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      452.67,
+      534.44
+    ],
+    "x": -533.673,
+    "z": 416.702,
+    "width": 16.21,
+    "depth": 10.74,
+    "height": 8.22,
+    "baseY": 2.386
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-007",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      453.08,
+      425.9
+    ],
+    "x": -533.25,
+    "z": 118.34,
+    "width": 16.96,
+    "depth": 12.16,
+    "height": 9.17,
+    "baseY": 4.455
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-008",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      225.51,
+      476.93
+    ],
+    "x": -878.525,
+    "z": 258.613,
+    "width": 12.36,
+    "depth": 13.63,
+    "height": 7.99,
+    "baseY": 2.238
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-009",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      253.86,
+      478.8
+    ],
+    "x": -839.015,
+    "z": 263.748,
+    "width": 14.28,
+    "depth": 9.61,
+    "height": 8.92,
+    "baseY": 2.492
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-010",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      465.62,
+      478.23
+    ],
+    "x": -520.351,
+    "z": 262.192,
+    "width": 16.98,
+    "depth": 12.2,
+    "height": 8.39,
+    "baseY": 2.452
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-011",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      252.55,
+      383.55
+    ],
+    "x": -840.839,
+    "z": 1.895,
+    "width": 13.57,
+    "depth": 11,
+    "height": 8.22,
+    "baseY": 0.857
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-012",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      477.41,
+      437.28
+    ],
+    "x": -508.227,
+    "z": 149.602,
+    "width": 14.12,
+    "depth": 11.45,
+    "height": 7.16,
+    "baseY": 3.434
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-013",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      463.62,
+      466.53
+    ],
+    "x": -522.41,
+    "z": 230.03,
+    "width": 13.63,
+    "depth": 9.03,
+    "height": 9.98,
+    "baseY": 2.845
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-014",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      377.63,
+      394.47
+    ],
+    "x": -653.887,
+    "z": 31.912,
+    "width": 14.98,
+    "depth": 14.12,
+    "height": 6.33,
+    "baseY": 4.557
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-015",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      368.17,
+      424.28
+    ],
+    "x": -671.389,
+    "z": 113.868,
+    "width": 11.79,
+    "depth": 9,
+    "height": 8.04,
+    "baseY": 4.924
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-016",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      267.69,
+      452.3
+    ],
+    "x": -819.733,
+    "z": 190.906,
+    "width": 13.66,
+    "depth": 10.79,
+    "height": 6.02,
+    "baseY": 2.241
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-017",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      295.88,
+      494.21
+    ],
+    "x": -780.444,
+    "z": 306.113,
+    "width": 15.67,
+    "depth": 13.73,
+    "height": 9.28,
+    "baseY": 3.158
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-018",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      251.02,
+      465.15
+    ],
+    "x": -842.966,
+    "z": 226.239,
+    "width": 11.87,
+    "depth": 13.97,
+    "height": 6.23,
+    "baseY": 2.292
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-019",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      224.33,
+      494.98
+    ],
+    "x": -880.181,
+    "z": 308.235,
+    "width": 14.04,
+    "depth": 14.56,
+    "height": 9.08,
+    "baseY": 2.588
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-020",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      336.96,
+      591.59
+    ],
+    "x": -723.183,
+    "z": 527.959,
+    "width": 15.43,
+    "depth": 12.39,
+    "height": 6.17,
+    "baseY": 7.303
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-021",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      448.89,
+      410.93
+    ],
+    "x": -537.564,
+    "z": 77.166,
+    "width": 13.91,
+    "depth": 11.91,
+    "height": 11.01,
+    "baseY": 4.609
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-022",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      477.39,
+      452.79
+    ],
+    "x": -508.241,
+    "z": 192.246,
+    "width": 15.5,
+    "depth": 12.41,
+    "height": 11.16,
+    "baseY": 3.004
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-023",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      307.19,
+      619.71
+    ],
+    "x": -764.675,
+    "z": 593.779,
+    "width": 15.38,
+    "depth": 14.29,
+    "height": 7.44,
+    "baseY": 8.058
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-024",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      325.31,
+      604.42
+    ],
+    "x": -739.421,
+    "z": 557.982,
+    "width": 11.37,
+    "depth": 12.09,
+    "height": 7.47,
+    "baseY": 7.745
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-025",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      223.33,
+      615.43
+    ],
+    "x": -881.563,
+    "z": 583.776,
+    "width": 11.46,
+    "depth": 14.55,
+    "height": 8.09,
+    "baseY": 12.816
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-026",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      339.85,
+      602.67
+    ],
+    "x": -719.152,
+    "z": 553.896,
+    "width": 16.7,
+    "depth": 12.76,
+    "height": 10.48,
+    "baseY": 7.191
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-027",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      111.38,
+      492.37
+    ],
+    "x": -999.681,
+    "z": 301.048,
+    "width": 15.18,
+    "depth": 9.77,
+    "height": 6.39,
+    "baseY": 1.739
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-028",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      154.46,
+      657.28
+    ],
+    "x": -953.895,
+    "z": 681.746,
+    "width": 15.05,
+    "depth": 12.72,
+    "height": 9.4,
+    "baseY": 5.987
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-029",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      478.72,
+      394.54
+    ],
+    "x": -506.871,
+    "z": 32.124,
+    "width": 12.79,
+    "depth": 12.82,
+    "height": 11.26,
+    "baseY": 3.565
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-030",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      125.36,
+      476.71
+    ],
+    "x": -983.606,
+    "z": 258.013,
+    "width": 13.58,
+    "depth": 13.02,
+    "height": 10.96,
+    "baseY": 1.713
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-031",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      451.56,
+      507.12
+    ],
+    "x": -534.815,
+    "z": 341.597,
+    "width": 16.74,
+    "depth": 14.65,
+    "height": 6.51,
+    "baseY": 2.21
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-032",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      237.71,
+      380.19
+    ],
+    "x": -861.521,
+    "z": -7.324,
+    "width": 11.17,
+    "depth": 12.5,
+    "height": 10.44,
+    "baseY": 1.562
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-033",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      209.44,
+      619.14
+    ],
+    "x": -897.745,
+    "z": 592.445,
+    "width": 12.4,
+    "depth": 14.15,
+    "height": 8.43,
+    "baseY": 12.331
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-034",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      225.23,
+      671.27
+    ],
+    "x": -878.918,
+    "z": 714.492,
+    "width": 15.93,
+    "depth": 11.6,
+    "height": 8.97,
+    "baseY": 5.737
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-035",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      451.01,
+      522.31
+    ],
+    "x": -535.379,
+    "z": 383.378,
+    "width": 11.32,
+    "depth": 9.01,
+    "height": 9.98,
+    "baseY": 2.264
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-036",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      308.93,
+      562.77
+    ],
+    "x": -762.248,
+    "z": 460.476,
+    "width": 12.28,
+    "depth": 9.18,
+    "height": 10.25,
+    "baseY": 6.963
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-037",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      465.32,
+      495.36
+    ],
+    "x": -520.656,
+    "z": 309.267,
+    "width": 16.4,
+    "depth": 9.35,
+    "height": 6.67,
+    "baseY": 2.129
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-038",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      295.59,
+      481.1
+    ],
+    "x": -780.845,
+    "z": 270.084,
+    "width": 15.31,
+    "depth": 13.03,
+    "height": 6.97,
+    "baseY": 2.854
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-039",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      226.55,
+      466.14
+    ],
+    "x": -877.079,
+    "z": 228.963,
+    "width": 11.95,
+    "depth": 14.46,
+    "height": 7.14,
+    "baseY": 2.171
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-040",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      478.21,
+      507.13
+    ],
+    "x": -507.399,
+    "z": 341.643,
+    "width": 14.73,
+    "depth": 14.24,
+    "height": 10.13,
+    "baseY": 1.953
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-041",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      321.23,
+      615.52
+    ],
+    "x": -745.108,
+    "z": 583.971,
+    "width": 11.44,
+    "depth": 10.76,
+    "height": 6.28,
+    "baseY": 7.61
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-042",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      239.96,
+      494.12
+    ],
+    "x": -858.394,
+    "z": 305.879,
+    "width": 14.79,
+    "depth": 10.97,
+    "height": 10,
+    "baseY": 2.741
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-043",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      323.83,
+      548.26
+    ],
+    "x": -741.481,
+    "z": 441.088,
+    "width": 16.34,
+    "depth": 13.19,
+    "height": 7.88,
+    "baseY": 6.107
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-044",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      367.74,
+      409
+    ],
+    "x": -672.182,
+    "z": 71.875,
+    "width": 15.79,
+    "depth": 12.93,
+    "height": 7.58,
+    "baseY": 4.567
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-045",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      241.06,
+      506.38
+    ],
+    "x": -856.85,
+    "z": 339.571,
+    "width": 11.1,
+    "depth": 13.15,
+    "height": 8.12,
+    "baseY": 3.307
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-046",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      253.77,
+      492.66
+    ],
+    "x": -839.137,
+    "z": 301.847,
+    "width": 15.59,
+    "depth": 11.63,
+    "height": 9.25,
+    "baseY": 2.837
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-047",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      352.44,
+      604.86
+    ],
+    "x": -700.483,
+    "z": 559.022,
+    "width": 13.58,
+    "depth": 10.43,
+    "height": 9.13,
+    "baseY": 6.651
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-048",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      452.86,
+      437.1
+    ],
+    "x": -533.483,
+    "z": 149.106,
+    "width": 13.42,
+    "depth": 12.21,
+    "height": 6.56,
+    "baseY": 4.225
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-049",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      240.3,
+      439.71
+    ],
+    "x": -857.921,
+    "z": 156.289,
+    "width": 13.52,
+    "depth": 12.12,
+    "height": 10.57,
+    "baseY": 2.156
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-050",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      321.92,
+      535.2
+    ],
+    "x": -744.141,
+    "z": 418.797,
+    "width": 13.15,
+    "depth": 10.2,
+    "height": 10.21,
+    "baseY": 5.541
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-051",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      254.11,
+      452.13
+    ],
+    "x": -838.66,
+    "z": 190.44,
+    "width": 13.01,
+    "depth": 9.66,
+    "height": 9.93,
+    "baseY": 2.205
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-052",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      364.18,
+      397.57
+    ],
+    "x": -678.758,
+    "z": 40.435,
+    "width": 14.36,
+    "depth": 10.6,
+    "height": 7.06,
+    "baseY": 3.839
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-053",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      352.91,
+      588.88
+    ],
+    "x": -699.611,
+    "z": 521.607,
+    "width": 13.58,
+    "depth": 13.58,
+    "height": 9.68,
+    "baseY": 6.652
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-054",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      237.63,
+      451.08
+    ],
+    "x": -861.636,
+    "z": 187.552,
+    "width": 16.25,
+    "depth": 14.09,
+    "height": 10.51,
+    "baseY": 2.17
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-055",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      238.7,
+      465.33
+    ],
+    "x": -860.149,
+    "z": 226.722,
+    "width": 11.58,
+    "depth": 9.7,
+    "height": 8.35,
+    "baseY": 2.23
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-056",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      478.52,
+      521.83
+    ],
+    "x": -507.081,
+    "z": 382.037,
+    "width": 16.7,
+    "depth": 13.14,
+    "height": 7.65,
+    "baseY": 2.001
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-057",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      111.36,
+      505.31
+    ],
+    "x": -999.705,
+    "z": 336.644,
+    "width": 16.27,
+    "depth": 12.51,
+    "height": 9.23,
+    "baseY": 1.874
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-058",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      380.17,
+      381.72
+    ],
+    "x": -649.179,
+    "z": -3.118,
+    "width": 14.07,
+    "depth": 9.29,
+    "height": 8.16,
+    "baseY": 3.883
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-059",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      479.3,
+      411.16
+    ],
+    "x": -506.283,
+    "z": 77.808,
+    "width": 13.67,
+    "depth": 14.56,
+    "height": 8.23,
+    "baseY": 3.738
+  },
+  {
+    "id": "CANAL_WEST_SOUTH-060",
+    "area": "CANAL_WEST_SOUTH",
+    "kind": "villa",
+    "sourcePx": [
+      480.26,
+      422.05
+    ],
+    "x": -505.287,
+    "z": 107.736,
+    "width": 11.24,
+    "depth": 12.59,
+    "height": 9.07,
+    "baseY": 3.732
+  },
+  {
+    "id": "CANAL_WEST_NORTH-001",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      266.04,
+      317.39
+    ],
+    "x": -822.038,
+    "z": -179.974,
+    "width": 11.93,
+    "depth": 9.08,
+    "height": 6.39,
+    "baseY": 2.15
+  },
+  {
+    "id": "CANAL_WEST_NORTH-002",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      363.04,
+      302.82
+    ],
+    "x": -680.882,
+    "z": -220.023,
+    "width": 14.52,
+    "depth": 10.67,
+    "height": 9.87,
+    "baseY": 2.512
+  },
+  {
+    "id": "CANAL_WEST_NORTH-003",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      321.82,
+      315.18
+    ],
+    "x": -744.285,
+    "z": -186.044,
+    "width": 11.77,
+    "depth": 13.05,
+    "height": 8.18,
+    "baseY": 2.207
+  },
+  {
+    "id": "CANAL_WEST_NORTH-004",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      208.8,
+      236.97
+    ],
+    "x": -898.396,
+    "z": -452.881,
+    "width": 12.09,
+    "depth": 13.36,
+    "height": 8.77,
+    "baseY": 1.973
+  },
+  {
+    "id": "CANAL_WEST_NORTH-005",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      250.9,
+      343.77
+    ],
+    "x": -843.134,
+    "z": -107.455,
+    "width": 11.66,
+    "depth": 10.31,
+    "height": 10.53,
+    "baseY": 2.08
+  },
+  {
+    "id": "CANAL_WEST_NORTH-006",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      310.6,
+      179.49
+    ],
+    "x": -759.919,
+    "z": -575.941,
+    "width": 14.55,
+    "depth": 11.88,
+    "height": 9.76,
+    "baseY": 2.057
+  },
+  {
+    "id": "CANAL_WEST_NORTH-007",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      236.61,
+      248.65
+    ],
+    "x": -863.053,
+    "z": -416.916,
+    "width": 14.86,
+    "depth": 12.04,
+    "height": 10.84,
+    "baseY": 0.653
+  },
+  {
+    "id": "CANAL_WEST_NORTH-008",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      309.72,
+      165.48
+    ],
+    "x": -761.153,
+    "z": -601.959,
+    "width": 14.41,
+    "depth": 13.82,
+    "height": 8.34,
+    "baseY": 1.918
+  },
+  {
+    "id": "CANAL_WEST_NORTH-009",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      307.92,
+      155.22
+    ],
+    "x": -763.662,
+    "z": -621.029,
+    "width": 11.17,
+    "depth": 12.5,
+    "height": 10.44,
+    "baseY": 1.839
+  },
+  {
+    "id": "CANAL_WEST_NORTH-010",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      295.98,
+      301.37
+    ],
+    "x": -780.296,
+    "z": -224.007,
+    "width": 15.38,
+    "depth": 9.55,
+    "height": 8.01,
+    "baseY": 2.381
+  },
+  {
+    "id": "CANAL_WEST_NORTH-011",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      321.28,
+      304.44
+    ],
+    "x": -745.035,
+    "z": -215.583,
+    "width": 11.68,
+    "depth": 9.84,
+    "height": 7.85,
+    "baseY": 2.413
+  },
+  {
+    "id": "CANAL_WEST_NORTH-012",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      338.83,
+      303.77
+    ],
+    "x": -720.569,
+    "z": -217.424,
+    "width": 13.77,
+    "depth": 9.48,
+    "height": 6.28,
+    "baseY": 2.463
+  },
+  {
+    "id": "CANAL_WEST_NORTH-013",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      253.07,
+      332.41
+    ],
+    "x": -840.119,
+    "z": -138.672,
+    "width": 14.78,
+    "depth": 13.49,
+    "height": 9.14,
+    "baseY": 2.098
+  },
+  {
+    "id": "CANAL_WEST_NORTH-014",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      179.87,
+      261.57
+    ],
+    "x": -927.94,
+    "z": -343.514,
+    "width": 15.18,
+    "depth": 9.77,
+    "height": 6.39,
+    "baseY": 1.672
+  },
+  {
+    "id": "CANAL_WEST_NORTH-015",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      294.27,
+      155.21
+    ],
+    "x": -782.691,
+    "z": -621.036,
+    "width": 16.29,
+    "depth": 12.05,
+    "height": 7.34,
+    "baseY": 1.849
+  },
+  {
+    "id": "CANAL_WEST_NORTH-016",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      207.2,
+      265.21
+    ],
+    "x": -900.031,
+    "z": -323.427,
+    "width": 16.23,
+    "depth": 12.07,
+    "height": 7.4,
+    "baseY": 1.847
+  },
+  {
+    "id": "CANAL_WEST_NORTH-017",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      278.86,
+      330.89
+    ],
+    "x": -804.159,
+    "z": -142.874,
+    "width": 15.13,
+    "depth": 14.18,
+    "height": 10.54,
+    "baseY": 2.039
+  },
+  {
+    "id": "CANAL_WEST_NORTH-018",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      262.94,
+      305.79
+    ],
+    "x": -826.356,
+    "z": -211.876,
+    "width": 16.78,
+    "depth": 12.29,
+    "height": 10.09,
+    "baseY": 2.213
+  },
+  {
+    "id": "CANAL_WEST_NORTH-019",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      279.02,
+      347.01
+    ],
+    "x": -803.937,
+    "z": -98.539,
+    "width": 14.86,
+    "depth": 12.56,
+    "height": 6.55,
+    "baseY": 0.896
+  },
+  {
+    "id": "CANAL_WEST_NORTH-020",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      239.37,
+      356.61
+    ],
+    "x": -859.211,
+    "z": -72.167,
+    "width": 13.02,
+    "depth": 14.34,
+    "height": 7.61,
+    "baseY": 2.15
+  },
+  {
+    "id": "CANAL_WEST_NORTH-021",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      264.35,
+      346.9
+    ],
+    "x": -824.384,
+    "z": -98.848,
+    "width": 13.41,
+    "depth": 11.82,
+    "height": 8.22,
+    "baseY": 1.677
+  },
+  {
+    "id": "CANAL_WEST_NORTH-022",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      339.11,
+      319.3
+    ],
+    "x": -720.183,
+    "z": -174.722,
+    "width": 13.55,
+    "depth": 10.02,
+    "height": 10.32,
+    "baseY": 1.325
+  },
+  {
+    "id": "CANAL_WEST_NORTH-023",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      291.84,
+      164.9
+    ],
+    "x": -786.066,
+    "z": -603.039,
+    "width": 15.05,
+    "depth": 12.19,
+    "height": 8.15,
+    "baseY": 1.913
+  },
+  {
+    "id": "CANAL_WEST_NORTH-024",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      364.89,
+      289.16
+    ],
+    "x": -677.461,
+    "z": -257.58,
+    "width": 12.27,
+    "depth": 11.38,
+    "height": 9.05,
+    "baseY": 2.872
+  },
+  {
+    "id": "CANAL_WEST_NORTH-025",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      250.68,
+      317.51
+    ],
+    "x": -843.442,
+    "z": -179.645,
+    "width": 15.33,
+    "depth": 13.29,
+    "height": 6.22,
+    "baseY": 2.141
+  },
+  {
+    "id": "CANAL_WEST_NORTH-026",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      280.55,
+      303.75
+    ],
+    "x": -801.811,
+    "z": -217.483,
+    "width": 15.82,
+    "depth": 13.29,
+    "height": 10.44,
+    "baseY": 2.292
+  },
+  {
+    "id": "CANAL_WEST_NORTH-027",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      277.51,
+      318.48
+    ],
+    "x": -806.048,
+    "z": -176.975,
+    "width": 11.05,
+    "depth": 12.37,
+    "height": 9.85,
+    "baseY": 2.148
+  },
+  {
+    "id": "CANAL_WEST_NORTH-028",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      353.06,
+      305.89
+    ],
+    "x": -699.338,
+    "z": -211.584,
+    "width": 13.55,
+    "depth": 11.19,
+    "height": 6.57,
+    "baseY": 2.442
+  },
+  {
+    "id": "CANAL_WEST_NORTH-029",
+    "area": "CANAL_WEST_NORTH",
+    "kind": "villa",
+    "sourcePx": [
+      222.71,
+      250.07
+    ],
+    "x": -882.44,
+    "z": -408.878,
+    "width": 12.89,
+    "depth": 9.68,
+    "height": 6.97,
+    "baseY": 1.934
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-001",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      943.58,
+      198.23
+    ],
+    "x": 369.728,
+    "z": -541.145,
+    "width": 18.85,
+    "depth": 17.34,
+    "height": 15.7,
+    "baseY": 1.084
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-002",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      901.9,
+      225.57
+    ],
+    "x": 284.381,
+    "z": -479.222,
+    "width": 21.94,
+    "depth": 18.03,
+    "height": 10.58,
+    "baseY": 2.098
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-003",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      799.63,
+      214.34
+    ],
+    "x": 74.995,
+    "z": -505.172,
+    "width": 19.78,
+    "depth": 20.06,
+    "height": 17.24,
+    "baseY": 2.055
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-004",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      798.45,
+      225.17
+    ],
+    "x": 72.575,
+    "z": -480.132,
+    "width": 19.74,
+    "depth": 17.83,
+    "height": 14.22,
+    "baseY": 1.955
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-005",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      886.57,
+      213.17
+    ],
+    "x": 253.005,
+    "z": -507.872,
+    "width": 18.7,
+    "depth": 19.8,
+    "height": 9.6,
+    "baseY": 1.162
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-006",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      886.14,
+      225.66
+    ],
+    "x": 252.118,
+    "z": -479.003,
+    "width": 22.34,
+    "depth": 23.08,
+    "height": 9.84,
+    "baseY": 2.014
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-007",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      798.63,
+      199.16
+    ],
+    "x": 72.949,
+    "z": -539.41,
+    "width": 23.22,
+    "depth": 19.1,
+    "height": 13.05,
+    "baseY": 2.202
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-008",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      944.57,
+      211.39
+    ],
+    "x": 371.737,
+    "z": -511.985,
+    "width": 17.42,
+    "depth": 18.49,
+    "height": 14.75,
+    "baseY": 1.124
+  },
+  {
+    "id": "CIVIC_NORTH_EDGE-009",
+    "area": "CIVIC_NORTH_EDGE",
+    "kind": "civic",
+    "sourcePx": [
+      842.39,
+      224.62
+    ],
+    "x": 162.549,
+    "z": -481.412,
+    "width": 15.46,
+    "depth": 23.5,
+    "height": 10.32,
+    "baseY": 1.888
+  },
+  {
+    "id": "EAST_DOWNTOWN_EDGE-001",
+    "area": "EAST_DOWNTOWN_EDGE",
+    "kind": "midrise",
+    "sourcePx": [
+      952.21,
+      514.18
+    ],
+    "x": 387.394,
+    "z": 361.013,
+    "width": 17.75,
+    "depth": 20.38,
+    "height": 30.46,
+    "baseY": 0.307
+  },
+  {
+    "id": "EAST_DOWNTOWN_EDGE-002",
+    "area": "EAST_DOWNTOWN_EDGE",
+    "kind": "midrise",
+    "sourcePx": [
+      1010.69,
+      317.65
+    ],
+    "x": 509.393,
+    "z": -179.256,
+    "width": 17.57,
+    "depth": 19.2,
+    "height": 37.95,
+    "baseY": 4.256
+  },
+  {
+    "id": "NORTHWEST_PORT-001",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      297.72,
+      140.37
+    ],
+    "x": -777.869,
+    "z": -648.603,
+    "width": 20.06,
+    "depth": 22.28,
+    "height": 9.1,
+    "baseY": 1.767
+  },
+  {
+    "id": "NORTHWEST_PORT-002",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      316.91,
+      118.22
+    ],
+    "x": -751.132,
+    "z": -689.734,
+    "width": 20.74,
+    "depth": 18.82,
+    "height": 7.07,
+    "baseY": 1.679
+  },
+  {
+    "id": "NORTHWEST_PORT-003",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      229.02,
+      95.58
+    ],
+    "x": -873.643,
+    "z": -731.232,
+    "width": 16.56,
+    "depth": 24.4,
+    "height": 6.45,
+    "baseY": 2.254
+  },
+  {
+    "id": "NORTHWEST_PORT-004",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      337.68,
+      141.81
+    ],
+    "x": -722.172,
+    "z": -645.927,
+    "width": 22.8,
+    "depth": 20.94,
+    "height": 8.37,
+    "baseY": 1.917
+  },
+  {
+    "id": "NORTHWEST_PORT-005",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      164.83,
+      206.84
+    ],
+    "x": -943.296,
+    "z": -522.496,
+    "width": 24.41,
+    "depth": 17.07,
+    "height": 7.65,
+    "baseY": 1.77
+  },
+  {
+    "id": "NORTHWEST_PORT-006",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      275.93,
+      74.91
+    ],
+    "x": -808.252,
+    "z": -768.85,
+    "width": 24.38,
+    "depth": 18.19,
+    "height": 9.32,
+    "baseY": 1.845
+  },
+  {
+    "id": "NORTHWEST_PORT-007",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      297.52,
+      51.63
+    ],
+    "x": -778.15,
+    "z": -811.205,
+    "width": 24.64,
+    "depth": 19.64,
+    "height": 7.4,
+    "baseY": 1.76
+  },
+  {
+    "id": "NORTHWEST_PORT-008",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      186.18,
+      73.18
+    ],
+    "x": -921.501,
+    "z": -771.998,
+    "width": 21.93,
+    "depth": 17.1,
+    "height": 9.6,
+    "baseY": 1.77
+  },
+  {
+    "id": "NORTHWEST_PORT-009",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      317.44,
+      140.92
+    ],
+    "x": -750.383,
+    "z": -647.584,
+    "width": 20.19,
+    "depth": 24.06,
+    "height": 8.77,
+    "baseY": 1.769
+  },
+  {
+    "id": "NORTHWEST_PORT-010",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      272.56,
+      139.71
+    ],
+    "x": -812.945,
+    "z": -649.832,
+    "width": 22.56,
+    "depth": 19.17,
+    "height": 7.36,
+    "baseY": 1.889
+  },
+  {
+    "id": "NORTHWEST_PORT-011",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      337.91,
+      119.08
+    ],
+    "x": -721.858,
+    "z": -688.146,
+    "width": 17.42,
+    "depth": 13.96,
+    "height": 6.88,
+    "baseY": 1.803
+  },
+  {
+    "id": "NORTHWEST_PORT-012",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      340.69,
+      183.38
+    ],
+    "x": -717.981,
+    "z": -568.724,
+    "width": 17.75,
+    "depth": 23.93,
+    "height": 7,
+    "baseY": 2.328
+  },
+  {
+    "id": "NORTHWEST_PORT-013",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      275.1,
+      52.43
+    ],
+    "x": -809.403,
+    "z": -809.746,
+    "width": 22.63,
+    "depth": 17.18,
+    "height": 9.56,
+    "baseY": 1.713
+  },
+  {
+    "id": "NORTHWEST_PORT-014",
+    "area": "NORTHWEST_PORT",
+    "kind": "warehouse",
+    "sourcePx": [
+      294.96,
+      119.09
+    ],
+    "x": -781.725,
+    "z": -688.125,
+    "width": 26.84,
+    "depth": 17.73,
+    "height": 7.05,
+    "baseY": 1.702
+  },
+  {
+    "id": "AIRFIELD_PERIMETER_EAST-001",
+    "area": "AIRFIELD_PERIMETER_EAST",
+    "kind": "service",
+    "sourcePx": [
+      971.68,
+      637.34
+    ],
+    "x": 427.247,
+    "z": 635.051,
+    "width": 19.96,
+    "depth": 16.14,
+    "height": 6.75,
+    "baseY": 2.04
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-001",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1291.53,
+      253.01
+    ],
+    "x": 1038.506,
+    "z": -392.158,
+    "width": 11.17,
+    "depth": 10.08,
+    "height": 7.98,
+    "baseY": 3.262
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-002",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1317.55,
+      168.6
+    ],
+    "x": 1081.141,
+    "z": -596.174,
+    "width": 11.11,
+    "depth": 14.1,
+    "height": 13.63,
+    "baseY": 1.885
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-003",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1328.83,
+      155.61
+    ],
+    "x": 1099.619,
+    "z": -620.288,
+    "width": 14.17,
+    "depth": 13.6,
+    "height": 8.22,
+    "baseY": 1.906
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-004",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1292.98,
+      264.38
+    ],
+    "x": 1040.88,
+    "z": -327.497,
+    "width": 15.61,
+    "depth": 12.51,
+    "height": 13.57,
+    "baseY": 4.046
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-005",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1318.27,
+      264.26
+    ],
+    "x": 1082.318,
+    "z": -328.223,
+    "width": 14.13,
+    "depth": 11.43,
+    "height": 13.04,
+    "baseY": 6.072
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-006",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1317.34,
+      142.32
+    ],
+    "x": 1080.786,
+    "z": -644.968,
+    "width": 13.13,
+    "depth": 13.67,
+    "height": 13.26,
+    "baseY": 1.768
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-007",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1305.6,
+      263.33
+    ],
+    "x": 1061.55,
+    "z": -333.491,
+    "width": 12.24,
+    "depth": 14.03,
+    "height": 9.63,
+    "baseY": 5.093
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-008",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1304.26,
+      153.5
+    ],
+    "x": 1059.362,
+    "z": -624.223,
+    "width": 16.62,
+    "depth": 14.17,
+    "height": 9.9,
+    "baseY": 1.723
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-009",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1304.97,
+      143.14
+    ],
+    "x": 1060.524,
+    "z": -643.457,
+    "width": 14.01,
+    "depth": 13.47,
+    "height": 9.28,
+    "baseY": 1.675
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-010",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1342.33,
+      265.59
+    ],
+    "x": 1121.728,
+    "z": -322.384,
+    "width": 11.09,
+    "depth": 10.09,
+    "height": 6.4,
+    "baseY": 5.644
+  },
+  {
+    "id": "COASTAL_RESORT_ISLANDS-011",
+    "area": "COASTAL_RESORT_ISLANDS",
+    "kind": "resort",
+    "sourcePx": [
+      1316.26,
+      157.86
+    ],
+    "x": 1079.02,
+    "z": -616.118,
+    "width": 13.67,
+    "depth": 11.5,
+    "height": 8.32,
+    "baseY": 1.822
+  }
+]

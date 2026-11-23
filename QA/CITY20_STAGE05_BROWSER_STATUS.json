@@ -1,0 +1,11 @@
+{
+  "stage": 5,
+  "testTimestamp": "2026-11-21",
+  "attempted": true,
+  "status": "Chromium headless failed to complete in the container; did not render or compile live WebGL successfully.",
+  "native1920x1080FpsAtLeast50Verified": false,
+  "shaderCompilesOnUserGpuVerified": false,
+  "safeFallback": "If optimized water shader compile fails, the engine catches the error and compiles original water shader.",
+  "userTest": ["START_GAME.html?city20qa=1", "START_GAME.html?city20qa=1&city20waterOff=1"],
+  "note": "Do not interpret successful CPU world tests, static GLSL source tests or construction timings as GPU frame-rate measurements."
+}

@@ -1,0 +1,55 @@
+{
+  "stage": 22,
+  "kind": "browser-UI-fixture-only",
+  "createdAt": "2026-11-22T20:37:01.605283+00:00",
+  "hardwareBenchmarkPerformed": false,
+  "checks": [
+    {
+      "name": "benchmark_panel_visible_only_in_optin_fixture",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "six_scene_options_present",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "wrong_scene_cannot_be_started",
+      "pass": true,
+      "detail": "מצב השחקן אינו מתאים לסצנה: צריך הליכה, נהיגה או לובי בהתאם לבחירה."
+    },
+    {
+      "name": "start_button_starts_warmup",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "stop_button_enabled_while_running",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "manual_stop_records_one_unverified_result",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "no_gpu_never_passes",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "browser_json_report_downloads",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "report_does_not_claim_unverified_hardware",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "passed": 9,
+  "total": 9
+}

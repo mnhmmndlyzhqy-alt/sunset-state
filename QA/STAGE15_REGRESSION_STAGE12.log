@@ -1,0 +1,8 @@
+FAIL no_visual_meshes_added_by_stage12 ""
+Stage12 acceptance 1475/1476 failed: 1
+[
+  {
+    "id": "no_visual_meshes_added_by_stage12",
+    "pass": false
+  }
+]

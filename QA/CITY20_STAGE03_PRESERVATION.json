@@ -1,0 +1,22 @@
+{
+  "project": "SUNSET STATE CITY20",
+  "stage": 3,
+  "originalStage02ArchiveEntries": 129,
+  "preservedStage02Entries": 129,
+  "unchangedOriginalEntries": 122,
+  "modifiedDocumentationOrIntegration": [
+    "PROJECT/CITY20_PROGRESS.json",
+    "QA/CITY20_STAGE02_ACCEPTANCE.json",
+    "QA/SUNSET_STATE_4_7_9_CPU_ACCEPTANCE.json",
+    "QA/city20_browser_benchmark.js",
+    "QA/run_stage02_acceptance.cjs",
+    "README_CITY20_HE.md",
+    "START_GAME.html"
+  ],
+  "removedOriginalFiles": [],
+  "allOriginalGameAssetsIdentical": true,
+  "unchangedEngine44": true,
+  "unchangedStage02Implementation": true,
+  "singleArchiveUpdatedInPlace": true,
+  "newAndModifiedFilesLimitedToStage03AndReports": true
+}

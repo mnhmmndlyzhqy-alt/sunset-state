@@ -1,0 +1,195 @@
+{
+  "scope": "Game constructor/start/HUD/90 CPU frames/tick/lobby/real lift and optional QA panel with FAKE DOM/RENDERER; NOT BROWSER, NOT GPU, NOT FPS",
+  "date": "2026-11-22",
+  "total": 30,
+  "passed": 30,
+  "results": [
+    {
+      "name": "game_constructor_no_error",
+      "pass": true,
+      "data": {
+        "error": null
+      }
+    },
+    {
+      "name": "actual_world_built",
+      "pass": true,
+      "data": {
+        "boxes": 187700,
+        "roads": 52,
+        "portals": 299
+      }
+    },
+    {
+      "name": "correct_spawning_population",
+      "pass": true,
+      "data": {
+        "population": 238
+      }
+    },
+    {
+      "name": "bright_cycle_disabled_on_start",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "start_game_no_error",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "normal_start_on_foot",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "optional_day_night_cycle_advances_clock",
+      "pass": true,
+      "data": {
+        "before": 12.25,
+        "after": 12.2507
+      }
+    },
+    {
+      "name": "stopped_cycle_holds_hour",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "starting_map_reference_present",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "nearby_real_portal_detected",
+      "pass": true,
+      "data": {
+        "id": 0,
+        "selected": 0
+      }
+    },
+    {
+      "name": "real_lobby_entered",
+      "pass": true,
+      "data": {
+        "portal": 0
+      }
+    },
+    {
+      "name": "cannot_use_lift_from_corridor",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "lift_control_works_at_car",
+      "pass": true,
+      "data": {
+        "opened": true
+      }
+    },
+    {
+      "name": "lift_starts_at_real_portal",
+      "pass": true,
+      "data": {
+        "began": true,
+        "maximum": 7
+      }
+    },
+    {
+      "name": "lift_reaches_floor_one",
+      "pass": true,
+      "data": {
+        "floor": 1
+      }
+    },
+    {
+      "name": "lift_returns_to_lobby",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "lift_reaches_ground_floor",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "building_exit_transition_started",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "building_exited_to_street",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "HUD_update_real_game_no_error",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "90_real_game_logic_frames_no_error",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "avatar_moved_with_W",
+      "pass": true,
+      "data": {
+        "begin": {
+          "x": -82.5,
+          "z": -54
+        },
+        "after": {
+          "x": -82.5,
+          "z": -72.07525759594797
+        }
+      }
+    },
+    {
+      "name": "all_NPC_positions_finite",
+      "pass": true,
+      "data": {
+        "count": 238
+      }
+    },
+    {
+      "name": "day_still_paused_without_toggle",
+      "pass": true,
+      "data": {
+        "hour": 12.25,
+        "cycle": false
+      }
+    },
+    {
+      "name": "tick_without_webgl_no_error",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "QA_panel_absent_in_normal_game",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "QA_panel_opt_in_loads",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "QA_collapse_keeps_reopen_button_visible",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "QA_reopen_controls_works",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "QA_live_export_reads_real_game_state",
+      "pass": true,
+      "data": null
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "stage": 27,
+  "passed": 8,
+  "total": 8,
+  "checks": [
+    {
+      "name": "cross-road rail guards do not teleport a car",
+      "passed": true
+    },
+    {
+      "name": "legitimate same-road contact continues original rail physics",
+      "passed": true
+    },
+    {
+      "name": "route mismatch guard excludes unrelated bridge",
+      "passed": true
+    },
+    {
+      "name": "normal bridge parapet full-height",
+      "passed": true
+    },
+    {
+      "name": "approach parapet tapers below full height",
+      "passed": true
+    },
+    {
+      "name": "AB switch retains stage26 bridge guard",
+      "passed": true
+    },
+    {
+      "name": "AB switch retains old parapet size",
+      "passed": true
+    },
+    {
+      "name": "AB switch leaves road reconciliation disabled",
+      "passed": true
+    }
+  ],
+  "fail": []
+}

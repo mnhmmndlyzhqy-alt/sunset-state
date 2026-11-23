@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUNSET STATE — השוואת רינדור שלב 37</title>
+<style>body{margin:0;min-height:100vh;background:#131f2b;color:#f5f4e9;font:16px/1.65 system-ui,Arial,sans-serif;padding:clamp(18px,4vw,48px);box-sizing:border-box}main{max-width:760px;margin:auto}h1{font-size:2rem;margin:0 0 18px}p{color:#c5d2d5}a{display:inline-block;background:#357b90;color:white;text-decoration:none;font-weight:700;padding:13px 19px;border-radius:9px;margin:8px 4px;border:1px solid #81bac4}a:hover,a:focus{background:#4698b0}section{border:1px solid #49606a;background:#1d2d3b;padding:18px;border-radius:12px;margin:15px 0}strong{color:white}small{color:#a1b5c2}code{background:#111b24;color:#adffde;padding:3px 6px;border-radius:4px}</style></head>
+<body><main><h1>SUNSET STATE — שלב 37: השוואת רינדור</h1>
+<p>כלי בדיקה מקומי. בשתי ההפעלות מודדים באותו מחשב, באותה רזולוציה ובאותן שש סצנות. המטרה היא להשוות קריאות ציור, זמן CPU ו־FPS בצורה מבוקרת.</p>
+<section><h2>א. רינדור משופר</h2><p>האינדקס המספרי ותזמון העלאות הגאומטריה פעילים.</p><a href="index.html?stage36qa=1">פתח משחק עם השיפור</a></section>
+<section><h2>ב. רינדור מקורי (ביקורת)</h2><p>השדרוג של שלב 37 כבוי; יתר המשחק נשאר זהה.</p><a href="index.html?stage36qa=1&amp;stage37RenderOff=1">פתח משחק בגרסת הביקורת</a></section>
+<section><h2>מה לבדוק</h2><p>בחר אותם שישה מצבי מצלמה, הפעל את מדידת שלב 36 למשך 20 שניות בכל מצב, שמור JSON/CSV והשווה p50/p95 של זמני הפריימים, קריאות הציור וההעלאות. הרץ לפחות שלושה סבבים כדי להפחית שונות.</p><p>השווה ב־1920×1080 עם אותו מצב איכות. אם מופיע הבדל חזותי או האטה, שמור את הביקורת פעילה עם <code>?stage37RenderOff=1</code>.</p>
+<small>אין בדף זה מדידה אוטומטית של חומרה או הבטחת 50FPS. אינו שולח נתונים לרשת.</small></section>
+<p><a href="STAGE36_BENCHMARK_GUIDE.html">מדריך הבדיקות של שלב 36</a></p>
+</main></body></html>

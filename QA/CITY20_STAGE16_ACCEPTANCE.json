@@ -1,0 +1,17 @@
+{
+  "stage": 16,
+  "tests": 23,
+  "passed": true,
+  "syntheticWorldStats": {
+    "stage": 16,
+    "treeClusters": 2,
+    "trees": 8,
+    "shrubs": 10,
+    "planterGreens": 596,
+    "geometryAdded": 622,
+    "collisionsAdded": 0,
+    "roadsChanged": 0,
+    "portalsChanged": 0,
+    "gpuFpsVerified": false
+  }
+}

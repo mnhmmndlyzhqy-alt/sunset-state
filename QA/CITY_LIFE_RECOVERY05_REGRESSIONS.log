@@ -1,0 +1,7 @@
+PASS run_animal_recovery03.cjs 0.2s
+PASS run_city_life_recovery05.cjs 7.9s
+PASS run_city_life_recovery05_crowd.cjs 9.6s
+PASS run_interior_recovery02.cjs 0.0s
+PASS run_stage01_baseline.cjs 6.4s
+PASS run_deep_audit_acceptance.cjs 15.0s
+PASS run_stage02_acceptance.cjs 11.9s

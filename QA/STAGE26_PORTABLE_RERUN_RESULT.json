@@ -1,0 +1,37 @@
+{
+  "stage": 26,
+  "notes": "Re-executes actual original Node scripts with fake renderer; historic QA files restored. Not GPU or browser validation.",
+  "complete": true,
+  "runs": [
+    {
+      "script": "QA/run_stage21_high_speed_acceptance.cjs",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedSeconds": 0.5,
+      "stdoutTail": "STAGE21 ACCEPTANCE 39/39 failed 0\n",
+      "stderrTail": "",
+      "gpuOrVisualValidated": false,
+      "historicalReportFilesRestored": true
+    },
+    {
+      "script": "QA/run_stage22_benchmark_acceptance.cjs",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedSeconds": 0.13,
+      "stdoutTail": "{\n  \"passed\": 52,\n  \"total\": 52,\n  \"allPassed\": true,\n  \"failures\": []\n}\n",
+      "stderrTail": "",
+      "gpuOrVisualValidated": false,
+      "historicalReportFilesRestored": true
+    },
+    {
+      "script": "QA/run_stage23_profiler_acceptance.cjs",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedSeconds": 0.11,
+      "stdoutTail": "{\n  \"passed\": 51,\n  \"total\": 51,\n  \"failures\": []\n}\n",
+      "stderrTail": "",
+      "gpuOrVisualValidated": false,
+      "historicalReportFilesRestored": true
+    }
+  ]
+}

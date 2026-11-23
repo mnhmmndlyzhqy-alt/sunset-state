@@ -1,0 +1,378 @@
+{
+  "source_sha256": "70661c8d758cc9928554025e9b388d6bd729598ef7ff132297f91a3499d355c7",
+  "hi_source_triangles": 195560,
+  "mid": {
+    "asset": "crocodile_mid",
+    "bytes_glb": 5711252,
+    "bytes_js": 5966237,
+    "triangles_source": 195560,
+    "triangles_lod": 64156,
+    "draw_meshes": 24,
+    "rig_nodes": 50,
+    "skins": 2,
+    "clips": [
+      "IDLE",
+      "WALK",
+      "SWIM",
+      "DIVE",
+      "BITE"
+    ],
+    "images": [
+      {
+        "name": "body_albedo",
+        "size": [
+          1024,
+          512
+        ],
+        "bytes": 76802
+      },
+      {
+        "name": "body_normal",
+        "size": [
+          1024,
+          512
+        ],
+        "bytes": 990259
+      },
+      {
+        "name": "body_orm",
+        "size": [
+          1024,
+          512
+        ],
+        "bytes": 555513
+      },
+      {
+        "name": "head_albedo",
+        "size": [
+          768,
+          384
+        ],
+        "bytes": 52084
+      },
+      {
+        "name": "head_normal",
+        "size": [
+          768,
+          384
+        ],
+        "bytes": 627070
+      },
+      {
+        "name": "head_orm",
+        "size": [
+          768,
+          384
+        ],
+        "bytes": 354338
+      },
+      {
+        "name": "limb_albedo",
+        "size": [
+          512,
+          256
+        ],
+        "bytes": 21617
+      },
+      {
+        "name": "limb_normal",
+        "size": [
+          512,
+          256
+        ],
+        "bytes": 291732
+      },
+      {
+        "name": "limb_orm",
+        "size": [
+          512,
+          256
+        ],
+        "bytes": 168677
+      }
+    ],
+    "geometry": [
+      {
+        "mesh": 0,
+        "triangles_before": 115368,
+        "triangles_after": 39033,
+        "vertices_after": 19482
+      },
+      {
+        "mesh": 1,
+        "triangles_before": 27027,
+        "triangles_after": 7875,
+        "vertices_after": 6672
+      },
+      {
+        "mesh": 2,
+        "triangles_before": 852,
+        "triangles_after": 814,
+        "vertices_after": 874
+      },
+      {
+        "mesh": 3,
+        "triangles_before": 20736,
+        "triangles_after": 6152,
+        "vertices_after": 3111
+      },
+      {
+        "mesh": 4,
+        "triangles_before": 896,
+        "triangles_after": 888,
+        "vertices_after": 487
+      },
+      {
+        "mesh": 5,
+        "triangles_before": 7760,
+        "triangles_after": 4084,
+        "vertices_after": 2082
+      },
+      {
+        "mesh": 6,
+        "triangles_before": 816,
+        "triangles_after": 806,
+        "vertices_after": 447
+      },
+      {
+        "mesh": 7,
+        "triangles_before": 480,
+        "triangles_after": 352,
+        "vertices_after": 99
+      },
+      {
+        "mesh": 8,
+        "triangles_before": 1620,
+        "triangles_after": 1099,
+        "vertices_after": 852
+      },
+      {
+        "mesh": 9,
+        "triangles_before": 1620,
+        "triangles_after": 1118,
+        "vertices_after": 860
+      },
+      {
+        "mesh": 10,
+        "triangles_before": 64,
+        "triangles_after": 18,
+        "vertices_after": 22
+      },
+      {
+        "mesh": 11,
+        "triangles_before": 64,
+        "triangles_after": 12,
+        "vertices_after": 16
+      },
+      {
+        "mesh": 12,
+        "triangles_before": 64,
+        "triangles_after": 4,
+        "vertices_after": 6
+      },
+      {
+        "mesh": 13,
+        "triangles_before": 36,
+        "triangles_after": 36,
+        "vertices_after": 38
+      },
+      {
+        "mesh": 14,
+        "triangles_before": 136,
+        "triangles_after": 10,
+        "vertices_after": 23
+      },
+      {
+        "mesh": 15,
+        "triangles_before": 880,
+        "triangles_after": 52,
+        "vertices_after": 30
+      },
+      {
+        "mesh": 16,
+        "triangles_before": 792,
+        "triangles_after": 8,
+        "vertices_after": 8
+      },
+      {
+        "mesh": 17,
+        "triangles_before": 14308,
+        "triangles_after": 1153,
+        "vertices_after": 1546
+      },
+      {
+        "mesh": 18,
+        "triangles_before": 1008,
+        "triangles_after": 2,
+        "vertices_after": 3
+      },
+      {
+        "mesh": 19,
+        "triangles_before": 385,
+        "triangles_after": 226,
+        "vertices_after": 284
+      },
+      {
+        "mesh": 20,
+        "triangles_before": 180,
+        "triangles_after": 122,
+        "vertices_after": 105
+      },
+      {
+        "mesh": 21,
+        "triangles_before": 180,
+        "triangles_after": 122,
+        "vertices_after": 105
+      },
+      {
+        "mesh": 22,
+        "triangles_before": 144,
+        "triangles_after": 85,
+        "vertices_after": 76
+      },
+      {
+        "mesh": 23,
+        "triangles_before": 144,
+        "triangles_after": 85,
+        "vertices_after": 76
+      }
+    ],
+    "sha256": "2c8aba33d7b1ceef46fa352986c8f6e242661667ce2d822ab82581b1e5f3a54a"
+  },
+  "far": {
+    "asset": "crocodile_far",
+    "bytes_glb": 1207408,
+    "bytes_js": 1223029,
+    "triangles_source": 186436,
+    "triangles_lod": 9532,
+    "draw_meshes": 7,
+    "rig_nodes": 50,
+    "skins": 2,
+    "clips": [
+      "IDLE",
+      "WALK",
+      "SWIM",
+      "DIVE",
+      "BITE"
+    ],
+    "images": [
+      {
+        "name": "body_albedo",
+        "size": [
+          448,
+          224
+        ],
+        "bytes": 19049
+      },
+      {
+        "name": "body_normal",
+        "size": [
+          448,
+          224
+        ],
+        "bytes": 199241
+      },
+      {
+        "name": "body_orm",
+        "size": [
+          448,
+          224
+        ],
+        "bytes": 143745
+      },
+      {
+        "name": "head_albedo",
+        "size": [
+          336,
+          168
+        ],
+        "bytes": 12572
+      },
+      {
+        "name": "head_normal",
+        "size": [
+          336,
+          168
+        ],
+        "bytes": 118416
+      },
+      {
+        "name": "head_orm",
+        "size": [
+          336,
+          168
+        ],
+        "bytes": 83759
+      },
+      {
+        "name": "limb_albedo",
+        "size": [
+          224,
+          112
+        ],
+        "bytes": 4953
+      },
+      {
+        "name": "limb_normal",
+        "size": [
+          224,
+          112
+        ],
+        "bytes": 53504
+      },
+      {
+        "name": "limb_orm",
+        "size": [
+          224,
+          112
+        ],
+        "bytes": 40039
+      }
+    ],
+    "geometry": [
+      {
+        "mesh": 0,
+        "triangles_before": 115368,
+        "triangles_after": 6288,
+        "vertices_after": 3093
+      },
+      {
+        "mesh": 1,
+        "triangles_before": 27027,
+        "triangles_after": 1140,
+        "vertices_after": 989
+      },
+      {
+        "mesh": 2,
+        "triangles_before": 852,
+        "triangles_after": 264,
+        "vertices_after": 345
+      },
+      {
+        "mesh": 3,
+        "triangles_before": 20736,
+        "triangles_after": 932,
+        "vertices_after": 485
+      },
+      {
+        "mesh": 5,
+        "triangles_before": 7760,
+        "triangles_after": 728,
+        "vertices_after": 385
+      },
+      {
+        "mesh": 17,
+        "triangles_before": 14308,
+        "triangles_after": 155,
+        "vertices_after": 208
+      },
+      {
+        "mesh": 19,
+        "triangles_before": 385,
+        "triangles_after": 25,
+        "vertices_after": 37
+      }
+    ],
+    "sha256": "84675a5cfcf2ec23afc626f31f170c2c1593a103b91bb7e6d8cf885b522b74e5"
+  }
+}

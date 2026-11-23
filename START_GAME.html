@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="he"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+<meta name="theme-color" content="#244649"><title>SUNSET STATE 4.7.9 — מפת סאנסט</title>
+<!-- Stage 21: Vehicle Physics and Collision Damage remain in the cumulative Stage 23 build. -->
+<!-- Stage 31 imports actual user INTERCEPTOR GLB geometry, retains all city mission systems, and adds civilian color variants plus TAXI sign. -->
+<style>
+:root{--ice:#70d2d0;--amber:#f9ae76;--coral:#ee805a;--glass:#192a34cd;--percent:0%}
+*{box-sizing:border-box}html,body{margin:0;height:100%;width:100%;overflow:hidden;background:#916679;color:#fff1de;font-family:Arial,sans-serif}#delivery-route476[hidden]{display:none!important}
+#delivery-route476{position:absolute;z-index:6;right:22px;bottom:23px;max-width:345px;
+ display:flex;gap:6px;flex-direction:column;border:1px solid #99c9c54a;
+ background:#102f3be8;color:#f3f6e5;padding:11px 14px;border-radius:13px;
+ font-size:13px;line-height:1.5;box-shadow:0 6px 18px #0914215c}
+#delivery-route476 strong{font-size:15px}
+#delivery-route476 button{border:1px solid #ffffff55;border-radius:7px;color:inherit;
+ background:#4b696a;padding:7px 11px;cursor:pointer}
+@media(max-width:700px){#delivery-route476{right:8px;bottom:169px;max-width:55vw;font-size:11px}}
+canvas#game{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;filter:saturate(1.055) contrast(1.065)}
+body::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 52% 43%,transparent 55%,#29354215 93%,#13253522 100%),linear-gradient(0deg,#19202b23 0%,transparent 20%,transparent 91%,#2432410e 100%)}.hidden{display:none!important}
+button{border:0;color:#e9fcff;cursor:pointer;display:grid;place-items:center;background:none;transition:transform .15s,background .15s}button:hover{transform:scale(1.075)}button:focus-visible,input:focus-visible{outline:2px solid var(--ice);outline-offset:3px}svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#hud{position:absolute;inset:0;pointer-events:none;z-index:4}#hud button,#hud input{pointer-events:auto}
+.hud-top{display:flex;justify-content:space-between;align-items:flex-start;padding:29px 30px;gap:15px}.heat-panel{padding:12px 16px;background:var(--glass);border:1px solid #d2f5ff1c;border-radius:14px;box-shadow:0 8px 32px #0003;backdrop-filter:blur(10px);display:flex;align-items:center;gap:10px}.chase-symbol{width:21px;height:21px;opacity:.87;color:var(--amber);margin-right:3px}.lamps{display:flex;gap:8px;align-items:center}.lamps i{display:block;width:19px;height:19px;border-radius:4px;transform:rotate(45deg) scale(.73);border:1.7px solid #afbdc370;background:#182239;transition:background .28s,box-shadow .28s}.lamps i.active{background:var(--amber);border-color:#fff0c7;box-shadow:0 0 14px #ff4fafaf,0 0 25px #f72e8d6b}
+.hud-actions{display:flex;align-items:center;gap:7px;background:var(--glass);border:1px solid #d2f5ff1c;border-radius:13px;padding:7px;box-shadow:0 8px 32px #0003;backdrop-filter:blur(10px)}.icon-button{width:39px;height:39px;border-radius:10px;padding:8px;color:#b4d4df}.icon-button:hover{background:#b0dbec20;color:white}.sound-slider{width:80px;appearance:none;background:#557180;height:4px;border-radius:10px;cursor:pointer;accent-color:var(--ice);margin:0 10px 0 3px}.sound-slider::-webkit-slider-thumb{appearance:none;width:13px;height:13px;background:#b1edf1;border:2px solid #153744;border-radius:50%}
+.hud-bottom{position:absolute;bottom:28px;left:30px;right:30px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px}.map-shell{border-radius:18px;background:var(--glass);border:1px solid #a2dbed25;box-shadow:0 9px 35px #0006;padding:7px;overflow:hidden;backdrop-filter:blur(12px)}.map-shell canvas{display:block;width:160px;height:160px;border-radius:11px;opacity:.97}
+.right-gauge{display:flex;align-items:end;gap:16px}.integrity{width:140px;height:27px;background:#081927b8;border-radius:10px;border:1px solid #b6dcea30;padding:9px 10px;margin-bottom:17px;box-shadow:0 4px 20px #0005}.integrity-line{height:7px;border-radius:20px;background:#162c3a;overflow:hidden}.integrity-line div{background:linear-gradient(90deg,#f86156,#ffcb72);height:100%;width:100%;transition:width .2s}
+.meter{position:relative;height:162px;width:162px;display:grid;place-items:center;border-radius:50%;background:conic-gradient(from 225deg,var(--ice) 0%,var(--ice) var(--percent),#2c4b5c var(--percent),#2c4b5c 75%,transparent 75%,transparent 100%);box-shadow:0 0 36px #0006}.meter::before{content:"";position:absolute;inset:10px;background:#071823;border-radius:50%;border:1px solid #aeeaf51c;box-shadow:inset 0 2px 20px #0008}.meter-core{position:relative;z-index:1;width:70px;height:70px;color:#d8e8eb;opacity:.93}.meter-needle{position:absolute;z-index:2;left:50%;bottom:50%;width:3px;height:50px;border-radius:3px;background:#e9ffff;transform-origin:50% 100%;transform:rotate(calc(-135deg + var(--needle,0deg)));box-shadow:0 0 7px #fff8}.meter-hub{position:absolute;z-index:3;background:var(--coral);border:2px solid #e8faff;width:13px;height:13px;border-radius:50%;top:calc(50% - 6px);left:calc(50% - 6px)}
+#crash-layer{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(transparent 36%,#ff3b27 130%)}
+.overlay{position:absolute;inset:0;z-index:10;display:grid;place-items:center;background:linear-gradient(90deg,#243747b5,#4c556c90 52%,#303847ac);backdrop-filter:blur(4px)}.orb{position:absolute;width:min(48vh,400px);height:min(48vh,400px);border:1px solid #61cfe72c;border-radius:50%;box-shadow:0 0 0 55px #61cfe707,0 0 0 125px #61cfe707;pointer-events:none}.orb::after{content:"";position:absolute;inset:28px;border:1px dashed #add8e520;border-radius:50%;animation:orbit 50s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}
+.pill-actions{position:relative;z-index:1;display:flex;gap:19px;align-items:center}.hero-button{height:128px;width:128px;border-radius:50%;background:linear-gradient(145deg,#f8d299,#e58a66 60%,#966180);box-shadow:0 0 0 9px #e79b7942,0 0 0 21px #edc29624,0 22px 110px #d773614c;color:#fff7ff;padding:35px}.hero-button:hover{background:#ffb1d8}.hero-button svg{stroke-width:2.5}.secondary-button{width:67px;height:67px;border-radius:50%;background:#102a3cd9;border:1px solid #b2e3ed47;padding:19px;color:#d3eff1;box-shadow:0 9px 30px #0005}
+#gameover-menu{background:linear-gradient(90deg,#200b15ba,#1b1926aa,#0a1520d9)}#gameover-menu .hero-button{background:linear-gradient(145deg,#ffd4a6,#ef7960);box-shadow:0 0 0 11px #ff8a6d1c,0 0 0 26px #ff95800c,0 20px 70px #f7615547}
+#large-map{position:absolute;z-index:8;top:50%;left:50%;transform:translate(-50%,-50%);padding:12px;border:1px solid #a9deeb53;border-radius:14px;background:#091a2be8;box-shadow:0 15px 80px #0009}#large-map canvas{display:block;max-width:80vw;max-height:75vh;border-radius:7px}#fatal{position:absolute;inset:0;z-index:40;display:grid;place-items:center;background:#250c16bb;font-size:70px}
+@media(max-width:700px){.hud-top{padding:11px;gap:4px}.heat-panel{padding:10px 8px;gap:5px}.lamps{gap:4px}.lamps i{width:13px;height:13px}.chase-symbol{display:none}.hud-actions{padding:4px;gap:0}.icon-button{width:32px;height:32px;padding:7px}.sound-slider{width:42px;margin:0 5px}.hud-bottom{left:9px;right:9px;bottom:10px}.map-shell{padding:4px;border-radius:11px}.map-shell canvas{width:110px;height:110px}.meter{width:114px;height:114px}.meter-needle{height:34px}.meter-core{width:48px;height:48px}.integrity{width:65px;padding:9px 7px}.hero-button{width:100px;height:100px;padding:29px}}
+@media(prefers-reduced-motion:reduce){.orb::after{animation:none}}
+
+#mode-icons{position:absolute;z-index:6;left:50%;bottom:35px;transform:translateX(-50%);display:flex;gap:7px;pointer-events:none}
+.mode-indicator{width:43px;height:43px;display:grid;place-items:center;padding:10px;background:#061321dc;border:1px solid #9fe4fc35;border-radius:50%;color:#a1d2e5;box-shadow:0 0 24px #2cb0e538;backdrop-filter:blur(9px)}
+.mode-indicator svg{width:24px;height:24px}
+#interact-icon{border-color:#ffd17d55;color:#ffd17d;animation:cue 1.4s ease-in-out infinite}
+@keyframes cue{50%{box-shadow:0 0 24px #facc6e99}}
+#touch-controls{display:none;position:absolute;z-index:7;left:0;right:0;bottom:16px;pointer-events:none;touch-action:none}
+.touch-pad{position:absolute;bottom:0;left:20px;width:150px;height:150px}
+.touch-btn,.touch-actions button{position:absolute;display:grid;place-items:center;width:49px;height:49px;border-radius:14px;background:#091b30c9;border:1px solid #80bdd16b;color:#cbe4ec;pointer-events:auto;touch-action:none;font-size:21px;user-select:none;-webkit-user-select:none}
+.touch-btn:active,.touch-actions button:active{background:#275579ea;transform:scale(.94)}
+.pad-n{left:50px;top:0}.pad-w{left:0;top:50px}.pad-e{right:0;top:50px}.pad-s{left:50px;bottom:0}
+.touch-actions{position:absolute;right:24px;bottom:0;display:flex;gap:10px;align-items:center;flex-direction:row;height:70px}
+.touch-actions button{position:relative;width:58px;height:58px;padding:13px}
+@media(pointer:coarse){#touch-controls{display:block}.hud-bottom{bottom:178px!important}.hud-top{padding-top:12px}.meter{width:100px;height:100px}.map-shell canvas{width:90px!important;height:90px!important}#mode-icons{bottom:180px}}
+
+/* Stage 7 action controls: iconography only, absolutely no visible words. */
+#ammo-icons{display:flex;gap:3px;align-items:center;pointer-events:none;padding:12px 7px;background:#071a26c9;border-radius:17px;border:1px solid #f7d39c36}
+#ammo-icons i{width:5px;height:13px;border-radius:3px;background:#f3c48b;box-shadow:0 0 8px #dfa75f76}
+#ammo-icons i.spent{background:#415664;box-shadow:none}
+@media(pointer:coarse){.touch-actions{right:8px;bottom:0;height:auto;display:grid;grid-template-columns:repeat(3,55px);gap:5px}.touch-actions button{width:54px;height:54px}}
+
+#aim-reticle{position:absolute;z-index:5;left:50%;top:50%;width:32px;height:32px;transform:translate(-50%,-50%);pointer-events:none;filter:drop-shadow(0 1px 4px #050a0c)}
+#aim-reticle::before{content:"";position:absolute;inset:14px;border:2px solid #fff1d4;border-radius:50%;background:#ffb77373}
+#aim-reticle::after{content:"";position:absolute;inset:1px;border-radius:50%;background:linear-gradient(to right,transparent 0 42%,#fff8 42% 46%,transparent 46% 54%,#fff8 54% 58%,transparent 58% 100%) center center / 100% 2px no-repeat,linear-gradient(to bottom,transparent 0 42%,#fff8 42% 46%,transparent 46% 54%,#fff8 54% 58%,transparent 58% 100%) center center / 2px 100% no-repeat}
+#action-icon{color:#ffce9d;border-color:#fcb77977;box-shadow:0 0 23px #d88e4262}
+#equip-touch,#fire-touch{border-color:#e3c49a91;color:#ffe4ad}
+#talk-touch{border-color:#86ceb7;color:#b1edd6}
+#fire-touch{background:#8b4322cc;border-color:#ffd4a6}
+
+/* Stage 8: symbolic-only garage, permanent save progression, timed street-circuit. */
+#garage-button{opacity:.32;filter:saturate(.45);transition:opacity .25s,filter .25s,box-shadow .25s}
+#garage-button.available{opacity:1;filter:none;color:#9dfad4;box-shadow:0 0 15px #36c9a741}
+#garage-modal{position:absolute;inset:0;z-index:15;display:grid;place-items:center;pointer-events:auto;background:#091520b0;backdrop-filter:blur(15px)}
+.garage-board{position:relative;display:grid;gap:19px;width:min(790px,94vw);max-height:92vh;overflow:auto;padding:24px;border-radius:27px;border:1px solid #9cecc467;background:linear-gradient(150deg,#263e46f5,#111c2af8 51%,#242b38f5);box-shadow:0 22px 90px #02080af5,0 0 85px #6cc5a326}
+#garage-close{position:absolute;top:9px;right:9px;width:44px;height:44px;padding:11px;border-radius:50%;color:#bdd8db;background:#213840}
+.garage-head{display:flex;align-items:center;gap:17px;margin:1px 50px 0 5px}
+.garage-emblem{width:49px;height:49px;color:#7cebd4;filter:drop-shadow(0 0 8px #7ce9c7a2)}
+#garage-wallet{display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding:11px 15px;border:1px solid #ffd89e3b;border-radius:20px;background:#101b29ae;min-height:43px}
+#garage-wallet i{display:block;width:15px;height:15px;border:2px solid #716a5f;border-radius:50%;opacity:.5;background:#333f4c}
+.garage-repair{width:43px;height:43px;flex-shrink:0;padding:8px;border:1px solid #8edbcc7e;border-radius:13px;background:#21424ec0;color:#94f7dc}
+.garage-repair[disabled]{opacity:.24;filter:grayscale(1);cursor:default}
+#garage-wallet i.lit{border-color:#e9c489;background:radial-gradient(circle at 30% 30%,#fff7db,#ffc884 60%,#a9714e);opacity:1;box-shadow:0 0 14px #edb98245}
+.garage-fleet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.car-card{position:relative;height:115px;min-width:0;border-radius:18px;border:1px solid #91b8bd61;background:linear-gradient(155deg,#364d5ad9,#182d3df0);padding:22px 9px;overflow:hidden}
+.car-card svg{width:98%;height:77px;stroke-width:1.65;color:var(--car-paint,#d7a05e);filter:drop-shadow(0 6px 9px #0009)}
+.car-card svg path:first-child{fill:var(--car-paint,#d7a05e);fill-opacity:.84;stroke:#d3ebea}
+.car-card.selected{border:2px solid #6cf8cf;box-shadow:inset 0 0 26px #60f6d135,0 0 24px #20d9b63e}
+.car-card.owned::after{content:'';position:absolute;width:8px;height:8px;border-radius:50%;background:#88ffcf;right:12px;top:12px;box-shadow:0 0 10px #3ce6ba}
+.car-card.locked{filter:grayscale(.8);opacity:.54}
+.garage-tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.garage-tool{height:94px;border-radius:17px;border:1px solid #7d9fa950;background:linear-gradient(#253a4b,#101b29);display:flex;flex-direction:column;gap:9px;align-items:center;justify-content:center;padding:11px}
+.garage-tool svg{height:40px;width:40px;color:#dbeada;stroke-width:1.7}
+.garage-tool[disabled]{opacity:.42;cursor:default;filter:grayscale(.7)}
+.garage-tool .levels{display:flex;gap:5px}.garage-tool i{display:block;width:16px;height:5px;border-radius:3px;background:#3c5562}
+.garage-tool i.lit{background:#83dfc6;box-shadow:0 0 7px #45cea783}
+#garage-paint{--car-paint:#f5fbff}
+#garage-paint svg{color:var(--car-paint);filter:drop-shadow(0 0 9px var(--car-paint))}
+#race-track{position:absolute;top:101px;left:50%;transform:translateX(-50%);width:min(360px,34vw);height:18px;z-index:6;background:#111f2ddc;border:1px solid #ffe3b56e;border-radius:15px;overflow:hidden;pointer-events:none;box-shadow:0 2px 17px #0006}
+#race-progress{height:8px;width:0;background:linear-gradient(90deg,#f3c77c,#98e8b5);border-radius:15px;transition:width .16s}
+#race-time{height:5px;width:100%;background:#bce0da;border-radius:15px;opacity:.65;transition:width .14s}
+#reward-pulse{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 50% 43%,transparent 48%,#c0fab62c 100%);opacity:0;transition:opacity .2s}
+@media(max-width:650px){.garage-board{gap:9px;padding:11px}.garage-fleet{gap:5px}.car-card{height:81px;padding:12px 3px;border-radius:12px}.car-card svg{height:55px}.garage-tools{gap:5px}.garage-tool{height:70px;border-radius:11px}.garage-tool svg{height:32px;width:32px}.garage-tool i{width:10px}.garage-emblem{width:34px;height:34px}.garage-head{gap:8px}#garage-wallet{gap:3px;padding:6px 8px}#garage-wallet i{width:10px;height:10px}#race-track{top:56px;width:30vw}}
+/* SUNSET STATE 15: spatial HUD, not a moving rectangle in the world. */
+.minimap-top{position:absolute;top:99px;left:30px;z-index:5;pointer-events:none}
+.clock-panel{position:absolute;right:29px;top:92px;z-index:5;display:flex;align-items:center;gap:9px;
+ padding:8px 12px;border:1px solid #b9e3ea51;border-radius:15px;background:#071925d7;box-shadow:0 9px 28px #0007;backdrop-filter:blur(10px);pointer-events:auto}
+.clock-panel output{font:700 15px/1.1 ui-monospace,Consolas,monospace;color:#f9d8a2;min-width:47px;letter-spacing:1px}
+.clock-panel input{width:115px;height:16px;accent-color:#f5c78a;cursor:pointer}
+.clock-panel button,.weapon-panel button{border:1px solid #7ccbd460;border-radius:9px;background:#18394d;color:#f7dfbc;font-size:19px;width:30px;height:30px;line-height:25px;cursor:pointer}
+.weapon-panel{position:absolute;right:29px;top:149px;z-index:5;display:flex;align-items:center;gap:9px;padding:7px 12px;
+ border:1px solid #caa7765e;border-radius:13px;background:#0b1b29d9;color:#ffe3b0;font:700 13px Arial,sans-serif;pointer-events:auto}
+.weapon-panel.hidden{display:none}.weapon-panel span{white-space:nowrap}
+.meter-core{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#e8faff}
+.meter-core strong{font:800 27px/1 Arial,sans-serif;font-variant-numeric:tabular-nums}
+.meter-core small{font:700 11px/1 Arial,sans-serif;color:#bdd9e3;white-space:nowrap}
+@media(max-width:700px){.minimap-top{top:63px;left:9px}.clock-panel{right:8px;top:58px;padding:5px 7px;gap:4px}.clock-panel input{width:70px}
+.clock-panel output{font-size:11px;min-width:38px}.clock-panel button{width:25px;height:25px;font-size:14px}
+.weapon-panel{top:99px;right:8px;padding:5px;font-size:11px}.meter-core strong{font-size:20px}.meter-core small{font-size:9px}}
+@media(pointer:coarse){.minimap-top canvas{width:90px!important;height:90px!important}.minimap-top{top:65px}}
+/* Stage 16: small, legible discovery prompts; room tools appear only indoors. */
+#interact-hint{position:absolute;bottom:15%;left:50%;transform:translateX(-50%);z-index:7;
+ max-width:min(86vw,690px);white-space:normal;text-align:center;background:#112a39da;
+ color:#e8f8f8;border:1px solid #a7d5d979;padding:9px 17px;border-radius:14px;
+ box-shadow:0 8px 23px #0008;font:600 14px/1.4 system-ui,Arial,sans-serif;pointer-events:none}
+#interact-hint.hidden,#interior-panel.hidden{display:none}
+#interior-panel{position:absolute;right:25px;top:211px;z-index:9;display:flex;flex-direction:column;gap:7px;
+ background:#0b2231e9;border:1px solid #b8d9d38c;padding:12px;border-radius:15px;color:#eef8f6;
+ min-width:213px;max-width:270px;font:600 13px system-ui,Arial,sans-serif;box-shadow:0 10px 30px #0008}
+#interior-name{font-size:15px;color:#f5d6a2}#interior-collect{color:#b3d3cb;font-size:12px}
+#interior-panel .buttons{display:flex;gap:5px}#interior-panel button{background:#294c5b;color:#e8f7f0;border:1px solid #5f9aa6;
+ border-radius:9px;cursor:pointer;padding:8px 10px;font:600 12px system-ui,Arial,sans-serif;flex:1}
+/* Stage 24: compact exploration guide, 2x2 rooms and touch-friendly door hints. */
+#interior-theme{font-size:12px;color:#aee9d5;font-weight:600}
+#interior-rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+#interior-rooms span{border-radius:8px;background:#274153a8;border:1px solid #98beb53e;padding:5px 6px;
+  font-size:11px;line-height:1.25;color:#d2dce0;white-space:normal}
+#interior-rooms span.seen{background:#23665b70;color:#eaf9df;border-color:#76ceb766}
+#interior-panel button:disabled{opacity:.32;cursor:default}
+#day-phase{font-size:20px;color:#ffe1a6;margin-right:2px}
+@media(max-width:700px){#interior-panel{top:159px;right:8px;min-width:155px;padding:7px;gap:5px}
+#interior-panel button{padding:7px 3px;font-size:10px}#interior-name{font-size:12px}
+#interact-hint{bottom:17%;font-size:11px;padding:6px 9px;width:max-content;max-width:78vw}}
+/* Stage 18: persistent, responsive exploration status; fixes missing HUD target
+   that caused Game.updateHUD() to throw during normal play in the old release. */
+#explore-progress{position:absolute;top:277px;left:30px;z-index:6;max-width:230px;
+  padding:6px 11px;border:1px solid #99d4d359;border-radius:11px;
+  background:#08202bea;box-shadow:0 5px 20px #0007;color:#b6e4dc;
+  font:600 12px/1.35 system-ui,Arial,sans-serif;direction:rtl;pointer-events:none;white-space:nowrap}
+@media(max-width:650px){#explore-progress{top:164px;left:12px;max-width:180px;
+  white-space:normal;font-size:10px}}
+/* Stage 19: compact neighborhood guide; display avoids the map and buttons. */
+#streetlife-panel{position:absolute;top:371px;left:30px;z-index:6;max-width:325px;
+  padding:9px 11px;border-radius:12px;border:1px solid #d9d0a34e;
+  background:#162f36dc;direction:rtl;text-align:right;font-size:12px;line-height:1.45;
+  color:#f1e6cf;box-shadow:0 7px 22px #0005;pointer-events:none}
+@media(max-width:650px){#streetlife-panel{top:266px;left:12px;max-width:183px;font-size:10px;padding:6px}}
+#street-guide{position:absolute;top:310px;left:30px;z-index:6;
+  border:1px solid #e9be8361;border-radius:11px;max-width:290px;padding:6px 10px;
+  font:600 11px/1.45 system-ui,Arial,sans-serif;color:#f7d9b2;
+  background:#0b2730e9;box-shadow:0 5px 17px #0008;
+  direction:rtl;pointer-events:none}
+@media(max-width:650px){#street-guide{top:211px;left:12px;max-width:185px;
+  font-size:10px;padding:5px 7px}}
+/* Stage 21: compact dashboard warning, anchored above the right-hand speedometer.
+   It appears only while driving and is readable on narrow viewports. */
+#vehicle-condition{min-width:180px;
+  border-inline-start:1px solid #73919d57;padding-inline-start:14px;direction:rtl;
+  font:500 12px/1.65 system-ui,Arial,sans-serif;pointer-events:none}
+.right-gauge.driving{display:flex;align-items:center;gap:14px;padding:11px 14px;border:1px solid #b0d3dc50;
+  border-radius:15px;background:#10242eea;box-shadow:0 8px 24px #0007;color:#ecf5f3}
+.right-gauge .meter{width:70px;height:auto;display:block;background:none;box-shadow:none;text-align:center;border-radius:0}
+.right-gauge .meter::before,.right-gauge .meter-needle,.right-gauge .meter-hub{display:none}
+.right-gauge .meter-core{width:auto;height:auto}
+.right-gauge #speed-value{display:block;font:750 33px/.96 system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.right-gauge .meter-core small{display:block;margin-top:4px;color:#a8c0c5}
+#vehicle-condition-label{display:block;font-size:13px;color:var(--condition-color,#8ce3b8);font-weight:750}
+#vehicle-condition-readout{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;color:#dbe6e8;font-size:10px;margin-top:4px}
+#vehicle-condition-readout span{display:flex;align-items:baseline;justify-content:space-between;gap:5px}
+#vehicle-condition-readout b{color:#f3f8f7;font-variant-numeric:tabular-nums}
+@media(max-width:700px){.right-gauge.driving{padding:7px 9px;gap:8px}
+  .right-gauge .meter{width:53px}.right-gauge #speed-value{font-size:26px}
+  #vehicle-condition{min-width:136px;padding-inline-start:7px}
+  #vehicle-condition-label{font-size:11px}#vehicle-condition-readout{font-size:9px;gap:1px 6px}}
+/* Stage 17 performance inspector, invisible until F3. */
+#stage17-diagnostics{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:9;
+  max-width:calc(100vw - 30px);background:#071b25eb;border:1px solid #86c9d694;border-radius:10px;
+  padding:9px 12px;font:600 12px/1.5 ui-monospace,Consolas,monospace;color:#d5f0ef;
+  pointer-events:none;text-align:center;direction:rtl;box-shadow:0 8px 22px #0008}
+
+/* Stage25: accessible live lift control and flight-by-flight stair guidance. */
+#interior-transport{color:#cae1de;font-size:11px;line-height:1.45;padding:5px 6px;background:#102c3c;border-radius:7px}
+#interior-floor-chooser.hidden{display:none}
+#interior-floor-chooser{padding:6px;border:1px solid #7baaae64;border-radius:10px;background:#0e2a37}
+#interior-floor-chooser .floor-caption{font-size:11px;color:#efdcab;margin-bottom:5px}
+#interior-floor-buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;max-height:145px;overflow-y:auto}
+#interior-floor-buttons button{padding:6px 3px;font-size:12px;min-width:0;line-height:1.25}
+#interior-floor-buttons button:not(:disabled):hover{background:#397383}
+#interior-panel .stage25-transport button{padding:7px 3px;font-size:11px}
+@media(max-width:700px){#interior-panel{max-width:205px;max-height:68vh;overflow-y:auto}
+ #interior-panel .stage25-transport{flex-wrap:wrap}#interior-panel .stage25-transport button{font-size:10px;min-width:42px;padding:6px 3px}
+ #interior-transport{font-size:10px}}
+/* Stage27: small, readable dispatch status in the existing five-star HUD,
+   with no new modal and no overlap with the minimap below it. */
+#police-status{display:block;max-width:200px;min-width:0;color:#ffd9a5;
+  font:600 11px/1.45 system-ui,Arial,sans-serif;white-space:normal;text-align:right;
+  border-right:1px solid #b6e0da47;padding-right:11px;margin-right:5px}
+@media(max-width:700px){#police-status{max-width:106px;font-size:9px;padding-right:5px;margin-right:1px}}
+@media(max-width:380px){#police-status{max-width:75px;font-size:8px}}
+
+#transit-panel{position:absolute;right:29px;top:257px;z-index:6;max-width:385px;
+ padding:7px 10px;border:1px solid #8edecb76;border-radius:11px;
+ background:#08252ce3;color:#d5f5e5;font:600 12px/1.4 Arial,sans-serif;
+ text-align:right;pointer-events:none;box-shadow:0 6px 20px #0007}
+@media(max-width:800px){#transit-panel{right:7px;top:225px;max-width:min(280px,70vw);font-size:10px}}
+/* Stage 28: compact five-slot selector, an actual arming timer and a visible countdown.
+   Separate input targets work on both touch and mouse; no menus cover the mini-map. */
+.weapon-panel{width:min(448px,45vw);max-width:calc(100vw - 20px);display:flex;flex-direction:column;align-items:stretch;gap:6px;
+  padding:9px 10px;direction:rtl;box-shadow:0 8px 23px #0616239a;backdrop-filter:blur(10px)}
+.weapon-slots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;width:100%}
+.weapon-panel .weapon-slots button{width:auto;min-width:0;min-height:32px;padding:4px 2px;font:bold 11px/1.25 Arial,sans-serif;
+  border:1px solid #8cb9c36a;border-radius:9px;color:#d9e6e7;background:#233c49;white-space:nowrap}
+.weapon-panel .weapon-slots button.selected{background:#9c6040;color:#fff5df;border-color:#ffcc91;box-shadow:inset 0 0 14px #ffc99544}
+.weapon-panel .weapon-line{display:flex;justify-content:space-between;align-items:center;gap:7px}
+.weapon-panel .weapon-line span{white-space:nowrap;flex:1;overflow:hidden;text-overflow:ellipsis}
+.weapon-panel .weapon-line button{width:auto;min-width:29px;padding:0 8px}
+.weapon-guide{font-size:10px;opacity:.74;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.charge-status{position:absolute;right:29px;top:292px;z-index:6;pointer-events:none;
+  background:#172d38e6;color:#ffd8a1;border:1px solid #deaf6f7a;border-radius:10px;padding:7px 12px;
+  font:700 12px/1.35 Arial,sans-serif;box-shadow:0 4px 20px #0006}
+.charge-status.urgent{border-color:#ff6a57;color:#ffe1c7;background:#692f31e8}
+@media(max-width:800px){.weapon-panel{top:104px;right:7px;width:min(286px,71vw);padding:6px;gap:4px}
+ .weapon-panel .weapon-slots button{font-size:10px;min-height:28px;overflow:hidden}
+ .weapon-guide{display:none}.weapon-panel .weapon-line{font-size:10px}.charge-status{top:184px;right:7px;font-size:10px;max-width:69vw}}
+@media(max-width:390px){.weapon-panel{width:69vw}.weapon-panel .weapon-slots button{font-size:9px}}
+/* Stage 29: lightweight weather compositor. Lives behind all game controls. */
+#weather-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;display:block}
+#weather-cycle{flex:none;min-width:30px;font-size:17px;line-height:24px;white-space:nowrap}
+#weather-status{font:600 12px/1.2 Arial,sans-serif;color:#c8e5ed;white-space:nowrap;max-width:115px;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:760px){#weather-cycle{font-size:15px;min-width:26px;padding:0}
+  #weather-status{font-size:10px;max-width:58px}}
+@media(max-width:390px){#weather-status{max-width:44px}}
+
+.welcome-brief{position:absolute;z-index:2;top:calc(50% + 98px);width:min(570px,90vw);
+ text-align:center;border:1px solid #ebcf9c83;border-radius:17px;padding:16px 20px;
+ background:#0c2533ec;box-shadow:0 10px 28px #0006;pointer-events:none}
+.welcome-brief h1{margin:0 0 7px;color:#ffe5ad;letter-spacing:3px;font-size:25px}
+.welcome-brief p{margin:0 0 9px;color:#edf4f3;font:500 14px/1.6 system-ui,Arial,sans-serif}
+.welcome-brief small{color:#b1e4df;font-size:12px}
+@media(max-width:700px){.welcome-brief{top:calc(50% + 76px);padding:9px 13px}
+ .welcome-brief h1{font-size:18px}.welcome-brief p{font-size:12px}.welcome-brief small{font-size:10px}}
+/* STAGE 30: mission-first UX. Voluntary exploration never adds police. */
+#missions-button{border:1px solid #c5aa6858;background:#33414c5c;color:#ffe5a7}
+#missions-button:hover{background:#85643a88}
+#hud.mission-active #street-guide,#hud.mission-active #streetlife-panel{display:none!important}
+#mission-tracker{position:absolute;top:310px;left:30px;z-index:7;width:min(307px,35vw);
+  border:1px solid #dfc2888c;border-radius:14px;background:#0b2530f0;color:#ecf4e8;
+  box-shadow:0 12px 35px #0008;direction:rtl;backdrop-filter:blur(10px);pointer-events:auto}
+#mission-tracker-button{display:block;width:100%;height:auto;text-align:right;padding:10px 13px;
+  color:inherit;font:500 12px/1.55 system-ui,Arial,sans-serif;border-radius:14px}
+#mission-tracker-button:hover{background:#3955687a;transform:none}
+#mission-title{display:block;font-weight:800;font-size:14px;color:#ffdea4}
+#mission-goal{display:block;overflow-wrap:anywhere;margin:3px 0 5px;color:#e8f1ec}
+#mission-tracker-bottom{display:flex;align-items:center;justify-content:space-between;gap:9px;
+  font-size:11px;color:#a7d3ce}
+#mission-camera-button{margin:0 10px 8px;width:calc(100% - 20px);padding:6px 7px;border-radius:9px;
+  background:#765c32;border:1px solid #e7bd78;color:#fff0ca;font-weight:750}
+#city-service-panel{position:absolute;left:50%;bottom:24%;transform:translateX(-50%);z-index:8;
+ background:#132e3cf2;border:1px solid #8edbcc8c;box-shadow:0 12px 24px #0008;
+ border-radius:13px;padding:9px 12px;display:flex;align-items:center;gap:12px;
+ max-width:88vw;direction:rtl;pointer-events:auto;font:600 12px/1.45 system-ui,Arial,sans-serif}
+#city-service-name{color:#f2e5c9}#city-service-wallet{color:#9fcecb;font-size:11px}
+#city-service-panel button{display:block;white-space:nowrap;padding:8px 10px;background:#315c5c;
+ border:1px solid #9fdbd0;border-radius:8px;color:#eaffdf;font:700 12px Arial,sans-serif}
+#city-service-panel button:disabled{opacity:.5;cursor:not-allowed}
+#mission-board{position:absolute;inset:0;display:grid;place-items:center;z-index:20;
+ background:linear-gradient(135deg,#071924d9,#162b3ae8);backdrop-filter:blur(9px);padding:12px}
+.mission-dialog{width:min(910px,96vw);max-height:min(760px,95vh);overflow:hidden;display:flex;flex-direction:column;
+ background:linear-gradient(155deg,#172f3e,#0d2231);border:1px solid #8ec5c28c;
+ border-radius:22px;color:#f1f7f2;box-shadow:0 30px 90px #000c;direction:rtl;text-align:right}
+.mission-dialog header{padding:20px 23px 12px;display:flex;gap:12px;justify-content:space-between;align-items:flex-start}
+.mission-dialog h2{margin:0;font-size:24px;color:#ffe0aa}
+.mission-dialog header p{margin:7px 0 0;color:#b8d6d6;font-size:13px}
+#mission-close{flex:0 0 auto;background:#274756;border:1px solid #90c7c38d;border-radius:50%;
+ width:42px;height:42px;color:#f2f7ef;font-size:23px}
+#mission-wallet{margin:0 22px 6px;color:#b5e6cb;font-weight:750;font-size:14px}
+#mission-finished{margin:0 22px 12px;color:#b3c9d7;font-size:12px}
+#mission-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+ padding:5px 21px 19px;overflow-y:auto;overscroll-behavior:contain}
+.mission-card{background:#223a4aa1;border:1px solid #7c9dab55;border-radius:14px;padding:13px 15px;
+ min-height:152px;display:flex;flex-direction:column;gap:6px}
+.mission-card.active{border-color:#f7cb79;box-shadow:inset 3px 0 #f4c373;background:#4b463c89}
+.mission-card.completed{opacity:.72;border-color:#7bc4a088}
+.mission-card strong{font-size:17px;color:#f7e1b3}
+.mission-card p{margin:0 0 auto;color:#c8d8df;font-size:12px;line-height:1.55}
+.mission-card small{display:block;color:#a9ddc7;font-size:11px}
+.mission-card-foot{display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap}
+.mission-card-foot span{color:#acd0cf;font-size:11px}
+.mission-card-foot button{border:1px solid #77c7ba;border-radius:9px;padding:8px 11px;
+ color:#edfff1;background:#2d645f;font-weight:700;min-width:110px;font-size:12px}
+.mission-card-foot button:disabled{background:#283c43;border-color:#537a7c;opacity:.8;cursor:default}
+.mission-dialog footer{display:flex;align-items:center;justify-content:space-between;gap:8px;
+ padding:12px 22px 16px;border-top:1px solid #456275aa;color:#b8d7d8;font-size:12px}
+#mission-abandon{background:#5d4642;border:1px solid #b8927f;border-radius:8px;padding:8px 10px;font-size:12px}
+@media(max-width:740px){
+ #mission-tracker{top:199px;left:9px;width:175px}
+ #mission-tracker-button{padding:7px 8px;font-size:10px;line-height:1.32}
+ #mission-title{font-size:12px}#mission-tracker-bottom{font-size:9px}
+ #mission-camera-button{font-size:10px}
+ #hud.mission-active #explore-progress{display:none}
+ #city-service-panel{bottom:22%;width:min(330px,87vw);padding:7px;gap:7px;font-size:10px}
+ #city-service-panel button{padding:6px;font-size:10px}
+ .mission-dialog header{padding:12px 14px 8px}.mission-dialog h2{font-size:19px}
+ .mission-dialog header p{font-size:11px}#mission-wallet{margin:0 13px 6px;font-size:12px}
+ #mission-finished{margin:0 13px 8px}#mission-list{grid-template-columns:1fr;gap:8px;padding:4px 11px 12px}
+ .mission-card{min-height:125px;padding:11px}.mission-card strong{font-size:15px}
+ .mission-dialog footer{padding:8px 13px 11px;font-size:10px}
+}
+@media(max-height:580px){#mission-tracker{top:35%;}.mission-dialog{max-height:94vh}}
+
+.pause-controls{display:grid;position:relative;z-index:1;gap:28px;justify-items:center}
+.graphics-control{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:11px;background:#152f40e8;color:#edf2f2;border:1px solid #8cbfc24f;border-radius:14px;padding:9px 13px;font-size:14px}
+.graphics-control select{font:inherit;color:#fff4dd;background:#25485a;border:1px solid #a4c8ca6b;border-radius:7px;padding:6px 8px;color-scheme:dark}
+.graphics-control select:focus-visible{outline:2px solid #f2c88e;outline-offset:3px}
+
+/* Stage 41: calm, legible lift status and a soft entrance-door transition. */
+#lift-travel-ui{position:absolute;z-index:9;left:50%;bottom:15.5%;transform:translateX(-50%);width:min(355px,83vw);pointer-events:none;
+ background:linear-gradient(145deg,#162a34e8,#10212aef);border:1px solid #c0d3cf88;border-radius:16px;
+ padding:10px 14px 12px;box-shadow:0 12px 35px #0008;color:#e5e9df;font:600 13px/1.55 system-ui,Arial,sans-serif;text-align:center;direction:rtl;backdrop-filter:blur(9px)}
+#lift-travel-ui.hidden{display:none}
+#lift-ride-caption{color:#ecdbb8;font-size:15px;font-weight:750}
+#lift-ride-sub{font-size:11px;color:#aec7c5;margin-top:2px}
+#lift-track{height:4px;overflow:hidden;background:#394a54;border-radius:4px;margin-top:7px}
+#lift-track-fill{display:block;height:100%;width:0;background:#d7c8a8;transition:width .14s linear}
+#building-entry-fade{position:absolute;inset:0;z-index:13;pointer-events:none;background:#101e28;
+ display:grid;place-items:center;opacity:0;visibility:hidden;transition:none}
+#building-entry-fade strong{font-size:17px;letter-spacing:.02em;color:#e8dfc8;font-family:system-ui,Arial,sans-serif;direction:rtl}
+#building-entry-fade.active{visibility:visible}
+@media(max-width:700px){#lift-travel-ui{bottom:20%;width:min(265px,72vw);font-size:11px;padding:6px 9px}#lift-ride-caption{font-size:12px}}
+#interior-panel.lift-riding{display:none!important}
+/* Clean indoor HUD: external discovery alerts should not obstruct the lobby. */
+#hud.indoor-active #street-guide,#hud.indoor-active #streetlife-panel,
+#hud.indoor-active #explore-progress{display:none!important}
+
+/* Stage 44: unobtrusive accessible in-world business interactions. */
+#business-panel44{position:absolute;z-index:8;left:50%;bottom:111px;transform:translateX(-50%);width:min(410px,80vw);
+ padding:10px 15px;background:rgba(11,30,39,.91);border:1px solid #ddc59b80;border-radius:15px;
+ color:#f3e9d9;box-shadow:0 9px 28px #0007;direction:rtl;text-align:right;font:600 13px/1.5 system-ui,Arial,sans-serif;pointer-events:auto}
+#business-title44{display:block;font-size:15px;color:#f2d4a2}#business-status44{display:block;color:#c7e5e1;margin:4px 0}
+#business-track44{height:4px;background:#28434b;border-radius:9px;overflow:hidden;margin-top:5px}
+#business-progress44{width:0;height:100%;background:linear-gradient(90deg,#f6b879,#b4e4bb);transition:width .17s}
+#business-action44{background:#3d6a70;color:#fff4df;border:1px solid #b4d5c8;border-radius:9px;padding:6px 13px;margin-top:5px;display:inline-flex;font-weight:700}
+@media(max-width:700px){#business-panel44{bottom:185px;font-size:10px;padding:7px 9px;max-width:65vw}#business-title44{font-size:12px}}
+#large-map{width:min(950px,94vw);box-sizing:border-box;padding:14px 16px 12px;background:#172627f5;border:1px solid #809895;z-index:25;color:#f3ecdb}
+#large-map header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+#large-map h2{font-size:20px;margin:0;font-weight:700;letter-spacing:0}
+#large-map button{color:#efe8d8;background:#283d3d;border:1px solid #81908b78;border-radius:6px;padding:5px 9px;font:600 12px system-ui;cursor:pointer}
+#large-map button:hover,#large-map button:focus-visible{background:#425d5e;outline:2px solid #9eedf4}
+#large-map button[aria-pressed=true]{background:#385a58;border-color:#8bd0b5}
+#large-map button:disabled{opacity:.43;cursor:default}
+#route-tools445{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+#large-map canvas{width:100%;max-width:none;height:auto;max-height:calc(100dvh - 162px);object-fit:fill;border:1px solid #63858266;box-sizing:border-box;cursor:crosshair;touch-action:none}
+#large-map footer{padding-top:8px;color:#dce7dc;font:13px system-ui;line-height:1.25}
+#route-guide445,#radio-hud445,#story-caption445{position:absolute;pointer-events:none;z-index:7;background:#192d31ec;color:#f3f6e9;border:1px solid #91d2cb88;border-radius:9px;font:600 14px system-ui;box-shadow:0 6px 20px #0005}
+#route-guide445{display:flex;align-items:center;gap:9px;padding:8px 10px;top:99px;left:209px;max-width:204px}
+#route-guide445 b{font-size:24px;color:#83eaf1;line-height:1}
+#route-guide445 small{display:block;color:#c5d9d5;font-weight:500;margin-top:2px}
+#radio-hud445{left:30px;bottom:92px;padding:6px 10px}
+#story-caption445{left:50%;transform:translateX(-50%);bottom:17%;padding:9px 15px;min-width:min(340px,76vw);max-width:min(680px,84vw);text-align:center;line-height:1.35}
+#story-caption445 b{color:#fee1a1}
+#underwater445{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 46% 10%,#85dedc15 22%,#2067673c 63%,#0b3e4aa8 100%);transition:opacity .32s}
+#underwater445.active{opacity:1}
+.map-shell canvas{pointer-events:auto;cursor:pointer}
+#minimap:focus-visible{outline:2px solid #8ff1e2}
+[hidden]{display:none!important}
+@media(max-width:700px){#route-guide445{top:65px;left:110px;font-size:12px;max-width:135px}#radio-hud445{left:9px}#large-map{padding:8px}#large-map canvas{max-height:calc(100dvh - 180px)}}
+
+/* SUNSET STATE 4.7.3 — contextual public-safety simulation HUD. */
+#law-status-460{position:absolute;right:29px;top:198px;z-index:7;width:min(316px,37vw);
+ background:#112b37e9;border:1px solid #c9b9948f;border-radius:12px;padding:9px 11px;
+ color:#f7e9d0;font:600 11px/1.5 system-ui,Arial,sans-serif;direction:rtl;text-align:right;
+ backdrop-filter:blur(5px);box-shadow:0 6px 19px #0008;pointer-events:auto}
+#law-status-460.hidden{display:none!important}
+#law-info-460{font-size:12px;font-weight:770;color:#ffe0a0}
+#law-intel-460{font-size:10px;color:#c6d9d7;margin-top:4px}
+#law-surrender-460{margin-top:7px;padding:5px 12px;color:#edf7ee;background:#35635e;
+ border:1px solid #8fc3af;border-radius:8px;font:700 12px system-ui,Arial;cursor:pointer}
+#law-surrender-460[hidden]{display:none}
+#law-custody-460{position:absolute;inset:0;z-index:26;display:grid;place-items:center;
+ background:#060c18c9;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s}
+#law-custody-460.visible{opacity:1;visibility:visible}
+#law-custody-460 section{width:min(550px,83vw);border-radius:20px;padding:30px 30px 27px;
+ background:linear-gradient(130deg,#122c40f5,#1c3241e8);border:1px solid #b0b9c48c;
+ box-shadow:0 25px 95px #000b;direction:rtl;text-align:center;color:#f8e9db;font-family:system-ui,Arial}
+#law-custody-460 strong{display:block;font-size:clamp(23px,4vw,39px);font-weight:800;color:#f5d7ad}
+#law-custody-460 p{font-size:15px;line-height:1.6;color:#d4e3e6;margin:14px 0 0}
+@media(max-width:700px){#law-status-460{right:8px;top:146px;width:min(207px,46vw);padding:6px 8px;font-size:10px}
+ #law-info-460{font-size:11px}#law-intel-460{font-size:9px}#law-surrender-460{font-size:10px}}
+#traffic-ticket461{position:absolute;z-index:7;left:30px;bottom:151px;max-width:min(292px,45vw);padding:9px 12px;
+background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;font:600 13px system-ui;pointer-events:none}
+.heat-panel,.hud-actions,.map-shell,.mode-indicator,.clock-panel,.weapon-panel,
+#mission-tracker,#route-guide445,#lift-travel-ui,#law-status-460{backdrop-filter:none}
+#weather-canvas{visibility:hidden}
+
+/* Stage29: compact live wayfinding, no modal or HUD control interception. */
+#stage29-wayfinding,#stage29-shop-guide{font-size:11px;line-height:1.48;color:#d5e6df;
+  background:rgba(28,57,64,.80);border:1px solid rgba(147,186,178,.28);
+  border-radius:8px;padding:6px 8px;max-width:275px;pointer-events:none}
+#stage29-wayfinding.hidden,#stage29-shop-guide.hidden{display:none!important}
+#stage29-shop-guide{position:absolute;bottom:112px;right:24px;z-index:9;direction:rtl}
+@media(max-width:700px){#stage29-wayfinding{font-size:10px}#stage29-shop-guide{right:8px;bottom:100px;max-width:200px;font-size:10px}}
+
+/* Stage 33: unobtrusive mission shortcut, wallet receipts and dispatch clarity. */
+#stage33-start-suggested{width:calc(100% - 20px);margin:0 10px 9px;padding:7px 9px;
+ border:1px solid #89d1b766;border-radius:9px;background:#244e51ed;color:#e8fff0;
+ font:700 11px/1.4 system-ui,Arial,sans-serif;text-align:center;cursor:pointer}
+#stage33-start-suggested:hover{background:#326b65}
+#stage33-brief,#stage33-economy,#stage33-receipts{margin:2px 22px 6px;max-width:calc(100% - 44px);font:600 12px/1.5 system-ui,Arial,sans-serif;color:#cfe2df}
+#stage33-brief{color:#f5dfa9}#stage33-economy{color:#9fe2c1}
+#stage33-receipts{font-size:11px;color:#b5c4d2;white-space:normal;border-bottom:1px solid #45627555;padding-bottom:7px}
+#stage33-law-context{font-size:10px;color:#d4e8db;margin:4px 0 0}
+@media(max-width:740px){#stage33-start-suggested{font-size:10px;padding:5px;margin:0 5px 5px;width:calc(100% - 10px)}
+#stage33-brief,#stage33-economy,#stage33-receipts{margin:2px 12px 3px;max-width:calc(100% - 24px);font-size:10px}}
+</style></head><body>
+<canvas id="game" aria-label="3D open world driving and exploration game"></canvas>
+<canvas id="weather-canvas" aria-hidden="true"></canvas>
+<div id="stage17-diagnostics" class="hidden" role="status" aria-live="off"></div>
+<div id="crash-layer"></div>
+<div id="law-custody-460" aria-live="polite"><section><strong id="law-custody-title-460">נעצרת</strong><p id="law-custody-sub-460"></p></section></div>
+<div id="building-entry-fade" aria-hidden="true"><strong>נכנס ללובי...</strong></div>
+<div id="lift-travel-ui" class="hidden" role="status" aria-live="off"><div id="lift-ride-caption">🛗 מעלית</div><div id="lift-ride-sub"></div><div id="lift-track"><span id="lift-track-fill"></span></div></div>
+<div id="reward-pulse" aria-hidden="true"></div>
+<div id="race-track" class="hidden" aria-label="Optional circuit progress"><div id="race-progress"></div></div>
+<!-- HUD combines symbolic game controls with numeric speed, time and ammunition status. -->
+<div id="mode-icons"><div id="ammo-icons" class="hidden" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div id="action-icon" class="mode-indicator hidden" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9h10l3 3-4 3h-3l-2 5H5l2-6H4z"/><path d="M10 9V6h9M13 12h8"/></svg></div><div id="car-icon" class="mode-indicator"><svg viewBox="0 0 24 24"><path d="M3 16V9l3-4h12l3 4v7M4 16h16M5 9h14M6 16v3m12-3v3"/><circle cx="7" cy="15" r="1"/><circle cx="17" cy="15" r="1"/></svg></div><div id="foot-icon" class="mode-indicator hidden"><svg viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="m10 8-2 5 3 2-2 7m3-9 5 3 3 6m-10-9 3-5 5 2"/></svg></div><div id="tram-icon" class="mode-indicator hidden"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="17" rx="3"/><path d="M4 8h16M7 19l-2 3m12-3 2 3M8 12h2m4 0h2M7 16h10"/><circle cx="8" cy="16" r=".6"/><circle cx="16" cy="16" r=".6"/></svg></div><div id="interact-icon" class="mode-indicator hidden"><svg viewBox="0 0 24 24"><path d="M4 5h11v15H4zM15 9h4l2 3v8h-6M7 16l4-3-4-3"/></svg></div></div>
+<div id="aim-reticle" class="hidden" aria-hidden="true"></div>
+<div id="touch-controls" aria-label="Touch game controls">
+  <div class="touch-pad"><button data-hold="KeyW" class="touch-btn pad-n" aria-label="Forward"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;stroke:none"><path d="M12 3 21 20H3z"/></svg></button><button data-hold="KeyA" class="touch-btn pad-w" aria-label="Left"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;stroke:none"><path d="M3 12 20 3v18z"/></svg></button><button data-hold="KeyS" class="touch-btn pad-s" aria-label="Backward"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;stroke:none"><path d="M12 21 3 4h18z"/></svg></button><button data-hold="KeyD" class="touch-btn pad-e" aria-label="Right"><svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor;stroke:none"><path d="m21 12-17 9V3z"/></svg></button></div>
+  <div class="touch-actions"><button id="weapon-cycle-touch" data-press="KeyQ" title="Change weapon" aria-label="Cycle weapon">⇄</button><button id="jump-touch" class="hidden" data-press="Space" aria-label="Jump"><svg viewBox="0 0 24 24"><path d="M4 18h16M5 15l7-9 7 9M12 6v13"/></svg></button><button id="equip-touch" data-press="KeyF" aria-label="Equip or holster tool"><svg viewBox="0 0 24 24"><path d="M4 9h10l3 3-4 3h-3l-2 5H5l2-6H4z"/><path d="M10 9V6h9"/></svg></button><button id="reload-touch" data-press="KeyT" aria-label="Reload"><svg viewBox="0 0 24 24"><path d="M20 5v6h-6M20 11a8 8 0 1 0-2.2 5.5"/></svg></button><button id="fire-touch" class="hidden" data-hold="KeyJ" aria-label="Fire tool"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg></button><button id="talk-touch" class="hidden" data-press="KeyV" aria-label="Talk to nearby citizen" title="דבר עם אזרח"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 13h5"/></svg></button><button data-press="KeyE" aria-label="Get in or out of vehicle"><svg viewBox="0 0 24 24"><path d="M4 6h11v14H4zM8 15l3-3-3-3M15 11h6v9h-6"/></svg></button><button data-hold="ShiftLeft" aria-label="Sprint or boost"><svg viewBox="0 0 24 24"><path d="m4 16 8-12 8 12h-5v5H9v-5z"/></svg></button><button data-hold="Space" aria-label="Handbrake"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 16h14"/></svg></button></div>
+</div>
+<div id="stage29-shop-guide" class="hidden" role="status" aria-live="off"></div>
+<div id="business-panel44" class="hidden" aria-label="עסקים ומשחק" role="status"><strong id="business-title44"></strong><span id="business-status44"></span><div id="business-track44"><div id="business-progress44"></div></div><button id="business-action44" type="button" aria-label="בצע פעולה עסקית">פעולה</button></div>
+<div id="hud" class="hidden">
+  <div id="law-status-460" class="hidden" role="status" aria-live="off">
+    <div id="law-info-460">דיווחי משטרה</div>
+    <div id="law-intel-460"></div><div id="stage33-law-context" aria-live="off"></div>
+    <button type="button" id="law-surrender-460" hidden title="F7">להתמסר · F7</button>
+  </div>
+  <div class="hud-top">
+    <div class="heat-panel" aria-label="Pursuit intensity"><div class="chase-symbol"><svg viewBox="0 0 24 24"><path d="M5 18h14M7 18v-5l2-5h6l2 5v5M7 13h10M8 18v2m8-2v2"/></svg></div><div id="heat-lamps" class="lamps"><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="police-status" class="hidden" dir="rtl" role="status" aria-live="off"></span></div>
+    <div class="hud-actions">
+      <button id="camera-button" class="icon-button" aria-label="Switch camera"><svg viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13.5" r="3.6"/></svg></button>
+      <button id="garage-button" class="icon-button" aria-label="Garage"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 12h16M8 20v-5h8v5M10 6h4"/></svg></button>
+      <button id="missions-button" class="icon-button" aria-label="פתח משימות (K)" title="משימות · K">🧭</button>
+      <button id="map-button" class="icon-button" aria-label="Toggle city map"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg></button>
+      <button id="sound-button" class="icon-button" data-off="1" aria-label="Toggle sound"></button>
+      <input id="sound-volume" class="sound-slider" type="range" min="0" max="100" value="28" step="1" aria-label="Sound volume">
+      <button id="pause-button" class="icon-button" aria-label="Pause"><svg viewBox="0 0 24 24"><path d="M7 4v16M17 4v16"/></svg></button>
+    </div>
+  </div>
+  <div class="minimap-top map-shell"><canvas width="170" height="170" id="minimap" tabindex="0" role="button" aria-label="פתיחת מפת העיר"></canvas></div>
+  <div id="explore-progress" aria-live="off" role="status">🔎 בניינים 0/96 · נקודות עניין 0/25</div>
+  <div id="mission-tracker" aria-label="משימה פעילה">
+    <button id="mission-tracker-button" type="button" title="K · יומן המשימות"><strong id="mission-title">🧭 משימות עירוניות</strong>
+      <span id="mission-goal">K · בחר פעילות עירונית</span>
+      <span id="mission-tracker-bottom"><span id="mission-progress">0/8</span><span id="mission-distance">⭐ 0 XP</span></span></button>
+    <button id="mission-camera-button" class="hidden" type="button">📷 צלם עכשיו (Z)</button>
+    <button id="stage33-start-suggested" class="hidden" type="button" aria-label="התחל משימה מומלצת">▶ בחר משימה קרובה</button>
+  </div>
+  <div id="city-service-panel" class="hidden" aria-label="שירות בחנות">
+    <span><strong id="city-service-name">פריט בחנות</strong><br><small id="city-service-wallet">ארנק: 0 🪙</small></span>
+    <button id="city-shop-buy" type="button">קנה</button>
+  </div>
+  <div id="streetlife-panel" aria-live="off" role="status">☕ העיר חיה · תושבים מבלים ומשוחחים</div>
+  <div id="street-guide" aria-live="off" role="status">🗺 חנויות וגנים · 0 רובעים</div>
+  <div id="transit-panel" class="hidden" dir="rtl" role="status" aria-live="off">🚌 פרטי תחבורה ציבורית</div>
+  <div class="clock-panel" aria-label="World clock">
+    <button id="clock-toggle" type="button" title="Play or pause time (H)" aria-label="Toggle automatic passage of time">⏯</button>
+    <span id="day-phase" aria-hidden="true">☀</span><output id="clock-display">12:15</output>
+    <input id="clock-range" type="range" min="0" max="23.75" step="0.25" value="12.25" aria-label="Set world hour" />
+    <button id="weather-cycle" type="button" title="שנה מזג אוויר (Y)" aria-label="שינוי מזג אוויר">☀</button>
+    <span id="weather-status" dir="rtl" aria-live="off">אוטומטי · בהיר</span>
+  </div>
+  <div id="interior-panel" class="hidden" aria-label="בניין ומעלית" dir="rtl">
+    <div id="interior-name">מבנה · קומה</div><div id="interior-theme">חדרים וסוויטות</div><div id="interior-collect">פריטים 0 · חדרים 0/4</div><div id="interior-rooms" aria-label="חדרים בקומה"></div>
+    <div id="stage29-wayfinding" class="hidden" role="status" aria-live="off"></div>
+    <div id="interior-transport" aria-live="off">🛗 מעלית · 🚶 מדרגות</div>
+    <div class="buttons stage25-transport"><button id="interior-lift-panel" type="button" title="L · לוח מעלית">🛗 קומות</button>
+      <button id="interior-stair-up" type="button" title="R · מדרגות למעלה">⇧ מדרגות</button>
+      <button id="interior-stair-down" type="button" title="B · מדרגות למטה">⇩ מדרגות</button></div>
+    <div id="interior-floor-chooser" class="hidden" aria-label="בחירת קומת מעלית"><div class="floor-caption">בחר קומה:</div>
+      <div id="interior-floor-buttons"></div></div>
+    <div class="buttons"><button id="interior-up" type="button" title="PageUp">▲ קומה</button>
+    <button id="interior-down" type="button" title="PageDown">▼ קומה</button>
+    <button id="interior-exit" type="button">יציאה</button></div>
+  </div>
+  <div class="weapon-panel hidden" id="weapon-panel" dir="rtl" aria-label="בחירת נשק במשחק">
+  <div class="weapon-slots" role="group" aria-label="כלי משחק">
+    <button type="button" data-weapon="0" class="selected" title="1 — אקדח" aria-label="אקדח">1 · אקדח</button>
+    <button type="button" data-weapon="1" title="2 — רובה" aria-label="רובה">2 · רובה</button>
+    <button type="button" data-weapon="2" title="3 — רימון" aria-label="רימון">3 · רימון</button>
+    <button type="button" data-weapon="3" title="4 — RPG" aria-label="RPG">4 · RPG</button>
+    <button type="button" data-weapon="4" title="5 — מטען מתוזמן" aria-label="מטען מתוזמן">5 · ⏱</button>
+  </div>
+  <div class="weapon-line"><span id="weapon-readout" aria-live="polite">אקדח · 12/84</span>
+    <button id="charge-timer-button" type="button" class="hidden" title="N — שינוי משך הזמן" aria-label="שנה זמן הפיצוץ">⏱ 10ש׳</button>
+    <button id="weapon-next" type="button" title="נשק הבא (Q)" aria-label="נשק הבא">⇄</button>
+  </div>
+  <div class="weapon-guide">J / לחיצה על העכבר · T טעינה · Q החלפה · N זמן</div>
+</div>
+<div id="charge-status" class="charge-status hidden" dir="rtl" role="status" aria-live="polite"></div>
+  <div class="hud-bottom">
+    <div class="right-gauge"><div class="integrity" aria-label="Vehicle condition"><div class="integrity-line"><div id="health-fill"></div></div></div>
+      <div class="meter" id="speed-meter" style="--percent:0%;--needle:0deg"><div class="meter-core"><strong id="speed-value">0</strong><small>קמ״ש</small></div><div class="meter-needle"></div><div class="meter-hub"></div></div>
+      <div id="vehicle-condition" class="hidden" aria-label="מצב מערכות הרכב" dir="rtl">
+        <strong id="vehicle-condition-label">מצב רכב</strong>
+        <div id="vehicle-condition-readout">
+          <span>דלק <b id="dash-fuel">100%</b></span><span>מנוע <b id="dash-engine">100%</b></span>
+          <span>צמיגים <b id="dash-tires">100%</b></span><span>בלמים <b id="dash-brakes">100%</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="interact-hint" class="hidden" dir="rtl" role="status" aria-live="polite"></div>
+<section id="large-map" class="hidden" role="dialog" aria-modal="true" aria-labelledby="map-title445" dir="rtl">
+  <header><h2 id="map-title445">מפת סאנסט</h2><button id="route-close445" type="button" aria-label="סגירת המפה">×</button></header>
+  <div id="route-tools445" aria-label="כלי מפה">
+    <button id="route-overview445" type="button">כל העיר</button><button id="route-center445" type="button">המיקום שלי</button>
+    <button id="route-zoom-in445" type="button" aria-label="הגדלה">+</button><button id="route-zoom-out445" type="button" aria-label="הקטנה">−</button>
+    <button id="route-aerial445" type="button" aria-pressed="true">מבט אווירי</button><button id="route-labels445" type="button" aria-pressed="true">שמות מקומות</button>
+    <button id="route-clear445" type="button" disabled>ניקוי יעד</button>
+    <button id="route-story445" type="button">משימת קו המים</button>
+  </div>
+  <canvas id="large-map-canvas" width="1000" height="720" tabindex="0" aria-label="מפת עיר אינטראקטיבית. חצים להזזה, אנטר לסימון יעד במרכז המפה"></canvas>
+  <footer id="route-info445" aria-live="polite">לחיצה על המפה קובעת יעד · גרירה מזיזה את המפה</footer>
+</section>
+<aside id="route-guide445" dir="rtl" aria-label="הנחיות ניווט" hidden><b id="route-icon445"></b><div><strong id="route-cue445"></strong><small id="route-distance445"></small></div></aside>
+<aside id="traffic-ticket461" dir="rtl" role="status" aria-live="polite" hidden></aside>
+<aside id="story-caption445" dir="rtl" aria-live="polite" hidden></aside>
+<aside id="radio-hud445" dir="rtl" hidden></aside>
+<div id="underwater445" aria-hidden="true"></div>
+<div id="garage-modal" class="hidden" aria-label="Vehicle garage">
+  <div class="garage-board">
+    <button id="garage-close" aria-label="Close garage"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+    <div class="garage-head"><div class="garage-emblem"><svg viewBox="0 0 24 24"><path d="M2 20V8l10-6 10 6v12M2 12h20M7 20v-5h10v5M5 9h14"/></svg></div><div id="garage-wallet" aria-label="Wallet"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button id="garage-repair" class="garage-repair" aria-label="Repair vehicle for 75 credits"><svg viewBox="0 0 24 24"><path d="M14 6 9 11l4 4 5-5M14 6a6 6 0 0 1 7 8l-5 5a6 6 0 0 1-8-7l6-6zM8 17l-5 5"/></svg></button></div>
+    <div class="garage-fleet">
+      <button data-car="0" class="car-card" aria-label="Standard coupe"><svg viewBox="0 0 100 48"><path d="M9 32 13 22 29 20 39 9h29l11 12 10 4 3 9-5 6H13z"/><path d="M36 22l8-9h21l8 9z" stroke="#b6edfb" fill="#18415a"/><circle cx="27" cy="39" r="7" fill="#151a25"/><circle cx="77" cy="39" r="7" fill="#151a25"/></svg></button>
+      <button data-car="1" class="car-card" aria-label="City hatch"><svg viewBox="0 0 100 48"><path d="M8 33V25l14-2 12-12h26l15 11 10 2 7 10-4 5H13z"/><path d="M31 24l9-9h16l13 9z" stroke="#b6edfb" fill="#18415a"/><circle cx="26" cy="39" r="7" fill="#151a25"/><circle cx="77" cy="39" r="7" fill="#151a25"/></svg></button>
+      <button data-car="2" class="car-card" aria-label="Utility SUV"><svg viewBox="0 0 100 48"><path d="M7 34V20l10-4h17V8h38l12 13 9 2v14H9z"/><path d="M38 13h30l8 11H38z" stroke="#b6edfb" fill="#18415a"/><circle cx="26" cy="39" r="7" fill="#151a25"/><circle cx="77" cy="39" r="7" fill="#151a25"/></svg></button>
+      <button data-car="3" class="car-card" aria-label="Performance GT"><svg viewBox="0 0 100 48"><path d="M4 34 11 29 27 27 41 16h29l12 10 13 6-3 7H7z"/><path d="M39 27 47 19h20l10 8" stroke="#b6edfb" fill="#18415a"/><path d="M68 14h18l7-4" stroke="#e6e2d7"/><circle cx="24" cy="39" r="7" fill="#151a25"/><circle cx="81" cy="39" r="7" fill="#151a25"/></svg></button>
+    </div>
+    <div class="garage-tools">
+      <button class="garage-tool" data-upgrade="engine" aria-label="Engine upgrade"><svg viewBox="0 0 24 24"><path d="M3 10h3l3-4h8l3 4h2v8h-3l-2-3h-7l-2 3H3zM12 8v6M9 11h6"/></svg><div class="levels"><i></i><i></i><i></i></div></button>
+      <button class="garage-tool" data-upgrade="grip" aria-label="Tyre grip upgrade"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v4m9 5h-4m-5 9v-4m-9-5h4"/></svg><div class="levels"><i></i><i></i><i></i></div></button>
+      <button class="garage-tool" data-upgrade="brakes" aria-label="Brake upgrade"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 5a7 7 0 0 1 6 3M16 14l-4 4-4-4M5 12h5"/></svg><div class="levels"><i></i><i></i><i></i></div></button>
+      <button class="garage-tool" id="garage-paint" aria-label="החלף צבע רכב: לבן, כסוף, אדום, כחול, מונית" title="צבעי INTERCEPTOR · כולל מונית"><svg viewBox="0 0 24 24"><path d="M12 2c5 6 8 10 8 14a8 8 0 0 1-16 0C4 12 7 8 12 2z"/><circle cx="12" cy="16" r="2"/></svg><div class="levels"><i class="lit"></i><i class="lit"></i><i class="lit"></i></div></button>
+    </div>
+  </div>
+</div>
+<section id="mission-board" class="hidden" role="dialog" aria-modal="true" aria-labelledby="mission-heading">
+  <div class="mission-dialog">
+    <header><div><h2 id="mission-heading">🧭 יומן המשימות — SUNSET STATE</h2>
+      <p>משימות חקר, תחבורה, צילום וקניות. המשטרה אינה תנאי להשלמת אף משימה.</p></div>
+      <button id="mission-close" type="button" aria-label="סגור יומן משימות">×</button></header>
+    <div id="mission-wallet" aria-live="polite">🪙 450 · ⭐ 0 XP</div>
+    <div id="stage33-brief" aria-live="off">🧭 משימות עירוניות פעילות</div>
+    <div id="stage33-economy" aria-live="polite">🪙 יתרה · הכנסות והוצאות הסשן</div>
+    <div id="stage33-receipts" aria-live="off">פעולות כספיות אחרונות</div>
+    <div id="mission-finished">הושלמו 0 מתוך 8 משימות</div>
+    <div id="mission-list" aria-label="רשימת משימות זמינות"></div>
+    <footer><span>K לפתיחה או סגירה · E לאינטראקציה · O לקנייה · Z לצילום · היעד מסומן על המפה</span>
+      <button id="mission-abandon" type="button" class="hidden">הפסק מעקב (ההתקדמות נשמרת)</button></footer>
+  </div>
+</section>
+<div id="main-menu" class="overlay"><div class="orb"></div><section class="welcome-brief" dir="rtl"><h1>SUNSET STATE · 4.7.9</h1><p>עיר פתוחה לחקירה. סע באוטובוס, גלה בניינים, שוחח עם אנשים והשלם משימות בלי קשר למשטרה.</p><small>▶ התחל בהליכה · כניסה ללובי בהליכה · L לוח מעלית · WASD · M מפה · F3 FPS · F4 איכות · F8 דוח · F9 בדיקה</small></section><button class="hero-button" id="play-button" aria-label="Start exploring on foot"><svg viewBox="0 0 32 32"><path d="m10 5 17 11-17 11z"/></svg></button></div>
+<div id="pause-menu" class="overlay hidden"><div class="orb"></div><div class="pause-controls"><div class="pill-actions">
+  <button class="hero-button" id="resume-button" aria-label="Resume"><svg viewBox="0 0 32 32"><path d="m10 5 17 11-17 11z"/></svg></button>
+  <button class="secondary-button" id="restart-button" aria-label="Restart"><svg viewBox="0 0 24 24"><path d="M21 9a9 9 0 1 0 .3 6M21 3v6h-6"/></svg></button>
+</div></div></div>
+<div id="gameover-menu" class="overlay hidden"><div class="orb"></div><button class="hero-button" id="retry-button" aria-label="Try again"><svg viewBox="0 0 32 32"><path d="M28 12a12 12 0 1 0 .5 10M28 3v9h-9"/></svg></button></div>
+<aside id="delivery-route476" dir="rtl" aria-live="polite" hidden>
+  <strong id="delivery-title476">🚘 מסירת רכב</strong>
+  <span id="delivery-copy476"></span>
+  <button type="button" id="delivery-retry476" hidden>נסה שוב</button>
+</aside>
+<div id="fatal" class="hidden" aria-label="Game load failure">⚠</div>
+<script>globalThis.__SUNSET44_SPLIT=true;</script>
+<script src="assets/aerowild_player_meshes.js"></script>
+<script src="assets/aerowild_player.js"></script>
+<script src="assets/city_441.js"></script>
+<script src="assets/urban_441.js"></script>
+<script src="assets/commerce_442.js"></script>
+<script src="assets/gt_meshes_442.js"></script>
+<script src="assets/gt_442.js"></script>
+<script src="assets/city_442.js"></script>
+<script src="assets/overpass_443.js"></script>
+<script src="assets/terrain_444.js"></script>
+<script src="assets/ridge_443.js"></script>
+<script src="assets/street_life_443.js"></script>
+<script src="assets/marina_444.js"></script>
+<script src="assets/render_442.js"></script>
+<script src="assets/navigation_445.js"></script>
+<script src="assets/city_445.js"></script>
+<script src="assets/life_445.js"></script>
+<script src="assets/visual_450.js"></script>
+<script src="assets/city_455.js"></script>
+<script src="assets/reference_coast_469.js"></script>
+<script src="assets/reference_plan_469.js"></script>
+<script src="assets/coast_461.js"></script>
+<script src="assets/city_plan_463.js"></script>
+<script src="assets/districts_461.js"></script>
+<script src="assets/landmarks_461.js"></script>
+<script src="assets/prison_471.js"></script>
+<script src="assets/activity_461.js"></script>
+<script src="assets/streets_461.js"></script>
+<script src="assets/finish_461.js"></script>
+<script src="assets/reference_buildings_469.js"></script>
+<script src="assets/terrain_463.js"></script>
+<script src="assets/performance_475.js"></script>
+<script src="assets/continuation_476.js"></script>
+<script src="assets/performance_476.js"></script>
+<script src="assets/repair_477.js"></script>
+<script src="assets/continuation_478.js"></script>
+<script src="assets/continuation_479.js"></script>
+<script src="assets/city20_stage02.js"></script>
+<script src="assets/city20_stage03.js"></script>
+<script src="assets/city20_stage04.js"></script>
+<script src="assets/city20_stage05.js"></script>
+<script src="assets/city20_stage06.js"></script>
+<script src="assets/city20_stage07.js"></script>
+<script src="assets/city20_stage08.js"></script>
+<script src="assets/city20_stage09.js"></script>
+<script src="assets/city20_stage10.js"></script>
+<script src="assets/city20_stage11.js"></script>
+<script src="assets/city20_stage12.js"></script>
+<script src="assets/city20_stage13.js"></script>
+<script src="assets/city20_stage14.js"></script>
+<script src="assets/city20_stage15.js"></script>
+<script src="assets/city20_stage16.js"></script>
+<script src="assets/visual_quality_phase01.js?v=39"></script>
+<script src="assets/interior_recovery_phase02.js"></script>
+<script src="assets/city20_deep_audit_repair.js"></script>
+<script src="assets/physics_recovery_phase04.js"></script>
+<script src="assets/city_life_recovery_phase05.js"></script>
+<script src="assets/performance_recovery_phase06.js"></script>
+<script src="assets/stage04_active_entries.js"></script>
+<script src="assets/stage05_city20_entrances.js"></script>
+<script src="assets/stage06_entrance_orientations.js"></script>
+<script src="assets/stage07_street_aligned_buildings.js"></script>
+<script src="assets/stage08_side_rear_windows.js"></script>
+<script src="assets/stage09_coastal_entrance_audit.js"></script>
+<script src="assets/stage10_planter_safety.js"></script>
+<script src="assets/stage11_streetlamp_safety.js"></script>
+<script src="assets/stage12_street_prop_collisions.js"></script>
+<script src="assets/stage13_seven_lobby_furnishing.js"></script>
+<script src="assets/stage20_pedestrian_navigation.js"></script>
+<script src="assets/stage23_geometry_draw_profiler.js"></script>
+<script src="assets/stage27_route_coast_polish.js"></script>
+<script src="assets/stage28_architectural_facades.js"></script>
+<script src="assets/stage21_high_speed_ccd.js"></script>
+<script src="assets/stage22_native1080_benchmark.js"></script>
+<script src="assets/stage31_vehicle_traffic_polish.js"></script>
+<script src="assets/stage32_wildlife_ecology.js"></script>
+<script src="assets/stage33_city_gameplay.js"></script>
+<script src="assets/stage34_render_sound_polish.js"></script>
+<script src="assets/stage36_performance_audit.js"></script>
+  <script src="assets/stage37_render_optimization.js"></script>
+<script src="assets/stage38_adaptive_lod.js"></script>
+<script src="engine44.js"></script>
+<script src="assets/stage05_interior_runtime.js"></script>
+<script src="assets/stage06_interior_runtime.js"></script>
+<script src="assets/stage07_interior_runtime.js"></script>
+<script src="assets/stage13_interior_runtime.js"></script>
+<script src="assets/stage14_interior_lighting.js"></script>
+<script src="assets/stage15_interior_physics.js"></script>
+<script src="assets/stage16_facade_glass.js"></script>
+<script src="assets/stage17_retail_contracts.js"></script>
+<script src="assets/stage19_persistent_save.js"></script>
+<script src="assets/stage29_interior_retail_polish.js"></script>
+<script src="assets/stage30_character_polish.js"></script>
+<script src="assets/stage39_realism_render.js?v=39i"></script>
+<script src="assets/stage39_realism_core.js?v=39i"></script>
+<script src="assets/stage39_city_life.js?v=39i"></script>
+<!-- Recovery 7 manual on-device QA, opt-in only; never loads in normal game. -->
+<script>if(new URLSearchParams(location.search).has('recovery7qa')){const qa7=document.createElement('script');qa7.src='QA/recovery07_live_checklist.js';document.head.appendChild(qa7);}</script>
+<!-- 15-stage improvement plan, stage 1: opt-in live gameplay audit (no changes to default mode). -->
+<script>if(new URLSearchParams(location.search).has("stage1qa")){const s=document.createElement("script");s.src="QA/STAGE01_15_LIVE_AUDIT.js";document.head.appendChild(s);}</script>
+<!-- City20: opt-in QA only, no impact on normal gameplay. -->
+<script>if(new URLSearchParams(location.search).has("city20qa")){const qa=document.createElement("script");qa.src="QA/city20_browser_benchmark.js";document.head.appendChild(qa);}</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Stage26 optional real-browser historical evidence; NO normal-play load or callbacks. -->
+<script>if(new URLSearchParams(location.search).get("stage26qa")==="1"){const s=document.createElement("script");s.src="QA/STAGE26_25_FINDINGS_BROWSER.js";document.head.appendChild(s);}</script>
+</body></html>

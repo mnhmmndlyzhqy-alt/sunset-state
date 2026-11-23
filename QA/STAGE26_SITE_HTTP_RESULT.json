@@ -1,0 +1,11 @@
+{
+  "stage": 26,
+  "scope": "Local HTTP, subpath, all shipped JS syntax and exact content SHA; not browser WebGL or publication",
+  "websiteFiles": 141,
+  "jsSyntaxChecked": 124,
+  "passed": 533,
+  "checks": 533,
+  "failures": [],
+  "nativeHardwareGpu": false,
+  "deployed": false
+}

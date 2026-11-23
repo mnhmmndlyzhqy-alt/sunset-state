@@ -1,0 +1,77 @@
+{
+  "project": "SUNSET STATE",
+  "programme": 35,
+  "stage": 35,
+  "nextStage": null,
+  "baseArchive": "SUNSET_STATE_STAGE34_OF35_FULL.zip",
+  "baseArchiveSha256": "372c7d1a3c79f88e94c97497a736e86ccc7ad42872a38575c8a7e528cc5fe258",
+  "originalStage34MemberCount": 1138,
+  "gameplayFilesChanged": 0,
+  "priorScriptsPreserved": true,
+  "priorWorldAndGameCodeUnchanged": true,
+  "regressionsPassed": 8,
+  "regressionsTotal": 8,
+  "regressions": {
+    "save_load": {
+      "status": "passed",
+      "expected": "95/95",
+      "durationSeconds": 32.97,
+      "log": "STAGE35_REGRESSION_save_load.log"
+    },
+    "vehicle_collision": {
+      "status": "passed",
+      "expected": "39/39",
+      "durationSeconds": 0.54,
+      "log": "STAGE35_REGRESSION_vehicle_collision.log"
+    },
+    "interiors_shops": {
+      "status": "passed",
+      "expected": "13/13",
+      "durationSeconds": 30.92,
+      "log": "STAGE35_REGRESSION_interiors_shops.log"
+    },
+    "characters": {
+      "status": "passed",
+      "expected": "35/35",
+      "durationSeconds": 21.71,
+      "log": "STAGE35_REGRESSION_characters.log"
+    },
+    "vehicles_traffic": {
+      "status": "passed",
+      "expected": "37/37",
+      "durationSeconds": 30.55,
+      "log": "STAGE35_REGRESSION_vehicles_traffic.log"
+    },
+    "wildlife": {
+      "status": "passed",
+      "expected": "46/46",
+      "durationSeconds": 34.21,
+      "log": "STAGE35_REGRESSION_wildlife.log"
+    },
+    "missions_economy_police": {
+      "status": "passed",
+      "expected": "61/61",
+      "durationSeconds": 32.59,
+      "log": "STAGE35_REGRESSION_missions_economy_police.log"
+    },
+    "render_audio_cpu": {
+      "status": "passed",
+      "expected": "147/147",
+      "durationSeconds": 33.59,
+      "log": "STAGE35_REGRESSION_render_audio_cpu.log"
+    }
+  },
+  "manualGpuVerified": false,
+  "fullHd50FpsVerified": false,
+  "tenMinuteNativePlaythroughVerified": false,
+  "publicGithubPagesPublished": false,
+  "browserExecution": {
+    "status": "environment_blocked",
+    "reason": "Chromium ERR_BLOCKED_BY_ADMINISTRATOR on both HTTP loopback and file URLs"
+  },
+  "releaseStatus": "candidate; code/HTTP release tested; GPU/visual/FPS/public validation pending",
+  "fullSourceArchiveName": "SUNSET_STATE_STAGE35_OF35_FULL.zip",
+  "staticWebsiteArchiveName": "SUNSET_STATE_STAGE35_GITHUB_PAGES_SITE.zip",
+  "humanQa": "QA/STAGE35_MANUAL_GPU_SIGNOFF_HE.md",
+  "verificationReport": "SUNSET_STATE_STAGE35_RELEASE_QA.json"
+}

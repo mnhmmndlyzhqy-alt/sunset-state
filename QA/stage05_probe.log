@@ -1,0 +1,529 @@
+{
+  "count": 130,
+  "small": 113,
+  "minW": 11.05,
+  "minD": 9,
+  "maxW": 26.84,
+  "maxD": 24.4,
+  "kinds": {
+    "tower": {
+      "total": 4,
+      "small": 0
+    },
+    "villa": {
+      "total": 89,
+      "small": 89
+    },
+    "civic": {
+      "total": 9,
+      "small": 2
+    },
+    "midrise": {
+      "total": 2,
+      "small": 0
+    },
+    "warehouse": {
+      "total": 14,
+      "small": 10
+    },
+    "service": {
+      "total": 1,
+      "small": 1
+    },
+    "resort": {
+      "total": 11,
+      "small": 11
+    }
+  },
+  "blockedSelf": 0,
+  "blockedOther": 0,
+  "missingSolid": 0,
+  "missingMass": 0
+}
+samples [
+  {
+    "index": 0,
+    "id": "CENTRAL_URBAN_BLOCKS-001",
+    "kind": "tower",
+    "w": 21.43,
+    "d": 22.48,
+    "h": 92.15,
+    "x": -184.119,
+    "z": -289.206,
+    "y": 2.192,
+    "solid": true,
+    "mass": [
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-001",
+        "k": "massing",
+        "x": -184.11919807050194,
+        "z": -289.20563927074585,
+        "w": 22.65151,
+        "d": 23.8288,
+        "h": 8.4,
+        "y": 6.551961810061212,
+        "layer": 4,
+        "shape": "reference_slab469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-001",
+        "k": "massing",
+        "x": -184.11919807050194,
+        "z": -289.20563927074585,
+        "w": 20.572799999999997,
+        "d": 21.5808,
+        "h": 43.20400000000001,
+        "y": 32.353961810061215,
+        "layer": 4,
+        "shape": "reference_slab469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-001",
+        "k": "massing",
+        "x": -184.11919807050194,
+        "z": -289.20563927074585,
+        "w": 17.3583,
+        "d": 18.6584,
+        "h": 26.723499999999994,
+        "y": 67.31771181006121,
+        "layer": 4,
+        "shape": "reference_slab469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-001",
+        "k": "massing",
+        "x": -184.11919807050194,
+        "z": -289.20563927074585,
+        "w": 13.7152,
+        "d": 15.511199999999999,
+        "h": 13.822500000000005,
+        "y": 87.59071181006122,
+        "layer": 4,
+        "shape": "reference_slab469"
+      }
+    ],
+    "other": 0,
+    "coast": 85.68,
+    "road": false
+  },
+  {
+    "index": 1,
+    "id": "CENTRAL_URBAN_BLOCKS-002",
+    "kind": "tower",
+    "w": 19.33,
+    "d": 22.32,
+    "h": 82.54,
+    "x": 246.218,
+    "z": 163.736,
+    "y": 1.705,
+    "solid": true,
+    "mass": [
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-002",
+        "k": "massing",
+        "x": 246.21839211061229,
+        "z": 163.73641877868096,
+        "w": 20.43181,
+        "d": 23.659200000000002,
+        "h": 8.4,
+        "y": 6.064608716433651,
+        "layer": 4,
+        "shape": "reference_slab469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-002",
+        "k": "massing",
+        "x": 246.21839211061229,
+        "z": 163.73641877868096,
+        "w": 18.5568,
+        "d": 21.4272,
+        "h": 37.82240000000001,
+        "y": 29.175808716433654,
+        "layer": 4,
+        "shape": "reference_step469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-002",
+        "k": "massing",
+        "x": 246.21839211061229,
+        "z": 163.73641877868096,
+        "w": 15.6573,
+        "d": 18.5256,
+        "h": 23.9366,
+        "y": 60.05530871643366,
+        "layer": 4,
+        "shape": "reference_step469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-002",
+        "k": "massing",
+        "x": 246.21839211061229,
+        "z": 163.73641877868096,
+        "w": 12.3712,
+        "d": 15.400799999999998,
+        "h": 12.381,
+        "y": 78.21410871643366,
+        "layer": 4,
+        "shape": "reference_octagon469"
+      }
+    ],
+    "other": 0,
+    "coast": 85.68,
+    "road": false
+  },
+  {
+    "index": 2,
+    "id": "CENTRAL_URBAN_BLOCKS-003",
+    "kind": "tower",
+    "w": 17.76,
+    "d": 22.38,
+    "h": 96.22,
+    "x": -82.741,
+    "z": 168.087,
+    "y": 6.724,
+    "solid": true,
+    "mass": [
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-003",
+        "k": "massing",
+        "x": -82.74145346693172,
+        "z": 168.08696329492471,
+        "w": 18.77232,
+        "d": 23.7228,
+        "h": 8.4,
+        "y": 11.084193924503278,
+        "layer": 4,
+        "shape": "reference_slab469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-003",
+        "k": "massing",
+        "x": -82.74145346693172,
+        "z": 168.08696329492471,
+        "w": 17.0496,
+        "d": 21.4848,
+        "h": 45.483200000000004,
+        "y": 38.025793924503276,
+        "layer": 4,
+        "shape": "reference_octagon469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-003",
+        "k": "massing",
+        "x": -82.74145346693172,
+        "z": 168.08696329492471,
+        "w": 14.385600000000002,
+        "d": 18.5754,
+        "h": 27.90379999999999,
+        "y": 74.71929392450328,
+        "layer": 4,
+        "shape": "reference_octagon469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-003",
+        "k": "massing",
+        "x": -82.74145346693172,
+        "z": 168.08696329492471,
+        "w": 11.3664,
+        "d": 15.442199999999998,
+        "h": 14.433000000000007,
+        "y": 95.88769392450328,
+        "layer": 4,
+        "shape": "reference_slab469"
+      }
+    ],
+    "other": 0,
+    "coast": 85.68,
+    "road": false
+  },
+  {
+    "index": 3,
+    "id": "CENTRAL_URBAN_BLOCKS-004",
+    "kind": "tower",
+    "w": 21.15,
+    "d": 23.96,
+    "h": 60.92,
+    "x": -245.807,
+    "z": -150.572,
+    "y": 6.079,
+    "solid": true,
+    "mass": [
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-004",
+        "k": "massing",
+        "x": -245.8071334194232,
+        "z": -150.57232275109132,
+        "w": 22.355549999999997,
+        "d": 25.3976,
+        "h": 8.4,
+        "y": 10.438713760642568,
+        "layer": 4,
+        "shape": "reference_slab469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-004",
+        "k": "massing",
+        "x": -245.8071334194232,
+        "z": -150.57232275109132,
+        "w": 20.304,
+        "d": 23.0016,
+        "h": 25.715200000000003,
+        "y": 27.49631376064257,
+        "layer": 4,
+        "shape": "reference_prow469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-004",
+        "k": "massing",
+        "x": -245.8071334194232,
+        "z": -150.57232275109132,
+        "w": 17.1315,
+        "d": 19.8868,
+        "h": 17.666800000000002,
+        "y": 49.18731376064257,
+        "layer": 4,
+        "shape": "reference_prow469"
+      },
+      {
+        "owner": "CENTRAL_URBAN_BLOCKS-004",
+        "k": "massing",
+        "x": -245.8071334194232,
+        "z": -150.57232275109132,
+        "w": 13.536,
+        "d": 16.5324,
+        "h": 9.137999999999998,
+        "y": 62.58971376064257,
+        "layer": 4,
+        "shape": "reference_octagon469"
+      }
+    ],
+    "other": 0,
+    "coast": 85.68,
+    "road": false
+  },
+  {
+    "index": 4,
+    "id": "CANAL_WEST_SOUTH-001",
+    "kind": "villa",
+    "w": 16.16,
+    "d": 9.38,
+    "h": 7.58,
+    "x": -822.401,
+    "z": 230.937,
+    "y": 2.391,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-001",
+        "x": -822.4012002156587,
+        "z": 230.93698639919523,
+        "w": 16.16,
+        "d": 9.38,
+        "h": 7.58,
+        "y": 6.34071007759588,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 83.75621547273973,
+    "road": false
+  },
+  {
+    "index": 5,
+    "id": "CANAL_WEST_SOUTH-002",
+    "kind": "villa",
+    "w": 13.78,
+    "d": 11.38,
+    "h": 9.11,
+    "x": -881.822,
+    "z": 340.914,
+    "y": 3.095,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-002",
+        "x": -881.82168717102,
+        "z": 340.9135956169855,
+        "w": 13.78,
+        "d": 11.38,
+        "h": 9.11,
+        "y": 7.809909101010302,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 58.26561525649875,
+    "road": false
+  },
+  {
+    "index": 6,
+    "id": "CANAL_WEST_SOUTH-003",
+    "kind": "villa",
+    "w": 15.4,
+    "d": 9.82,
+    "h": 7.78,
+    "x": -673.181,
+    "z": 0.234,
+    "y": 3.32,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-003",
+        "x": -673.1814758028736,
+        "z": 0.2339382950794402,
+        "w": 15.4,
+        "d": 9.82,
+        "h": 7.78,
+        "y": 7.3695105171341915,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 85.68,
+    "road": false
+  },
+  {
+    "index": 7,
+    "id": "CANAL_WEST_SOUTH-004",
+    "kind": "villa",
+    "w": 14.18,
+    "d": 13.2,
+    "h": 8.11,
+    "x": -521.494,
+    "z": -2.384,
+    "y": 3.483,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-004",
+        "x": -521.4941766232372,
+        "z": -2.383869839876013,
+        "w": 14.18,
+        "d": 13.2,
+        "h": 8.11,
+        "y": 7.697555235284856,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 84.07135577906342,
+    "road": false
+  },
+  {
+    "index": 8,
+    "id": "CANAL_WEST_SOUTH-005",
+    "kind": "villa",
+    "w": 15.5,
+    "d": 10.16,
+    "h": 8.85,
+    "x": -912.293,
+    "z": 383.999,
+    "y": 3.867,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-005",
+        "x": -912.2928312947255,
+        "z": 383.9994998846504,
+        "w": 15.5,
+        "d": 10.16,
+        "h": 8.85,
+        "y": 8.451994332489491,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 57.10818393281525,
+    "road": false
+  },
+  {
+    "index": 9,
+    "id": "CANAL_WEST_SOUTH-006",
+    "kind": "villa",
+    "w": 16.21,
+    "d": 10.74,
+    "h": 8.22,
+    "x": -533.673,
+    "z": 416.702,
+    "y": 2.386,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-006",
+        "x": -533.6733696418613,
+        "z": 416.7017615001412,
+        "w": 16.21,
+        "d": 10.74,
+        "h": 8.22,
+        "y": 6.6564975385377965,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 69.76146409138117,
+    "road": false
+  },
+  {
+    "index": 10,
+    "id": "CANAL_WEST_SOUTH-007",
+    "kind": "villa",
+    "w": 16.96,
+    "d": 12.16,
+    "h": 9.17,
+    "x": -533.25,
+    "z": 118.34,
+    "y": 4.455,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-007",
+        "x": -533.2496124632665,
+        "z": 118.33953191473609,
+        "w": 16.96,
+        "d": 12.16,
+        "h": 9.17,
+        "y": 9.199609790638021,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 66.86878504672895,
+    "road": false
+  },
+  {
+    "index": 11,
+    "id": "CANAL_WEST_SOUTH-008",
+    "kind": "villa",
+    "w": 12.36,
+    "d": 13.63,
+    "h": 7.99,
+    "x": -878.525,
+    "z": 258.613,
+    "y": 2.238,
+    "solid": true,
+    "mass": [
+      {
+        "id": "CANAL_WEST_SOUTH-008",
+        "x": -878.5246048589818,
+        "z": 258.6125003399202,
+        "w": 12.36,
+        "d": 13.63,
+        "h": 7.99,
+        "y": 6.392823360599156,
+        "layer": 4,
+        "shape": "cube"
+      }
+    ],
+    "other": 0,
+    "coast": 85.68,
+    "road": false
+  }
+]
+risky []

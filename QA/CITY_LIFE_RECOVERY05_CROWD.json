@@ -1,0 +1,17 @@
+{
+  "phase": 5,
+  "scope": "180 pedestrians on full world, 150 simulated 33ms ticks, CPU only",
+  "elapsedMs": 2097,
+  "actors": 180,
+  "ticks": 150,
+  "steps": 27000,
+  "initializedRoutes": 180,
+  "movedOver1m": 180,
+  "totalTravelMeters": 1176,
+  "waterClassified": {
+    "before": 0,
+    "after": 0
+  },
+  "finite": true,
+  "error": null
+}

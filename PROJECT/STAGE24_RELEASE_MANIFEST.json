@@ -1,0 +1,66 @@
+{
+  "stage": 24,
+  "status": "documentation_state_reconciled_not_hardware_certification",
+  "baseArchive": "SUNSET_STATE_STAGE23_OF35_FULL.zip",
+  "baseArchiveSha256": "3df0daace91b95907b1e4ea48974cbb90da8924a193b44afb174bc4c4fb6fed7",
+  "baseFileCount": 843,
+  "modifiedBaseFilePaths": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "README_35_STAGE_HE.md",
+    "README_CITY20_HE.md",
+    "README_FIRST_HE.md"
+  ],
+  "unmodifiedOriginalPathCount": 838,
+  "newFilePaths": [
+    "BACKUPS/STAGE24_OF35/PROJECT/35_STAGE_PLAN_HE.md",
+    "BACKUPS/STAGE24_OF35/PROJECT/35_STAGE_PROGRESS.json",
+    "BACKUPS/STAGE24_OF35/README_35_STAGE_HE.md",
+    "BACKUPS/STAGE24_OF35/README_CITY20_HE.md",
+    "BACKUPS/STAGE24_OF35/README_FIRST_HE.md",
+    "PROJECT/README_35_STAGE_HISTORY_UP_TO23_HE.md",
+    "PROJECT/STAGE24_CURRENT_STATUS.json",
+    "PROJECT/STAGE24_EVIDENCE_LEDGER.json",
+    "PROJECT/STAGE24_OF35_REPORT_HE.md",
+    "PROJECT/STAGE24_PROGRESS_SOURCE_REGISTRY.json",
+    "PROJECT/STAGE24_RECONCILIATION_DELTA.json",
+    "PROJECT/STAGE24_RELEASE_MANIFEST.json",
+    "PROJECT/STAGE24_SOURCE_INVENTORY.json",
+    "QA/STAGE24_CONSISTENCY_RESULT.json",
+    "QA/STAGE24_MANUAL_GPU_AND_PUBLICATION_CHECKLIST_HE.md",
+    "QA/STAGE24_REGRESSION_STAGE22_BENCHMARK.log",
+    "QA/STAGE24_REGRESSION_STAGE23_PROFILER.log",
+    "QA/STAGE24_REGRESSION_SUMMARY.json",
+    "QA/run_stage24_consistency.py",
+    "SUNSET_STATE_STAGE24_REPORT_HE.md"
+  ],
+  "newFileCount": 20,
+  "finalArchiveFileCount": 863,
+  "gameJavaScriptLinks": 82,
+  "assetsAndGameCodeUntouched": true,
+  "referenceMapShaUnchanged": true,
+  "nativeGpuFpsVerified": false,
+  "publishedWebUrl": null,
+  "historicalQaNotAllRerun": true,
+  "issueRegister": {
+    "total": 25,
+    "technicalOrAuditWorkDocumented": 23,
+    "pending": 2
+  },
+  "activeProgrammeStages": {
+    "completed": 24,
+    "total": 35,
+    "next": 25
+  },
+  "evidencePaths": {
+    "status": "PROJECT/STAGE24_CURRENT_STATUS.json",
+    "delta": "PROJECT/STAGE24_RECONCILIATION_DELTA.json",
+    "ledger": "PROJECT/STAGE24_EVIDENCE_LEDGER.json",
+    "checks": "QA/STAGE24_CONSISTENCY_RESULT.json"
+  },
+  "integrityNote": "ZIP outer SHA256 is in a separate delivery manifest to avoid self-referential checksum.",
+  "documentationOnly": true,
+  "rerunStage23Unit": "51/51",
+  "rerunStage22Unit": "52/52",
+  "stage24Checks": "2880/2880"
+}

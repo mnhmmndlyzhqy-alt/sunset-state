@@ -1,0 +1,187 @@
+{
+  "stage": 36,
+  "type": "BOUNDED_CPU_ONLY",
+  "createdAt": "2026-11-23T11:18:26.120Z",
+  "baseline": "SUNSET STATE Stage35 verified site + preserved Stage32 source and cumulative Stage35 docs",
+  "environment": {
+    "node": "v22.16.0",
+    "platform": "linux",
+    "realGameConstructor": true,
+    "fakeRenderer": true,
+    "webglContext": false,
+    "gpuTimingsMeasured": false,
+    "measuredGameFps": false
+  },
+  "initialScriptAndGameWorldLoadMs": 31092.765,
+  "cullingAuditElapsedMs": 176.555,
+  "world": {
+    "staticObjects": 196817,
+    "sampledStaticObjects": 7030,
+    "sampleMethod": "every 28th full-world object",
+    "totalRoadSegments": 52,
+    "entrancePortals": 429,
+    "pedestrians": 238,
+    "retailShops": 59
+  },
+  "cameraProbeScenarios": [
+    {
+      "label": "spawn_camera",
+      "camera": [
+        -88.15,
+        8.303,
+        -54
+      ],
+      "sampledSource": 7030,
+      "visibleCandidates": 1658,
+      "visibleAfter60mCameraShift": 1566,
+      "initCullingMs": 14.068,
+      "cachedCulling": {
+        "samples": 4,
+        "p50Ms": 0.002,
+        "p95Ms": 0.035,
+        "maxMs": 0.035
+      },
+      "cullingAfter60mMs": 6.952,
+      "spatialCells": 358,
+      "note": "These numbers are real JS execution for a sampled subset only; do not extrapolate as whole-world frame time."
+    },
+    {
+      "label": "shift_200m_east",
+      "camera": [
+        111.85,
+        8.303,
+        -54
+      ],
+      "sampledSource": 7030,
+      "visibleCandidates": 1235,
+      "visibleAfter60mCameraShift": 1056,
+      "initCullingMs": 15.058,
+      "cachedCulling": {
+        "samples": 4,
+        "p50Ms": 0.003,
+        "p95Ms": 0.057,
+        "maxMs": 0.057
+      },
+      "cullingAfter60mMs": 4.933,
+      "spatialCells": 358,
+      "note": "These numbers are real JS execution for a sampled subset only; do not extrapolate as whole-world frame time."
+    },
+    {
+      "label": "shift_400m_north",
+      "camera": [
+        -88.15,
+        8.303,
+        -454
+      ],
+      "sampledSource": 7030,
+      "visibleCandidates": 1329,
+      "visibleAfter60mCameraShift": 1208,
+      "initCullingMs": 11.943,
+      "cachedCulling": {
+        "samples": 4,
+        "p50Ms": 0.002,
+        "p95Ms": 0.011,
+        "maxMs": 0.011
+      },
+      "cullingAfter60mMs": 4.743,
+      "spatialCells": 358,
+      "note": "These numbers are real JS execution for a sampled subset only; do not extrapolate as whole-world frame time."
+    },
+    {
+      "label": "high_aerial_camera",
+      "camera": [
+        61.85,
+        150,
+        -54
+      ],
+      "sampledSource": 7030,
+      "visibleCandidates": 3938,
+      "visibleAfter60mCameraShift": 3892,
+      "initCullingMs": 10.257,
+      "cachedCulling": {
+        "samples": 4,
+        "p50Ms": 0.003,
+        "p95Ms": 0.037,
+        "maxMs": 0.037
+      },
+      "cullingAfter60mMs": 3.2,
+      "spatialCells": 358,
+      "note": "These numbers are real JS execution for a sampled subset only; do not extrapolate as whole-world frame time."
+    },
+    {
+      "label": "shift_390m_west",
+      "camera": [
+        -478.15,
+        8.303,
+        126
+      ],
+      "sampledSource": 7030,
+      "visibleCandidates": 2139,
+      "visibleAfter60mCameraShift": 2140,
+      "initCullingMs": 12.269,
+      "cachedCulling": {
+        "samples": 4,
+        "p50Ms": 0.002,
+        "p95Ms": 0.013,
+        "maxMs": 0.013
+      },
+      "cullingAfter60mMs": 5.694,
+      "spatialCells": 358,
+      "note": "These numbers are real JS execution for a sampled subset only; do not extrapolate as whole-world frame time."
+    },
+    {
+      "label": "retail_door_camera",
+      "camera": [
+        -250.405,
+        8.303,
+        -301.607
+      ],
+      "sampledSource": 7030,
+      "visibleCandidates": 1822,
+      "visibleAfter60mCameraShift": 1720,
+      "initCullingMs": 12.393,
+      "cachedCulling": {
+        "samples": 4,
+        "p50Ms": 0.001,
+        "p95Ms": 0.008,
+        "maxMs": 0.008
+      },
+      "cullingAfter60mMs": 47.048,
+      "spatialCells": 358,
+      "note": "These numbers are real JS execution for a sampled subset only; do not extrapolate as whole-world frame time."
+    }
+  ],
+  "instancePacker": [
+    {
+      "objects": 512,
+      "instanceBytes": 40960,
+      "scratchReuse": {
+        "samples": 5,
+        "p50Ms": 1.125,
+        "p95Ms": 2.999,
+        "maxMs": 2.999
+      }
+    },
+    {
+      "objects": 2048,
+      "instanceBytes": 163840,
+      "scratchReuse": {
+        "samples": 5,
+        "p50Ms": 3.728,
+        "p95Ms": 4.455,
+        "maxMs": 4.455
+      }
+    }
+  ],
+  "processMemoryMiB": {
+    "rss": 781.938,
+    "heapUsed": 658.469,
+    "external": 4.424
+  },
+  "conclusions": [
+    "Six deterministic camera-position probes exercised the genuine renderer culling function on a bounded subset.",
+    "The previous full-world Stage23 profiling attempt timed out; no full-world culling timing is claimed.",
+    "This environment has no verified native hardware GPU capture; native1080 FPS and GPU execution time remain unknown."
+  ],
+  "readyForUserHardwareAudit": true
+}

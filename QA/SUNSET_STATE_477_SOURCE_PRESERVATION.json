@@ -1,0 +1,29 @@
+{
+  "base_version": "4.7.6",
+  "target_version": "4.7.7",
+  "baseline_sha256": "5734fcc8543eaf035ae4ef5032b6154f34559cdf2d5cea980bddd8743fb158d0",
+  "original_files": 81,
+  "unchanged_files": 74,
+  "modified_files": [
+    "README_FIRST_HE.md",
+    "START_GAME.html",
+    "assets/activity_461.js",
+    "assets/coast_461.js",
+    "assets/districts_461.js",
+    "assets/landmarks_461.js",
+    "engine44.js"
+  ],
+  "files_not_found": [],
+  "new_files": [
+    "BUG_PROTOCOL_476_ORIGINAL_HE.md",
+    "CHECKPOINT_4_7_7_HE.md",
+    "QA/SUNSET_STATE_477_SOURCE_PRESERVATION.json",
+    "QA/SUNSET_STATE_4_7_7_CPU_ACCEPTANCE.json",
+    "QA/TRAFFIC_477_CPU.json",
+    "QA/WORLD_477_CPU.json",
+    "QA/verify_477.cjs",
+    "assets/repair_477.js"
+  ],
+  "model_assets_preserved": true,
+  "notes": "All unlisted files byte-for-byte identical to baseline. Prior checkpoint retained."
+}

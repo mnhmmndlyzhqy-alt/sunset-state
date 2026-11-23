@@ -1,0 +1,68 @@
+{
+  "stage": 22,
+  "basedOn": "SUNSET_STATE_STAGE21_OF35_FULL.zip",
+  "sourceSha256": "3def0b2b7d88255ec614be6688f1531476fa43780102f2c7519c474e1c7320cb",
+  "previousFiles": 791,
+  "unchangedPreviousFiles": 786,
+  "updatedPreviousFiles": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "allPreviousFilesPreserved": true,
+  "newFilesPreManifest": 22,
+  "newFilePathsPreManifest": [
+    "BACKUPS/STAGE22_OF35/PROJECT/35_STAGE_PLAN_HE.md",
+    "BACKUPS/STAGE22_OF35/PROJECT/35_STAGE_PROGRESS.json",
+    "BACKUPS/STAGE22_OF35/README_35_STAGE_HE.md",
+    "BACKUPS/STAGE22_OF35/SOURCE_CHECKSUMS.json",
+    "BACKUPS/STAGE22_OF35/START_GAME.html",
+    "BACKUPS/STAGE22_OF35/engine44.js",
+    "PROJECT/STAGE22_OF35_REPORT_HE.md",
+    "QA/STAGE22_BENCHMARK_UNIT_ACCEPTANCE.json",
+    "QA/STAGE22_BROWSER_UI_SMOKE.json",
+    "QA/STAGE22_CONTAINER_GPU_PROBE.json",
+    "QA/STAGE22_CPU_PROFILE.json",
+    "QA/STAGE22_GPU_MANUAL_CHECKLIST_HE.md",
+    "QA/STAGE22_REGRESSION_STAGE19.log",
+    "QA/STAGE22_REGRESSION_STAGE20.log",
+    "QA/STAGE22_REGRESSION_STAGE21.log",
+    "QA/run_stage22_benchmark_acceptance.cjs",
+    "QA/run_stage22_cpu_profile.cjs",
+    "QA/stage22_browser_ui_smoke.py",
+    "QA/stage22_probe_browser.py",
+    "RUN_STAGE22_GPU_BENCHMARK_WINDOWS.bat",
+    "SUNSET_STATE_STAGE22_REPORT_HE.md",
+    "assets/stage22_native1080_benchmark.js"
+  ],
+  "referenceLayoutUnmodified": true,
+  "gpu50FpsVerified": false,
+  "gpuProofStillRequired": true,
+  "nativeBrowserGpuProbe": {
+    "stage": 22,
+    "timestamp": "2026-11-22T20:33:26.829494+00:00",
+    "probeOnly": true,
+    "gameRendered": false,
+    "hardwareGpuVerified": false,
+    "native1080Fps50Verified": false,
+    "measuredGameFps": null,
+    "deviceDriExists": false,
+    "browser": {
+      "webgl2": false,
+      "reason": "getContext(webgl2) returned null"
+    },
+    "errors": [],
+    "adapterClassification": "software-or-unavailable",
+    "conclusion": "GPU-based full-game 1920x1080@50FPS cannot be verified in this container."
+  },
+  "cpuTestTotals": {
+    "benchmark": 52,
+    "browserUi": 9,
+    "worldProfile": 8,
+    "regressionStage21": 39,
+    "regressionStage20": 22,
+    "regressionStage19": 95
+  }
+}

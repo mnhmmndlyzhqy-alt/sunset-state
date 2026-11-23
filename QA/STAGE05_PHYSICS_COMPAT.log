@@ -1,0 +1,21 @@
+{
+  "pass": 29,
+  "total": 29,
+  "failed": [],
+  "stats": {
+    "installed": true,
+    "walkerCalls": 61,
+    "walkerMicrosteps": 73,
+    "carCalls": 102,
+    "carMicrosteps": 106,
+    "guardRouteSkips": 1,
+    "maxWalkerSteps": 3,
+    "maxCarSteps": 4
+  },
+  "fullWorld": {
+    "geometry": 187464,
+    "roads": 52,
+    "portals": 299,
+    "worldBuildMs": 7383
+  }
+}

@@ -1,0 +1,460 @@
+{
+  "project": "SUNSET STATE",
+  "kind": "Full-world cumulative deep audit, NOT a GPU/image QA pass",
+  "date": "2026-11-21",
+  "sourceVersion": "4.7.9 + CITY20 1-20 + recovery 1-3",
+  "worldBefore": {
+    "boxes": 190723,
+    "solids": 1320,
+    "roads": 52,
+    "portals": 298
+  },
+  "worldAfter": {
+    "boxes": 191121,
+    "solids": 1320,
+    "roads": 52,
+    "portals": 298
+  },
+  "buildMs": {
+    "withoutAudit": 7121,
+    "withAudit": 7303
+  },
+  "auditStats": {
+    "revision": 1,
+    "commercialVenues": 60,
+    "storefrontDetailsAdded": 342,
+    "compactFoyersDecorated": 28,
+    "compactInteriorDetailsAdded": 56,
+    "planterSitesMoved": 55,
+    "planterPiecesMoved": 222,
+    "lampsMoved": 13,
+    "treesMoved": 19,
+    "gardenShrubsMoved": 22,
+    "unresolvedPlanters": 181,
+    "unresolvedLamps": 30,
+    "unresolvedTrees": 0,
+    "unresolvedShrubs": 0,
+    "unsafePlantersBefore": 236,
+    "unsafePlantersAfter": 181,
+    "unsafeTreesBefore": 5,
+    "unsafeTreesAfter": 0,
+    "unsafeGardenShrubsBefore": 7,
+    "unsafeGardenShrubsAfter": 0,
+    "geometryAdded": 398,
+    "collisionsAdded": 0,
+    "portalChanges": 0,
+    "roadChanges": 0,
+    "referenceChanged": false,
+    "gpuFpsVerified": false
+  },
+  "green": {
+    "tree-trunk": {
+      "before": 5,
+      "after": 0
+    },
+    "garden-shrub": {
+      "before": 7,
+      "after": 0
+    },
+    "planter-shrub": {
+      "before": 236,
+      "after": 181
+    }
+  },
+  "waterClassifiedEntrances": 116,
+  "findings": [
+    {
+      "id": "actual-world-legacy-stage14-inactive",
+      "severity": "high",
+      "before": 0,
+      "after": 60,
+      "explanation": "Legacy descriptor fields are absent on all 298 portals"
+    },
+    {
+      "id": "water-classified-entrances",
+      "severity": "high",
+      "count": 116,
+      "explanation": "Existing portal coordinates classify as water; do not alter these without a terrain/building redesign"
+    },
+    {
+      "id": "park-vegetation-road-overlaps",
+      "severity": "medium",
+      "before": 12,
+      "after": 0
+    },
+    {
+      "id": "planters-unresolved-near-water",
+      "severity": "high",
+      "before": 236,
+      "after": 181,
+      "explanation": "Remaining planter sites cannot move locally without dislocating them from their buildings"
+    },
+    {
+      "id": "compact-foyers-previously-skipped",
+      "severity": "medium",
+      "before": 55,
+      "decorated": 28,
+      "existingReady": 83
+    }
+  ],
+  "runtimeStages": {
+    "2": {
+      "geometryAdded": 523,
+      "commercialFronts": null,
+      "processed": null
+    },
+    "3": {
+      "geometryAdded": null,
+      "commercialFronts": null,
+      "processed": null
+    },
+    "4": {
+      "geometryAdded": null,
+      "commercialFronts": null,
+      "processed": null
+    },
+    "5": null,
+    "6": {
+      "geometryAdded": null,
+      "commercialFronts": null,
+      "processed": null
+    },
+    "7": {
+      "geometryAdded": 503,
+      "commercialFronts": null,
+      "processed": null
+    },
+    "8": null,
+    "9": {
+      "geometryAdded": 1740,
+      "commercialFronts": null,
+      "processed": 864
+    },
+    "10": {
+      "geometryAdded": 1573,
+      "commercialFronts": null,
+      "processed": 298
+    },
+    "11": {
+      "geometryAdded": 684,
+      "commercialFronts": null,
+      "processed": 76
+    },
+    "12": {
+      "geometryAdded": 710,
+      "commercialFronts": null,
+      "processed": 71
+    },
+    "13": {
+      "geometryAdded": 639,
+      "commercialFronts": null,
+      "processed": 71
+    },
+    "14": {
+      "geometryAdded": 0,
+      "commercialFronts": 0,
+      "processed": null
+    },
+    "15": {
+      "geometryAdded": 2284,
+      "commercialFronts": null,
+      "processed": null
+    },
+    "16": {
+      "geometryAdded": 752,
+      "commercialFronts": null,
+      "processed": 12
+    }
+  },
+  "checks": [
+    {
+      "id": "all_external_scripts_exist",
+      "passed": true,
+      "details": {
+        "count": 59
+      }
+    },
+    {
+      "id": "deep_audit_late_pipeline",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "audit_off_still_constructs_world",
+      "passed": true,
+      "details": {
+        "offMs": 7121
+      }
+    },
+    {
+      "id": "audit_on_constructs_world",
+      "passed": true,
+      "details": {
+        "onMs": 7303
+      }
+    },
+    {
+      "id": "original_city_map_sha256",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "stages_2_3_4_6_7_9_10_11_12_13_14_15_16_construct_in_real_world",
+      "passed": true,
+      "details": {
+        "stages": {
+          "2": {
+            "geometryAdded": 523,
+            "commercialFronts": null,
+            "processed": null
+          },
+          "3": {
+            "geometryAdded": null,
+            "commercialFronts": null,
+            "processed": null
+          },
+          "4": {
+            "geometryAdded": null,
+            "commercialFronts": null,
+            "processed": null
+          },
+          "5": null,
+          "6": {
+            "geometryAdded": null,
+            "commercialFronts": null,
+            "processed": null
+          },
+          "7": {
+            "geometryAdded": 503,
+            "commercialFronts": null,
+            "processed": null
+          },
+          "8": null,
+          "9": {
+            "geometryAdded": 1740,
+            "commercialFronts": null,
+            "processed": 864
+          },
+          "10": {
+            "geometryAdded": 1573,
+            "commercialFronts": null,
+            "processed": 298
+          },
+          "11": {
+            "geometryAdded": 684,
+            "commercialFronts": null,
+            "processed": 76
+          },
+          "12": {
+            "geometryAdded": 710,
+            "commercialFronts": null,
+            "processed": 71
+          },
+          "13": {
+            "geometryAdded": 639,
+            "commercialFronts": null,
+            "processed": 71
+          },
+          "14": {
+            "geometryAdded": 0,
+            "commercialFronts": 0,
+            "processed": null
+          },
+          "15": {
+            "geometryAdded": 2284,
+            "commercialFronts": null,
+            "processed": null
+          },
+          "16": {
+            "geometryAdded": 752,
+            "commercialFronts": null,
+            "processed": 12
+          }
+        }
+      }
+    },
+    {
+      "id": "real_world_not_just_mock_stage_9_11_12_13_15_16_active",
+      "passed": true,
+      "details": {
+        "9": 1740,
+        "11": 684,
+        "12": 710,
+        "13": 639,
+        "15": 2284,
+        "16": 752
+      }
+    },
+    {
+      "id": "recoveries_1_and_2_construct_in_real_world",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "all_52_road_routes_preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "roads_unchanged",
+      "passed": true,
+      "details": {
+        "length": 52
+      }
+    },
+    {
+      "id": "all_298_entrances_preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "portal_coordinates_unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "solids_and_collisions_unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "structural_plans_unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "mapped_buildings_unchanged",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "source_geometries_are_preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "only_stage15_and_stage16_positions_changed",
+      "passed": true,
+      "details": {
+        "unexplained": 0,
+        "relocated": 306
+      }
+    },
+    {
+      "id": "relocations_follow_new_ground_height",
+      "passed": true,
+      "details": {
+        "verticalErrors": 0
+      }
+    },
+    {
+      "id": "60_live_commercial_venue_fixes",
+      "passed": true,
+      "details": {
+        "fixed": 60
+      }
+    },
+    {
+      "id": "legacy_stage14_failure_remains_transparent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "new_storefront_geometry_count",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "compact_foyers_safely_decorated",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "compact_decor_never_unlocks_doors",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "all_public_park_trees_off_roads_and_water",
+      "passed": true,
+      "details": {
+        "before": 5,
+        "after": 0
+      }
+    },
+    {
+      "id": "all_public_garden_shrubs_off_roads_and_water",
+      "passed": true,
+      "details": {
+        "before": 7,
+        "after": 0
+      }
+    },
+    {
+      "id": "planter_hazard_count_improved",
+      "passed": true,
+      "details": {
+        "before": 236,
+        "after": 181
+      }
+    },
+    {
+      "id": "planter_counts_retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "tree_counts_retained",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "crown_transforms_follow_trunks",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "no_new_colliders_or_portal_unlocks",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "deep_audit_idempotent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "default_no_day_night_cycle",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "wildlife_simulation_30s_finite",
+      "passed": true,
+      "details": {
+        "simulated": 900,
+        "wildlifeError": null
+      }
+    },
+    {
+      "id": "all_animals_preserved",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "all_wildlife_positions_finite_after_30_simulated_seconds",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "crocodile_hunt_prey_goal_updates_in_live_behavior",
+      "passed": true,
+      "details": null
+    }
+  ],
+  "passed": 36,
+  "total": 36,
+  "allPassed": true,
+  "gpu50Fps1080pVerified": false,
+  "realRenderedAppearanceVerified": false
+}

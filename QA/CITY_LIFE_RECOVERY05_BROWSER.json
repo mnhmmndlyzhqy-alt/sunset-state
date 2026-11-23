@@ -1,0 +1,12 @@
+{
+  "scope": "Headless Chromium, software WebGL may differ from player GPU",
+  "started": "2026-11-22 06:29:49",
+  "browserReady": false,
+  "gameCreated": false,
+  "canvasWebGL": false,
+  "playClicked": false,
+  "errors": [],
+  "notes": [
+    "Page load incomplete: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:38709/START_GAME.html?qa=473\nCall log:\n  - navigating to \"http://127.0.0.1:38709/START_GAME.html?qa=473\", waiting u"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "passed": 19,
+  "total": 19,
+  "failed": [],
+  "metrics": {
+    "route": "privateSpine469",
+    "waypointsBefore": 14,
+    "waypointsAfter": 13,
+    "lengthBefore": 1047.6508887221128,
+    "lengthAfter": 1004.8734295907699,
+    "removedMeters": 42.77745913134288,
+    "maxBendBefore": 135.89380388068267,
+    "maxBendAfter": 74.7584855422006,
+    "samplesBefore": 191,
+    "samplesAfter": 183,
+    "maxSampleBendAfter": 36.20676328184635,
+    "roadCount": 52,
+    "entrances": 298,
+    "solids": 1320,
+    "solidsBefore": 1320,
+    "simulations": [
+      {
+        "direction": 1,
+        "start": 7,
+        "steps": 700,
+        "invalid": 0,
+        "offroad": 37,
+        "endX": -960.6054089607348,
+        "endZ": 295.30119989869763
+      },
+      {
+        "direction": -1,
+        "start": 55,
+        "steps": 700,
+        "invalid": 0,
+        "offroad": 44,
+        "endX": -887.6759888677444,
+        "endZ": -12.696213552406165
+      }
+    ]
+  }
+}

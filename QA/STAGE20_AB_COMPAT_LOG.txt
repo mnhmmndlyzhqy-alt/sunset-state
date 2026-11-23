@@ -1,0 +1,1 @@
+STAGE20 AB 12/12 {"minDistance":17.33264138886265,"maxOffset":0}

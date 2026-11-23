@@ -1,0 +1,12 @@
+{
+  "stage": 31,
+  "localHttpShaPassed": 155,
+  "localHttpShaTotal": 155,
+  "scriptReferenceChecksPassed": 87,
+  "scriptReferenceChecksTotal": 87,
+  "shaManifestFileCount": 155,
+  "failures": [],
+  "publicDeploymentPerformed": false,
+  "hardwareGPUVerified": false,
+  "native1080pAtLeast50FpsVerified": false
+}

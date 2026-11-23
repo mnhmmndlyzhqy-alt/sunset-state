@@ -1,0 +1,6 @@
+STAGE21 WORLD 16/16 {
+  tested: 180,
+  sweepable: 180,
+  contacts: 180,
+  countByKind: { 'planter-base': 84, 'safety-bollard': 83, 'streetlamp-post': 13 }
+}

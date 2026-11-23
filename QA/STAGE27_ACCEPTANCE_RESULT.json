@@ -1,0 +1,131 @@
+{
+  "stage": 27,
+  "date": "2026-11-23",
+  "mode": "Real code and real Game World, but fake GPU renderer",
+  "passed": 28,
+  "total": 28,
+  "checks": [
+    {
+      "name": "Stage26 opt-out mode recorded",
+      "passed": true
+    },
+    {
+      "name": "Stage27 enabled and safety rollback not needed",
+      "passed": true
+    },
+    {
+      "name": "Existing 52 route objects retained",
+      "passed": true
+    },
+    {
+      "name": "All existing 3390 road samples retained",
+      "passed": true
+    },
+    {
+      "name": "Original road anchors and width unchanged",
+      "passed": true
+    },
+    {
+      "name": "Sampled road XZ layout unchanged",
+      "passed": true
+    },
+    {
+      "name": "All 6 normal road seam defects reproduced by opt-out",
+      "passed": true
+    },
+    {
+      "name": "Six normal road seams corrected",
+      "passed": true
+    },
+    {
+      "name": "37 true shared intersections aligned",
+      "passed": true
+    },
+    {
+      "name": "Intentional double-level overpass not flattened",
+      "passed": true
+    },
+    {
+      "name": "No road segment steeper than 9%",
+      "passed": true
+    },
+    {
+      "name": "Only bounded local road profile correction",
+      "passed": true
+    },
+    {
+      "name": "Original 3D bridge clearance not reduced",
+      "passed": true
+    },
+    {
+      "name": "Old world geometry identical when disabled",
+      "passed": true
+    },
+    {
+      "name": "New bridge/approach geometry growth below 0.25%",
+      "passed": true
+    },
+    {
+      "name": "Preserved solids",
+      "passed": true
+    },
+    {
+      "name": "Preserved props",
+      "passed": true
+    },
+    {
+      "name": "Preserved portals",
+      "passed": true
+    },
+    {
+      "name": "Preserved activePortals",
+      "passed": true
+    },
+    {
+      "name": "Preserved shops",
+      "passed": true
+    },
+    {
+      "name": "Preserved glass",
+      "passed": true
+    },
+    {
+      "name": "Preserved crocodiles",
+      "passed": true
+    },
+    {
+      "name": "Terrain mesh uses same coastline polygons",
+      "passed": true
+    },
+    {
+      "name": "Terrain coastline vertices finite",
+      "passed": true
+    },
+    {
+      "name": "Terrain selection respects 30 lower underpass samples",
+      "passed": true
+    },
+    {
+      "name": "No new routes, original coastline map reference",
+      "passed": true
+    },
+    {
+      "name": "Real world was constructed in both scenarios",
+      "passed": true
+    },
+    {
+      "name": "No false GPU verification",
+      "passed": true
+    }
+  ],
+  "fail": [],
+  "summary": {
+    "baselineTrueSeams": 6,
+    "repairedTrueSeams": 0,
+    "retainedGradeSeparatedOverpassMeters": 6.45,
+    "unchangedWorldTopology": true,
+    "geometryDelta": 280,
+    "coastPolygons": 50264,
+    "nativeGpuVerified": false
+  }
+}

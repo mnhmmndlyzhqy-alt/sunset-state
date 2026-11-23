@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUNSET STATE — מרכז מסירה ובדיקות | שלב 35</title>
+<meta name="theme-color" content="#102830">
+<style>
+:root{color-scheme:dark;--bg:#071922;--panel:#122b34;--line:#365764;--text:#f2efe1;--muted:#b1ced1;--gold:#efc58f;--teal:#a0dfd7}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top right,#244d55 0%,var(--bg) 55%);color:var(--text);font:16px/1.65 system-ui,Arial,sans-serif}
+main{width:min(920px,calc(100% - 30px));margin:30px auto 70px}header{padding:27px 30px;background:linear-gradient(115deg,#21454d,#19252f);border:1px solid #69968a5e;border-radius:20px}h1{font-size:clamp(23px,4vw,39px);margin:0;color:#ffe3b3}header p{max-width:680px}h2{font-size:21px;color:var(--gold);margin:0 0 12px}.tag{color:var(--teal);letter-spacing:1.5px;font-weight:700;font-size:13px}.muted{color:var(--muted)}.card{margin-top:18px;border-radius:16px;border:1px solid var(--line);background:var(--panel);padding:20px 24px}a.action,button{border:1px solid #b3e9de8c;background:#1c5555;border-radius:10px;color:white;display:inline-block;padding:10px 17px;text-decoration:none;font:inherit;cursor:pointer;font-weight:700;margin:5px 0 5px 7px}a.action.primary{background:#d19b59;color:#121b1b;border-color:#f3d39f}button:hover,a.action:hover{filter:brightness(1.15)}li{margin:6px 0}small{color:var(--muted)}label{display:flex;gap:13px;align-items:flex-start;cursor:pointer;padding:11px 0;border-bottom:1px solid #4a6b6b44}label:last-of-type{border:0}input[type=checkbox]{margin-top:7px;min-width:20px;width:20px;height:20px;accent-color:#a7d8c2}.stat{font-weight:700;font-size:20px;color:#b6e5d3}code{background:#071921;padding:2px 6px;border-radius:4px}footer{font-size:13px;color:#9db4b8;padding:22px 0;text-align:center}
+@media(max-width:550px){main{margin-top:12px}header,.card{padding:17px}a.action,button{width:100%;text-align:center}}
+</style>
+</head>
+<body><main>
+<header><div class="tag">FINAL RELEASE CANDIDATE · STAGE 35 / 35</div>
+<h1>SUNSET STATE — מרכז המסירה</h1>
+<p>המשחק המלא נשמר. בדיקות הקוד וקובצי ההפצה הן בדיקות אוטומטיות, אבל בדיקת GPU אמיתי, 50FPS ומשחק ממושך מחייבות בדיקה על מחשב מתאים. הסימונים כאן מיועדים לאישור ידני שלך בלבד.</p>
+<a class="action primary" href="index.html">▶ פתח את המשחק</a>
+<a class="action" href="index.html?stage22qa=1">בדיקת ביצועים במשחק</a>
+<a class="action" href="index.html?stage26qa=1">בדיקת תקלות היסטוריות</a>
+</header>
+<section class="card"><h2>מה נבדק אוטומטית?</h2>
+<p>תוצאות בדיקות הקוד ושלמות האתר מתועדות בקבצי ה־QA של הפרויקט. אלה בדיקות פנימיות ואינן הוכחה שהמשחק נבדק על כרטיס מסך פיזי. דוח המסירה: <a href="README_STAGE35_FINAL_HE.md" style="color:#b6ecdb">README_STAGE35_FINAL_HE.md</a>.</p>
+<p><strong>מצב פרסום:</strong> החבילה מוכנה להעלאה לשרת סטטי; היא לא פורסמה אוטומטית ל־GitHub Pages.</p></section>
+<section class="card"><h2>בדיקת WebGL2 בדפדפן שלך</h2><button id="probe" type="button">בדוק תמיכה במנוע תלת־ממדי</button><div id="webglResult" class="muted" role="status" aria-live="polite">לא בוצעה בדיקה עדיין.</div><small>תוצאה חיובית מציינת זמינות WebGL2 בלבד. היא אינה מוכיחה ביצועי GPU חומרתי.</small></section>
+<section class="card"><h2>רשימת אישור ידנית</h2>
+<p class="muted">סמן רק דברים שבדקת בעצמך, על מחשב עם דפדפן מודרני. אין צורך לבצע כאן רכישות או להתחבר לשירותים.</p>
+<div id="checks">
+<label><input type="checkbox" data-key="startup"> המשחק נפתח ללא מסך שגיאה; אפשר להתחיל בהליכה ולא ברכב</label>
+<label><input type="checkbox" data-key="controls"> WASD, קפיצה, מצלמה ומפת העיר עובדים ברציפות</label>
+<label><input type="checkbox" data-key="world"> רחובות, גשרים, מעקות וקו החוף נראים תקינים גם בזמן נהיגה</label>
+<label><input type="checkbox" data-key="indoor"> אפשר להיכנס לבניינים ולחנויות, להשתמש במעליות ולבצע אינטראקציה</label>
+<label><input type="checkbox" data-key="traffic"> נהיגה, רכבי NPC, משטרה, נזקים וסירנות עובדים בלי עומס חריג</label>
+<label><input type="checkbox" data-key="wildlife"> דולפינים, דגים, אנפות, פלמינגו ותנינים מופיעים בבתי הגידול הנכונים</label>
+<label><input type="checkbox" data-key="save"> שמירה, טעינה ורענון הדף מחזירים התקדמות, כסף ומיקום כמצופה</label>
+<label><input type="checkbox" data-key="fps"> בדיקת שלב 22 הראתה לפחות 50FPS ב־1920×1080 בכל שש הסצנות על GPU חומרתי</label>
+<label><input type="checkbox" data-key="stability"> שיחקתי 10 דקות ללא תקיעה או שגיאת WebGL2</label>
+<label><input type="checkbox" data-key="pages"> לאחר פרסום, פתחתי את כתובת האתר הציבורית ובדקתי טעינת מודלים, קולות ומרקמים</label>
+</div>
+<p id="progress" class="stat" aria-live="polite">0 / 10 אישורים ידניים</p>
+<button id="export" type="button">ייצא דוח בדיקה ל־JSON</button>
+<button id="clear" type="button">נקה סימונים</button>
+<p><small>הסימונים נשמרים רק בדפדפן שלך. כפתור הייצוא שומר דוח מקומי; לא נשלחים נתונים לשרת.</small></p>
+</section>
+<section class="card"><h2>קיצורי דרך</h2><p>בתוך המשחק: <code>F3</code> מד נתוני רינדור, <code>F4</code> מצבי איכות / Native 1080p, <code>F8</code> דוח, <code>F9</code> כלי בדיקה (לפי האפשרויות הזמינות בגרסה).</p><p>לצורך השוואה אפשר לפתוח את המשחק עם <code>?stage34PolishOff=1</code> כדי לבטל את תוספת שלב 34.</p></section>
+<footer>SUNSET STATE · שלב 35 / 35 · קובץ QA נפרד שאינו משנה את המשחק</footer>
+</main>
+<script>
+(()=>{'use strict';
+const storageKey='sunset_state_stage35_manual_signoff_v1';
+const boxes=[...document.querySelectorAll('#checks input[type="checkbox"]')];
+let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{}}catch{}
+for(const box of boxes){box.checked=!!saved[box.dataset.key];box.addEventListener('change',save)}
+function snapshot(){return Object.fromEntries(boxes.map(b=>[b.dataset.key,b.checked]))}
+function refresh(){let n=boxes.filter(x=>x.checked).length;document.querySelector('#progress').textContent=n+' / '+boxes.length+' אישורים ידניים'+(n===boxes.length?' · הושלמו ידנית':'')}
+function save(){try{localStorage.setItem(storageKey,JSON.stringify(snapshot()))}catch{}refresh()}
+refresh();
+document.querySelector('#clear').addEventListener('click',()=>{boxes.forEach(x=>x.checked=false);save()});
+document.querySelector('#probe').addEventListener('click',()=>{
+ const c=document.createElement('canvas');let gl=null;try{gl=c.getContext('webgl2')}catch{}
+ document.querySelector('#webglResult').textContent=gl?'WebGL2 זמין בדפדפן. עדיין נדרשת בדיקת ביצועים בתוך המשחק.':'WebGL2 אינו זמין בדפדפן הזה. בדוק האצת חומרה ומנהל התקן גרפי.';
+});
+document.querySelector('#export').addEventListener('click',()=>{
+ const data={project:'SUNSET STATE',stage:35,kind:'manual-user-QA-signoff',timestamp:new Date().toISOString(),checks:snapshot(),nativeGpuAutomaticallyCertified:false};
+ const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let url=URL.createObjectURL(blob);
+ const a=document.createElement('a');a.href=url;a.download='SUNSET_STAGE35_MANUAL_QA.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2500);
+});
+})();
+</script>
+</body></html>

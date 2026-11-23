@@ -1,0 +1,240 @@
+{
+  "phase": 5,
+  "scope": "Original Game NPC methods, pedestrian route, road-level behavior, full world construction; no GPU visual QA",
+  "date": "2026-11-22",
+  "passed": 39,
+  "total": 39,
+  "allPassed": true,
+  "tests": [
+    {
+      "name": "scripts_exist",
+      "pass": true,
+      "detail": {
+        "total": 79
+      }
+    },
+    {
+      "name": "script_order_after_physics_before_engine",
+      "pass": true
+    },
+    {
+      "name": "game_installer_present",
+      "pass": true
+    },
+    {
+      "name": "actual_game_installed_once",
+      "pass": true
+    },
+    {
+      "name": "previous_physics_installed",
+      "pass": true
+    },
+    {
+      "name": "baseline_reproduces_frozen_route",
+      "pass": true,
+      "detail": {
+        "axis": null,
+        "z": 36
+      }
+    },
+    {
+      "name": "ab_does_not_run_new_route",
+      "pass": true
+    },
+    {
+      "name": "real_route_initialized",
+      "pass": true,
+      "detail": {
+        "navAxis": "z"
+      }
+    },
+    {
+      "name": "ordinary_pedestrian_now_walks",
+      "pass": true,
+      "detail": {
+        "before": 36,
+        "after": 3.2500270202561268
+      }
+    },
+    {
+      "name": "walker_crosswalk_progresses",
+      "pass": true,
+      "detail": {
+        "state": "crossing",
+        "trips": 0,
+        "z": 3.2500270202561268
+      }
+    },
+    {
+      "name": "walking_kinematics_finite",
+      "pass": true
+    },
+    {
+      "name": "scheduled_far_pedestrian_uses_bounded_steps",
+      "pass": true,
+      "detail": {
+        "steps": 5
+      }
+    },
+    {
+      "name": "scheduled_far_pedestrian_moves",
+      "pass": true,
+      "detail": {
+        "z": 35.596079419953504
+      }
+    },
+    {
+      "name": "all_new_microsteps_bounded",
+      "pass": true
+    },
+    {
+      "name": "invalid_dt_no_nan_or_crash",
+      "pass": true
+    },
+    {
+      "name": "bridge_traffic_no_longer_blocks_lower_crosswalk",
+      "pass": true,
+      "detail": {
+        "state": "crossing"
+      }
+    },
+    {
+      "name": "same_level_car_still_blocks_crosswalk",
+      "pass": true,
+      "detail": {
+        "state": "waiting"
+      }
+    },
+    {
+      "name": "wrong_level_vehicle_no_panic",
+      "pass": true
+    },
+    {
+      "name": "same_level_approaching_vehicle_still_warns",
+      "pass": true
+    },
+    {
+      "name": "original_crosswalk_vehicle_yields",
+      "pass": true
+    },
+    {
+      "name": "traffic_on_elevated_road_does_not_yield_to_lower_zebra",
+      "pass": true
+    },
+    {
+      "name": "ab_restores_original_traffic_yield",
+      "pass": true
+    },
+    {
+      "name": "conversation_chooses_visible_not_just_nearest_person",
+      "pass": true
+    },
+    {
+      "name": "talk_action_retains_original_conversation_flow",
+      "pass": true
+    },
+    {
+      "name": "citizen_faces_player_and_pauses",
+      "pass": true,
+      "detail": {
+        "pose": "talk",
+        "pause": 2.2,
+        "yaw": -1.5707963267948966
+      }
+    },
+    {
+      "name": "talk_animation_returns_to_normal",
+      "pass": true,
+      "detail": {
+        "pose": "walk",
+        "restored": 1
+      }
+    },
+    {
+      "name": "wall_occlusion_is_real",
+      "pass": true
+    },
+    {
+      "name": "cannot_talk_through_wall",
+      "pass": true
+    },
+    {
+      "name": "occluded_conversation_rejection_counted",
+      "pass": true
+    },
+    {
+      "name": "real_game_updatePedestrians_advances_walker",
+      "pass": true,
+      "detail": {
+        "z": 22.270651483653417,
+        "state": "sidewalk"
+      }
+    },
+    {
+      "name": "real_game_update_preserves_population",
+      "pass": true
+    },
+    {
+      "name": "stage20_full_world_52_routes_429_portals",
+      "pass": true,
+      "detail": {
+        "roads": 52,
+        "portals": 429
+      }
+    },
+    {
+      "name": "all_prior_world_geometry_present",
+      "pass": true,
+      "detail": {
+        "boxes": 194319
+      }
+    },
+    {
+      "name": "deep_audit_repair_still_present",
+      "pass": true
+    },
+    {
+      "name": "coast_and_nature_unchanged",
+      "pass": true
+    },
+    {
+      "name": "real_world_civilians_can_spawn",
+      "pass": true,
+      "detail": {
+        "spawned": 180
+      }
+    },
+    {
+      "name": "real_world_civilians_finite",
+      "pass": true
+    },
+    {
+      "name": "chosen_reference_map_immutable",
+      "pass": true
+    },
+    {
+      "name": "daylight_default_still_bright",
+      "pass": true
+    }
+  ],
+  "stats": {
+    "installed": true,
+    "routeCalls": 843,
+    "routeMicrosteps": 847,
+    "routeInvalidDt": 1,
+    "bridgeHazardsRejected": 1,
+    "bridgeCrossingCarsRejected": 1,
+    "bridgeYieldRejected": 1,
+    "conversationsPaused": 1,
+    "blockedDialogues": 1,
+    "talkPosesRestored": 1
+  },
+  "fullWorld": {
+    "boxes": 194319,
+    "roads": 52,
+    "portals": 429,
+    "spawnedPedestrians": 180,
+    "buildMs": 26170
+  },
+  "hardwareFpsVerified": false
+}

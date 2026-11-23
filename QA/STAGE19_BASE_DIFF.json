@@ -1,0 +1,28 @@
+{
+  "from": "SUNSET_STATE_STAGE18_OF35_FULL.zip",
+  "originalFileCount": 718,
+  "missing": [],
+  "byteChangedExisting": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "added": [
+    "BACKUPS/STAGE19_OF35/BASE_CHECKPOINT_SHA256.txt",
+    "BACKUPS/STAGE19_OF35/PROJECT/35_STAGE_PLAN_HE.md",
+    "BACKUPS/STAGE19_OF35/PROJECT/35_STAGE_PROGRESS.json",
+    "BACKUPS/STAGE19_OF35/README_35_STAGE_HE.md",
+    "BACKUPS/STAGE19_OF35/START_GAME.html",
+    "BACKUPS/STAGE19_OF35/engine44.js",
+    "PROJECT/STAGE19_OF35_REPORT_HE.md",
+    "QA/STAGE19_BROWSER_MANUAL_CHECKLIST_HE.md",
+    "QA/STAGE19_OF35_ACCEPTANCE.json",
+    "QA/STAGE19_UI_AND_AUTOSAVE.json",
+    "QA/run_stage19_of35_acceptance.cjs",
+    "QA/run_stage19_save_ui_and_autosave.cjs",
+    "TOOLS/package_stage19.py",
+    "assets/stage19_persistent_save.js"
+  ]
+}

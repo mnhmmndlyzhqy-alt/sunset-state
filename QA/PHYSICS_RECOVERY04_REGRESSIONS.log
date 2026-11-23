@@ -1,0 +1,23 @@
+PASS run_animal_recovery03.cjs 0.4s
+PASS run_interior_recovery02.cjs 0.0s
+PASS run_stage01_baseline.cjs 7.5s
+PASS run_deep_audit_acceptance.cjs 16.5s
+PASS run_stage02_acceptance.cjs 12.3s
+PASS run_stage03_acceptance.cjs 13.7s
+PASS run_stage04_acceptance.cjs 16.1s
+PASS run_stage05_acceptance.cjs 16.0s
+PASS run_stage07_acceptance.cjs 0.0s
+PASS run_stage08_acceptance.cjs 0.1s
+PASS run_stage09_acceptance.cjs 0.0s
+PASS run_stage10_acceptance.cjs 0.0s
+PASS run_stage11_acceptance.cjs 0.0s
+PASS run_stage12_acceptance.cjs 0.0s
+PASS run_stage13_acceptance.cjs 0.0s
+PASS run_stage14_acceptance.cjs 0.0s
+PASS run_stage15_acceptance.cjs 0.0s
+PASS run_stage16_acceptance.cjs 0.0s
+PASS run_stage17_acceptance.cjs 0.1s
+PASS run_stage18_acceptance.cjs 0.2s
+PASS run_visual_recovery01.cjs 0.0s
+PASS run_stage06_acceptance.cjs 15.8s
+REGRESSIONS 22/22

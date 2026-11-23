@@ -1,0 +1,182 @@
+{
+  "stage": 21,
+  "issueId": "S01-PH-01",
+  "source": "real installed Game.prototype.moveCar and Heatline.stepCar with fake collision world, CPU only",
+  "testCases": 39,
+  "passed": 39,
+  "failures": [],
+  "checks": [
+    {
+      "name": "stage21 module installed and Game integrated",
+      "passed": true
+    },
+    {
+      "name": "Recovery4 still installed",
+      "passed": true
+    },
+    {
+      "name": "guard cannot install twice",
+      "passed": true
+    },
+    {
+      "name": "native swept footprint available",
+      "passed": true
+    },
+    {
+      "name": "continuous SAT detects thin barrier",
+      "passed": true
+    },
+    {
+      "name": "continuous SAT computes outward normal",
+      "passed": true
+    },
+    {
+      "name": "SAT misses out-of-corridor barrier",
+      "passed": true
+    },
+    {
+      "name": "SAT misses movement away from barrier",
+      "passed": true
+    },
+    {
+      "name": "SAT ignores existing overlap to let native solver act",
+      "passed": true
+    },
+    {
+      "name": "rotated thin-wall sweep yaw 0.00",
+      "passed": true
+    },
+    {
+      "name": "rotated offroad safe yaw 0.00",
+      "passed": true
+    },
+    {
+      "name": "rotated thin-wall sweep yaw 0.52",
+      "passed": true
+    },
+    {
+      "name": "rotated offroad safe yaw 0.52",
+      "passed": true
+    },
+    {
+      "name": "rotated thin-wall sweep yaw 0.79",
+      "passed": true
+    },
+    {
+      "name": "rotated offroad safe yaw 0.79",
+      "passed": true
+    },
+    {
+      "name": "rotated thin-wall sweep yaw 1.57",
+      "passed": true
+    },
+    {
+      "name": "rotated offroad safe yaw 1.57",
+      "passed": true
+    },
+    {
+      "name": "integrated high-speed sweep clipped crossing",
+      "passed": true
+    },
+    {
+      "name": "real native collision kept car before wall",
+      "passed": true
+    },
+    {
+      "name": "native wall impact, no double damage",
+      "passed": true
+    },
+    {
+      "name": "native collision reduces forward velocity",
+      "passed": true
+    },
+    {
+      "name": "native world lookup catches intermediate obstacle",
+      "passed": true
+    },
+    {
+      "name": "A/B disable restores exact old penetration",
+      "passed": true
+    },
+    {
+      "name": "A/B disable avoids all stage21 clipping",
+      "passed": true
+    },
+    {
+      "name": "query-string A/B disable works",
+      "passed": true
+    },
+    {
+      "name": "raised road skips unrelated ground obstacle",
+      "passed": true
+    },
+    {
+      "name": "elevated skip telemetry reported",
+      "passed": true
+    },
+    {
+      "name": "overpass lane does not collide with ground obstacle",
+      "passed": true
+    },
+    {
+      "name": "deck remains elevated during legal passage",
+      "passed": true
+    },
+    {
+      "name": "overpass rail stays solid at high speed",
+      "passed": true
+    },
+    {
+      "name": "deck rail preserves original damage reaction",
+      "passed": true
+    },
+    {
+      "name": "normal driving identical with A/B at speed 0",
+      "passed": true
+    },
+    {
+      "name": "normal driving identical with A/B at speed 12",
+      "passed": true
+    },
+    {
+      "name": "normal driving identical with A/B at speed 34",
+      "passed": true
+    },
+    {
+      "name": "normal driving identical with A/B at speed 52",
+      "passed": true
+    },
+    {
+      "name": "normal driving identical with A/B at speed 77",
+      "passed": true
+    },
+    {
+      "name": "25 real car speed/frame scenarios avoid tunnelling",
+      "passed": true
+    },
+    {
+      "name": "car world guard keeps native crashVehicle function",
+      "passed": true
+    },
+    {
+      "name": "world geometry unchanged by safety test",
+      "passed": true
+    }
+  ],
+  "stats": {
+    "installed": true,
+    "carSteps": 72,
+    "skippedLowTravel": 64,
+    "skippedDisabled": 9,
+    "broadphaseQueries": 26,
+    "candidateSolids": 6,
+    "narrowphaseTests": 6,
+    "contacts": 2,
+    "clippedSteps": 2,
+    "roadGradeSkips": 5,
+    "deckGuardQueries": 10,
+    "maxQueries": 5,
+    "anomalies": 0
+  },
+  "realGpuVerified": false
+}

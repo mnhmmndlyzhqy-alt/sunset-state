@@ -1,0 +1,282 @@
+{
+  "stage": 7,
+  "kind": "CPU real walker traversal, not GPU",
+  "tested": 34,
+  "passed": 34,
+  "failed": 0,
+  "errors": [],
+  "results": [
+    {
+      "id": 305,
+      "angleDeg": 15.54,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 307,
+      "angleDeg": -9.54,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 310,
+      "angleDeg": 24.63,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 316,
+      "angleDeg": -15.38,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 317,
+      "angleDeg": -19.45,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 318,
+      "angleDeg": 13.9,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 322,
+      "angleDeg": -24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 325,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 326,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 329,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 343,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 345,
+      "angleDeg": -24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 346,
+      "angleDeg": -24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 360,
+      "angleDeg": -20.67,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 370,
+      "angleDeg": -24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 372,
+      "angleDeg": 7.25,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 373,
+      "angleDeg": -12.39,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 374,
+      "angleDeg": -20.15,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 376,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 377,
+      "angleDeg": -19.68,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 378,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 382,
+      "angleDeg": 12.21,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 383,
+      "angleDeg": 12.05,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 385,
+      "angleDeg": -24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 390,
+      "angleDeg": 14.63,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 405,
+      "angleDeg": -24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 411,
+      "angleDeg": -13.78,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 412,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 414,
+      "angleDeg": -24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 417,
+      "angleDeg": -7.2,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 418,
+      "angleDeg": 10.29,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 420,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 427,
+      "angleDeg": 7.56,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    },
+    {
+      "id": 428,
+      "angleDeg": 24.64,
+      "passedOutside": true,
+      "passedInside": true,
+      "exception": null,
+      "outerFinal": -2.511
+    }
+  ]
+}

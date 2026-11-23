@@ -1,0 +1,169 @@
+{
+  "stage": 28,
+  "kind": "CPU-world preservation, architecture and opening QA — NOT GPU visual acceptance",
+  "passed": 37,
+  "total": 37,
+  "checks": [
+    {
+      "name": "Stage27 A/B flag actually disables facades",
+      "passed": true
+    },
+    {
+      "name": "Active Stage28 actually enabled",
+      "passed": true
+    },
+    {
+      "name": "Source CPU world constructed twice",
+      "passed": true
+    },
+    {
+      "name": "All previously existing boxes byte-equivalent in ordered projection",
+      "passed": true
+    },
+    {
+      "name": "Stage27 total box count restored under A/B flag",
+      "passed": true
+    },
+    {
+      "name": "Stage28 added exactly 1982 objects",
+      "passed": true
+    },
+    {
+      "name": "Stage28 added under 1.5% of base draw objects",
+      "passed": true
+    },
+    {
+      "name": "Existing 52 roads retained",
+      "passed": true
+    },
+    {
+      "name": "All existing sampled road heights unchanged",
+      "passed": true
+    },
+    {
+      "name": "Existing coastline polygon coordinates unchanged",
+      "passed": true
+    },
+    {
+      "name": "All solid bodies retained",
+      "passed": true
+    },
+    {
+      "name": "All prop collisions retained",
+      "passed": true
+    },
+    {
+      "name": "All active entrance portals retained",
+      "passed": true
+    },
+    {
+      "name": "All legacy and mapped entrance coordinates unchanged",
+      "passed": true
+    },
+    {
+      "name": "All 130 CITY20 buildings retained",
+      "passed": true
+    },
+    {
+      "name": "All 84 core/legacy buildings retained",
+      "passed": true
+    },
+    {
+      "name": "All 34 rotated buildings detailed",
+      "passed": true
+    },
+    {
+      "name": "All original 1586 side/rear windows retained",
+      "passed": true
+    },
+    {
+      "name": "Original breakable glass state retained",
+      "passed": true
+    },
+    {
+      "name": "60-storefront program remains available",
+      "passed": true
+    },
+    {
+      "name": "All new geometry has legitimate CITY20 / legacy owner",
+      "passed": true
+    },
+    {
+      "name": "No decorative part placed outside the surveyed CITY20 footprint",
+      "passed": true
+    },
+    {
+      "name": "No opaque mesh overlaps Stage08 glass",
+      "passed": true
+    },
+    {
+      "name": "No decorative mesh blocks a mapped doorway sight aperture",
+      "passed": true
+    },
+    {
+      "name": "Geometry sharing: no additional texture files",
+      "passed": true
+    },
+    {
+      "name": "All added decorative pieces have finite LOD cap <=2100",
+      "passed": true
+    },
+    {
+      "name": "No added collider or gameplay change",
+      "passed": true
+    },
+    {
+      "name": "All 7 mapped archetypes covered",
+      "passed": true
+    },
+    {
+      "name": "Facade rooflines and corner relief both implemented",
+      "passed": true
+    },
+    {
+      "name": "Window sunshades attached to existing glass",
+      "passed": true
+    },
+    {
+      "name": "Entrance details sit above original openings",
+      "passed": true
+    },
+    {
+      "name": "Industrial rooftop vents present",
+      "passed": true
+    },
+    {
+      "name": "Setback-aware tower fins present",
+      "passed": true
+    },
+    {
+      "name": "Legacy roof edges polished",
+      "passed": true
+    },
+    {
+      "name": "Stage27 road repair remained enabled",
+      "passed": true
+    },
+    {
+      "name": "Original starting position unchanged",
+      "passed": true
+    },
+    {
+      "name": "No unjustified GPU signoff",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "summary": {
+    "mappedBuildings": 130,
+    "legacyBuildings": 84,
+    "originalGeometry": 194835,
+    "newGeometry": 1982,
+    "geometryGrowthPercent": 1.017,
+    "preservedExistingGeometryHash": "62a684e01304c61cce8643e685ab7ece14e8f1894bf28d7472728c07961acc60",
+    "noWindowOcclusion": true,
+    "noDoorwayOcclusion": true,
+    "allRotationsPreserved": true,
+    "nativeGPU1080P50FPSVerified": false
+  }
+}

@@ -1,0 +1,678 @@
+{
+  "id": 6,
+  "face": "south",
+  "building": [
+    54,
+    -274
+  ],
+  "count": 10,
+  "hits": [
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "masonry",
+      "shape": "s11_office_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "masonry",
+      "shape": "s11_office_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "metal",
+      "shape": "s11_office_metal",
+      "flags": []
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "masonry",
+      "shape": "s11_office_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "masonry",
+      "shape": "s11_office_ledge",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "masonry",
+      "shape": "s11_office_lod1_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "masonry",
+      "shape": "s11_office_lod1_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "metal",
+      "shape": "s11_office_lod1_metal",
+      "flags": []
+    },
+    {
+      "x": 54,
+      "y": 25.46,
+      "z": -274,
+      "w": 38.46,
+      "h": 42.64,
+      "d": 52.68,
+      "material": "masonry",
+      "shape": "s11_office_lod1_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": 54,
+      "y": 5.96,
+      "z": -248.11,
+      "w": 4.07,
+      "h": 3.44,
+      "d": 0.9,
+      "material": "masonry",
+      "flags": [
+        "stage42Facade"
+      ]
+    }
+  ]
+}
+{
+  "id": 11,
+  "face": "west",
+  "building": [
+    -396,
+    -177
+  ],
+  "count": 11,
+  "hits": [
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "metal",
+      "shape": "s11_residential_metal",
+      "flags": []
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_ledge",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_earth",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_plant",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_lod1_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_lod1_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "metal",
+      "shape": "s11_residential_lod1_metal",
+      "flags": []
+    },
+    {
+      "x": -396,
+      "y": 20.12,
+      "z": -177,
+      "w": 27.09,
+      "h": 29.52,
+      "d": 30.82,
+      "material": "masonry",
+      "shape": "s11_residential_lod1_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    }
+  ]
+}
+{
+  "id": 15,
+  "face": "east",
+  "building": [
+    -141,
+    -138
+  ],
+  "count": 11,
+  "hits": [
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "metal",
+      "shape": "s11_retail_metal",
+      "flags": []
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_ledge",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_awning",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_lod1_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_lod1_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "metal",
+      "shape": "s11_retail_lod1_metal",
+      "flags": []
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_lod1_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -141,
+      "y": 12.74,
+      "z": -138,
+      "w": 19.9,
+      "h": 16.4,
+      "d": 21.5,
+      "material": "masonry",
+      "shape": "s11_retail_lod1_awning",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    }
+  ]
+}
+{
+  "id": 23,
+  "face": "east",
+  "building": [
+    373,
+    -179
+  ],
+  "count": 1,
+  "hits": [
+    {
+      "x": 387.77,
+      "y": 10.12,
+      "z": -179,
+      "w": 25.47,
+      "h": 3.44,
+      "d": 34.2,
+      "material": "masonry",
+      "flags": [
+        "stage42Facade"
+      ]
+    }
+  ]
+}
+{
+  "id": 24,
+  "face": "east",
+  "building": [
+    384,
+    -136
+  ],
+  "count": 1,
+  "hits": [
+    {
+      "x": 397.49,
+      "y": 8.26,
+      "z": -136,
+      "w": 22.92,
+      "h": 3.44,
+      "d": 18,
+      "material": "masonry",
+      "flags": [
+        "stage42Facade"
+      ]
+    }
+  ]
+}
+{
+  "id": 26,
+  "face": "west",
+  "building": [
+    -358,
+    -42
+  ],
+  "count": 11,
+  "hits": [
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "metal",
+      "shape": "s11_residential_metal",
+      "flags": []
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_ledge",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_earth",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_plant",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_lod1_concrete",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_lod1_paint",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "metal",
+      "shape": "s11_residential_lod1_metal",
+      "flags": []
+    },
+    {
+      "x": -358,
+      "y": 22.28,
+      "z": -42,
+      "w": 25.57,
+      "h": 19.68,
+      "d": 26.95,
+      "material": "masonry",
+      "shape": "s11_residential_lod1_black",
+      "flags": [
+        "stage455ContinuousMass"
+      ]
+    }
+  ]
+}
+{
+  "id": 27,
+  "face": "south",
+  "building": [
+    270,
+    -58
+  ],
+  "count": 1,
+  "hits": [
+    {
+      "x": 270,
+      "y": 6.05,
+      "z": -39.44,
+      "w": 4.07,
+      "h": 3.44,
+      "d": 0.9,
+      "material": "masonry",
+      "flags": [
+        "stage42Facade"
+      ]
+    }
+  ]
+}
+{
+  "id": 31,
+  "face": "south",
+  "building": [
+    -270,
+    50
+  ],
+  "count": 1,
+  "hits": [
+    {
+      "x": -270,
+      "y": 20.21,
+      "z": 71.93,
+      "w": 4.07,
+      "h": 3.44,
+      "d": 0.9,
+      "material": "masonry",
+      "flags": [
+        "stage42Facade"
+      ]
+    }
+  ]
+}

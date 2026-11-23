@@ -1,0 +1,78 @@
+{
+  "passed": 70,
+  "total": 70,
+  "world": 196817,
+  "sampled": 14059,
+  "boundedRefreshMs": {
+    "legacy": {
+      "p50": 3.703,
+      "p95": 5.692
+    },
+    "optimized": {
+      "p50": 3.679,
+      "p95": 4.508
+    }
+  },
+  "cameraScenarios": [
+    {
+      "scene": "spawn",
+      "sourceObjects": 14059,
+      "visible": 3375,
+      "oldInitMs": 35.923,
+      "newInitMs": 22.63,
+      "oldMoved": 3142,
+      "newMoved": 3142
+    },
+    {
+      "scene": "east",
+      "sourceObjects": 14059,
+      "visible": 2498,
+      "oldInitMs": 18.54,
+      "newInitMs": 16.525,
+      "oldMoved": 2121,
+      "newMoved": 2121
+    },
+    {
+      "scene": "north",
+      "sourceObjects": 14059,
+      "visible": 2665,
+      "oldInitMs": 13.604,
+      "newInitMs": 11.485,
+      "oldMoved": 2428,
+      "newMoved": 2428
+    },
+    {
+      "scene": "aerial",
+      "sourceObjects": 14059,
+      "visible": 7951,
+      "oldInitMs": 9.291,
+      "newInitMs": 10.41,
+      "oldMoved": 7839,
+      "newMoved": 7839
+    },
+    {
+      "scene": "west",
+      "sourceObjects": 14059,
+      "visible": 4299,
+      "oldInitMs": 12.597,
+      "newInitMs": 13.142,
+      "oldMoved": 4317,
+      "newMoved": 4317
+    },
+    {
+      "scene": "retail",
+      "sourceObjects": 14059,
+      "visible": 3049,
+      "oldInitMs": 12.352,
+      "newInitMs": 11.675,
+      "oldMoved": 2763,
+      "newMoved": 2763
+    }
+  ],
+  "glUpload": {
+    "dataCalls": 8,
+    "subDataCalls": 9,
+    "exactPayloadChecks": true
+  },
+  "failed": []
+}

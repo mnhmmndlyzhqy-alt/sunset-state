@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>SUNSET STATE · בדיקות ביצועים — שלב 36</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;background:#09171d;color:#f5f5ed}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 80% -20%,#305e70 0,#11252e 42%,#09171d 90%)}
+main{width:min(920px,calc(100% - 32px));margin:0 auto;padding:32px 0 70px}
+header{border-bottom:1px solid #526972;padding-bottom:22px}.overline{font-size:12px;letter-spacing:.18em;color:#9ec8c0;font-weight:700}
+h1{font-size:clamp(27px,5vw,42px);line-height:1.25;margin:12px 0 5px}h2{font-size:21px;margin:28px 0 12px}
+p,li{line-height:1.75;color:#d3e0dc}.lead{font-size:17px;max-width:72ch}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:24px 0}
+.metric{padding:18px;background:#20384488;border:1px solid #54727c;border-radius:13px}.metric strong{display:block;font-size:31px;margin-bottom:2px}.metric small{color:#a7c5c7}
+.primary{display:inline-block;padding:14px 22px;border:1px solid #97e1d3;background:#387b78;color:#fff;border-radius:10px;text-decoration:none;font-weight:750}
+.primary:focus-visible,a:focus-visible{outline:3px solid #fff;outline-offset:3px}.muted{color:#aabfc1;font-size:14px}
+ol{padding-right:23px}li{padding:5px 0}.notice{border:1px solid #a58d54;background:#42391b4d;padding:17px;border-radius:12px;margin-top:22px}
+code{direction:ltr;display:inline-block;background:#254650;padding:2px 6px;border-radius:5px;color:#c9eee4}
+a{color:#9dedde}
+</style>
+</head>
+<body><main>
+<header><div class="overline">SUNSET STATE · 36 / 105</div><h1>בדיקת ביצועים אמיתית</h1>
+<p class="lead">למדוד את המשחק על המחשב שלך: זמני פריימים, עומס JavaScript, קריאות WebGL, זיכרון וזמן GPU — רק כשהדפדפן מסוגל לחשוף אותם.</p>
+<a class="primary" href="index.html?stage36qa=1">פתח את המשחק עם כלי הביצועים</a>
+<p class="muted">להפעלה רגילה ללא ניטור: <a href="index.html">פתח SUNSET STATE</a></p>
+</header>
+<div class="grid">
+  <div class="metric"><strong>6</strong><small>מצבי משחק לבדיקה</small></div>
+  <div class="metric"><strong>20s</strong><small>דגימה לכל סצנה (אחרי 3s חימום)</small></div>
+  <div class="metric"><strong>1080p</strong><small>יעד לרזולוציית ציור אמיתית</small></div>
+  <div class="metric"><strong>50FPS</strong><small>יעד למדידה על GPU פיזי</small></div>
+</div>
+<section><h2>כך מבצעים את המדידה</h2><ol>
+<li>פתח את המשחק באמצעות הכפתור למעלה. אפשר להריץ את האתר על שרת HTTP מקומי או באחסון סטטי.</li>
+<li>אם חומרת המחשב מאפשרת, הפעל את מצב <strong>Native 1080p</strong> באמצעות <strong>F4</strong>. בדוק את רזולוציית הציור בפועל.</li>
+<li>עבור במפה לסצנה שאתה רוצה לבדוק. בחר אותה בלוח הימני, סמן שאתה אכן נמצא בה, והתחל מדידה.</li>
+<li>שחק כרגיל לאורך חימום של 3 שניות ואז דגימה של 20 שניות. אל תחליף חלון או תפתח תפריטי השהיה בזמן המדידה.</li>
+<li>חזור על התהליך בכל שש הסצנות: הליכה במרכז, נהיגה במרכז, נהיגה על גשר, טיסה במסוק, לובי פנימי והליכה בנמל/חוף.</li>
+<li>בסיום ייצא קובץ <strong>JSON</strong> וקובץ <strong>CSV</strong>, ושמור אותם לבדיקה בהמשך.</li>
+</ol></section>
+<section><h2>הנתונים שנמדדים</h2>
+<p>FPS אמיתי בין קריאות ציור פעילות; זמני פריימים p50/p95/p99; זמני CPU לעדכון, ללולאה ולשליחת פקודות ציור; מספר קריאות WebGL והעלאות נתונים; דגימות זיכרון JavaScript אם הדפדפן מאפשר; וזמן GPU באמצעות הרחבת WebGL2 כאשר היא נתמכת.</p>
+<p>אין אוטומציה שמזיזה את הדמות או משנה את העולם. זיהוי המקום במפה הוא ידני — הכלי אינו טוען שאימת כתובת של מקום בלי ראיות.</p>
+</section>
+<div class="notice"><strong>הערת דיוק ואבטחה</strong><p>הניטור עצמו צורך מעט משאבי CPU ולכן עשוי להשפיע על FPS. לאישור ביצועים עצמאי מומלץ להריץ גם <a href="index.html?stage22qa=1">את מדידת שלב 22</a>. הנתונים אינם נשלחים לאינטרנט; כפתורי הייצוא מורידים קבצים מקומיים בלבד. תמיכת GPU וזיכרון תלויה בדפדפן.</p></div>
+</main></body></html>

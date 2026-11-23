@@ -1,0 +1,8 @@
+{
+  "test": "chromium swiftshader software WebGL2 smoke test",
+  "target": "1920x1080",
+  "userGpuMeasured": false,
+  "error": "Error: Page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at http://127.0.0.1:8788/START_GAME.html?qa=478\nCall log:\n  - navigating to \"http://127.0.0.1:8788/START_GAME.html?qa=478\", waiting until \"domcontentloaded\"\n",
+  "pageErrors": [],
+  "consoleErrors": []
+}

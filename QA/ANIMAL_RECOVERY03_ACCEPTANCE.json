@@ -1,0 +1,6 @@
+{
+  "phase": 3,
+  "passed": 12,
+  "tests": 12,
+  "scope": "static code and asset checks; no GPU or visual validation"
+}

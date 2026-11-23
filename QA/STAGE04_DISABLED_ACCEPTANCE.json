@@ -1,0 +1,152 @@
+{
+  "stage": 4,
+  "mode": "disabled",
+  "scope": "Real game logic + FAKE renderer: CPU-only, not real WebGL",
+  "total": 23,
+  "passed": 23,
+  "results": [
+    {
+      "name": "real_game_constructor",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "road_count_preserved",
+      "pass": true,
+      "details": {
+        "count": 52
+      }
+    },
+    {
+      "name": "legacy_84_buildings_preserved",
+      "pass": true,
+      "details": {
+        "count": 84
+      }
+    },
+    {
+      "name": "city20_130_structures_preserved",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "portal_records_exact",
+      "pass": true,
+      "details": {
+        "count": 298
+      }
+    },
+    {
+      "name": "old_298_portal_ids_fixed",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "active_portal_count",
+      "pass": true,
+      "details": {
+        "ready": 83
+      }
+    },
+    {
+      "name": "ready_portals_have_actual_world_buildings",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "stale_215_portals_still_disabled",
+      "pass": true,
+      "details": {
+        "stale": 215
+      }
+    },
+    {
+      "name": "all_active_entrances_have_matching_plans",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "unique_portal_ids",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "all_live_portals_have_real_door_records",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "all_live_doors_indexed_in_spatial_map",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "stage2_northRing_route_preserved",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "stage3_privateSpine_route_preserved",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "orphan_portal_visual_frames_eliminated_when_enabled",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "orphan_planter_green_pieces_removed_when_enabled",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "orphan_portal_street_pieces_eliminated_when_enabled",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "all_active_doors_locatable",
+      "pass": true,
+      "details": {
+        "failures": []
+      }
+    },
+    {
+      "name": "all_active_entry_transitions",
+      "pass": true,
+      "details": {
+        "failures": []
+      }
+    },
+    {
+      "name": "all_foyer_scenes_generated",
+      "pass": true,
+      "details": {
+        "failures": []
+      }
+    },
+    {
+      "name": "all_real_elevators_reach_floor_one",
+      "pass": true,
+      "details": {
+        "failures": []
+      }
+    },
+    {
+      "name": "all_exit_transitions_return_to_street",
+      "pass": true,
+      "details": {
+        "failures": []
+      }
+    }
+  ],
+  "summary": {
+    "active": 83,
+    "totalPortals": 298,
+    "activeWorldBuildings": 84,
+    "orphanRecords": 215,
+    "removedOrphanVisuals": 0,
+    "gameplayPathsTested": 83
+  }
+}

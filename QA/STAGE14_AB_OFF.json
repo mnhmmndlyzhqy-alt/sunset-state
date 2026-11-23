@@ -1,0 +1,26 @@
+{
+  "off": true,
+  "world": {
+    "boxes": 194555,
+    "solids": 3230,
+    "props": 796,
+    "portals": 429,
+    "active": 214,
+    "roads": 52
+  },
+  "byType": {
+    "legacy": 92,
+    "compact": 122,
+    "rotated": 34
+  },
+  "sums": {
+    "boxes": 61388,
+    "lights": 1921,
+    "solids": 7203,
+    "doors": 368,
+    "rooms": 490,
+    "pickups": 520,
+    "fixtures": 0,
+    "newLights": 0
+  }
+}

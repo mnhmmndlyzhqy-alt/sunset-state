@@ -1,0 +1,29 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 10,
+  "basedOnArchive": "SUNSET_STATE_STAGE09_OF35_FULL.zip",
+  "basedOnSHA256": "f0209f678208bfa81d3c0016c746aea2860705fc13b365cf8be1c764f138bde3",
+  "includedScripts": 69,
+  "scriptPathsVerified": true,
+  "stage10Acceptance": "39/39",
+  "priorStage8Acceptance": "28/28",
+  "priorStage7Acceptance": "23/23",
+  "priorCompatibilitySmoke": "30/30",
+  "priorCompatibilityPhysics": "29/29",
+  "gpuVerified": false,
+  "modifiedOriginalFiles": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "QA/stage05_bootstrap.cjs",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html"
+  ],
+  "newRuntimeFiles": [
+    "assets/stage10_planter_safety.js"
+  ],
+  "historicalUnsafeCount": 181,
+  "livePlanterSites": 166,
+  "verifiedCurrentUnsafeSites": 0,
+  "actualRelocations": 0,
+  "note": "Historical 181 flagged sites are not currently present in the active world."
+}

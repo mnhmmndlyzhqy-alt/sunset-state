@@ -1,0 +1,49 @@
+{
+  "passed": 24,
+  "total": 24,
+  "allPassed": true,
+  "geometry": {
+    "legacyBuildings": 84,
+    "mappedBuildingMasses": 130,
+    "existingEntrances": 298,
+    "roadRoutes": 52,
+    "staticMeshes": 177527,
+    "coastalTerrainVertices": 34042,
+    "coastalTriangles": 65012,
+    "changedCoastalVertexColorComponents": 6505,
+    "indexErrors": 0,
+    "geometricErrors": 0,
+    "addedTerrainTriangles": 0,
+    "addedWorldMeshes": 0,
+    "additionalDrawCalls": 0,
+    "additionalWaterTextures": 0,
+    "changedCoastalFallbackTriangleColors": 8306,
+    "waterZoneColors": [
+      "open sea",
+      "sheltered canals",
+      "marsh/wetlands"
+    ],
+    "shorePaletteCumulative": {
+      "stage": 5,
+      "modifiedShoreColorSamples": 15126,
+      "wetlandBankSamples": 2005,
+      "canalBankSamples": 4542,
+      "beachBankSamples": 1525,
+      "preservedStreetAndRoadSamples": 71032,
+      "addedLandMeshes": 0,
+      "addedLandDrawCalls": 0,
+      "addedTerrainTriangles": 0
+    }
+  },
+  "benchmark": {
+    "beforeWorldConstructionMs": 6856,
+    "afterWorldConstructionMs": 6810,
+    "note": "Uncontrolled CPU build durations; not GPU FPS, GPU frame time or a reproducible performance benchmark.",
+    "requiresNativeGpuMeasurement": true,
+    "requestedPixels": [
+      1920,
+      1080
+    ],
+    "requestedMinFps": 50
+  }
+}

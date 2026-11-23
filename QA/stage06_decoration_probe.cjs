@@ -1,0 +1,3 @@
+const {g}=require('./stage05_bootstrap.cjs');const w=g.world;const ids=new Set(w.entrancePortals.filter(p=>p.stage06Oriented).map(p=>p.id));const counts={},sample={};const keys=['city20Stage10Portal','city20Stage14Portal','city20Stage15Portal','city20Stage16Portal'];
+for(const b of w.boxes){for(const k of keys){if(!ids.has(b[k]))continue;counts[k]=(counts[k]||0)+1;(sample[k]||=[]);if(sample[k].length<5)sample[k].push({id:b[k],material:b.material,shape:b.shape,kind:b.city20Stage10Kind||b.city20Stage14Kind||b.city20Stage15Kind||b.city20Stage16Kind,box:[b.x,b.y,b.z,b.w,b.h,b.d]});}}
+console.log(JSON.stringify({counts,sample},null,2));

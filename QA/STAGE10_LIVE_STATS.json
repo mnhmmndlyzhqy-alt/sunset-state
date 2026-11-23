@@ -1,0 +1,41 @@
+{
+  "stage10": {
+    "stage": 10,
+    "issueId": "S01-ST-01",
+    "historicalUnresolvedBeforeStage04": 181,
+    "historicalOriginallyAuthored": 596,
+    "historicalOrphanVisualsRemoved": 3152,
+    "livePlanterSites": 166,
+    "liveShrubs": 166,
+    "liveCanopies": 166,
+    "liveBollards": 166,
+    "activeOwnedSites": 166,
+    "orphanSites": 0,
+    "unsafeSites": 0,
+    "unsafeFootprints": 0,
+    "unsafeRoad": 0,
+    "unsafeWater": 0,
+    "blockedWalkways": 0,
+    "solidOverlaps": 0,
+    "unpairedSites": 0,
+    "suspicious": [],
+    "gpuVerified": false,
+    "frameRateVerified": false,
+    "classification": "historical_orphan_decor_removed",
+    "movedSites": 0,
+    "movedPieces": 0,
+    "relocationActions": [],
+    "unresolvedAttempts": [],
+    "worldGeometryAdded": 0,
+    "newCollisions": 0,
+    "worldMutated": false
+  },
+  "previousStage09": {
+    "active": 214,
+    "water": 0
+  },
+  "objects": 194478,
+  "solids": 3230,
+  "roads": 52,
+  "doors": 429
+}

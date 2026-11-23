@@ -1,0 +1,57 @@
+{
+  "project": "SUNSET STATE",
+  "base": "4.7.9 + CITY20 20/20 + Recovery 7/7",
+  "programme": "15-stage quality polish",
+  "currentStage": 1,
+  "currentStageTitle": "Real-device visual, interaction and performance baseline",
+  "currentStageStatus": "deep_source_and_cpu_audit_complete_real_device_acceptance_pending",
+  "stage1ComponentsComplete": [
+    "original archive validated; engine and reference map hashes unchanged",
+    "30/30 fresh real-Game CPU smoke assertions passed with mocked renderer",
+    "9/9 fresh GLB structural validations passed",
+    "8-scenario Hebrew live QA collector integrated via opt-in query parameter",
+    "live QA UI verified with Chromium DOM and stub Game",
+    "real-browser navigation and WebGL limitations documented",
+    "independent complete-world measurement: 298 portals, 83 ready, 116 water-classified, 298 north-facing",
+    "independent road-centerline check: 2 sharp reversals on northRing and 135.9-degree bend on privateSpine469",
+    "independent scene prop audit: 181 suspicious planters, 30 unresolved lamps, no new stage15 colliders",
+    "independent 23.76s CPU-only traffic check: 79 cars, 1 damaged below 90 HP (not representative GPU gameplay)",
+    "25-item categorized bug/risk register with reproducible evidence and intended future fix stages",
+    "independent opt-in QA panel functional DOM test: 8 scenarios, mark, report, collapse",
+    "rerun complete 30/30 game CPU smoke tests and 9/9 GLB structural validations"
+  ],
+  "stage1ComponentsOutstanding": [
+    "rendered-game screenshots and complete 8-scenario human observations",
+    "three 20-second native 1920x1080 performance runs on actual target hardware",
+    "verification of driving, overpasses, water, shops, elevator and police visually on device",
+    "complete re-run of 27 long historical regression suites timed out after 16 suites; original packaged baseline has 27/27 PASS",
+    "25 findings include heuristic and historical risks, not 25 confirmed current player-visible bugs",
+    "visual check of 174.7/180-degree northRing bend and 135.9-degree privateSpine bend on native gameplay before changing road topology"
+  ],
+  "completedStages": [],
+  "nextStage": 1,
+  "nextStageNote": "Complete native browser field evidence before signing Stage 1. Stage 2 will handle roads, bridges and physics after baseline triage.",
+  "sourceZipSHA256": "8b97ab0d64ec8fca29e6bf0f2062cf9dd57834a139c832cd41eaceae0a8c94b0",
+  "originalMapProtected": true,
+  "originalEngineUnchanged": true,
+  "originalGameplayAssetsUnchanged": true,
+  "modifications": [
+    "START_GAME.html: add only the optional stage1qa script loader",
+    "QA/STAGE01_15_LIVE_AUDIT.js: add field QA collector",
+    "QA/STAGE01_15_MANUAL_HE.md: device test instructions",
+    "OPEN_STAGE01_QA.html: easy launcher",
+    "PROJECT/15_STAGE_POLISH_PROGRESS.json: track new 15-stage plan"
+  ],
+  "auditOutputs": [
+    "PROJECT/STAGE01_15_DEEP_AUDIT.md",
+    "QA/STAGE01_15_BUG_REGISTER.json",
+    "QA/STAGE01_15_DEEP_METRICS.json",
+    "QA/STAGE01_15_TRAFFIC_CPU.json",
+    "QA/STAGE01_15_LIVE_AUDIT.js",
+    "QA/STAGE01_15_MANUAL_HE.md",
+    "QA/run_stage01_deep_metrics.cjs",
+    "QA/run_stage01_traffic_cpu.cjs",
+    "OPEN_STAGE01_QA.html"
+  ],
+  "auditFindingsCount": 25
+}

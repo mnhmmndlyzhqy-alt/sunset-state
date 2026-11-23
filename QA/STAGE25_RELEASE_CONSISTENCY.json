@@ -1,0 +1,3575 @@
+{
+  "stage": 25,
+  "kind": "Canonical release consistency and byte-for-byte source retention",
+  "checks": [
+    {
+      "name": "stage25_active",
+      "pass": true
+    },
+    {
+      "name": "status_stage25",
+      "pass": true
+    },
+    {
+      "name": "stage25_canonical_pointer",
+      "pass": true
+    },
+    {
+      "name": "completed_stage_list",
+      "pass": true
+    },
+    {
+      "name": "technical_stage_list",
+      "pass": true
+    },
+    {
+      "name": "remaining_stage_list",
+      "pass": true
+    },
+    {
+      "name": "stage_count_35",
+      "pass": true
+    },
+    {
+      "name": "new_main_release_pointer",
+      "pass": true
+    },
+    {
+      "name": "original_issues_counter",
+      "pass": true
+    },
+    {
+      "name": "original_issues_completed_counter",
+      "pass": true
+    },
+    {
+      "name": "original_issues_pending_count",
+      "pass": true
+    },
+    {
+      "name": "only_stage26_pending",
+      "pass": true
+    },
+    {
+      "name": "stage25_live_not_published",
+      "pass": true
+    },
+    {
+      "name": "stage25_gpu_not_certified",
+      "pass": true
+    },
+    {
+      "name": "stage25_original_fix_count_unchanged",
+      "pass": true
+    },
+    {
+      "name": "original_stage24_status_is_historical",
+      "pass": true
+    },
+    {
+      "name": "historic_city20_untouched",
+      "pass": true
+    },
+    {
+      "name": "history_source_registry_exists",
+      "pass": true
+    },
+    {
+      "name": "site_manifest_137_files",
+      "pass": true
+    },
+    {
+      "name": "site_root_index_equal_game",
+      "pass": true
+    },
+    {
+      "name": "deploy_guide_copied",
+      "pass": true
+    },
+    {
+      "name": "jekyll_marker",
+      "pass": true
+    },
+    {
+      "name": "stage24_source_hash",
+      "pass": true
+    },
+    {
+      "name": "stage_plan_1_to_35",
+      "pass": true
+    },
+    {
+      "name": "release_acceptance_STAGE25_PUBLISH_AUDIT.json",
+      "pass": true
+    },
+    {
+      "name": "release_acceptance_STAGE25_CHROMIUM_SITE_SMOKE.json",
+      "pass": true
+    },
+    {
+      "name": "release_acceptance_STAGE25_PUBLISHED_JAVASCRIPT_SYNTAX.json",
+      "pass": true
+    },
+    {
+      "name": "baseline_file_count",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE02_OF35/ORIGINAL_HASHES.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE02_OF35/coast_461.original.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE03_OF35/coast_461.stage02.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE04_OF35/SOURCE_STAGE03_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE04_OF35/START_GAME.stage03.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE04_OF35/city20_stage10.stage03.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE04_OF35/city20_stage15.stage03.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE04_OF35/city20_stage16.stage03.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE05_OF35/35_STAGE_PLAN.stage04.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE05_OF35/35_STAGE_PROGRESS.stage04.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE05_OF35/README_35_STAGE.stage04.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE05_OF35/STAGE04_CHECKSUMS_AND_RESTORE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE05_OF35/START_GAME.stage04.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE06_OF35/35_STAGE_PLAN.stage05.original.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE06_OF35/PREVIOUS_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE06_OF35/START_GAME.stage05.original.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE06_OF35/engine44.stage05.original.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE06_OF35/stage05_bootstrap.stage05.original.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE07_OF35/35_STAGE_PLAN.stage06.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE07_OF35/35_STAGE_PROGRESS.stage06.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE07_OF35/ORIGINAL_STAGE06_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE07_OF35/README_35_STAGE.stage06.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE07_OF35/START_GAME.stage06.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE07_OF35/stage05_bootstrap.stage06.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE08_OF35/BASE_STAGE07_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE08_OF35/PROJECT_35_STAGE_PLAN_STAGE07_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE08_OF35/PROJECT_35_STAGE_PROGRESS_STAGE07.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE08_OF35/QA_stage05_bootstrap_STAGE07.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE08_OF35/README_35_STAGE_STAGE07_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE08_OF35/START_GAME_STAGE07.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE09_OF35/35_STAGE_PLAN.stage08.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE09_OF35/35_STAGE_PROGRESS.stage08.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE09_OF35/PREVIOUS_STAGE08_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE09_OF35/README_35_STAGE.stage08.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE09_OF35/START_GAME.stage08.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE09_OF35/stage05_bootstrap.stage08.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE10_OF35/35_STAGE_PLAN.stage09.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE10_OF35/35_STAGE_PROGRESS.stage09.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE10_OF35/README_35_STAGE.stage09.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE10_OF35/SOURCE_STAGE09_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE10_OF35/START_GAME.stage09.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE10_OF35/stage05_bootstrap.stage09.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE11_OF35/35_STAGE_PLAN.stage10.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE11_OF35/35_STAGE_PROGRESS.stage10.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE11_OF35/README_35_STAGE.stage10.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE11_OF35/SOURCE_STAGE10_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE11_OF35/START_GAME.stage10.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE11_OF35/stage05_bootstrap.stage10.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/35_STAGE_PLAN.stage11.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/35_STAGE_PROGRESS.stage11.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/README_35_STAGE.stage11.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/SOURCE_STAGE11_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/START_GAME.stage11.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/stage05_bootstrap.stage11.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/stage10_planter_safety.stage11.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE12_OF35/stage11_streetlamp_safety.stage11.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE13_OF35/PROJECT_35_STAGE_PLAN_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE13_OF35/PROJECT_35_STAGE_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE13_OF35/QA_stage05_bootstrap.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE13_OF35/README_35_STAGE_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE13_OF35/SOURCE_STAGE12_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE13_OF35/START_GAME.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE14_OF35/PROJECT__35_STAGE_PLAN_HE.md.stage13.original",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE14_OF35/PROJECT__35_STAGE_PROGRESS.json.stage13.original",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE14_OF35/QA__stage05_bootstrap.cjs.stage13.original",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE14_OF35/README_35_STAGE_HE.md.stage13.original",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE14_OF35/SOURCE_STAGE13_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE14_OF35/START_GAME.html.stage13.original",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE14_OF35/engine44.js.stage13.original",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE15_OF35/35_STAGE_PLAN.stage14.original.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE15_OF35/35_STAGE_PROGRESS.stage14.original.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE15_OF35/BASE_STAGE14_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE15_OF35/README_35_STAGE.stage14.original.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE15_OF35/START_GAME.stage14.original.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE15_OF35/engine44.stage14.original.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE15_OF35/stage05_bootstrap.stage14.original.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE16_OF35/35_STAGE_PLAN.stage15.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE16_OF35/35_STAGE_PROGRESS.stage15.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE16_OF35/PREVIOUS_STAGE15_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE16_OF35/START_GAME.stage15.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE16_OF35/engine44.stage15.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE16_OF35/stage05_bootstrap.stage15.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE17_OF35/35_STAGE_PLAN_HE.stage16.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE17_OF35/35_STAGE_PROGRESS.stage16.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE17_OF35/README_35_STAGE.stage16.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE17_OF35/START_GAME.stage16.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE17_OF35/stage05_bootstrap.stage16.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE18_OF35/PROJECT_35_STAGE_PLAN_HE.md.stage17",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE18_OF35/PROJECT_35_STAGE_PROGRESS.json.stage17",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE18_OF35/QA_stage05_bootstrap.cjs.stage17",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE18_OF35/README_35_STAGE_HE.md.stage17",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE18_OF35/SOURCE_STAGE17_ZIP_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE18_OF35/engine44.stage17.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE19_OF35/BASE_CHECKPOINT_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE19_OF35/PROJECT/35_STAGE_PLAN_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE19_OF35/PROJECT/35_STAGE_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE19_OF35/README_35_STAGE_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE19_OF35/START_GAME.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE19_OF35/engine44.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE20_OF35/PROJECT_35_STAGE_PLAN_HE.md.stage19",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE20_OF35/PROJECT_35_STAGE_PROGRESS.json.stage19",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE20_OF35/README_35_STAGE_HE.md.stage19",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE20_OF35/STAGE19_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE20_OF35/START_GAME.html.stage19",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE20_OF35/engine44.js.stage19",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE20_OF35/stage05_bootstrap.cjs.stage19",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE21_OF35/35_STAGE_PLAN_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE21_OF35/35_STAGE_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE21_OF35/README_35_STAGE_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE21_OF35/SOURCE_ARCHIVE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE21_OF35/START_GAME.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE21_OF35/engine44.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE21_OF35/stage05_bootstrap.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE22_OF35/PROJECT/35_STAGE_PLAN_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE22_OF35/PROJECT/35_STAGE_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE22_OF35/README_35_STAGE_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE22_OF35/SOURCE_CHECKSUMS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE22_OF35/START_GAME.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE22_OF35/engine44.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE23_OF35/PROJECT/35_STAGE_PLAN_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE23_OF35/PROJECT/35_STAGE_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE23_OF35/QA/stage05_bootstrap.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE23_OF35/README_35_STAGE_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE23_OF35/SOURCE_CHECKSUMS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE23_OF35/START_GAME.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE23_OF35/engine44.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE24_OF35/PROJECT/35_STAGE_PLAN_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE24_OF35/PROJECT/35_STAGE_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE24_OF35/README_35_STAGE_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE24_OF35/README_CITY20_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BACKUPS/STAGE24_OF35/README_FIRST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:BUG_PROTOCOL_476_ORIGINAL_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:CHECKPOINT_4_7_6_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:CHECKPOINT_4_7_7_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:CHECKPOINT_4_7_8_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:CHECKPOINT_4_7_9_TECHNICAL.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:OPEN_STAGE01_QA.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/15_STAGE_POLISH_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/35_STAGE_PLAN_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/35_STAGE_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/ANIMAL_RECOVERY_PHASE03_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/CITY20_DEEP_AUDIT_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/CITY20_PROGRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/CITY_LIFE_RECOVERY_PHASE05_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/INTERIOR_RECOVERY_PHASE02_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/ORIGINAL_479_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/PERFORMANCE_RECOVERY_PHASE06_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/PHYSICS_RECOVERY_PHASE04_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/README_35_STAGE_HISTORY_UP_TO23_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/RECOVERY07_FINAL_QA_REPORT.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/RECOVERY_PHASE05_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/RECOVERY_PHASE06_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/RECOVERY_PHASE07_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/RECOVERY_STATUS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE01_15_DEEP_AUDIT.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE01_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE02_35_INTEGRITY_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE02_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE02_REPORT.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE02_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE03_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE03_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE03_WORKORDER.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE04_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE04_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE04_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE05_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE05_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE05_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE06_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE06_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE06_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE07_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE07_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE07_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE08_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE08_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE08_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE09_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE09_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE09_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE10_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE10_RELEASE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE10_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE10_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE11_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE11_RELEASE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE11_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE11_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE12_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE12_RELEASE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE12_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE12_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE13_OF35_REPORT.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE13_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE13_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE14_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE14_PACKAGE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE14_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE14_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE15_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE15_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE15_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE16_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE16_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE16_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE17_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE17_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE17_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE18_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE18_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE18_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE19_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE19_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE19_WORKORDER_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE20_FINAL_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE20_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE21_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE22_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE22_RELEASE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE22_SOURCE_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE23_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE23_RELEASE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE23_SOURCE_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE24_CURRENT_STATUS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE24_EVIDENCE_LEDGER.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE24_OF35_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE24_PROGRESS_SOURCE_REGISTRY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE24_RECONCILIATION_DELTA.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE24_RELEASE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/STAGE24_SOURCE_INVENTORY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:PROJECT/VISUAL_RECOVERY_PHASE01_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/REGRESSIONS/CITY20_STAGE04_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/REGRESSIONS/PHYSICS_RECOVERY04_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/REGRESSIONS/RECOVERY07_CPU_SMOKE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/REGRESSIONS/run_physics_recovery04.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/REGRESSIONS/run_recovery07_smoke.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/REGRESSIONS/run_stage04_acceptance.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/STAGE02_AB_FULL_WORLD.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/STAGE02_AB_WORLD_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/STAGE02_NORTH_RING_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/STAGE02_TEST_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/STAGE03_PRIVATE_SPINE_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/STAGE03_TEST_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/compare_stage02_old_new.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/test_stage02_north_ring.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/35_STAGE_MASTER/test_stage03_private_spine.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/ANIMAL_RECOVERY03_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/BASELINE_477_ON_478_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/BASELINE_477_ON_479_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/BASELINE_478_WORLD_DIGESTS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/BROWSER_478_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/BROWSER_478_RESULT.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/BROWSER_479_RESULT.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_BASELINE_STAGE01.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE01_INTEGRITY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE02_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE02_PLACEMENTS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE02_REFERENCE_OVERLAY.png",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE02_SOURCE_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE03_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE03_BROWSER_STATUS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE03_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE04_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE04_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE05_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE05_BROWSER_STATUS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE05_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE06_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE06_BROWSER_STATUS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE06_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE07_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE08_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE09_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE10_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE11_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE12_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE13_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE14_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE15_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE16_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE17_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE18_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_STAGE19_20_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY20_VISUAL_ANCHORS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY_LIFE_RECOVERY05_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY_LIFE_RECOVERY05_BROWSER.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY_LIFE_RECOVERY05_CROWD.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY_LIFE_RECOVERY05_MANUAL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY_LIFE_RECOVERY05_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/CITY_LIFE_RECOVERY05_REGRESSIONS.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/COMPAT_478_ON_479_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_FULLWORLD.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_LEGACY_RETESTS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage01_baseline.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage02_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage03_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage04_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage05_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage06_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage17_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_ORIGINAL_TESTS/run_stage18_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/DEEP_AUDIT_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/HISTORIC_PRE_RECOVERY05/run_deep_audit_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/HISTORIC_PRE_RECOVERY05/run_physics_recovery04.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/HISTORIC_PRE_RECOVERY06/run_city_life_recovery05.original.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/PERFORMANCE_RECOVERY06_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/PERFORMANCE_RECOVERY06_MANUAL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/PERFORMANCE_RECOVERY06_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/PHYSICS_RECOVERY04_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/PHYSICS_RECOVERY04_MANUAL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/PHYSICS_RECOVERY04_REGRESSIONS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/PHYSICS_RECOVERY04_REGRESSIONS.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/RECOVERY07_CPU_SMOKE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/RECOVERY07_GLTF_VALIDATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/RECOVERY07_ORIGINAL_HASHES.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/RECOVERY07_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/RECOVERY07_REGRESSIONS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/RECOVERY07_REGRESSIONS.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/RECOVERY07_VISUAL_MANUAL_STEPS.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE01_15_BUG_REGISTER.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE01_15_DEEP_METRICS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE01_15_GLTF_RECHECK.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE01_15_LIVE_AUDIT.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE01_15_MANUAL_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE01_15_SMOKE_RECHECK.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE01_15_TRAFFIC_CPU.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_BASELINE_CANDIDATES.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_BASELINE_TRAVERSAL.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_DISABLED_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_ENABLED_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_FINAL_ACCEPTANCE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_FINAL_OFF.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_OF35_INTEGRITY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_PHYSICS_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_SMOKE_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE04_STAGE03_REGRESSION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_AB_OFF.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_AB_OFF_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_BASELINE_BUILDINGS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_FINAL_CHECKPOINT_NOTE.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_FIT_PROBE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_FRONT_VISUAL_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_MANUAL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_OF35_ACCEPTANCE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_PHYSICS_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_PHYSICS_RECOVERY04_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_RECOVERY07_CPU_SMOKE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_SMOKE_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_SOURCES_CHECKSUM.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_STAGE02_REGRESSION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_STAGE03_REGRESSION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_STAGE04_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_STAGE04_ENABLED_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE05_STAGE04_REGRESSION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_AB_STAGE04_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_AB_STAGE05_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_BROWSER_VALIDATION_PENDING.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_OCCLUSION_DETAIL.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_OCCLUSION_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_PHYSICS_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_PRE_STAGE07_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_PRE_STAGE07_WALKERS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_RUNLOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_VISUAL_OCCLUSION_HEURISTIC.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_WALKERS_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE06_WALKER_TRAVERSAL.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE07_AB_STAGE06_ACCEPTANCE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE07_AB_STAGE06_WALKER_SAMPLE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE07_AB_STAGE06_WALKER_SAMPLE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE07_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE07_RUNLOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE07_WALKER_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE07_WALKER_TRAVERSAL.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_AB_DISABLED.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_AB_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_ACCEPTANCE_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_GPU_MANUAL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_REGRESSION_LEGACY_SMOKE_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_REGRESSION_PHYSICS_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_REGRESSION_SMOKE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_REGRESSION_STAGE06.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_REGRESSION_run_stage07_of35_acceptance.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE08_REGRESSION_run_stage07_walkers.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_AB_RUNLOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_CHANGED_SOURCES_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_COASTAL_PRE_AUDIT.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_INITIAL_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_INITIAL_PROBE_AFTER.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_MANUAL_BROWSER_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_REGRESSION_PHYSICS.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_REGRESSION_SMOKE.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_REGRESSION_STAGE07.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_REGRESSION_STAGE08.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_RELEASE_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE09_RUNLOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE10_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE10_BASELINE_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE10_COMPAT_LIMITATIONS_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE10_LIVE_STATS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE10_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE10_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_AB_COMPARISON.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_AB_ON.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_BASELINE_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_REGRESSION_PHYSICS_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_REGRESSION_SMOKE_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_REGRESSION_STAGE07.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_REGRESSION_STAGE08.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE11_REGRESSION_STAGE10.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_AB_COMPARISON.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_AB_OFF.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_AB_ON.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_AB_ON.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_ACCEPTANCE_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_BASELINE_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_POST_CROSS_PROP_PROBE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_REGRESSION_COMPAT_PHYSICS.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_REGRESSION_COMPAT_SMOKE.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_REGRESSION_STAGE07.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_REGRESSION_STAGE08.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_REGRESSION_STAGE10.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE12_REGRESSION_STAGE11.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_AB_COMPARISON.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_AB_ON.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_BASE_SHA256.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_INITIAL_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_INTERIOR_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_INTERIOR_PROBE_UPDATED.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_PRESERVATION_AUDIT.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_REGRESSION_STAGE07.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_REGRESSION_STAGE08.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_REGRESSION_STAGE10.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_REGRESSION_STAGE11.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE13_REGRESSION_STAGE12.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE14_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE14_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE14_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE14_QUICK_AB.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_AB_ON.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_ART_E_INTEGRATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_ART_E_INTEGRATION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_BENCH_E_INTEGRATION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_FINAL_EXIT",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_FINAL_FULL_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_FULL_EXIT_CODE",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_FULL_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_OF35_ACCEPTANCE_100.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_OF35_ACCEPTANCE_180.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_REGRESSION_STAGE12.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_REGRESSION_STAGE12_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_REGRESSION_STAGE13_OFF.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_REG_STAGE14.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_REG_STAGE14_EXIT",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_UPPER_FLOOR_REGRESSION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE15_UPPER_FLOOR_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_AB_OFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_AB_OFF.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_REGRESSION_STAGE08_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_REGRESSION_STAGE08_OFF.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_REGRESSION_STAGE14.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_REGRESSION_STAGE15_SAMPLE0.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_REGRESSION_STAGE15_SAMPLE80.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_REGRESSION_STAGE15_SAMPLE80.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_SOURCE_INTEGRITY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE16_TEST_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE17_AB_OFF_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE17_BASELINE_RETAIL_MAP.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE17_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE17_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE17_STAGE15_REGRESSION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE17_STAGE16_REGRESSION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_ACTUAL_DECODER.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_GLB_ASSET_VALIDATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_LOD_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_LOD_ASSET_MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_REGRESSION_STAGE16.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_REGRESSION_STAGE17.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_SOURCE_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE18_WORLD_INTEGRITY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE19_BASE_DIFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE19_BROWSER_MANUAL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE19_OF35_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE19_UI_AND_AUTOSAVE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_10MIN_CPU_STRESS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_10MIN_CPU_STRESS_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_AB_COMPAT.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_AB_COMPAT_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_ACCEPTANCE_LOG.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_BASE_DIFF.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_MANUAL_WEBGL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_RECOVERY05_COMPAT.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_RECOVERY05_COMPAT_RESULT.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_RECOVERY05_REGRESSION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_REGRESSION_run_stage18_lod_acceptance.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_STAGE17_REGRESSION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE20_STAGE19_REGRESSION.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_AB_AND_LIMITS.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_BASELINE_TUNNELLING.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_COMPAT_PHYSICS_RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_HIGH_SPEED_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_LATERAL_BASELINE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_MANUAL_BROWSER_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_REGRESSION_STAGE16.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_RENDERER_TIMEOUT_NOTE.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_SOURCE_INTEGRITY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE21_WORLD_INTEGRITY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_BENCHMARK_UNIT_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_BROWSER_UI_SMOKE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_CONTAINER_GPU_PROBE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_CPU_PROFILE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_GPU_MANUAL_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_REGRESSION_STAGE19.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_REGRESSION_STAGE20.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE22_REGRESSION_STAGE21.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_BROWSER_UI_SMOKE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_GEOMETRY_CPU_PROFILE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_GEOMETRY_PROFILE_RUN.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_GPU_DRAW_PROFILE_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_OPTIMIZATION_PRIORITIES_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_PROFILER_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_REGRESSION_STAGE16.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_REGRESSION_STAGE17.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_REGRESSION_STAGE19.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_REGRESSION_STAGE20.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE23_REGRESSION_STAGE21.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE24_CONSISTENCY_RESULT.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE24_MANUAL_GPU_AND_PUBLICATION_CHECKLIST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE24_REGRESSION_STAGE22_BENCHMARK.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE24_REGRESSION_STAGE23_PROFILER.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/STAGE24_REGRESSION_SUMMARY.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/SUNSET_STATE_477_SOURCE_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/SUNSET_STATE_478_SOURCE_PRESERVATION.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/SUNSET_STATE_4_7_7_CPU_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/SUNSET_STATE_4_7_8_COMPAT_ON_479.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/SUNSET_STATE_4_7_8_CPU_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/SUNSET_STATE_4_7_9_CPU_ACCEPTANCE.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/TRAFFIC_477_CPU.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/VERIFICATION_LOG_478.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/WORLD_477_CPU.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/WORLD_479_DIGESTS.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/city20_browser_benchmark.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/package_stage05.cpython.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/patch_stage06_engine.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/probe_recovery05_browser.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/probe_stage21_baseline.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/probe_stage21_lateral.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/recovery07_live_checklist.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_animal_recovery03.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_city_life_recovery05.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_city_life_recovery05_crowd.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_deep_audit_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_interior_recovery02.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_performance_recovery06.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_physics_recovery04.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_recovery04_regressions.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_recovery07_regressions.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_recovery07_smoke.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage01_baseline.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage01_deep_metrics.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage01_traffic_cpu.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage02_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage03_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage04_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage04_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage04_physics_compat.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage04_smoke_compat.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage05_ab_off.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage05_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage05_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage05_physics_compat.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage05_smoke_compat.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage05_stage04_compat.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage06_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage06_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage06_walkers.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage07_ab_stage06_walker_sample.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage07_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage07_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage07_walkers.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage08_ab_baseline.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage08_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage08_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage09_ab_off.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage09_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage09_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage10_ab_off.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage10_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage10_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage11_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage11_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage12_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage12_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage13_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage13_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage14_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage14_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage14_quick_ab.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage15_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage15_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage16_ab_off.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage16_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage16_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage17_ab_off.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage17_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage17_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage18_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage18_actual_decoder.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage18_lod_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage18_world_integrity.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage19_of35_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage19_save_ui_and_autosave.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage20_10min_cpu.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage20_ab_compat.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage20_navigation_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage20_recovery05_compat.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage21_high_speed_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage21_world_integrity.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage22_benchmark_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage22_cpu_profile.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage23_geometry_profile.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage23_profiler_acceptance.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_stage24_consistency.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/run_visual_recovery01.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage04_chromium.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage04_http.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage04_inspect_baseline.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage04_traversal_baseline.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage05_bootstrap.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage05_fit_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage05_front_visual_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage05_post_probe.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage05_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage05_probe.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_block_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_block_probe.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_chromium.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_decoration_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_discovery.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_discovery.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_http.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_occlusion_audit.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_occlusion_detail.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_scene_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_scene_probe.json",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_solid_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage06_stats.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage09_coastal_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage09_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage10_accept_stdout.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage10_baseline_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage10_live_stats.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage10_reg_run_stage07_of35_acceptance.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage10_reg_stage05_physics.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage10_reg_stage05_smoke.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage10_reg_stage08.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage11_ab_snapshot.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage11_baseline_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage11_light_vertical_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage11_stats.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage12_ab_snapshot.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage12_baseline_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage12_physics_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage13_ab_snapshot.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage13_furnishing_site_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage13_interior_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage13_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage14_ab_snapshot.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage15_ab_snapshot.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage15_art_e_integration.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage15_e_integration.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage15_upper_floor_regression.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage17_ab_off.stdout.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage17_acceptance.stdout.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage17_contract_probe.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage17_contract_probe.stdout.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage17_stage15_regression.stdout.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage17_stage16_regression.stdout.txt",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage21_regression_physics_compat.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage21_regression_stage16.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage21_regression_stage17.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage21_regression_stage18_world.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage21_regression_stage19.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage21_world_execution.log",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage22_browser_ui_smoke.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage22_probe_browser.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/stage23_browser_ui_smoke.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/validate_recovery07_gltf.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/validate_stage18_lod_assets.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/verify_477.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/verify_478.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/verify_478_compat479.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/verify_479.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:QA/world_digest_479.cjs",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:README_35_STAGE_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:README_CITY20_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:README_FIRST_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:RUN_STAGE22_GPU_BENCHMARK_WINDOWS.bat",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:RUN_STAGE23_DRAW_PROFILE_WINDOWS.bat",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:START_GAME.html",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE01_DEEP_FINDINGS_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE09_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE12_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE18_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE21_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE22_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE23_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:SUNSET_STATE_STAGE24_REPORT_HE.md",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:TOOLS/build_stage23_release.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:TOOLS/package_stage19.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:TOOLS/package_stage20.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:TOOLS/rebuild_stage18_crocodile_lods.py",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/activity_461.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/aerowild_player.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/aerowild_player_meshes.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/airliner_cruise_hi.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/airliner_hi.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/airliner_mid.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/airliner_mid_gear.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/audio445/radio-boulevard.wav",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/audio445/radio-quay.wav",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_deep_audit_repair.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage02.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage03.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage04.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage05.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage06.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage07.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage08.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage09.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage10.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage11.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage12.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage13.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage14.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage15.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city20_stage16.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city_441.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city_442.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city_445.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city_455.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city_life_recovery_phase05.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/city_plan_463.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/coast_461.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/commerce_442.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/continuation_476.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/continuation_478.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/continuation_479.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/crocodile_far.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/crocodile_hi.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/crocodile_mid.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/districts_461.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/finish_461.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/fish_barracuda.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/fish_mackerel.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/fish_reef_perch.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/fish_sardine.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/fish_unique.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/flamingo_far.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/flamingo_hi.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/flamingo_mid.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/gt_442.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/gt_meshes_442.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/heron_far.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/heron_hi.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/interior_recovery_phase02.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/landmarks_461.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/life_445.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/marina_444.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/navigation_445.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/overpass_443.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/performance_475.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/performance_476.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/performance_recovery_phase06.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/physics_recovery_phase04.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/prison_471.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/rail_21-locomotive-407.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/reference_buildings_469.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/reference_coast_469.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/reference_plan_469.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/render_442.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/repair_477.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/ridge_443.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/satellite_468.png",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/satellite_469.png",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/satellite_470.png",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/satellite_471.png",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/satellite_472.png",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage04_active_entries.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage05_city20_entrances.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage05_interior_runtime.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage06_entrance_orientations.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage06_interior_runtime.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage07_interior_runtime.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage07_street_aligned_buildings.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage08_side_rear_windows.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage09_coastal_entrance_audit.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage10_planter_safety.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage11_streetlamp_safety.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage12_street_prop_collisions.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage13_interior_runtime.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage13_seven_lobby_furnishing.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage14_interior_lighting.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage15_interior_physics.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage16_facade_glass.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage17_retail_contracts.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage19_persistent_save.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage20_pedestrian_navigation.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage21_high_speed_ccd.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage22_native1080_benchmark.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/stage23_geometry_draw_profiler.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/street_life_443.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/streets_461.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/terrain_444.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/terrain_463.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_01-oat-jacket.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_02-midnight.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_03-tobacco.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_04-blue-jacket.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_05-wool-overcoat.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_06-sage.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_07-espresso.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_08-sand.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_09-officer-vale.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_10-officer-lin.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_11-officer-reed.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_12-officer-morgan.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_13-sergeant-bennett.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_14-officer-park.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_15-bank-clerk-hayes.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_16-bank-clerk-daniels.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_17-captain-brooks.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_18-attendant-ellis.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_19-attendant-chen.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_20-attendant-sloane.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/urban_441.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/visual_450.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:assets/visual_quality_phase01.js",
+      "pass": true
+    },
+    {
+      "name": "source_file_sha_preserved:engine44.js",
+      "pass": true
+    }
+  ],
+  "passed": 891,
+  "total": 891,
+  "failures": [],
+  "livePublication": false,
+  "nativeGpuFpsVerified": false
+}

@@ -1,0 +1,22 @@
+{
+  "stage": 38,
+  "baselineStage": 37,
+  "passed": true,
+  "siteFiles": 182,
+  "previousSiteFilesPreserved": 178,
+  "newSiteFiles": 4,
+  "javascriptSyntaxPassed": 135,
+  "scriptReferencesPerEntrypoint": {
+    "index.html": 93,
+    "START_GAME.html": 93
+  },
+  "httpSha256Verified": 182,
+  "manifestEntriesExcludingSelf": 181,
+  "restoredBaselineQAOutputs": [
+    "QA/STAGE37_RENDER_ACCEPTANCE_RESULT.json"
+  ],
+  "codeEngineMatchesWorkingSource": true,
+  "nativeGPUVerified": false,
+  "fullHD50FpsVerified": false,
+  "publicDeploymentPerformed": false
+}

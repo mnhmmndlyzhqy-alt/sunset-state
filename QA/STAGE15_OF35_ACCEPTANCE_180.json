@@ -1,0 +1,30 @@
+{
+  "stage": 15,
+  "issue": "S01-IN-03",
+  "testType": "real game JavaScript and walker physics with mock renderer",
+  "gpuVisualVerified": false,
+  "native1080p50FpsVerified": false,
+  "sample": [
+    {
+      "id": 425,
+      "compact": true,
+      "rotated": false,
+      "added": 0,
+      "interactions": 3
+    }
+  ],
+  "errors": [],
+  "checks": 563,
+  "passed": 563,
+  "processed": 34,
+  "collidersAddedInIndependentGroundFloorScenes": 9,
+  "interactionPointsAcrossGroundFloorScenes": 70,
+  "rotatedScenesCovered": 9,
+  "compactScenesCovered": 31,
+  "sevenStage13BenchesPhysical": 0,
+  "perSceneAddedColliderRange": [
+    0,
+    3
+  ],
+  "movementProbes": []
+}

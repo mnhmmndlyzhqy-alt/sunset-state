@@ -1,0 +1,137 @@
+{
+  "stage": 26,
+  "source": "Fixture DOM, renderer and frame; NOT actual browser WebGL/GPU",
+  "date": "2026-11-22T21:43:43.989Z",
+  "passed": 32,
+  "checks": 32,
+  "details": [
+    {
+      "label": "normal gameplay no QA globals",
+      "passed": true
+    },
+    {
+      "label": "normal gameplay untouched DOM",
+      "passed": true
+    },
+    {
+      "label": "normal gameplay no timers",
+      "passed": true
+    },
+    {
+      "label": "normal gameplay no extra storage",
+      "passed": true
+    },
+    {
+      "label": "explicit query enables diagnostics",
+      "passed": true
+    },
+    {
+      "label": "25 original issues present",
+      "passed": true
+    },
+    {
+      "label": "issue IDs identical to original register",
+      "passed": true
+    },
+    {
+      "label": "QA overlay created",
+      "passed": true
+    },
+    {
+      "label": "no screenshot before game starts",
+      "passed": true
+    },
+    {
+      "label": "missing game diagnostic is not forged",
+      "passed": true
+    },
+    {
+      "label": "initial report not tested",
+      "passed": true
+    },
+    {
+      "label": "initial report has no GPU claims",
+      "passed": true
+    },
+    {
+      "label": "reject unknown issue id",
+      "passed": true
+    },
+    {
+      "label": "reject noncanonical mark",
+      "passed": true
+    },
+    {
+      "label": "game snapshot uses real in-memory game",
+      "passed": true
+    },
+    {
+      "label": "fullHD canvas dimensions recorded without passing GPU",
+      "passed": true
+    },
+    {
+      "label": "manual PASS can be recorded",
+      "passed": true
+    },
+    {
+      "label": "PASS is marked as user judgment",
+      "passed": true
+    },
+    {
+      "label": "manual record keeps scene position",
+      "passed": true
+    },
+    {
+      "label": "manual counts right",
+      "passed": true
+    },
+    {
+      "label": "manual records persisted",
+      "passed": true
+    },
+    {
+      "label": "real frame capture is queued",
+      "passed": true
+    },
+    {
+      "label": "capture executes real draw first",
+      "passed": true
+    },
+    {
+      "label": "capture restores original renderer",
+      "passed": true
+    },
+    {
+      "label": "capture triggers local image download",
+      "passed": true
+    },
+    {
+      "label": "capture tracks file by manual finding",
+      "passed": true
+    },
+    {
+      "label": "capture does not assert hardware validation",
+      "passed": true
+    },
+    {
+      "label": "export preserves original 25 scenarios",
+      "passed": true
+    },
+    {
+      "label": "client script does not move game entities",
+      "passed": true
+    },
+    {
+      "label": "actual project index preserved after QA-only optin",
+      "passed": true
+    },
+    {
+      "label": "QA module opt-in script not eagerly fetched",
+      "passed": true
+    },
+    {
+      "label": "script file names and paths use exact case",
+      "passed": true
+    }
+  ]
+}

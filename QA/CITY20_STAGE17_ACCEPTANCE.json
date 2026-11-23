@@ -1,0 +1,6 @@
+{
+  "stage": 17,
+  "tests": 18,
+  "passed": true,
+  "scope": "static code and asset checks; not live GPU"
+}

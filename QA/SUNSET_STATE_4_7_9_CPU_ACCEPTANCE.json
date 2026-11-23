@@ -1,0 +1,163 @@
+{
+  "version": "4.7.9",
+  "sourceCheckpoint": "4.7.8",
+  "kind": "CPU/world/geometry acceptance, not live GPU rendering",
+  "tests": [
+    {
+      "id": "all_asset_scripts_exist",
+      "passed": true,
+      "details": {
+        "scripts": 56
+      }
+    },
+    {
+      "id": "latest_layer_loaded_after_base",
+      "passed": true,
+      "details": {
+        "order": [
+          "assets/visual_quality_phase01.js",
+          "assets/interior_recovery_phase02.js",
+          "assets/city20_deep_audit_repair.js",
+          "engine44.js"
+        ]
+      }
+    },
+    {
+      "id": "previous_city_buildings_unchanged",
+      "passed": true,
+      "details": {
+        "old": 84,
+        "new": 84
+      }
+    },
+    {
+      "id": "same_game_mesh_count",
+      "passed": true,
+      "details": {
+        "old": 176421,
+        "new": 176421
+      }
+    },
+    {
+      "id": "unchanged_game_mesh_geometry_materials_lod_and_collisions",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "same_coastal_mesh_vertex_count",
+      "passed": true,
+      "details": {
+        "verts": 34042
+      }
+    },
+    {
+      "id": "same_coastal_mesh_triangle_count",
+      "passed": true,
+      "details": {
+        "triangles": 65012
+      }
+    },
+    {
+      "id": "same_coastal_vertex_positions_and_normals",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "ground_color_is_improved",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "distant_mesh_colors_aligned",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "many_real_ground_samples_tinted",
+      "passed": true,
+      "details": {
+        "samples": 45109
+      }
+    },
+    {
+      "id": "no_new_dynamic_triangles_textures_or_drawcalls",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "distant_recolors_keep_existing_LOD",
+      "passed": true,
+      "details": {
+        "finalPersistentProxies": 82
+      }
+    },
+    {
+      "id": "all_52_original_roads",
+      "passed": true,
+      "details": {
+        "roads": 52
+      }
+    },
+    {
+      "id": "road_grades_do_not_regress",
+      "passed": true,
+      "details": {
+        "maximum": 0.0900000000000002
+      }
+    },
+    {
+      "id": "all_8_crocodiles_still_in_real_water",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "unchanged_crocodile_locations",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "landscaping_478_kept",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "historic_477_regression_suite_ok",
+      "passed": true,
+      "details": {
+        "passed": 12
+      }
+    },
+    {
+      "id": "historic_478_compat_suite_ok",
+      "passed": true,
+      "details": {
+        "passed": 14
+      }
+    },
+    {
+      "id": "native_1080_unmodified",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "performance_guard_reporting_479",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "no_browser_gpu_claim",
+      "passed": true,
+      "details": {}
+    }
+  ],
+  "passed": 23,
+  "total": 23,
+  "allPassed": true,
+  "runtimeFramesMeasured": false,
+  "native1080GpuVerified": false,
+  "min50FpsVerified": false,
+  "notes": [
+    "Native 1920x1080 at 50 FPS must be measured on the users machine using F3/F9/F8.",
+    "No extra triangles or draw calls compared to 4.7.8: only CPU-baked terrain vertex colors and distant HLOD instance colors changed."
+  ]
+}

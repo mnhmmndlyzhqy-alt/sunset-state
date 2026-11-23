@@ -1,0 +1,33 @@
+{
+  "stage": 4,
+  "baseArchive": "SUNSET_STATE_STAGE03_OF35_FULL.zip",
+  "baseSHA256": "eddafd7d38963040f1c89d54bd9761b3da04b26b566a53be63e214457181cdfa",
+  "stage4Mode": "CPU-verified / GPU not measured",
+  "stage4Files": {
+    "START_GAME.html": "d8c59f0f3a00192054df2cfb0c5728592012aba1c0b0d12a661194758e0c94a2",
+    "assets/city20_stage16.js": "8711ad5e29aa313773b0d78f523e11eab429aa6341dddd720755c1fbc103d165",
+    "assets/stage04_active_entries.js": "4fc2c8df6d24e3a1b6f56552ae4458ed47753b0b5d6b3e3b75412ba7b4ad054d",
+    "QA/run_stage04_of35_acceptance.cjs": "290002176ba34e7ee3f30c17f3ac42c3474a69ada0ab9509c6b03be249b5977d",
+    "PROJECT/35_STAGE_PLAN_HE.md": "ac72c5ab4e52d62faf30f345d12b4f9754523aefd02dc4f92b63ff75f9c483d7",
+    "PROJECT/35_STAGE_PROGRESS.json": "f817593f04e1b3085c815f6f9fcc2f107e881bde91290ef80333db4b2a1b6b7f",
+    "PROJECT/STAGE04_OF35_REPORT_HE.md": "3ebdb74d90367f7164e0cbde9e333a01300bd5b33ee208852849ee8e4dfe7926"
+  },
+  "checks": {
+    "stage4Enabled": "34/34",
+    "stage4Disabled": "23/23",
+    "smokeCompatible": "30/30",
+    "physicsCompatible": "29/29",
+    "stage3Acceptance": "19/19"
+  },
+  "statements": {
+    "existingBuildings": 84,
+    "previousActiveEntrances": 83,
+    "currentActiveEntrances": 84,
+    "portalRecords": 299,
+    "oldOrphanPortalRecordsStillDisabled": 215,
+    "orphanDecorationMeshesRemoved": 3152,
+    "newCity20BuildingsStillUnchanged": 130,
+    "roads": 52,
+    "gpuVerified": false
+  }
+}

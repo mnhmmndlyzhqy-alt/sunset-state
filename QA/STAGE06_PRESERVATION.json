@@ -1,0 +1,25 @@
+{
+  "stage": 6,
+  "previousArchive": "SUNSET_STATE_STAGE05_OF35_FULL.zip",
+  "originalFilesRetained": 385,
+  "originalFilesRemoved": 0,
+  "modifiedExistingFiles": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "QA/STAGE05_PHYSICS_RECOVERY04_ACCEPTANCE.json",
+    "QA/stage05_bootstrap.cjs",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "filesInNextArchive": 421,
+  "sha256OfPreviousArchive": "5253c7c35e362d4b2a6489b644e6e1b6a1f2b8423e32ac02441601746f77a657",
+  "technicalQA": {
+    "acceptance": "22/22",
+    "walkThrough": "173/173",
+    "stage05Disabled": "32/32",
+    "legacySmoke": "30/30",
+    "legacyPhysics": "29/29"
+  },
+  "rendererVisualQA": "not_verified"
+}

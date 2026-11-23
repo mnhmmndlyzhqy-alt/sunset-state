@@ -1,0 +1,66 @@
+{
+  "stage": 37,
+  "environment": "Node CPU, exact cell data from cumulative real world (1/14 sampled objects)",
+  "limitations": "Microbenchmark of spatial Map lookups only. Not a full world frame, WebGL, GPU, or FPS.",
+  "worldBoxCount": 196817,
+  "workingSample": 14059,
+  "gridCells": 383,
+  "cameras": 6,
+  "windowsPerProbe": 1369,
+  "loopsPerTrial": 45,
+  "trials": [
+    {
+      "legacy": 25.992,
+      "indexed": 2.881
+    },
+    {
+      "indexed": 2.507,
+      "legacy": 19.89
+    },
+    {
+      "legacy": 18.801,
+      "indexed": 2.744
+    },
+    {
+      "indexed": 2.661,
+      "legacy": 18.92
+    },
+    {
+      "legacy": 18.414,
+      "indexed": 2.507
+    },
+    {
+      "indexed": 2.798,
+      "legacy": 18.441
+    },
+    {
+      "legacy": 18.741,
+      "indexed": 2.96
+    },
+    {
+      "indexed": 2.539,
+      "legacy": 18.523
+    }
+  ],
+  "medianMs": {
+    "legacy": 18.771,
+    "indexed": 2.702
+  },
+  "relativeRatio": 6.947,
+  "checks": [
+    {
+      "name": "exact_cell_match_all_probes",
+      "pass": true,
+      "baseline": {
+        "found": 2283,
+        "objects": 53548
+      },
+      "optimized": {
+        "found": 2283,
+        "objects": 53548
+      }
+    }
+  ],
+  "checksum": 38554560,
+  "pass": true
+}

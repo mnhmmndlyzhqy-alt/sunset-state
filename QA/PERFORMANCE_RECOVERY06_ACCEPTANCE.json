@@ -1,0 +1,191 @@
+{
+  "phase": 6,
+  "scope": "Live World CPU setup; exact light order/GPU instance CPU buffer comparisons. No real browser GPU test.",
+  "date": "2026-11-22",
+  "checks": [
+    {
+      "id": "phase06_module_after_life_before_engine",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "all_game_scripts_present",
+      "pass": true,
+      "info": {
+        "count": 59
+      }
+    },
+    {
+      "id": "phase06_module_installed",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "prior_physics_and_life_present",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "real_world_unchanged_52_roads_298_portals",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "real_world_geometry_above_190k",
+      "pass": true,
+      "info": {
+        "boxes": 191121
+      }
+    },
+    {
+      "id": "all_180_pedestrians_spawn",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "previous_world_audit_live",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "reference_city_layout_unchanged",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "default_12_15_day_and_cycle_off",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "all_130_real_city_light_positions_identical",
+      "pass": true,
+      "info": {
+        "positions": 130
+      }
+    },
+    {
+      "id": "equal_distance_light_order_stable",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "lighting_mutation_without_cache_staleness",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "strict_165m_boundary_preserved",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "all_290000_gpu_instance_float_bytes_identical",
+      "pass": true,
+      "info": {
+        "floats": 290000
+      }
+    },
+    {
+      "id": "angled_and_dynamic_color_instance_bytes_identical",
+      "pass": true,
+      "info": {
+        "count": 111
+      }
+    },
+    {
+      "id": "color_decoder_cache_used",
+      "pass": true,
+      "info": {
+        "hits": 14486,
+        "misses": 125,
+        "distinctColors": 124
+      }
+    },
+    {
+      "id": "ab_disables_light_fast_path",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "ab_disables_pack_cache",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "normal_mode_enabled",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "global_flag_turns_off_both_paths",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "single_FPS_snapshot_does_not_claim_sustained_50fps",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "existing_GPU_probe_preserved",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "no_existing_UI_or_controls_removed",
+      "pass": true,
+      "info": null
+    },
+    {
+      "id": "F10_snapshot_hotkey_available",
+      "pass": true,
+      "info": null
+    }
+  ],
+  "total": 25,
+  "passed": 25,
+  "allPassed": true,
+  "world": {
+    "buildMs": 7327,
+    "scriptLoadMs": 292,
+    "heapMB": 323.9,
+    "rssMB": 493.6,
+    "boxes": 191121,
+    "roads": 52,
+    "portals": 298,
+    "lights": 155
+  },
+  "benches": {
+    "lighting4500CallsMs": {
+      "old": [
+        112.788,
+        86.176
+      ],
+      "optimized": [
+        10.251,
+        9.796
+      ]
+    },
+    "packing12Calls14500ObjectsMs": {
+      "old": [
+        215.613,
+        291.313
+      ],
+      "optimized": [
+        214.119,
+        186.934
+      ]
+    }
+  },
+  "metrics": {
+    "streetLightQueries": 9269,
+    "streetLightCandidates": 63368,
+    "colorLookups": 449611,
+    "colorCacheHits": 449486,
+    "colorCacheMisses": 125,
+    "packInvocations": 33
+  },
+  "renderedSceneNotTested": true,
+  "sustained1080p50FpsNotVerified": true
+}

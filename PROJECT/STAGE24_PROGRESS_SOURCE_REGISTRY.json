@@ -1,0 +1,42 @@
+{
+  "activeProgrammeId": "active35",
+  "programmes": [
+    {
+      "id": "city20",
+      "path": "PROJECT/CITY20_PROGRESS.json",
+      "role": "historical_completed_city20_programme",
+      "recordedStagesCompleted": 20,
+      "recordedStagesTotal": 20,
+      "currentRelease": false,
+      "neverUseForNextStage": true,
+      "caveat": "Legacy checkpoint qualityRecovery subrecord says 6/7 but later PROJECT/RECOVERY07_FINAL_QA_REPORT.md documents technical 7/7. Original snapshot preserved."
+    },
+    {
+      "id": "recovery7",
+      "path": "PROJECT/RECOVERY07_FINAL_QA_REPORT.md",
+      "role": "later_recovery_technical_QA",
+      "recordedPhasesCompleted": 7,
+      "recordedPhasesTotal": 7,
+      "nativeGpuVerified": false,
+      "currentRelease": false,
+      "caveat": "Technical QA only, no actual hardware full-HD FPS signoff."
+    },
+    {
+      "id": "polish15",
+      "path": "PROJECT/15_STAGE_POLISH_PROGRESS.json",
+      "role": "historical_abandoned_or_paused_15_stage_checkpoint",
+      "recordedStage": 1,
+      "recordedStagesTotal": 15,
+      "currentRelease": false,
+      "caveat": "A separate earlier sequence: 1/15 is NOT the active 35-stage programme."
+    },
+    {
+      "id": "active35",
+      "path": "PROJECT/35_STAGE_PROGRESS.json",
+      "role": "active_stage_progress",
+      "currentRelease": true,
+      "recordedStage": 24,
+      "recordedStagesTotal": 35
+    }
+  ]
+}

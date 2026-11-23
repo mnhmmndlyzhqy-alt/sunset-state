@@ -1,0 +1,19 @@
+{
+  "stage": 15,
+  "tests": 26,
+  "passed": true,
+  "syntheticWorldStats": {
+    "stage": 15,
+    "portalsScanned": 298,
+    "frontagesDetailed": 298,
+    "planters": 596,
+    "bollards": 596,
+    "lightPosts": 99,
+    "curbEdges": 298,
+    "geometryAdded": 2284,
+    "collisionsAdded": 0,
+    "roadRoutesChanged": 0,
+    "portalsChanged": 0,
+    "gpuFpsVerified": false
+  }
+}

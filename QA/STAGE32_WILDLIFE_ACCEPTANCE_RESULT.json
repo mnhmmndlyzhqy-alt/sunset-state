@@ -1,0 +1,289 @@
+{
+  "stage": 32,
+  "basis": "Stage31 original full cumulative engine, 80 simulated seconds, fake CPU renderer; no GPU or native visual check",
+  "passed": 46,
+  "total": 46,
+  "checks": [
+    {
+      "name": "Stage32 registered with real Stage43 Life and existing Renderer",
+      "pass": true
+    },
+    {
+      "name": "Stage31 vehicle original hook still installed",
+      "pass": true
+    },
+    {
+      "name": "Stage30 and Stage29 additions remain installed",
+      "pass": true
+    },
+    {
+      "name": "Original population retained: 8 crocodiles, 10 flamingos, 4 herons, 6 dolphins",
+      "pass": true
+    },
+    {
+      "name": "Original fish population of 26 and all four fish species retained",
+      "pass": true
+    },
+    {
+      "name": "All 28 mismatch placements detected by checking real coastline",
+      "pass": true
+    },
+    {
+      "name": "All 28 mismatches corrected on initial load",
+      "pass": true
+    },
+    {
+      "name": "Flamingos now on real western marsh shoreline not former dry interior",
+      "pass": true
+    },
+    {
+      "name": "Herons now on natural low wetland banks",
+      "pass": true
+    },
+    {
+      "name": "All six dolphins now offshore in water; no dry-land swimming",
+      "pass": true
+    },
+    {
+      "name": "Eight reef fish now inhabit wetland shallow channels, not deep ocean",
+      "pass": true
+    },
+    {
+      "name": "Existing eight crocodile authored water sites preserved",
+      "pass": true
+    },
+    {
+      "name": "Flamingos protected from crocodile breeding areas",
+      "pass": true
+    },
+    {
+      "name": "Flamingo actors are distinct individuals, not one overlapped model",
+      "pass": true
+    },
+    {
+      "name": "Dolphin pods still split into two pods of three",
+      "pass": true
+    },
+    {
+      "name": "Original crocodile LOD hi/mid/far selector still present",
+      "pass": true
+    },
+    {
+      "name": "Original detailed flamingo, heron and fish models still on disk",
+      "pass": true
+    },
+    {
+      "name": "Landscape map, roads and urban world unchanged at installation",
+      "pass": true
+    },
+    {
+      "name": "No new model, collision or save-schema changes reported",
+      "pass": true
+    },
+    {
+      "name": "Stage32 A/B opt-out preserves Stage31 animal placement bit-for-bit on reload",
+      "pass": true
+    },
+    {
+      "name": "A/B query switch correctly reports off",
+      "pass": true
+    },
+    {
+      "name": "A/B original still exposes historically unsuitable initial habitat",
+      "pass": true
+    },
+    {
+      "name": "320 dynamically selected bird/dolphin goals stay on valid habitat",
+      "pass": true
+    },
+    {
+      "name": "130 adaptive fish goals remain inside proper water",
+      "pass": true
+    },
+    {
+      "name": "80-second real wildlife simulation finishes without exception",
+      "pass": true
+    },
+    {
+      "name": "All wildlife/fish stay finite over 1600 actual engine steps",
+      "pass": true
+    },
+    {
+      "name": "No stranded dolphins, landlocked fish or grounded birds during actual 80s",
+      "pass": true
+    },
+    {
+      "name": "Animal and fish positions advance continuously, never teleport",
+      "pass": true
+    },
+    {
+      "name": "Dolphins still execute breathing within long simulation",
+      "pass": true
+    },
+    {
+      "name": "Birds retain distinct natural feeding/resting/flying modes",
+      "pass": true
+    },
+    {
+      "name": "Fish all preserve species and pod identifiers after 80 seconds",
+      "pass": true
+    },
+    {
+      "name": "Every coral-reef fish remains in wetland habitat after long run",
+      "pass": true
+    },
+    {
+      "name": "Water users do not approach roads",
+      "pass": true
+    },
+    {
+      "name": "Actual dolphin update triggers a surface-breath and short-lived exhale",
+      "pass": true
+    },
+    {
+      "name": "Original underwater dolphin seabed-anchor defect verified",
+      "pass": true
+    },
+    {
+      "name": "Dolphin surfaced anatomy now aligned to actual sea datum",
+      "pass": true
+    },
+    {
+      "name": "Original dolphin remains fully rigged, not replaced by a flat surface sprite",
+      "pass": true
+    },
+    {
+      "name": "Fallback fish previously hidden near deep seabed are now below real water surface",
+      "pass": true
+    },
+    {
+      "name": "Real model draw keeps scene objects finite and positive",
+      "pass": true
+    },
+    {
+      "name": "Visible dolphin breath has <=3 subtle short-range water particles",
+      "pass": true
+    },
+    {
+      "name": "Added water effects use existing shapes and hard distance cap",
+      "pass": true
+    },
+    {
+      "name": "No Stage32 wildlife effects generated for distant camera",
+      "pass": true
+    },
+    {
+      "name": "Wading in shallow natural water causes a capped ripple, not fake water slab",
+      "pass": true
+    },
+    {
+      "name": "Full city, interiors, roads, props, collision and glass unchanged after wildlife activity",
+      "pass": true
+    },
+    {
+      "name": "Stage32 explicitly does not certify full-HD FPS or native GPU quality",
+      "pass": true
+    },
+    {
+      "name": "Stage32 module loads before core engine installs subclass",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "summary": {
+    "beforeHomes": {
+      "flamingo": 10,
+      "heron": 4,
+      "dolphin": 6,
+      "reef_perch": 8
+    },
+    "afterHomes": {
+      "flamingo": 0,
+      "heron": 0,
+      "dolphin": 0,
+      "reef_perch": 0
+    },
+    "species": {
+      "crocodile": 8,
+      "flamingo": 10,
+      "heron": 4,
+      "dolphin": 6,
+      "fish": 26
+    },
+    "originalWorld": {
+      "boxes": 196817,
+      "roads": 52,
+      "buildings": 84,
+      "city20": 130,
+      "portals": 214,
+      "shops": 59,
+      "walls": 3230,
+      "props": 796,
+      "glass": 988,
+      "interceptorVariants": 6
+    },
+    "afterWorld": {
+      "boxes": 196817,
+      "roads": 52,
+      "buildings": 84,
+      "city20": 130,
+      "portals": 214,
+      "shops": 59,
+      "walls": 3230,
+      "props": 796,
+      "glass": 988,
+      "interceptorVariants": 6
+    },
+    "simulatedSteps": 1600,
+    "simulatedSeconds": 80,
+    "fishGoals": 130,
+    "goalChecks": 280,
+    "invalids": 0,
+    "nonfinite": 0,
+    "teleports": 0,
+    "maximumDisplacement": 0.4250000000000594,
+    "stats": {
+      "installed": true,
+      "originalModelsChanged": 0,
+      "newColliders": 0,
+      "savedDataSchemaChanges": 0,
+      "seeded": {
+        "flamingo": 10,
+        "heron": 4,
+        "dolphin": 6,
+        "reef_perch": 8
+      },
+      "unsuitableHomesBefore": {
+        "flamingo": 10,
+        "heron": 4,
+        "dolphin": 6,
+        "reef_perch": 8
+      },
+      "unsuitableHomesAfter": {
+        "flamingo": 0,
+        "heron": 0,
+        "dolphin": 0,
+        "reef_perch": 0
+      },
+      "redirectedGoals": 299,
+      "animalBoundaryStops": 231,
+      "fishBoundaryStops": 568,
+      "crocBaskPrevented": 33,
+      "shoalCorrections": 123,
+      "nearbyBreathVisuals": 3,
+      "wadingVisuals": 2,
+      "waterlineCorrectedDolphinMeshes": 94,
+      "waterlineCorrectedFishFallbackMeshes": 26,
+      "waterlineCorrectedCrocodileFallbackMeshes": 516,
+      "crocodilePremiumAnchorAdjustments": 0,
+      "nativeGpuVerified": false,
+      "fullHD50FpsVerified": false
+    }
+  },
+  "caveats": {
+    "gpuNativeWebGL2": false,
+    "fullHd50Fps": false,
+    "visualAcceptance": false,
+    "publicGithubPagesPublished": false
+  }
+}

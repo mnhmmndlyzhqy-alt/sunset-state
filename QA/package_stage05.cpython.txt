@@ -1,0 +1,37 @@
+from pathlib import Path
+import json,zipfile,hashlib,time
+root=Path('/mnt/data/stage05_work'); original=Path('/mnt/data/SUNSET_STATE_STAGE04_OF35_FULL.zip')
+target=Path('/mnt/data/SUNSET_STATE_STAGE05_OF35_FULL.zip')
+manifest=root/'QA/STAGE05_SOURCES_CHECKSUM.json'
+relative=lambda p:p.relative_to(root).as_posix()
+files=sorted((p for p in root.rglob('*') if p.is_file() and p!=manifest and p.name not in ('.DS_Store',)),key=relative)
+current=set(map(relative,files))
+with zipfile.ZipFile(original) as z:
+ previous={n for n in z.namelist() if not n.endswith('/')}
+ missing=sorted(previous-current)
+ if missing:raise SystemExit('Stage04 source files MISSING: '+repr(missing[:30]))
+ modified=[]
+ for n in sorted(previous):
+  if hashlib.sha256((root/n).read_bytes()).hexdigest()!=hashlib.sha256(z.read(n)).hexdigest():modified.append(n)
+ expected={'START_GAME.html','PROJECT/35_STAGE_PROGRESS.json','PROJECT/35_STAGE_PLAN_HE.md','README_35_STAGE_HE.md'}
+ unexpected=set(modified)-expected
+ if unexpected:raise SystemExit('Unexpected modifications to original content: '+repr(sorted(unexpected)))
+ appended=sorted(current-previous)
+ hashes={n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in sorted(current) if n in ['START_GAME.html','engine44.js','assets/stage04_active_entries.js','assets/stage05_city20_entrances.js','assets/stage05_interior_runtime.js','PROJECT/STAGE05_OF35_REPORT_HE.md','QA/STAGE05_OF35_ACCEPTANCE.json','QA/STAGE05_AB_OFF_ACCEPTANCE.json','REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png']}
+ rec={'stage':5,'sourceStage4Files':len(previous),'currentFilesExcludingManifest':len(files),'missingStage4Files':missing,'modifiedStage4Files':modified,'addedStage5Files':appended,'essentialChecksumsSha256':hashes,'gpuVerified':False}
+ manifest.write_text(json.dumps(rec,indent=2,ensure_ascii=False)+'\n')
+ print('SOURCE AUDIT',json.dumps({k:rec[k] for k in ('sourceStage4Files','currentFilesExcludingManifest','missingStage4Files','modifiedStage4Files')},ensure_ascii=False))
+ files.append(manifest);files.sort(key=relative)
+ start=time.time()
+ with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED,compresslevel=5,allowZip64=True) as z:
+  for i,p in enumerate(files):
+   z.write(p,relative(p))
+   if (i+1)%100==0:print('packed',i+1,'of',len(files),flush=True)
+ print('ZIP COMPLETE',target,target.stat().st_size,'bytes',len(files),'files','sec',round(time.time()-start,1))
+ with zipfile.ZipFile(target) as z:
+  bad=z.testzip()
+  assert bad is None,bad
+  names=set(z.namelist())
+  assert all(x in names for x in ['START_GAME.html','engine44.js','assets/stage05_city20_entrances.js','assets/stage05_interior_runtime.js','PROJECT/STAGE05_OF35_REPORT_HE.md','QA/STAGE05_OF35_ACCEPTANCE.json','QA/STAGE05_AB_OFF_ACCEPTANCE.json'])
+  assert len(names)==len(files)
+ print('ZIP VERIFIED',len(names),'entries. sha256',hashlib.sha256(target.read_bytes()).hexdigest())

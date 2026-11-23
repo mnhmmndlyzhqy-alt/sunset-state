@@ -1,0 +1,229 @@
+{
+  "scope": "real game kinematics/collisions in Node VM, one full world, no GPU validation",
+  "date": "2026-11-21",
+  "phase": 4,
+  "passed": 29,
+  "total": 29,
+  "allPassed": true,
+  "checks": [
+    {
+      "name": "all_game_scripts_present",
+      "passed": true,
+      "detail": {
+        "count": 80
+      }
+    },
+    {
+      "name": "physics_module_before_core_engine",
+      "passed": true
+    },
+    {
+      "name": "engine_installer_present",
+      "passed": true
+    },
+    {
+      "name": "installed_on_real_engine_game",
+      "passed": true
+    },
+    {
+      "name": "old_engine_controls_remain",
+      "passed": true
+    },
+    {
+      "name": "steady_traffic_simulation_finite",
+      "passed": true,
+      "detail": {
+        "x": 24.29718898301795,
+        "z": 23.403777941104625,
+        "vx": -11.39217588469115,
+        "vz": -14.52158155206749,
+        "speed": 18.456922878992735,
+        "hp": 100
+      }
+    },
+    {
+      "name": "fast_vehicle_runs_collision_substeps",
+      "passed": true,
+      "detail": {
+        "microsteps": 4,
+        "calls": 1
+      }
+    },
+    {
+      "name": "fast_vehicle_does_not_cross_thin_wall",
+      "passed": true,
+      "detail": {
+        "x": 0,
+        "z": 13.589970382050161,
+        "vx": 0,
+        "vz": -74.56859527898249,
+        "speed": 74.56859527898249,
+        "hp": 100
+      }
+    },
+    {
+      "name": "vehicle_wall_impact_velocity_bounded",
+      "passed": true,
+      "detail": {
+        "x": 0,
+        "z": 13.589970382050161,
+        "vx": 0,
+        "vz": -74.56859527898249,
+        "speed": 74.56859527898249,
+        "hp": 100
+      }
+    },
+    {
+      "name": "vehicle_substeps_do_not_radically_change_driving",
+      "passed": true,
+      "detail": {
+        "before": {
+          "x": -0.03354575038566492,
+          "z": -2.736493374570612,
+          "vx": -0.838643759641623,
+          "vz": -68.4123343642653,
+          "speed": 68.41747449682443,
+          "hp": 100
+        },
+        "after": {
+          "x": -0.009366818174547405,
+          "z": -2.752876928130031,
+          "vx": -0.3725172879678741,
+          "vz": -68.43553563588381,
+          "speed": 68.43654949586629,
+          "hp": 100
+        },
+        "drift": 0.02920687573336401
+      }
+    },
+    {
+      "name": "player_walking_uses_substeps",
+      "passed": true,
+      "detail": {
+        "microsteps": 3
+      }
+    },
+    {
+      "name": "walker_motion_finite",
+      "passed": true
+    },
+    {
+      "name": "walking_forward_moves_negative_z",
+      "passed": true,
+      "detail": {
+        "z": -0.28381876907387915
+      }
+    },
+    {
+      "name": "A_and_D_not_reversed",
+      "passed": true,
+      "detail": {
+        "leftX": -0.14098370108269764,
+        "rightX": 0.14098370108269764
+      }
+    },
+    {
+      "name": "diagonal_walking_slides_along_wall",
+      "passed": true,
+      "detail": {
+        "x": -0.5352077960610047,
+        "z": -1.4188944477606311
+      }
+    },
+    {
+      "name": "player_collision_cells_requeried_during_substeps",
+      "passed": true,
+      "detail": {
+        "requery": 16
+      }
+    },
+    {
+      "name": "jump_does_not_double_jump",
+      "passed": true,
+      "detail": {
+        "jumps": 1
+      }
+    },
+    {
+      "name": "jump_and_landing_stable",
+      "passed": true,
+      "detail": {
+        "y": 3.284930168533957,
+        "grounded": true
+      }
+    },
+    {
+      "name": "query_param_ab_returns_legacy_path",
+      "passed": true
+    },
+    {
+      "name": "walker_world_limit_preserved",
+      "passed": true
+    },
+    {
+      "name": "original_reference_unchanged",
+      "passed": true
+    },
+    {
+      "name": "full_world_still_builds",
+      "passed": true,
+      "detail": {
+        "boxes": 187541,
+        "roads": 52,
+        "portals": 299,
+        "worldMs": 7709
+      }
+    },
+    {
+      "name": "existing_deep_audit_geometry_present",
+      "passed": true
+    },
+    {
+      "name": "animal_models_still_integrated",
+      "passed": true
+    },
+    {
+      "name": "road_geometry_still_finite",
+      "passed": true
+    },
+    {
+      "name": "actual_surveyed_bridge_available_for_test",
+      "passed": true,
+      "detail": {
+        "road": "northRing"
+      }
+    },
+    {
+      "name": "lower_road_npc_not_snapped_to_other_bridge",
+      "passed": true,
+      "detail": {
+        "skips": 1
+      }
+    },
+    {
+      "name": "route_matched_bridge_retains_guard",
+      "passed": true
+    },
+    {
+      "name": "bridge_A_B_disable_restores_legacy_guard",
+      "passed": true
+    }
+  ],
+  "stats": {
+    "installed": true,
+    "walkerCalls": 61,
+    "walkerMicrosteps": 73,
+    "carCalls": 102,
+    "carMicrosteps": 106,
+    "guardRouteSkips": 1,
+    "maxWalkerSteps": 3,
+    "maxCarSteps": 4
+  },
+  "fullWorld": {
+    "geometry": 187541,
+    "roads": 52,
+    "portals": 299,
+    "worldBuildMs": 7709
+  },
+  "gpu50FPSVerified": false
+}

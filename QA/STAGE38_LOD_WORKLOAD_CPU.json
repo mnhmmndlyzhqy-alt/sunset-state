@@ -1,0 +1,145 @@
+{
+  "stage": 38,
+  "sampledObjects": 16281,
+  "measured": [
+    {
+      "name": "spawn",
+      "old": {
+        "submitted": 587960,
+        "covered": 507649.27,
+        "nearHigh": 2526,
+        "farLow": 0,
+        "originalParts": 2526,
+        "highInstances": 2526,
+        "lowInstances": 0
+      },
+      "new": {
+        "submitted": 370064,
+        "covered": 260895.84,
+        "nearHigh": 729,
+        "farLow": 2286,
+        "originalParts": 3015,
+        "highInstances": 729,
+        "lowInstances": 2286
+      },
+      "submittedChangePct": -37.06,
+      "coveredChangePct": -48.61
+    },
+    {
+      "name": "east",
+      "old": {
+        "submitted": 554824,
+        "covered": 520317.59,
+        "nearHigh": 2365,
+        "farLow": 0,
+        "originalParts": 2365,
+        "highInstances": 2365,
+        "lowInstances": 0
+      },
+      "new": {
+        "submitted": 358356,
+        "covered": 263294.51,
+        "nearHigh": 625,
+        "farLow": 2304,
+        "originalParts": 2929,
+        "highInstances": 625,
+        "lowInstances": 2304
+      },
+      "submittedChangePct": -35.41,
+      "coveredChangePct": -49.4
+    },
+    {
+      "name": "air",
+      "old": {
+        "submitted": 1065232,
+        "covered": 1009627.32,
+        "nearHigh": 4517,
+        "farLow": 0,
+        "originalParts": 4517,
+        "highInstances": 4517,
+        "lowInstances": 0
+      },
+      "new": {
+        "submitted": 549060,
+        "covered": 425270.72,
+        "nearHigh": 598,
+        "farLow": 4471,
+        "originalParts": 5069,
+        "highInstances": 598,
+        "lowInstances": 4471
+      },
+      "submittedChangePct": -48.46,
+      "coveredChangePct": -57.88
+    },
+    {
+      "name": "west",
+      "old": {
+        "submitted": 473088,
+        "covered": 439710.74,
+        "nearHigh": 2063,
+        "farLow": 0,
+        "originalParts": 2063,
+        "highInstances": 2063,
+        "lowInstances": 0
+      },
+      "new": {
+        "submitted": 228380,
+        "covered": 192010.5,
+        "nearHigh": 208,
+        "farLow": 2033,
+        "originalParts": 2241,
+        "highInstances": 208,
+        "lowInstances": 2033
+      },
+      "submittedChangePct": -51.73,
+      "coveredChangePct": -56.33
+    },
+    {
+      "name": "coast",
+      "old": {
+        "submitted": 485600,
+        "covered": 479002.22,
+        "nearHigh": 2110,
+        "farLow": 0,
+        "originalParts": 2110,
+        "highInstances": 2110,
+        "lowInstances": 0
+      },
+      "new": {
+        "submitted": 239488,
+        "covered": 195842.83,
+        "nearHigh": 216,
+        "farLow": 2104,
+        "originalParts": 2320,
+        "highInstances": 216,
+        "lowInstances": 2104
+      },
+      "submittedChangePct": -50.68,
+      "coveredChangePct": -59.11
+    },
+    {
+      "name": "store",
+      "old": {
+        "submitted": 483536,
+        "covered": 422643.75,
+        "nearHigh": 2099,
+        "farLow": 0,
+        "originalParts": 2099,
+        "highInstances": 2099,
+        "lowInstances": 0
+      },
+      "new": {
+        "submitted": 336064,
+        "covered": 219910.7,
+        "nearHigh": 677,
+        "farLow": 2075,
+        "originalParts": 2752,
+        "highInstances": 677,
+        "lowInstances": 2075
+      },
+      "submittedChangePct": -30.5,
+      "coveredChangePct": -47.97
+    }
+  ],
+  "disclaimer": "CPU theoretical triangle counts from visibility output; not a GPU profile, no FPS measured"
+}

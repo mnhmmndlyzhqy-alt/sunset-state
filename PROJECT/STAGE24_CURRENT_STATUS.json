@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "project": "SUNSET STATE",
+  "programmeId": "active35",
+  "date": "2026-11-22",
+  "stageCount": 35,
+  "currentStage": 24,
+  "nextStage": 25,
+  "completedStages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "remainingStages": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "originalFindings": {
+    "register": "QA/STAGE01_15_BUG_REGISTER.json",
+    "count": 25,
+    "withTechnicalWorkRecorded": 23,
+    "pendingCount": 2,
+    "pendingStages": [
+      25,
+      26
+    ],
+    "pendingIds": [
+      "S01-PU-01",
+      "S01-QA-01"
+    ],
+    "sourceFixAndCpuEvidenceStages": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      18,
+      19,
+      20,
+      21
+    ],
+    "technicalStageCompletedDoesNotMeanNativeGpuValidated": true
+  },
+  "baseline": {
+    "archive": "SUNSET_STATE_STAGE23_OF35_FULL.zip",
+    "sha256": "3df0daace91b95907b1e4ea48974cbb90da8924a193b44afb174bc4c4fb6fed7",
+    "files": 843,
+    "referenceImage": "REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+    "referenceSha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38"
+  },
+  "currentBuild": {
+    "archive": "SUNSET_STATE_STAGE24_OF35_FULL.zip",
+    "gameEntry": "START_GAME.html",
+    "jsScriptsLoaded": 82,
+    "gameCodeAndAssetsChangedInStage24": false,
+    "technicalDocumentReconciliationDone": true,
+    "livePublishedUrl": null
+  },
+  "qualityGates": {
+    "jsAndAssetIntegrityChecked": true,
+    "allPreviousArchivePathsRetained": true,
+    "nativeGpu1920x1080AtLeast50FpsPassed": false,
+    "nativeHardwareGpuMeasured": false,
+    "hardwareDrawCallsMeasured": false,
+    "realBrowserFullGamePlaythroughPassed": false,
+    "stage25PublicationCompleted": false,
+    "stage26HistoricalBugClosureCompleted": false,
+    "fullAAAQualityCertified": false
+  },
+  "statusOfLegacySnapshots": "Historical registry is preserved, but must not drive active stage count.",
+  "authoritativeProgress": "PROJECT/35_STAGE_PROGRESS.json",
+  "evidenceLedger": "PROJECT/STAGE24_EVIDENCE_LEDGER.json",
+  "progressSources": "PROJECT/STAGE24_PROGRESS_SOURCE_REGISTRY.json",
+  "nextAction": "Stage25: package and publication workflow; no published GitHub Pages URL claimed yet",
+  "stage24Validation": {
+    "consistencyChecks": "2880/2880",
+    "stage23ProfilerUnitRerun": "51/51",
+    "stage22BenchmarkUnitRerun": "52/52",
+    "gpuActuallyTested": false,
+    "rerunEvidence": "QA/STAGE24_REGRESSION_SUMMARY.json"
+  }
+}

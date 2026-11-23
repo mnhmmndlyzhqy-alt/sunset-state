@@ -1,0 +1,29 @@
+{
+  "project": "SUNSET STATE CITY20",
+  "stage": 5,
+  "stage04Files": 142,
+  "stage04FilesRetained": 142,
+  "preexistingFilesModified": [
+    "PROJECT/CITY20_PROGRESS.json",
+    "QA/city20_browser_benchmark.js",
+    "README_CITY20_HE.md",
+    "START_GAME.html",
+    "engine44.js"
+  ],
+  "newFiles": [
+    "assets/city20_stage05.js",
+    "QA/run_stage05_acceptance.cjs",
+    "QA/CITY20_STAGE05_ACCEPTANCE.json",
+    "QA/CITY20_STAGE05_BROWSER_STATUS.json",
+    "PROJECT/STAGE05_REPORT_HE.md",
+    "PROJECT/STAGE06_WORKORDER_HE.md"
+  ],
+  "referenceSHA256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+  "assetsReusedUnchanged": true,
+  "sourceEngineModifiedWithSingleShaderHook": true,
+  "stage05Tests": "24/24",
+  "stage04Tests": "22/22",
+  "stage03Tests": "19/19",
+  "gpuMeasured": false,
+  "sameArchiveNameReused": true
+}

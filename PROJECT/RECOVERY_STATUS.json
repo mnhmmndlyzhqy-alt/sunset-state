@@ -1,0 +1,23 @@
+{
+  "project": "SUNSET STATE",
+  "date": "2026-11-22",
+  "city20CompletedStages": 20,
+  "recoveryPhasesImplemented": 7,
+  "technicalQA": {
+    "regressionSuitesPassed": 27,
+    "regressionSuitesTotal": 27,
+    "actualGameWithSimulatedDOMAndRendererChecksPassed": 30,
+    "checksTotal": 30,
+    "offlineGLBAssetsPassed": 9,
+    "offlineGLBAssetsTotal": 9
+  },
+  "visualQA": {
+    "status": "pending hardware-run verification",
+    "screenshotsCapturedInAutomatedSession": 0,
+    "browserNavigationAllowed": false,
+    "reason": "ERR_BLOCKED_BY_ADMINISTRATOR",
+    "sustained1080p50fpsVerified": false
+  },
+  "preserved": "All earlier CITY20 and recovery assets retained",
+  "report": "PROJECT/RECOVERY07_FINAL_QA_REPORT.md"
+}

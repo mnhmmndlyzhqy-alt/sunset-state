@@ -1,0 +1,5954 @@
+{
+  "stage": 12,
+  "issue": "S01-ST-03",
+  "total": 1476,
+  "passed": 1476,
+  "failed": [],
+  "baseline": {
+    "visualBoxes": 194478,
+    "legacySolids": 3230,
+    "originalPropSolids": 436
+  },
+  "final": {
+    "visualBoxes": 194478,
+    "legacySolids": 3230,
+    "propSolids": 796,
+    "roads": 52,
+    "activeDoors": 214
+  },
+  "stats": {
+    "stage": 12,
+    "issueId": "S01-ST-03",
+    "collisionCount": 360,
+    "byKind": {
+      "planter-base": 166,
+      "safety-bollard": 166,
+      "streetlamp-post": 28
+    },
+    "visibleSolidCandidates": 360,
+    "covered": 360,
+    "missing": 0,
+    "issues": [],
+    "legacyBuildingSolids": 3230,
+    "originalCity20Stage15VisualCount": 2284,
+    "drawnGeometry": 194242,
+    "activeEntrances": 214,
+    "roads": 52,
+    "gpuVerified": false,
+    "real1080p50FpsVerified": false,
+    "initialVisibleCandidates": 360,
+    "newPropSolids": 360,
+    "originalPropSolids": 436,
+    "newLegacySolids": 0,
+    "visualMeshesAdded": 0,
+    "unresolved": [],
+    "performance": "spatially_indexed_static_prop_solids"
+  },
+  "tests": [
+    {
+      "id": "stage12_active",
+      "pass": true
+    },
+    {
+      "id": "stage12_enabled",
+      "pass": true
+    },
+    {
+      "id": "exactly_360_collision_bodies",
+      "pass": true
+    },
+    {
+      "id": "166_planter_bases",
+      "pass": true
+    },
+    {
+      "id": "166_bollards",
+      "pass": true
+    },
+    {
+      "id": "28_streetlight_posts",
+      "pass": true
+    },
+    {
+      "id": "full_visible_coverage",
+      "pass": true
+    },
+    {
+      "id": "no_unsafe_candidate",
+      "pass": true
+    },
+    {
+      "id": "native_spatial_prop_solids",
+      "pass": true
+    },
+    {
+      "id": "legacy_building_solids_retained",
+      "pass": true
+    },
+    {
+      "id": "no_visual_meshes_added_by_stage12",
+      "pass": true
+    },
+    {
+      "id": "all_roads_preserved",
+      "pass": true
+    },
+    {
+      "id": "all_214_usable_entries_preserved",
+      "pass": true
+    },
+    {
+      "id": "all_429_portals_preserved",
+      "pass": true
+    },
+    {
+      "id": "rotated_34_buildings_preserved",
+      "pass": true
+    },
+    {
+      "id": "stage08_windows_preserved",
+      "pass": true
+    },
+    {
+      "id": "stage09_entrance_audit_preserved",
+      "pass": true
+    },
+    {
+      "id": "stage10_planter_audit_preserved",
+      "pass": true
+    },
+    {
+      "id": "stage11_lamp_audit_preserved",
+      "pass": true
+    },
+    {
+      "id": "no_false_gpu_claims",
+      "pass": true
+    },
+    {
+      "id": "runtime_col_audit_strict",
+      "pass": true
+    },
+    {
+      "id": "idempotent_install",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_0",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_0",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_1",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_1",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_2",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_2",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_2",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_2",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_2",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_2",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_3",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_3",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_4",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_4",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_5",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_5",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_5",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_5",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_5",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_5",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_6",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_6",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_7",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_7",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_8",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_8",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_8",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_8",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_8",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_8",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_9",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_9",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_10",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_10",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_11",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_11",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_11",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_11",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_11",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_11",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_12",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_12",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_13",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_13",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_14",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_14",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_14",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_14",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_14",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_14",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_15",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_15",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_16",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_16",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_17",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_17",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_17",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_17",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_17",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_17",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_18",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_18",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_19",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_19",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_20",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_20",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_20",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_20",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_20",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_20",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_21",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_21",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_22",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_22",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_23",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_23",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_23",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_23",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_23",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_23",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_24",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_24",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_25",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_25",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_26",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_26",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_26",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_26",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_26",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_26",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_27",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_27",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_28",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_28",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_29",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_29",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_29",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_29",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_29",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_29",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_30",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_30",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_31",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_31",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_32",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_32",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_32",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_32",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_32",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_32",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_33",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_33",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_34",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_34",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_35",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_35",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_35",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_35",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_35",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_35",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_36",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_36",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_37",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_37",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_38",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_38",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_38",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_38",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_38",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_38",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_39",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_39",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_40",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_40",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_41",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_41",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_41",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_41",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_41",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_41",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_42",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_42",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_43",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_43",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_44",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_44",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_44",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_44",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_44",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_44",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_45",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_45",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_46",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_46",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_47",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_47",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_47",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_47",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_47",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_47",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_48",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_48",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_49",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_49",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_50",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_50",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_50",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_50",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_50",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_50",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_51",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_51",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_52",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_52",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_53",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_53",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_53",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_53",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_53",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_53",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_54",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_54",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_55",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_55",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_56",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_56",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_56",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_56",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_56",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_56",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_57",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_57",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_58",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_58",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_59",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_59",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_59",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_59",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_59",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_59",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_60",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_60",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_61",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_61",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_62",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_62",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_62",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_62",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_62",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_62",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_63",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_63",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_64",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_64",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_65",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_65",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_65",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_65",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_65",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_65",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_66",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_66",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_67",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_67",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_68",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_68",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_68",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_68",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_68",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_68",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_69",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_69",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_70",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_70",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_71",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_71",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_71",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_71",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_71",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_71",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_72",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_72",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_73",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_73",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_74",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_74",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_74",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_74",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_74",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_74",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_75",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_75",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_76",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_76",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_77",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_77",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_77",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_77",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_77",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_77",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_78",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_78",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_79",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_79",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_80",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_80",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_80",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_80",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_80",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_80",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_286",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_286",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "indexed_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_planter-base_287",
+      "pass": true
+    },
+    {
+      "id": "indexed_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_safety-bollard_287",
+      "pass": true
+    },
+    {
+      "id": "indexed_streetlamp-post_287",
+      "pass": true
+    },
+    {
+      "id": "correct_shape_streetlamp-post_287",
+      "pass": true
+    },
+    {
+      "id": "real_prop_collection_streetlamp-post_287",
+      "pass": true
+    },
+    {
+      "id": "not_road_or_water_streetlamp-post_287",
+      "pass": true
+    },
+    {
+      "id": "car_hits_planter-base",
+      "pass": true
+    },
+    {
+      "id": "car_resolves_planter-base",
+      "pass": true
+    },
+    {
+      "id": "walker_blocked_planter-base",
+      "pass": true
+    },
+    {
+      "id": "car_hits_safety-bollard",
+      "pass": true
+    },
+    {
+      "id": "car_resolves_safety-bollard",
+      "pass": true
+    },
+    {
+      "id": "walker_blocked_safety-bollard",
+      "pass": true
+    },
+    {
+      "id": "car_hits_streetlamp-post",
+      "pass": true
+    },
+    {
+      "id": "car_resolves_streetlamp-post",
+      "pass": true
+    },
+    {
+      "id": "walker_blocked_streetlamp-post",
+      "pass": true
+    },
+    {
+      "id": "decor_is_not_collision",
+      "pass": true
+    },
+    {
+      "id": "reindex_after_future_relocation",
+      "pass": true
+    },
+    {
+      "id": "restored_index_after_test",
+      "pass": true
+    },
+    {
+      "id": "future_road_overlap_refused",
+      "pass": true
+    },
+    {
+      "id": "strict_world_valid_after_synthetic",
+      "pass": true
+    }
+  ],
+  "validation": "Real game CPU collision, fake renderer; NOT WebGL/GPU/FPS"
+}

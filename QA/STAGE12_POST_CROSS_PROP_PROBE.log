@@ -1,0 +1,97 @@
+{
+  "world": {
+    "boxes": 194478,
+    "solids": 3230,
+    "propSolids": 796,
+    "roads": 52,
+    "doors": 214
+  },
+  "groups": {
+    "planter-base": {
+      "count": 166,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "plant-canopy": {
+      "count": 166,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 166,
+      "nearDoor": 0,
+      "first": [
+        {
+          "id": 0,
+          "x": -356.23368720875123,
+          "z": -283.13500000000005,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 0,
+          "x": -356.23368720875123,
+          "z": -277.185,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        }
+      ]
+    },
+    "safety-bollard": {
+      "count": 166,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "curb-accent": {
+      "count": 83,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "streetlamp-post": {
+      "count": 28,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "streetlamp-head": {
+      "count": 28,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 28,
+      "nearDoor": 0,
+      "first": [
+        {
+          "id": 2,
+          "x": -300.79741715146696,
+          "z": -271.025,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 5,
+          "x": -23.475,
+          "z": -291.0119350885088,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "stage": 18,
+  "tests": 36,
+  "passed": 36,
+  "failed": [],
+  "source": "real Game / real Wildlife43Renderer, mocked GL commands. NO GPU frame rendered",
+  "lod": {
+    "hi": 195560,
+    "mid": 64156,
+    "far": 9532
+  },
+  "date": "2026-11-22"
+}

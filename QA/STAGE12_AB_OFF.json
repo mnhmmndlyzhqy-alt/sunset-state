@@ -1,0 +1,36 @@
+{
+  "stage12Enabled": false,
+  "boxes": 194478,
+  "solids": 3230,
+  "propSolids": 436,
+  "roads": 52,
+  "activePortals": 214,
+  "stage10": 0,
+  "stage11": 0,
+  "steps": [
+    {
+      "kind": "planter-base",
+      "fromX": -357.404,
+      "finalX": -353.607,
+      "centerX": -356.234,
+      "physicallyBlocked": false,
+      "carContact": false
+    },
+    {
+      "kind": "safety-bollard",
+      "fromX": -356.969,
+      "finalX": -353.172,
+      "centerX": -356.034,
+      "physicallyBlocked": false,
+      "carContact": false
+    },
+    {
+      "kind": "streetlamp-post",
+      "fromX": -301.717,
+      "finalX": -298.587,
+      "centerX": -300.797,
+      "physicallyBlocked": false,
+      "carContact": false
+    }
+  ]
+}

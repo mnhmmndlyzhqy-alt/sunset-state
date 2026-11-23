@@ -1,0 +1,83 @@
+{
+  "stage": 29,
+  "source": "Stage28 cumulative full archive, genuine Game CPU scene builders / fake GPU renderer",
+  "passed": 13,
+  "total": 13,
+  "checks": [
+    {
+      "name": "Stage28 mapped and legacy world remains present",
+      "passed": true
+    },
+    {
+      "name": "Stage28 facades preserved in world",
+      "passed": true
+    },
+    {
+      "name": "Stage29 never adds world geometry",
+      "passed": true
+    },
+    {
+      "name": "Stage29 installed over genuine Stage14+15 builders",
+      "passed": true
+    },
+    {
+      "name": "All active interior plans visited",
+      "passed": true
+    },
+    {
+      "name": "All active retail interiors visited",
+      "passed": true
+    },
+    {
+      "name": "A/B comparison covers material types, compact rooms and upper floors",
+      "passed": true
+    },
+    {
+      "name": "CPU scene and geometry safety audit clean",
+      "passed": true
+    },
+    {
+      "name": "No original outdoor systems changed",
+      "passed": true
+    },
+    {
+      "name": "Shader light selection never over 12",
+      "passed": true
+    },
+    {
+      "name": "No new interior colliders",
+      "passed": true
+    },
+    {
+      "name": "Stage29 UI updates near elevator and hides in compatibility mode",
+      "passed": true
+    },
+    {
+      "name": "No false hardware/50FPS claim",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "summary": {
+    "worldBaseline": {
+      "boxes": 196817,
+      "roads": 52,
+      "solids": 3230,
+      "props": 796,
+      "shops": 59,
+      "portals": 429,
+      "ready": 214,
+      "glass": 988
+    },
+    "interiorPlansAudited": 214,
+    "retailScenesAudited": 59,
+    "generatedFloors": 224,
+    "ABInteriors": 56,
+    "maxNewMeshesPerInterior": 9,
+    "newRealInteriorLights": 224,
+    "newRealRetailLights": 118,
+    "cpuIssues": [],
+    "realGPUVerified": false,
+    "fullHD50FPSVerified": false
+  }
+}

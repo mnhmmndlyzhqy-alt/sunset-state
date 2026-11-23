@@ -1,0 +1,209 @@
+{
+  "stage": 13,
+  "issue": "S01-IN-01",
+  "tested": 110,
+  "passed": 110,
+  "failed": [],
+  "stats": {
+    "stage": 13,
+    "issue": "S01-IN-01",
+    "unfurnishedFoyersFound": 7,
+    "originalCity20Stage11Decorated": 76,
+    "repairedFoyers": 7,
+    "portalIDs": [
+      1,
+      24,
+      35,
+      50,
+      62,
+      67,
+      78
+    ],
+    "worldMeshesAdded": 77,
+    "newCollisionBodies": 0,
+    "existingActiveEntrances": 214,
+    "roadsUnchanged": true,
+    "results": [
+      {
+        "portal": 1,
+        "foyerDepth": 3.42,
+        "foyerWidth": 7.2,
+        "parts": 11
+      },
+      {
+        "portal": 24,
+        "foyerDepth": 3.42,
+        "foyerWidth": 7.2,
+        "parts": 11
+      },
+      {
+        "portal": 35,
+        "foyerDepth": 3.42,
+        "foyerWidth": 7.2,
+        "parts": 11
+      },
+      {
+        "portal": 50,
+        "foyerDepth": 3.42,
+        "foyerWidth": 7.2,
+        "parts": 11
+      },
+      {
+        "portal": 62,
+        "foyerDepth": 3.42,
+        "foyerWidth": 7.2,
+        "parts": 11
+      },
+      {
+        "portal": 67,
+        "foyerDepth": 3.42,
+        "foyerWidth": 7.2,
+        "parts": 11
+      },
+      {
+        "portal": 78,
+        "foyerDepth": 3.5910000000000006,
+        "foyerWidth": 7.2,
+        "parts": 11
+      }
+    ],
+    "gpuVisualVerified": false,
+    "real1080p50FpsVerified": false
+  },
+  "details": [
+    {
+      "id": 1,
+      "foyer": {
+        "x": -372,
+        "z": -250.66,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "worldPieces": 11,
+      "indoorPieces": 10,
+      "sceneBoxes": 634,
+      "sceneSolids": 29,
+      "seat": {
+        "x": -350.1645537064923,
+        "z": -250.76999999999998,
+        "dx": 2.5,
+        "dz": 1.4
+      }
+    },
+    {
+      "id": 24,
+      "foyer": {
+        "x": 384,
+        "z": -142.66,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "worldPieces": 11,
+      "indoorPieces": 10,
+      "sceneBoxes": 575,
+      "sceneSolids": 28,
+      "seat": {
+        "x": 405.5320552883623,
+        "z": -142.76999999999998,
+        "dx": 2.5,
+        "dz": 1.4
+      }
+    },
+    {
+      "id": 35,
+      "foyer": {
+        "x": -48,
+        "z": 73.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "worldPieces": 11,
+      "indoorPieces": 10,
+      "sceneBoxes": 576,
+      "sceneSolids": 28,
+      "seat": {
+        "x": -24.647516155806372,
+        "z": 73.23,
+        "dx": 2.5,
+        "dz": 1.4
+      }
+    },
+    {
+      "id": 50,
+      "foyer": {
+        "x": 60,
+        "z": 181.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "worldPieces": 11,
+      "indoorPieces": 10,
+      "sceneBoxes": 594,
+      "sceneSolids": 29,
+      "seat": {
+        "x": 80.19650832451414,
+        "z": 181.23000000000002,
+        "dx": 2.5,
+        "dz": 1.4
+      }
+    },
+    {
+      "id": 62,
+      "foyer": {
+        "x": 168,
+        "z": 289.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "worldPieces": 11,
+      "indoorPieces": 10,
+      "sceneBoxes": 635,
+      "sceneSolids": 29,
+      "seat": {
+        "x": 193.1609785077581,
+        "z": 289.22999999999996,
+        "dx": 2.5,
+        "dz": 1.4
+      }
+    },
+    {
+      "id": 67,
+      "foyer": {
+        "x": -372,
+        "z": 397.34,
+        "w": 7.2,
+        "d": 3.42
+      },
+      "worldPieces": 11,
+      "indoorPieces": 10,
+      "sceneBoxes": 635,
+      "sceneSolids": 29,
+      "seat": {
+        "x": -348.03268918623684,
+        "z": 397.22999999999996,
+        "dx": 2.5,
+        "dz": 1.4
+      }
+    },
+    {
+      "id": 78,
+      "foyer": {
+        "x": 265,
+        "z": 345.507,
+        "w": 7.2,
+        "d": 3.5910000000000006
+      },
+      "worldPieces": 11,
+      "indoorPieces": 10,
+      "sceneBoxes": 576,
+      "sceneSolids": 28,
+      "seat": {
+        "x": 287.8656618869584,
+        "z": 345.28,
+        "dx": 1.3,
+        "dz": 1.4
+      }
+    }
+  ],
+  "context": "real game physics and interior scene generation with mock renderer; no WebGL/GPU/FPS claims"
+}

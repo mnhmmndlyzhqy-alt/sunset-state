@@ -1,0 +1,14 @@
+{
+  "stage": 36,
+  "siteFiles": 174,
+  "originalStage35SiteFilesPreserved": 169,
+  "newSiteFiles": 5,
+  "jsSyntaxChecks": 133,
+  "referencedScripts": 91,
+  "checks": 1357,
+  "passed": 1357,
+  "failed": [],
+  "httpTests": "real localhost HTTP every file + byte-for-byte equality",
+  "nativeGPUVerified": false,
+  "publicDeploymentPerformed": false
+}

@@ -1,0 +1,56 @@
+{
+  "version": "4.7.7",
+  "passed": 12,
+  "total": 12,
+  "durationMs": 6931,
+  "results": [
+    [
+      "scripts_complete",
+      true
+    ],
+    [
+      "road_count_preserved",
+      true
+    ],
+    [
+      "road_grade_max_9_percent",
+      true
+    ],
+    [
+      "road_layers_indexed",
+      true
+    ],
+    [
+      "timber_boardwalk_collision_removed",
+      true
+    ],
+    [
+      "all_crocodiles_in_real_water",
+      true
+    ],
+    [
+      "crocodiles_separate_from_flamingos",
+      true
+    ],
+    [
+      "bridge_crossing_selects_upper_layer",
+      true
+    ],
+    [
+      "bridge_guard_restricts_car_to_bridge",
+      true
+    ],
+    [
+      "traffic_48_valid_initial_positions",
+      true
+    ],
+    [
+      "ai_physics_routes_stay_on_road",
+      true
+    ],
+    [
+      "native_1080_pipeline_preserved",
+      true
+    ]
+  ]
+}

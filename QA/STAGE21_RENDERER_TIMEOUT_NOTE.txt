@@ -1,0 +1,1 @@
+Stage18 real renderer LOD regression was started in this Stage21 session but did not complete within the run timeout. It is NOT counted as passed or failed; no new result is claimed. Stage18 full-world integrity test completed separately and passed 21/21. GPU rendering and native FPS were never verified here.

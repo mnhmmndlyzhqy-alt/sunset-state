@@ -1,0 +1,123 @@
+{
+  "kind": "isolated CPU traffic-only simulation, fake renderer, not validated gameplay or GPU",
+  "simulatedSeconds": 23.76,
+  "wallClockMS": 7973,
+  "initial": {
+    "civilian": 79
+  },
+  "final": {
+    "civilian": 79,
+    "alive": 79,
+    "crashed": 1,
+    "stuck": 0,
+    "meanSpeed": 10.456396160546195
+  },
+  "crashes": [
+    {
+      "t": 17.5,
+      "x": 4.7,
+      "z": 552.0386666666666,
+      "hp": 88.53635873737639,
+      "type": "civilian",
+      "route": null
+    }
+  ],
+  "frames": [
+    {
+      "t": 0,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 11.00445517756902
+    },
+    {
+      "t": 2,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 15.199169665222644
+    },
+    {
+      "t": 4,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 12.736177264677398
+    },
+    {
+      "t": 5.9,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 11.77648788595772
+    },
+    {
+      "t": 7.9,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 11.738773636138975
+    },
+    {
+      "t": 9.9,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 11.426343122048623
+    },
+    {
+      "t": 11.9,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 11.146947695541531
+    },
+    {
+      "t": 13.9,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 11.003711310910184
+    },
+    {
+      "t": 15.8,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 0,
+      "stuck": 0,
+      "meanSpeed": 10.72527252399829
+    },
+    {
+      "t": 17.8,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 1,
+      "stuck": 0,
+      "meanSpeed": 10.120484708330798
+    },
+    {
+      "t": 19.8,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 1,
+      "stuck": 0,
+      "meanSpeed": 10.389510360773297
+    },
+    {
+      "t": 21.8,
+      "civilian": 79,
+      "alive": 79,
+      "crashed": 1,
+      "stuck": 0,
+      "meanSpeed": 10.328324204151308
+    }
+  ]
+}

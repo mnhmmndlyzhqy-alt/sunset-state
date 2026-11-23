@@ -1,0 +1,381 @@
+{
+  "stage": 24,
+  "sourceArchive": "SUNSET_STATE_STAGE23_OF35_FULL.zip",
+  "sourceArchiveSha256": "3df0daace91b95907b1e4ea48974cbb90da8924a193b44afb174bc4c4fb6fed7",
+  "canonicalStatus": "PROJECT/STAGE24_CURRENT_STATUS.json",
+  "originalRegister": "QA/STAGE01_15_BUG_REGISTER.json",
+  "claimsPolicy": "Evidence paths indicate reports or CPU/simulated tests, never native GPU signoff. Separate rerun logs from old records.",
+  "issues": [
+    {
+      "stage": 2,
+      "issueId": "S01-RD-01",
+      "issueTitleHe": "תיקון היפוך מסלול בכביש northRing",
+      "sourceClassification": "confirmed-data-anomaly",
+      "recordedStatus": "verified_source_fix_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE02_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "PROJECT/STAGE02_OF35_REPORT_HE.md"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 3,
+      "issueId": "S01-RD-02",
+      "issueTitleHe": "תיקון פנייה חדה בכביש privateSpine469",
+      "sourceClassification": "confirmed-data-anomaly",
+      "recordedStatus": "verified_source_fix_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE03_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "PROJECT/STAGE03_OF35_REPORT_HE.md"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 4,
+      "issueId": "S01-BL-01",
+      "issueTitleHe": "הנגשת כניסות קיימות לבניינים",
+      "sourceClassification": "verified-code-data-gap",
+      "recordedStatus": "verified_source_fix_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE04_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE04_ENABLED_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 5,
+      "issueId": "S01-BL-02",
+      "issueTitleHe": "הוספת כניסות למבנים החדשים",
+      "sourceClassification": "verified-code-data-gap",
+      "recordedStatus": "verified_source_fix_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE05_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE05_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 6,
+      "issueId": "S01-BL-03",
+      "issueTitleHe": "התאמת כיוון הדלתות לחזיתות",
+      "sourceClassification": "verified-code-design-limitation",
+      "recordedStatus": "verified_source_fix_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE06_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE06_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 7,
+      "issueId": "S01-BL-04",
+      "issueTitleHe": "התאמת כיוון בניינים למבנה הרחובות",
+      "sourceClassification": "verified-code-design-limitation",
+      "recordedStatus": "safe_subset_source_fix_cpu_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE07_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE07_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 8,
+      "issueId": "S01-BL-05",
+      "issueTitleHe": "שדרוג חלונות בחזיתות צד ואחור",
+      "sourceClassification": "verified-code-design-limitation",
+      "recordedStatus": "visual_facade_fix_cpu_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE08_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE08_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 9,
+      "issueId": "S01-BL-06",
+      "issueTitleHe": "בדיקת כניסות המסווגות כמים",
+      "sourceClassification": "heuristic-spatial-flag",
+      "recordedStatus": "false_positive_resolved_and_cpu_regression_guard_installed_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": false,
+      "technicalReport": "PROJECT/STAGE09_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE09_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 10,
+      "issueId": "S01-ST-01",
+      "issueTitleHe": "בדיקה ומיקום מחדש של אדניות בעייתיות",
+      "sourceClassification": "heuristic-spatial-flag",
+      "recordedStatus": "historic_orphan_false_positive_resolved_live_planter_guard_cpu_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE10_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE10_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 11,
+      "issueId": "S01-ST-02",
+      "issueTitleHe": "בדיקה ומיקום מחדש של 30 פנסי רחוב חשודים",
+      "sourceClassification": "heuristic-spatial-flag",
+      "recordedStatus": "historic_lamp_flag_reconciled_live_vertical_fixed_cpu_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE11_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE11_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 12,
+      "issueId": "S01-ST-03",
+      "issueTitleHe": "התנגשויות לחפצי רחוב מוצקים",
+      "sourceClassification": "verified-code-data-gap",
+      "recordedStatus": "cpu_collision_fix_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE12_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE12_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 13,
+      "issueId": "S01-IN-01",
+      "issueTitleHe": "השלמת ריהוט בשבע מבואות",
+      "sourceClassification": "verified-coverage-gap",
+      "recordedStatus": "cpu_furnishing_fix_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE13_OF35_REPORT.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE13_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 14,
+      "issueId": "S01-IN-02",
+      "issueTitleHe": "השלמת תאורת פנים מתפקדת",
+      "sourceClassification": "verified-code-design-limitation",
+      "recordedStatus": "cpu_gameplay_lighting_added_and_tested_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE14_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE14_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 15,
+      "issueId": "S01-IN-03",
+      "issueTitleHe": "חללי פנים נגישים, התנגשות ואינטראקציות",
+      "sourceClassification": "verified-code-design-limitation",
+      "recordedStatus": "source_fix_cpu_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE15_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE15_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 16,
+      "issueId": "S01-GL-01",
+      "issueTitleHe": "שילוב חלונות נבחרים במערכת הזכוכית השבירה",
+      "sourceClassification": "verified-code-data-gap",
+      "recordedStatus": "source_fix_cpu_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE16_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE16_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 17,
+      "issueId": "S01-RT-01",
+      "issueTitleHe": "בדיקת רגרסיה ושימור תיקון 60 העסקים",
+      "sourceClassification": "previously-fixed-in-accumulated-source",
+      "recordedStatus": "previously_fixed_preserved_with_live_retail_contracts_cpu_verified_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": false,
+      "technicalReport": "PROJECT/STAGE17_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE17_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 18,
+      "issueId": "S01-WL-01",
+      "issueTitleHe": "שיפור LOD ומעברי דגמים לתנינים",
+      "sourceClassification": "verified-code-design-limitation",
+      "recordedStatus": "three_tier_lod_source_cpu_decoder_verified_gpu_visual_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE18_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE18_LOD_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 19,
+      "issueId": "S01-SV-01",
+      "issueTitleHe": "שמירה וטעינה מלאות של מצב המשחק",
+      "sourceClassification": "verified-code-data-gap",
+      "recordedStatus": "durable_session_save_cpu_verified_browser_gpu_pending_transient_limits_documented",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE19_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE19_OF35_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 20,
+      "issueId": "S01-AI-01",
+      "issueTitleHe": "תיקון ניווט הולכי רגל בצמתים ובעומסים",
+      "sourceClassification": "requires-live-verification",
+      "recordedStatus": "bounded_local_navigation_recovery_cpu_verified_gpu_live_play_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE20_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE20_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 21,
+      "issueId": "S01-PH-01",
+      "issueTitleHe": "בדיקת התנגשויות מהירות וחדירת מחסומים",
+      "sourceClassification": "requires-live-verification",
+      "recordedStatus": "swept_vehicle_solid_guard_cpu_verified_live_gpu_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": true,
+      "technicalReport": "PROJECT/STAGE21_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE21_HIGH_SPEED_ACCEPTANCE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 22,
+      "issueId": "S01-PF-01",
+      "issueTitleHe": "אימות 50 FPS ב־1920×1080 עם GPU אמיתי",
+      "sourceClassification": "release-verification-gap",
+      "recordedStatus": "benchmark_tool_and_cpu_profile_verified_native_gpu_50fps_UNVERIFIED",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": false,
+      "technicalReport": "PROJECT/STAGE22_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE22_BENCHMARK_UNIT_ACCEPTANCE.json",
+        "QA/STAGE22_CPU_PROFILE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 23,
+      "issueId": "S01-PF-02",
+      "issueTitleHe": "מדידת עומס גאומטריה, זיכרון וקריאות ציור",
+      "sourceClassification": "verified-scale-risk",
+      "recordedStatus": "cpu_geometry_profile_verified_browser_ui_fixture_verified_hardware_drawcalls_pending",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": false,
+      "technicalReport": "PROJECT/STAGE23_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [
+        "QA/STAGE23_PROFILER_ACCEPTANCE.json",
+        "QA/STAGE23_GEOMETRY_CPU_PROFILE.json"
+      ],
+      "qaEvidenceKind": "historical recorded test artifacts; not rerun as part of this ledger"
+    },
+    {
+      "stage": 24,
+      "issueId": "S01-PR-01",
+      "issueTitleHe": "איחוד מסמכי התקדמות וגרסאות",
+      "sourceClassification": "verified-metadata-error",
+      "recordedStatus": "documentation_registry_reconciled_source_integrity_verified_gpu_outstanding",
+      "technicalStageWorkDocumented": true,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": false,
+      "technicalReport": "PROJECT/STAGE24_OF35_REPORT_HE.md",
+      "priorRecordedEvidence": [],
+      "qaEvidenceKind": "documentation structural checks (current stage)"
+    },
+    {
+      "stage": 25,
+      "issueId": "S01-PU-01",
+      "issueTitleHe": "אריזה נוחה ופרסום למשחק הדפדפן",
+      "sourceClassification": "verified-delivery-limitation",
+      "recordedStatus": "pending",
+      "technicalStageWorkDocumented": false,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": false,
+      "technicalReport": null,
+      "priorRecordedEvidence": [],
+      "qaEvidenceKind": "not yet performed"
+    },
+    {
+      "stage": 26,
+      "issueId": "S01-QA-01",
+      "issueTitleHe": "סגירת תקלות היסטוריות עם ראיות משחק",
+      "sourceClassification": "test-coverage-gap",
+      "recordedStatus": "pending",
+      "technicalStageWorkDocumented": false,
+      "hardwareGpuVerified": false,
+      "sourceMechanicsModifiedAndCpuTested": false,
+      "technicalReport": null,
+      "priorRecordedEvidence": [],
+      "qaEvidenceKind": "not yet performed"
+    }
+  ]
+}

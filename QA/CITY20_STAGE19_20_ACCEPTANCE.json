@@ -1,0 +1,19 @@
+{
+  "tests": {
+    "main_loop_uses_stable_callback": true,
+    "original_raf_closure_removed": true,
+    "original_reference_preserved": true,
+    "stage18_bright_start": true,
+    "day_night_off": true,
+    "all_stage_modules": true,
+    "all_prior_reports": true,
+    "benchmark_manual": true,
+    "benchmark_no_gpu_claim": true,
+    "all_20_marked": true,
+    "original_game_html": true,
+    "stage20_documentation": true
+  },
+  "passed": 12,
+  "total": 12,
+  "gpuVerified": false
+}

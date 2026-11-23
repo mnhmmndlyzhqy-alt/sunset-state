@@ -1,0 +1,7 @@
+{
+  "stage": 25,
+  "kind": "Node syntax check of all shipped JS sources (includes packaged base64 assets)",
+  "passed": 123,
+  "total": 123,
+  "failures": []
+}

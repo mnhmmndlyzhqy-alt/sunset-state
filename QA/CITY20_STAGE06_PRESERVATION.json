@@ -1,0 +1,17 @@
+{
+  "stage": 6,
+  "previousStage": 5,
+  "priorFiles": 149,
+  "existingFilesPreserved": true,
+  "byteIdenticalExistingFiles": 145,
+  "modifiedExistingFiles": [
+    "START_GAME.html",
+    "PROJECT/CITY20_PROGRESS.json",
+    "QA/city20_browser_benchmark.js",
+    "README_CITY20_HE.md"
+  ],
+  "originalEngineAndPriorStageCodeUnmodified": true,
+  "originalMediaModelsAndReferenceUnmodified": true,
+  "city20UnifiedArchive": true,
+  "gpu1080p50FPSVerified": false
+}

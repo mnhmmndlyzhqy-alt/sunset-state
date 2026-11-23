@@ -1,0 +1,19 @@
+{
+  "programme": "SUNSET STATE 35-stage",
+  "stage": 2,
+  "archiveGenerated": "2026-11-22",
+  "files": 319,
+  "paths": {
+    "entry": "START_GAME.html",
+    "backup": "BACKUPS/STAGE02_OF35/coast_461.original.js"
+  },
+  "stage02Tests": "23/23; A/B 8/8; Game CPU 30/30; historical roads 22/22; physics 29/29",
+  "renderedBrowserValidated": false,
+  "sha256BeforePack": {
+    "START_GAME.html": "d64c54671a26081dd960ba9c09de74008b6827192c6f837c21b32dcd76b2acbe",
+    "engine44.js": "6316f1473c5d1a5dd2acdcb88e92c29b7677dc33cba7977cdbf5805d2be826ce",
+    "assets/coast_461.js": "dab9d9f0b87e04702577517edc130da7dbda3ae8b83dab27ad16d5aab015e487",
+    "REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+    "BACKUPS/STAGE02_OF35/coast_461.original.js": "a2893be4e6ba882ddc95f9ef057b2ef365591f51712b65f34c02adb01f61be48"
+  }
+}

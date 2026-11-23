@@ -1,0 +1,15 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 32,
+  "localHttpValidated": true,
+  "publicDeployment": false,
+  "nativeGpuVerified": false,
+  "fullHd50FpsVerified": false,
+  "filesAudited": 157,
+  "jsSyntaxChecked": 130,
+  "scriptReferencesAudited": 176,
+  "passed": 628,
+  "total": 628,
+  "failed": [],
+  "siteFiles": 158
+}

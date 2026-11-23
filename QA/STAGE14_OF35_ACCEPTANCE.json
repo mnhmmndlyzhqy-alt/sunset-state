@@ -1,0 +1,117 @@
+{
+  "stage": 14,
+  "issue": "S01-IN-02",
+  "validatedWith": "real game JavaScript + CPU mock renderer",
+  "gpuVisualVerified": false,
+  "real1080p50FpsVerified": false,
+  "samples": [
+    {
+      "portal": 1,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 3,
+      "shaderLights": 12,
+      "nightPower": 35.38,
+      "dayPower": 16.405
+    },
+    {
+      "portal": 24,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 3,
+      "shaderLights": 12,
+      "nightPower": 36.749,
+      "dayPower": 17.236
+    },
+    {
+      "portal": 35,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 3,
+      "shaderLights": 12,
+      "nightPower": 36.749,
+      "dayPower": 17.236
+    },
+    {
+      "portal": 50,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 3,
+      "shaderLights": 12,
+      "nightPower": 36.749,
+      "dayPower": 17.236
+    },
+    {
+      "portal": 62,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 3,
+      "shaderLights": 12,
+      "nightPower": 35.38,
+      "dayPower": 16.405
+    },
+    {
+      "portal": 67,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 3,
+      "shaderLights": 12,
+      "nightPower": 35.38,
+      "dayPower": 16.405
+    },
+    {
+      "portal": 78,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 3,
+      "shaderLights": 12,
+      "nightPower": 36.749,
+      "dayPower": 17.236
+    },
+    {
+      "portal": 298,
+      "type": "legacy",
+      "rotated": false,
+      "lightsBefore": 18,
+      "lightsAdded": 2,
+      "shaderLights": 12,
+      "nightPower": 36.498,
+      "dayPower": 17.098
+    },
+    {
+      "portal": 320,
+      "type": "compact",
+      "rotated": false,
+      "lightsBefore": 2,
+      "lightsAdded": 3,
+      "shaderLights": 5,
+      "nightPower": 15.454,
+      "dayPower": 7.143
+    },
+    {
+      "portal": 425,
+      "type": "compact",
+      "rotated": false,
+      "lightsBefore": 2,
+      "lightsAdded": 2,
+      "shaderLights": 4,
+      "nightPower": 12.413,
+      "dayPower": 5.814
+    }
+  ],
+  "numberOfLivePortals": 214,
+  "addedPhysicalSourcesAcrossGroundFloors": 608,
+  "addedFixtureMeshesAcrossGroundFloors": 1216,
+  "retailSampleScenes": 12,
+  "retailPhysicalSourcesSample": 24,
+  "checks": 2532,
+  "passed": 2532,
+  "failed": []
+}

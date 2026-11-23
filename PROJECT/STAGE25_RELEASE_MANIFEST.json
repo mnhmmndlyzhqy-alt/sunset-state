@@ -1,0 +1,26 @@
+{
+  "stage": 25,
+  "status": "static_site_local_ready_remote_deployment_not_performed",
+  "baseArchive": "SUNSET_STATE_STAGE24_OF35_FULL.zip",
+  "baseArchiveSha256": "833e461918bd5682d429791a3f45b9062869213bb3d78a0166ccc0d3f7cf60cd",
+  "baseFileCount": 863,
+  "modifiedBaseFilePaths": [
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "README_35_STAGE_HE.md",
+    "README_FIRST_HE.md"
+  ],
+  "gameCodeAndExistingAssetsChanged": false,
+  "siteFileCount": 137,
+  "siteSizeUncompressedBytes": 185756158,
+  "publishedJsSyntax": "123/123",
+  "localHttpAndIntegrity": "2511/2511",
+  "chromiumOfflineMarkup": "12/12",
+  "websiteZip": "SUNSET_STATE_STAGE25_GITHUB_PAGES_SITE.zip",
+  "cumulativeZip": "SUNSET_STATE_STAGE25_OF35_FULL.zip",
+  "publicLiveUrl": null,
+  "githubRepositoryModified": false,
+  "nativeGpuBenchmarkPassed": false,
+  "canonicalStatus": "PROJECT/STAGE25_CURRENT_STATUS.json",
+  "nextStage": 26
+}

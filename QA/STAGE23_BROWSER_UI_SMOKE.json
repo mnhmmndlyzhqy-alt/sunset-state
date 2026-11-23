@@ -1,0 +1,80 @@
+{
+  "stage": 23,
+  "kind": "Chromium UI with simulated GL functions; no real game pixels",
+  "generatedAt": "2026-11-22T20:52:39.865337+00:00",
+  "hardwareFps50Verified": false,
+  "checks": [
+    {
+      "name": "panel_visible_when_opted_in",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "six_scene_options",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "start_enabled_in_mock",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "start_sets_running_state",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "stop_button_enabled",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "stop_clears_state",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "one_result_with_calls",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "capture_does_not_certify_gpu",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "capture_does_not_report_gpu_vram",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "mock_game_original_tick_kept_running",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "real_download_filename",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "real_download_contents",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "download_marks_no_gpu_cadence_proof",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "panel_status_exposes_limit",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "passed": 14,
+  "total": 14
+}

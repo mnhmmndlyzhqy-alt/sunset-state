@@ -1,0 +1,251 @@
+{
+  "test": "isolated car physics plus route-following, not full browser simulation",
+  "total": 22,
+  "off": 0,
+  "crashes": 0,
+  "rail": 0,
+  "cases": [
+    {
+      "road": "southRing",
+      "dir": 1,
+      "from": 183,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.3,
+      "duration_ms": 31
+    },
+    {
+      "road": "southRing",
+      "dir": -1,
+      "from": 36,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 14.8,
+      "duration_ms": 43
+    },
+    {
+      "road": "southRing",
+      "dir": 1,
+      "from": 233,
+      "end": true,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.3,
+      "duration_ms": 5
+    },
+    {
+      "road": "eastCoast",
+      "dir": 1,
+      "from": 184,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.3,
+      "duration_ms": 31
+    },
+    {
+      "road": "westExpress",
+      "dir": -1,
+      "from": 175,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.5,
+      "duration_ms": 24
+    },
+    {
+      "road": "westExpress",
+      "dir": -1,
+      "from": 66,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.5,
+      "duration_ms": 38
+    },
+    {
+      "road": "southRing",
+      "dir": 1,
+      "from": 127,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.2,
+      "duration_ms": 38
+    },
+    {
+      "road": "eastCoast",
+      "dir": -1,
+      "from": 121,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.1,
+      "duration_ms": 32
+    },
+    {
+      "road": "northRing",
+      "dir": 1,
+      "from": 283,
+      "end": true,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.1,
+      "duration_ms": 30
+    },
+    {
+      "road": "northRing",
+      "dir": 1,
+      "from": 240,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.3,
+      "duration_ms": 26
+    },
+    {
+      "road": "southRing",
+      "dir": -1,
+      "from": 38,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 14.8,
+      "duration_ms": 37
+    },
+    {
+      "road": "northRing",
+      "dir": 1,
+      "from": 174,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.4,
+      "duration_ms": 40
+    },
+    {
+      "road": "southRing",
+      "dir": -1,
+      "from": 177,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.4,
+      "duration_ms": 33
+    },
+    {
+      "road": "eastCoast",
+      "dir": -1,
+      "from": 201,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.3,
+      "duration_ms": 27
+    },
+    {
+      "road": "southRing",
+      "dir": 1,
+      "from": 177,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.3,
+      "duration_ms": 26
+    },
+    {
+      "road": "westExpress",
+      "dir": -1,
+      "from": 67,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 0,
+      "duration_ms": 40
+    },
+    {
+      "road": "westExpress",
+      "dir": -1,
+      "from": 176,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 0,
+      "duration_ms": 29
+    },
+    {
+      "road": "northRing",
+      "dir": 1,
+      "from": 281,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 0.6,
+      "duration_ms": 42
+    },
+    {
+      "road": "northRing",
+      "dir": -1,
+      "from": 139,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.6,
+      "duration_ms": 42
+    },
+    {
+      "road": "westExpress",
+      "dir": 1,
+      "from": 167,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 15.5,
+      "duration_ms": 47
+    },
+    {
+      "road": "southRing",
+      "dir": -1,
+      "from": 177,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 0,
+      "duration_ms": 32
+    },
+    {
+      "road": "northRing",
+      "dir": -1,
+      "from": 140,
+      "end": false,
+      "off": 0,
+      "rail": 0,
+      "crashes": 0,
+      "speed": 0,
+      "duration_ms": 42
+    }
+  ]
+}

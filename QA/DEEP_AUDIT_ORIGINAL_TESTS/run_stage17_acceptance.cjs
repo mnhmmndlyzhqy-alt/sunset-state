@@ -1,0 +1,23 @@
+const fs=require('fs'),assert=require('assert');const path=require('path');const root=path.resolve(__dirname,'..');
+const s=fs.readFileSync(path.join(root,'engine44.js'),'utf8');let n=0;
+function test(cond,msg){assert(cond,msg);n++;}
+test(s.includes("crocodile_hi:{species:'crocodile',max:145}"),'LOD range');
+test(s.includes('let crocodileBudget=3'),'detail budget');
+test(s.includes('if(camera(croc)>145)continue'),'range cull');
+test(s.includes("if(a.mode!=='hunt')this.chooseGoal(a)"),'hunt goal retained');
+test(s.includes("Heatline.coast461.coast(a.x,a.z)>-.12"),'wetland border');
+test(s.includes('a.x=prevX;a.z=prevZ'),'water rollback');
+test(s.includes("'#495b43','reptile40','w40_croc_head'"),'head color');
+test(s.includes("'#4d6048','reptile40','w40_croc_muzzle'"),'muzzle color');
+test(s.includes('[-.5,.33,.22,-.04]'),'head geometry');
+test(s.includes('[-.5,.44,.17,-.055]'),'muzzle geometry');
+test(fs.existsSync(path.join(root,'assets/crocodile_hi.js')),'authored crocodile asset');
+test(fs.existsSync(path.join(root,'assets/flamingo_hi.js')),'flamingo asset');
+test(fs.existsSync(path.join(root,'assets/heron_hi.js')),'heron asset');
+test(fs.existsSync(path.join(root,'assets/fish_unique.js')),'fish assets');
+const progress=JSON.parse(fs.readFileSync(path.join(root,'PROJECT/CITY20_PROGRESS.json')));
+test(progress.nextStage===18,'next stage');test(progress.completedStages.length===17,'completed stages');
+test(fs.existsSync(path.join(root,'REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png')),'reference');
+test(fs.existsSync(path.join(root,'PROJECT/STAGE17_REPORT_HE.md')),'report');
+fs.writeFileSync(path.join(__dirname,'CITY20_STAGE17_ACCEPTANCE.json'),JSON.stringify({stage:17,tests:n,passed:true,scope:'static code and asset checks; not live GPU'},null,2));
+console.log('Stage17 '+n+'/'+n+' PASS');

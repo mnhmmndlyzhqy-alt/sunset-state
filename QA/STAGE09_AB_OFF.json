@@ -1,0 +1,15 @@
+{
+  "stage": 9,
+  "result": "PASS",
+  "gpuVerified": false,
+  "counts": {
+    "active": 214,
+    "portals": 429,
+    "roads": 52,
+    "solids": 3230,
+    "boxes": 194478,
+    "windows": 1586,
+    "rotated": 34,
+    "stage09AuditInstalled": false
+  }
+}

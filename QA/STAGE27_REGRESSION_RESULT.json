@@ -1,0 +1,65 @@
+{
+  "stage": 27,
+  "date": "2026-11-23",
+  "status": "passed_documented_targeted_tests",
+  "tests": [
+    {
+      "id": "stage16_windows_glass",
+      "command": "STAGE27_ROADS_OFF=1 node QA/run_stage16_of35_acceptance.cjs",
+      "reportedPassCount": "7815/7815",
+      "runInStage26CompatibilityMode": true,
+      "passed": true
+    },
+    {
+      "id": "stage19_persistence",
+      "command": "node QA/run_stage19_of35_acceptance.cjs",
+      "reportedPassCount": "95/95",
+      "runInStage26CompatibilityMode": false,
+      "passed": true
+    },
+    {
+      "id": "stage20_pedestrian",
+      "command": "node QA/run_stage20_navigation_acceptance.cjs",
+      "reportedPassCount": "22/22",
+      "runInStage26CompatibilityMode": false,
+      "passed": true
+    },
+    {
+      "id": "stage21_vehicle_collision",
+      "command": "node QA/run_stage21_high_speed_acceptance.cjs",
+      "reportedPassCount": "39/39",
+      "runInStage26CompatibilityMode": false,
+      "passed": true
+    },
+    {
+      "id": "stage22_benchmark_unit",
+      "command": "node QA/run_stage22_benchmark_acceptance.cjs",
+      "reportedPassCount": "52/52",
+      "runInStage26CompatibilityMode": false,
+      "passed": true
+    },
+    {
+      "id": "stage23_profiler_unit",
+      "command": "node QA/run_stage23_profiler_acceptance.cjs",
+      "reportedPassCount": "51/51",
+      "runInStage26CompatibilityMode": false,
+      "passed": true
+    },
+    {
+      "id": "stage26_historical",
+      "command": "STAGE27_ROADS_OFF=1 node QA/run_stage26_historical_closure.cjs",
+      "reportedPassCount": "51/51",
+      "runInStage26CompatibilityMode": true,
+      "passed": true
+    }
+  ],
+  "suiteCount": 7,
+  "stage27ActiveWorld": "QA/STAGE27_STAGE27_ACTIVE_PROFILE.json",
+  "stage26CompatibilityWorld": "QA/STAGE27_STAGE26_AB_OFF_PROFILE.json",
+  "stage27RoadJunctionAcceptance": "QA/STAGE27_ACCEPTANCE_RESULT.json",
+  "stage27BridgeRailAcceptance": "QA/STAGE27_RAIL_UNIT_RESULT.json",
+  "fullHistoricalRegressionSuiteCompleted": false,
+  "limitation": "Full combined historic regression launcher timed out; individual listed tests passed; no native GPU visual or Full-HD FPS proof",
+  "stage17RetailRepeat": "not_completed_in_stage27",
+  "native1920x1080Gpu50FPS": false
+}

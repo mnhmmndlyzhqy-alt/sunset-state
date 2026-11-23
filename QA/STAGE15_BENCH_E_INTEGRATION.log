@@ -1,0 +1,21 @@
+candidate 1 0 1 entr 2.37 lift 23.45
+candidate 1 1 0 entr 3.18 lift 24.90
+PASS {"id":1,"info":"נחת ליד ספסל · התאוששות קלה","heal":4}
+candidate 24 0 1 entr 2.37 lift 23.18
+candidate 24 1 0 entr 3.18 lift 24.64
+PASS {"id":24,"info":"נחת ליד ספסל · התאוששות קלה","heal":4}
+candidate 35 0 1 entr 2.37 lift 24.80
+candidate 35 1 0 entr 3.18 lift 26.23
+PASS {"id":35,"info":"נחת ליד ספסל · התאוששות קלה","heal":4}
+candidate 50 0 1 entr 2.37 lift 22.01
+candidate 50 1 0 entr 3.18 lift 23.49
+PASS {"id":50,"info":"נחת ליד ספסל · התאוששות קלה","heal":4}
+candidate 62 0 1 entr 2.37 lift 26.43
+candidate 62 1 0 entr 3.18 lift 27.85
+PASS {"id":62,"info":"נחת ליד ספסל · התאוששות קלה","heal":4}
+candidate 67 0 1 entr 2.37 lift 25.35
+candidate 67 1 0 entr 3.18 lift 26.78
+PASS {"id":67,"info":"נחת ליד ספסל · התאוששות קלה","heal":4}
+candidate 78 -1 0 entr 11.05 lift 24.51
+PASS {"id":78,"info":"נחת ליד ספסל · התאוששות קלה","heal":4}
+Stage15 E integration: 7/7 failed []

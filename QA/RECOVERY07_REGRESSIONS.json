@@ -1,0 +1,197 @@
+{
+  "scope": "Accumulated Node tests only; browser GPU rendered QA not available",
+  "total": 27,
+  "passed": 27,
+  "failed": 0,
+  "checks": [
+    {
+      "test": "run_animal_recovery03.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.14,
+      "message": ""
+    },
+    {
+      "test": "run_city_life_recovery05.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 8.67,
+      "message": ""
+    },
+    {
+      "test": "run_city_life_recovery05_crowd.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 10.0,
+      "message": ""
+    },
+    {
+      "test": "run_deep_audit_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 15.6,
+      "message": ""
+    },
+    {
+      "test": "run_interior_recovery02.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.03,
+      "message": ""
+    },
+    {
+      "test": "run_performance_recovery06.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 9.55,
+      "message": ""
+    },
+    {
+      "test": "run_physics_recovery04.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 8.37,
+      "message": ""
+    },
+    {
+      "test": "run_recovery07_smoke.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 16.48,
+      "message": ""
+    },
+    {
+      "test": "run_stage01_baseline.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 6.33,
+      "message": ""
+    },
+    {
+      "test": "run_stage02_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 12.56,
+      "message": ""
+    },
+    {
+      "test": "run_stage03_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 13.43,
+      "message": ""
+    },
+    {
+      "test": "run_stage04_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 14.54,
+      "message": ""
+    },
+    {
+      "test": "run_stage05_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 13.89,
+      "message": ""
+    },
+    {
+      "test": "run_stage06_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 15.26,
+      "message": ""
+    },
+    {
+      "test": "run_stage07_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.03,
+      "message": ""
+    },
+    {
+      "test": "run_stage08_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.13,
+      "message": ""
+    },
+    {
+      "test": "run_stage09_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.04,
+      "message": ""
+    },
+    {
+      "test": "run_stage10_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.04,
+      "message": ""
+    },
+    {
+      "test": "run_stage11_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.06,
+      "message": ""
+    },
+    {
+      "test": "run_stage12_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.04,
+      "message": ""
+    },
+    {
+      "test": "run_stage13_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.04,
+      "message": ""
+    },
+    {
+      "test": "run_stage14_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.04,
+      "message": ""
+    },
+    {
+      "test": "run_stage15_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.04,
+      "message": ""
+    },
+    {
+      "test": "run_stage16_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.03,
+      "message": ""
+    },
+    {
+      "test": "run_stage17_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.12,
+      "message": ""
+    },
+    {
+      "test": "run_stage18_acceptance.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.15,
+      "message": ""
+    },
+    {
+      "test": "run_visual_recovery01.cjs",
+      "pass": true,
+      "exit": 0,
+      "seconds": 0.03,
+      "message": ""
+    }
+  ]
+}

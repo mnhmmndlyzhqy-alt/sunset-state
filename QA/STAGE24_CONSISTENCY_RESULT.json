@@ -1,0 +1,29 @@
+{
+  "stage": 24,
+  "result": "PASS",
+  "checked": 2880,
+  "passed": 2880,
+  "failed": 0,
+  "failures": [],
+  "checksByCategory": {
+    "assets": 90,
+    "baseline": 3,
+    "docs": 8,
+    "evidence": 73,
+    "files": 843,
+    "issues": 11,
+    "legacy": 8,
+    "lineage": 3,
+    "progress": 10,
+    "quality": 7,
+    "release": 9,
+    "sha256": 1686,
+    "source": 129
+  },
+  "baseOriginalFiles": 843,
+  "sourceAssetsValidated": 128,
+  "linkedScripts": 82,
+  "currentFiles": 863,
+  "hardwareGpuFpsCertified": false,
+  "note": "Files and documentation checked; this is not a GPU/rendering benchmark."
+}

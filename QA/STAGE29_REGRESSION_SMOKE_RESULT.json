@@ -1,0 +1,41 @@
+{
+  "stage": 29,
+  "kind": "short preservation smoke (not full Stage20 regression)",
+  "passed": 8,
+  "total": 8,
+  "checks": [
+    {
+      "name": "Stage20 pedestrian navigation installed",
+      "pass": true
+    },
+    {
+      "name": "NPC movement recovery retained",
+      "pass": true
+    },
+    {
+      "name": "Stage21 swept vehicle CCD installed",
+      "pass": true
+    },
+    {
+      "name": "World road and storefront contracts retained",
+      "pass": true
+    },
+    {
+      "name": "Original wall colliders retained",
+      "pass": true
+    },
+    {
+      "name": "Entrance and breakable glass preserved",
+      "pass": true
+    },
+    {
+      "name": "Stage20 still plans finite two-point local detour",
+      "pass": true
+    },
+    {
+      "name": "Short live pedestrian updates finite and exception-free",
+      "pass": true
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,277 @@
+{
+  "stage": 22,
+  "kind": "deterministic-unit-acceptance-with-fixture-GPU",
+  "gpuHardwareBenchmarked": false,
+  "createdAt": "2026-11-22T20:39:02.459Z",
+  "passed": 52,
+  "total": 52,
+  "allPassed": true,
+  "results": [
+    {
+      "id": "new_module_loaded_immediately_before_game_engine",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "module_inserted_after_stage21_collision_guard",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "actual_engine_installs_benchmark_after_navigation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "all_external_game_scripts_exist",
+      "passed": true,
+      "details": {
+        "scripts": 81
+      }
+    },
+    {
+      "id": "no_native_resolution_reduction_added",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "no_persistent_save_mutations_added",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "not_loaded_in_normal_play",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "normal_game_tick_unchanged_by_stage22",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "explicit_ab_off_restores_original_game_loop",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "qa_mode_enables_opt_in",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "software_swiftshader_rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "software_llvmpipe_rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "physical_nvidia_recognized",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "physical_amd_recognized",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "physical_intel_recognized",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "unreported_adapter_not_assumed_hardware",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "physical_adapter_reported_from_webgl2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "hardware_native_framebuffer_exact",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "canvas_gl_buffer_mismatch_fails_native",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "css_upscale_never_counts_as_1080p",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "adaptive_mode_never_counts_as_native",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "software_adapter_identified",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "canvas_fallback_refused",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "interior_scene_requires_real_interior",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "driving_scene_requires_vehicle",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "genuine_hardware_fixture_60fps_can_pass",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "fake_gpu_timing_never_claimed",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "p95_uses_intervals_not_cpu_cost",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "software_never_passes_despite_60fps",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "unverified_gpu_never_passes_despite_60fps",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "hidden_or_paused_frame_rejects_run",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "non_native_single_frame_rejects_run",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "missing_scene_confirmation_rejects_run",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "short_run_rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "low_fps_rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "p95_frame_above_20ms_rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "empty_run_rejected",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "pixel_buffer_requirements_explicit",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "six_required_scenes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "opt_in_installs_real_frame_hook",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "install_is_idempotent",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "wrapped_tick_preserves_original_return",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cannot_start_wrong_driving_scene",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cannot_start_unconfirmed_scene",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "can_start_real_game_foot_scene",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "records_only_after_warmup_and_capture",
+      "passed": true,
+      "details": {
+        "recorded": 1
+      }
+    },
+    {
+      "id": "observed_loop_average_fps_correct",
+      "passed": true,
+      "details": {
+        "fps": 60
+      }
+    },
+    {
+      "id": "mock_frame_cadence_proof_requires_true_painted_frame",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "live_capture_has_native_and_adapter_proof",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "capture_never_mutates_game_profile_or_vehicle",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "report_records_real_frame_provenance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "report_not_complete_until_six_scenes_pass",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

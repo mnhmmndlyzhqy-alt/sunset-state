@@ -1,0 +1,18 @@
+{
+  "stage": 10,
+  "passed": true,
+  "tests": 21,
+  "stats": {
+    "stage": 10,
+    "portalsDetailed": 298,
+    "readyPortals": 198,
+    "unreadyPortals": 100,
+    "frames": 894,
+    "canopies": 298,
+    "thresholds": 298,
+    "lamps": 198,
+    "geometryAdded": 1688,
+    "collisionsAdded": 0,
+    "gpuFpsVerified": false
+  }
+}

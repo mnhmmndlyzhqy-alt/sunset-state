@@ -1,0 +1,32 @@
+{
+  "passed": 22,
+  "total": 22,
+  "geometry": {
+    "routes": 52,
+    "samples": 729,
+    "modifiedRoutes": 33,
+    "maxProfileElevationAdjustment": 0.6457990148486252,
+    "maxGrade": 0.09000096950978245,
+    "meanGradeTransitionBefore": 0.006628128460644123,
+    "meanGradeTransitionAfter": 0.0051047316557453854,
+    "averageGradeTransitionImprovementPercent": 22.98381532500795,
+    "newSurfaceOrParapetBoxes": 444,
+    "newBridgeJoints": 33,
+    "roadJunctionsProtected": 307,
+    "buildings": 84,
+    "newMassing": 130,
+    "portals": 298,
+    "foundations": 130
+  },
+  "performance": {
+    "baselineWorldConstructMs": 6630,
+    "newWorldConstructMs": 7003,
+    "note": "Individual CPU world-build times, NOT 1080p performance; host load is uncontrolled.",
+    "targetPx": [
+      1920,
+      1080
+    ],
+    "targetFps": 50,
+    "verifiedOnPhysicalGpu": false
+  }
+}

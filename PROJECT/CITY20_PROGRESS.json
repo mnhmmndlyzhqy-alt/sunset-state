@@ -1,0 +1,357 @@
+{
+  "project": "SUNSET STATE — CITY20",
+  "sourceVersion": "4.7.9",
+  "date": "2026-11-21",
+  "workflow": "When user says \"המשך\", implement exactly the next unfinished stage. Do not restart project or issue a separately named checkpoint after each stage.",
+  "activeStage": 20,
+  "completedStages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "nextStage": null,
+  "totalStages": 20,
+  "singleBackup": {
+    "type": "immutable full-game starting archive",
+    "sourceName": "SUNSET_STATE_4_7_9_PLAY_READY_FULL_CHECKPOINT.zip",
+    "sha256": "cea8510ff5f7b6a7840ad7b6d9b2aff687ccec326cbe06c4b7b750884231358a",
+    "bytes": 128251217,
+    "status": "preserved separately; do not embed duplicates"
+  },
+  "selectedReference": "REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+  "benchmark": {
+    "nativeWidth": 1920,
+    "nativeHeight": 1080,
+    "minimumFps": 50,
+    "requiredScenes": [
+      "city walk",
+      "road driving",
+      "bridge driving",
+      "helicopter",
+      "interior lobby",
+      "port/beach"
+    ],
+    "verifiedOnUserGPU": false
+  },
+  "stages": [
+    {
+      "number": 1,
+      "name": "שמירה אחת וביסוס הפרויקט",
+      "status": "completed"
+    },
+    {
+      "number": 2,
+      "name": "התאמת העיר למפת הרפרנס",
+      "status": "completed",
+      "actualDeliverable": "mapped 130 new building footprints in 7 active regional categories, 523 extra geometry instances; 52 roads, 298 entrances, 84 legacy core buildings and all previous assets preserved; no added interior access"
+    },
+    {
+      "number": 3,
+      "name": "בנייה מחדש של הטופוגרפיה",
+      "status": "completed",
+      "actualDeliverable": "Reference coastline/terrain height reshaping with 9016 changed terrain vertices, 130 feathered foundations; exact 52 road XYZ and 130 prior placements retained; stage03 19/19 tests; GPU 50FPS unverified"
+    },
+    {
+      "number": 4,
+      "name": "כבישים וגשרים ברמת משחק מקצועי",
+      "status": "completed",
+      "actualDeliverable": "Real grade-continuity smoothing across 33/52 roads, 729 adjusted height samples (max 0.646m), 23% less slope transition, 307 fixed junctions, wider pavement shoulder, enhanced bridge parapets and 33 small bridge expansion joints; QA 22/22, prior stages 19/19 and 27/27; GPU FPS unverified"
+    },
+    {
+      "number": 5,
+      "name": "מים, חופים ותעלות טבעיים",
+      "status": "completed",
+      "actualDeliverable": "Retained reference coast and 65012 original shore triangles; optimized world-space ocean/canal/wetland WebGL water shader (depth transitions, non-repeating phase warp, local foam and Fresnel reflection) compiled once with safe original fallback. Colored 6505 shoreline vertex color components and 8306 existing coastline fallback faces without creating geometry, changing physics or uploading extra textures. CPU 24/24, Stage04 22/22, Stage03 19/19; hardware 1920x1080 >=50FPS not yet measurable."
+    },
+    {
+      "number": 6,
+      "name": "קו רקיע ומבנה עירוני",
+      "status": "completed",
+      "actualDeliverable": "Architecturally tiered 4 reference-mapped high-rise towers replacing 22 original cosmetic pieces; 49 legacy core roofs plus 9 civic and 2 midrise upgraded with existing shared 3D mesh shapes; 168 Stage06 meshes, net +146 objects (0.0822%). 130 mapped footprints/84 core buildings/298 portals/52 roads and all water unchanged. Stage06 28/28; prior stage 5/3/2 A/B regression passed. GPU 1080p >=50fps unverified."
+    },
+    {
+      "number": 7,
+      "name": "מידול אדריכלי עמוק",
+      "status": "completed",
+      "actualDeliverable": "Architectural relief for 130 mapped buildings: balconies, roof forms, porticos, wings, loading canopies and tower spandrels; QA 17 assertions on synthetic world, native GPU unverified"
+    },
+    {
+      "number": 8,
+      "name": "מהפכה בחומרים ובטקסטורות",
+      "status": "completed",
+      "actualDeliverable": "distance-filtered concrete, stone, asphalt, metal and glass shading; no extra textures, meshes or draw calls; GPU FPS unverified"
+    },
+    {
+      "number": 9,
+      "name": "חלונות וחזיתות מציאותיים",
+      "status": "completed",
+      "actualDeliverable": "1284 glass window panels and 1284 headers plus 72 vertical mullions on 130 stage02 buildings; 162 tinted night-window panels; render-only; 19/19 tests; GPU FPS unverified"
+    },
+    {
+      "number": 10,
+      "name": "חנויות וקומות מסחריות",
+      "status": "completed"
+    },
+    {
+      "number": 11,
+      "name": "לובי ופנים הבניינים",
+      "status": "completed",
+      "actualDeliverable": "Interior-ready lobby furnishings, non-colliding, visual only; 25/25 synthetic QA"
+    },
+    {
+      "number": 12,
+      "name": "רובע מרכזי אחד מוגמר",
+      "status": "completed"
+    },
+    {
+      "number": 13,
+      "name": "הרחבת האיכות לכל מרכז העיר",
+      "status": "completed",
+      "actualDeliverable": "198 ready foyers in mock test, 1782 non-colliding visual ceiling light and wall sign meshes; no dynamic lighting or new traversal"
+    },
+    {
+      "number": 14,
+      "name": "שכונות המגורים והתעלות",
+      "status": "completed"
+    },
+    {
+      "number": 15,
+      "name": "נמל ותעשייה מפורטים",
+      "status": "completed"
+    },
+    {
+      "number": 16,
+      "name": "שדה תעופה, אצטדיון ומבני ציבור",
+      "status": "completed"
+    },
+    {
+      "number": 17,
+      "name": "החופים, האיים ואזורי הטבע",
+      "status": "completed"
+    },
+    {
+      "number": 18,
+      "name": "עיר חיה בגובה הרחוב",
+      "status": "completed",
+      "actualDeliverable": "Default 12:15 bright midday with day-night cycle paused at game start and reset; existing clock toggle enables/disables cycle; outdoor daylight ambient +30% and direct sunlight +16% at bright hours, indoor/night preserved; GPU FPS unverified."
+    },
+    {
+      "number": 19,
+      "name": "תאורה קולנועית ונראות למרחק",
+      "status": "completed",
+      "actualDeliverable": "Main animation loop callback reused to reduce per-frame allocations; physics and visuals unchanged."
+    },
+    {
+      "number": 20,
+      "name": "אופטימיזציה, QA וגימור סופי",
+      "status": "completed",
+      "actualDeliverable": "Consolidated release archive, preserved reference, integrity and source checks; manual 1080p/FPS benchmark retained, not GPU verified."
+    }
+  ],
+  "changePolicy": {
+    "noNewGame": true,
+    "preserveAllExistingFeatures": true,
+    "oneStagePerContinue": true,
+    "baselineBackupOnceAtStage1": true,
+    "checkFPSAndResolutionAfterEachStage": true,
+    "doNotClaimHardwareFPSWithoutMeasurements": true
+  },
+  "singleWorkingArchive": "SUNSET_STATE_CITY20_WORKING_PROJECT.zip",
+  "stage02QA": {
+    "codeAndWorldTests": "27/27",
+    "addedPlannedBuildingMasses": 130,
+    "addedGeometryObjects": 523,
+    "referenceImagePreserved": true,
+    "native1080AtLeast50FPSVerified": false,
+    "browserAttempt": "headless Chromium timed out before screenshot/measurement",
+    "qaReport": "QA/CITY20_STAGE02_ACCEPTANCE.json",
+    "visualOverlay": "QA/CITY20_STAGE02_REFERENCE_OVERLAY.png"
+  },
+  "lastUpdate": "2026-11-22 recovery phase 6/7; 20 original CITY20 stages and recovery 1-5 preserved",
+  "stage03QA": {
+    "codeAndWorldTests": "19/19",
+    "stage02CompatibilityTests": "27/27",
+    "baseline479Tests": "23/23",
+    "terrainVerticesModified": 9016,
+    "newBuildingFoundations": 130,
+    "terrainTrianglesChanged": 0,
+    "gpu50Fps1080pVerified": false,
+    "qaReport": "QA/CITY20_STAGE03_ACCEPTANCE.json",
+    "technicalReport": "PROJECT/STAGE03_REPORT_HE.md",
+    "nextWorkorder": "PROJECT/STAGE04_WORKORDER_HE.md"
+  },
+  "stage04QA": {
+    "codeWorldTests": "22/22",
+    "stage03CompatibilityTests": "19/19",
+    "stage02CompatibilityTests": "27/27",
+    "roadProfilesAdjusted": 33,
+    "roadElevationSamplesAdjusted": 729,
+    "junctionsPreserved": 307,
+    "meanGradeTransitionImprovementPercent": 22.9838,
+    "newGeometryObjects": 444,
+    "maxGradeFraction": 0.090001,
+    "originalMapUnchanged": true,
+    "fullHD50FpsVerifiedOnUserGPU": false,
+    "qaReport": "QA/CITY20_STAGE04_ACCEPTANCE.json",
+    "technicalReport": "PROJECT/STAGE04_REPORT_HE.md",
+    "nextWorkorder": "PROJECT/STAGE05_WORKORDER_HE.md"
+  },
+  "stage05QA": {
+    "stage05CodeWorldTests": "24/24",
+    "stage04CompatibilityTests": "22/22",
+    "stage03CompatibilityTests": "19/19",
+    "coastalMeshTriangleCountUnchanged": 65012,
+    "coastalMeshVertexCountUnchanged": 34042,
+    "waterRegionalCategories": [
+      "open sea",
+      "sheltered canals",
+      "wetlands"
+    ],
+    "modifiedCoastalVertexColorComponents": 6505,
+    "modifiedCoastalFallbackTriangleColors": 8306,
+    "waterSurfaceAdditionalTextureSamples": 0,
+    "additionalStaticGeometry": 0,
+    "additionalDrawCalls": 0,
+    "coastlineGeometryUnchanged": true,
+    "waterShaderHasOriginalFallback": true,
+    "native1080AtLeast50FpsVerifiedOnUserGpu": false,
+    "report": "QA/CITY20_STAGE05_ACCEPTANCE.json",
+    "technicalReport": "PROJECT/STAGE05_REPORT_HE.md",
+    "nextWorkorder": "PROJECT/STAGE06_WORKORDER_HE.md"
+  },
+  "stage06QA": {
+    "stage06CodeWorldTests": "28/28",
+    "stage05CompatibilityTests": "24/24",
+    "stage03CompatibilityTests": "19/19",
+    "stage02CompatibilityTests": "27/27",
+    "originalCoreBuildings": 84,
+    "mappedBuildings": 130,
+    "remodeledMappedTowers": 4,
+    "legacyRoofUpgrades": 49,
+    "civicRoofUpgrades": 9,
+    "mappedMidriseUpgrades": 2,
+    "newStage06Meshes": 168,
+    "removedObsoleteTowerMeshParts": 22,
+    "netAdditionalStaticMeshInstances": 146,
+    "roadRoutes": 52,
+    "entrances": 298,
+    "collisionsModified": false,
+    "noShadersOrTexturesAdded": true,
+    "native1920x1080AtLeast50FpsOnUserGpuVerified": false,
+    "qaReport": "QA/CITY20_STAGE06_ACCEPTANCE.json",
+    "technicalReport": "PROJECT/STAGE06_REPORT_HE.md",
+    "nextWorkorder": "PROJECT/STAGE07_WORKORDER_HE.md"
+  },
+  "stage08QA": {
+    "stage08ShaderTests": "20/20",
+    "stage07CompatibilityTests": "17/17",
+    "gpu1080p50Verified": false,
+    "report": "QA/CITY20_STAGE08_ACCEPTANCE.json",
+    "technicalReport": "PROJECT/STAGE08_REPORT_HE.md",
+    "nextWorkorder": "PROJECT/STAGE09_WORKORDER_HE.md"
+  },
+  "stage12QA": {
+    "tests": "26/26",
+    "stage11Compatibility": "25/25",
+    "gpu1080p50Verified": false,
+    "report": "PROJECT/STAGE12_REPORT_HE.md",
+    "nextWorkorder": "PROJECT/STAGE13_WORKORDER_HE.md"
+  },
+  "stage14QA": {
+    "tests": 25,
+    "passed": true,
+    "syntheticOnly": true,
+    "gpuFpsVerified": false
+  },
+  "stage15QA": {
+    "tests": 26,
+    "passed": true,
+    "syntheticOnly": true,
+    "gpuFpsVerified": false
+  },
+  "stage16QA": {
+    "tests": "23/23",
+    "stage15Compatibility": "26/26",
+    "stage14Compatibility": "25/25",
+    "syntheticOnly": true,
+    "gpu1080p50Verified": false,
+    "report": "PROJECT/STAGE16_REPORT_HE.md"
+  },
+  "deliveryStatus": "final-package-created; user-GPU QA pending",
+  "stage19QA": {
+    "change": "RAF callback reuse",
+    "fpsVerified": false
+  },
+  "stage20QA": {
+    "zipIntegrity": "pending packaging",
+    "fpsVerified": false,
+    "manualBenchmark": "QA/city20_browser_benchmark.js"
+  },
+  "deepAudit": {
+    "date": "2026-11-21",
+    "kind": "additional cumulative audit after recovery 3/7",
+    "notARecoveryPhase": true,
+    "recoveryNextPhase": 4,
+    "report": "PROJECT/CITY20_DEEP_AUDIT_REPORT_HE.md",
+    "worldQAPassed": 36,
+    "worldQATotal": 36,
+    "historicQAPassed": 22,
+    "historicQATotal": 22,
+    "originalHistoricalFailuresBeforeHarnessRepair": 8,
+    "commercialVenuesRepaired": 60,
+    "additionalSceneObjects": 398,
+    "unresolvedCoastClassifiedEntrances": 116,
+    "unresolvedUnsafePlanterSites": 181,
+    "benchmark1080p50Verified": false,
+    "notes": "Existing stage completion metrics preserved; this audit does not mark AAA visual quality or 50 FPS as achieved."
+  },
+  "qualityRecovery": {
+    "totalPhases": 7,
+    "completedPhases": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "nextPhase": 7,
+    "phase4Status": "code-level movement and collision integration tested, GPU/manual gameplay not verified",
+    "phase4QA": "29/29",
+    "regressionQA": "22/22",
+    "phase4Report": "PROJECT/PHYSICS_RECOVERY_PHASE04_REPORT_HE.md",
+    "phase4Acceptance": "QA/PHYSICS_RECOVERY04_ACCEPTANCE.json",
+    "referencePreserved": true,
+    "target1920x1080AtLeast50FpsVerified": false,
+    "phase5Status": "original pedestrian time-key bug fixed; 180/180 moved in 150-tick full-world CPU simulation, browser rendering unverified",
+    "phase5QA": "39/39 actual engine integration, crowd simulation 180/180, phase4 29/29, deep audit 36/36",
+    "phase5Report": "PROJECT/CITY_LIFE_RECOVERY_PHASE05_REPORT_HE.md",
+    "phase5Acceptance": "QA/CITY_LIFE_RECOVERY05_ACCEPTANCE.json",
+    "phase5Crowd": "QA/CITY_LIFE_RECOVERY05_CROWD.json",
+    "phase5AB": "?cityLifeRecovery5Off=1",
+    "phase5Browser": "Blocked by test-environment policy (ERR_BLOCKED_BY_ADMINISTRATOR); no GPU validation",
+    "phase6Status": "CPU lighting top-10 and color parsing cache: exact A/B buffer equivalence; sustained GPU Full HD 50 FPS unverified",
+    "phase6QA": "25/25 targeted; physics 29/29; city-life 39/39; deep audit 36/36; 180 actors on world",
+    "phase6Report": "PROJECT/PERFORMANCE_RECOVERY_PHASE06_REPORT_HE.md",
+    "phase6Acceptance": "QA/PERFORMANCE_RECOVERY06_ACCEPTANCE.json",
+    "phase6AB": "?performanceRecovery6Off=1",
+    "phase6F10": "export browser CPU/FPS snapshot, not sustained GPU certification"
+  }
+}

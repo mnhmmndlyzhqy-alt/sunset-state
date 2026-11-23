@@ -1,0 +1,14 @@
+{
+  "mode": "disabled",
+  "total": 23,
+  "passed": 23,
+  "summary": {
+    "active": 83,
+    "totalPortals": 298,
+    "activeWorldBuildings": 84,
+    "orphanRecords": 215,
+    "removedOrphanVisuals": 0,
+    "gameplayPathsTested": 83
+  },
+  "failures": []
+}

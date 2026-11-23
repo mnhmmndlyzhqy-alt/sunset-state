@@ -1,0 +1,12 @@
+{
+  "off": true,
+  "stage08Loaded": true,
+  "stats": false,
+  "meshes": 0,
+  "roads": 52,
+  "active": 214,
+  "portalCount": 429,
+  "rotations": 34,
+  "wBoxes": 188644,
+  "stage07Boxes": 188408
+}

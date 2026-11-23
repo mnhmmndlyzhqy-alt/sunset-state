@@ -1,0 +1,214 @@
+{
+  "sourceReference": {
+    "name": "CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+    "size": {
+      "width": 1408,
+      "height": 768
+    },
+    "sha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+    "registrationsApproximate": true
+  },
+  "cameraInfo": "Fixed viewing targets for visual comparison; camera positioning requires browser/QA controls. Not live screenshots.",
+  "scenes": [
+    {
+      "id": "CITY_CENTER_AERIAL",
+      "name": "מרכז העיר ממסוק",
+      "category": "center",
+      "radius": 200,
+      "imagePxOriginal": [
+        764,
+        365
+      ],
+      "worldTarget": {
+        "x": -24.62,
+        "z": -70
+      },
+      "camera": {
+        "x": -144.62,
+        "y": 115,
+        "z": 85,
+        "tx": -24.62,
+        "ty": 5,
+        "tz": -70,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 13,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "CITY_CENTER_STREET",
+      "name": "רחוב מסחרי מרכזי",
+      "category": "center",
+      "radius": 80,
+      "imagePxOriginal": [
+        790,
+        452
+      ],
+      "worldTarget": {
+        "x": 27.71,
+        "z": 164.19
+      },
+      "camera": {
+        "x": 27.71,
+        "y": 2,
+        "z": 180.19,
+        "tx": 27.71,
+        "ty": 1.8,
+        "tz": 164.19,
+        "fov": 66
+      },
+      "nearbyPrimaryBuildings": 3,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "CANAL_NEIGHBORHOODS",
+      "name": "שכונות ותעלות במערב",
+      "category": "residential",
+      "radius": 170,
+      "imagePxOriginal": [
+        275,
+        463
+      ],
+      "worldTarget": {
+        "x": -816.08,
+        "z": 193.8
+      },
+      "camera": {
+        "x": -896.08,
+        "y": 38,
+        "z": 303.8,
+        "tx": -816.08,
+        "ty": 5,
+        "tz": 193.8,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "PORT_WATERFRONT",
+      "name": "הנמל הצפון מערבי",
+      "category": "port",
+      "radius": 200,
+      "imagePxOriginal": [
+        196,
+        134
+      ],
+      "worldTarget": {
+        "x": -914.88,
+        "z": -665.61
+      },
+      "camera": {
+        "x": -1004.88,
+        "y": 75,
+        "z": -535.61,
+        "tx": -914.88,
+        "ty": 5,
+        "tz": -665.61,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "STADIUM_AND_BEACH",
+      "name": "האצטדיון והחוף המזרחי",
+      "category": "east_coast",
+      "radius": 185,
+      "imagePxOriginal": [
+        1122,
+        292
+      ],
+      "worldTarget": {
+        "x": 678.08,
+        "z": -266.5
+      },
+      "camera": {
+        "x": 583.08,
+        "y": 72,
+        "z": -161.5,
+        "tx": 678.08,
+        "ty": 5,
+        "tz": -266.5,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "AIRPORT_AND_RUNWAY",
+      "name": "שדה התעופה והמסלול בדרום",
+      "category": "airport",
+      "radius": 240,
+      "imagePxOriginal": [
+        706,
+        665
+      ],
+      "worldTarget": {
+        "x": -141.34,
+        "z": 667.38
+      },
+      "camera": {
+        "x": -246.34,
+        "y": 110,
+        "z": 812.38,
+        "tx": -141.34,
+        "ty": 5,
+        "tz": 667.38,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "NORTH_WETLANDS",
+      "name": "הביצות והטבע בצפון",
+      "category": "wetlands",
+      "radius": 210,
+      "imagePxOriginal": [
+        973,
+        78
+      ],
+      "worldTarget": {
+        "x": 396,
+        "z": -766.18
+      },
+      "camera": {
+        "x": 336,
+        "y": 62,
+        "z": -691.18,
+        "tx": 396,
+        "ty": 5,
+        "tz": -766.18,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "wetland water and raised ground"
+    },
+    {
+      "id": "RESORT_AND_ISLANDS",
+      "name": "איים וחוף במזרח",
+      "category": "islands",
+      "radius": 150,
+      "imagePxOriginal": [
+        1288,
+        190
+      ],
+      "worldTarget": {
+        "x": 1003.22,
+        "z": -563.78
+      },
+      "camera": {
+        "x": 928.22,
+        "y": 63,
+        "z": -463.78,
+        "tx": 1003.22,
+        "ty": 5,
+        "tz": -563.78,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "stage": 36,
+    "section": "ביצועים ואופטימיזציה",
+    "title": "בדיקת ביצועים יסודית",
+    "status": "completed"
+  },
+  {
+    "stage": 37,
+    "section": "ביצועים ואופטימיזציה",
+    "title": "אופטימיזציית רינדור",
+    "status": "pending"
+  },
+  {
+    "stage": 38,
+    "section": "ביצועים ואופטימיזציה",
+    "title": "LOD חכם",
+    "status": "pending"
+  },
+  {
+    "stage": 39,
+    "section": "ביצועים ואופטימיזציה",
+    "title": "טעינה הדרגתית",
+    "status": "pending"
+  },
+  {
+    "stage": 40,
+    "section": "ביצועים ואופטימיזציה",
+    "title": "אופטימיזציית AI ופיזיקה",
+    "status": "pending"
+  },
+  {
+    "stage": 41,
+    "section": "ביצועים ואופטימיזציה",
+    "title": "מבחני עומס",
+    "status": "pending"
+  },
+  {
+    "stage": 42,
+    "section": "גרפיקה מציאותית",
+    "title": "חומרים וטקסטורות PBR",
+    "status": "pending"
+  },
+  {
+    "stage": 43,
+    "section": "גרפיקה מציאותית",
+    "title": "תאורת שמש וצללים",
+    "status": "pending"
+  },
+  {
+    "stage": 44,
+    "section": "גרפיקה מציאותית",
+    "title": "השתקפויות וזכוכית",
+    "status": "pending"
+  },
+  {
+    "stage": 45,
+    "section": "גרפיקה מציאותית",
+    "title": "מזג אוויר ואטמוספרה",
+    "status": "pending"
+  },
+  {
+    "stage": 46,
+    "section": "גרפיקה מציאותית",
+    "title": "יום ולילה",
+    "status": "pending"
+  },
+  {
+    "stage": 47,
+    "section": "גרפיקה מציאותית",
+    "title": "גימור תמונה",
+    "status": "pending"
+  },
+  {
+    "stage": 48,
+    "section": "כבישים, תשתיות ועיצוב העיר",
+    "title": "תיקון רשת הכבישים",
+    "status": "pending"
+  },
+  {
+    "stage": 49,
+    "section": "כבישים, תשתיות ועיצוב העיר",
+    "title": "גשרים ומחלפים",
+    "status": "pending"
+  },
+  {
+    "stage": 50,
+    "section": "כבישים, תשתיות ועיצוב העיר",
+    "title": "מדרכות ותשתיות רחוב",
+    "status": "pending"
+  },
+  {
+    "stage": 51,
+    "section": "כבישים, תשתיות ועיצוב העיר",
+    "title": "שטח טבעי והפרשי גובה",
+    "status": "pending"
+  },
+  {
+    "stage": 52,
+    "section": "כבישים, תשתיות ועיצוב העיר",
+    "title": "חופים, נמלים ומקווי מים",
+    "status": "pending"
+  },
+  {
+    "stage": 53,
+    "section": "כבישים, תשתיות ועיצוב העיר",
+    "title": "פרטים סביבתיים",
+    "status": "pending"
+  },
+  {
+    "stage": 54,
+    "section": "בניינים וחללי פנים",
+    "title": "חזיתות בניינים",
+    "status": "pending"
+  },
+  {
+    "stage": 55,
+    "section": "בניינים וחללי פנים",
+    "title": "כניסות ולובי",
+    "status": "pending"
+  },
+  {
+    "stage": 56,
+    "section": "בניינים וחללי פנים",
+    "title": "מעליות וחדרי מדרגות",
+    "status": "pending"
+  },
+  {
+    "stage": 57,
+    "section": "בניינים וחללי פנים",
+    "title": "דירות ומשרדים",
+    "status": "pending"
+  },
+  {
+    "stage": 58,
+    "section": "בניינים וחללי פנים",
+    "title": "חנויות ומבני ציבור",
+    "status": "pending"
+  },
+  {
+    "stage": 59,
+    "section": "בניינים וחללי פנים",
+    "title": "חיבור פנים־חוץ ובדיקות",
+    "status": "pending"
+  },
+  {
+    "stage": 60,
+    "section": "הדמות הראשית והאנימציות",
+    "title": "אנטומיה ופרופורציות",
+    "status": "pending"
+  },
+  {
+    "stage": 61,
+    "section": "הדמות הראשית והאנימציות",
+    "title": "שיפור הפנים",
+    "status": "pending"
+  },
+  {
+    "stage": 62,
+    "section": "הדמות הראשית והאנימציות",
+    "title": "הליכה וריצה מקצועיות",
+    "status": "pending"
+  },
+  {
+    "stage": 63,
+    "section": "הדמות הראשית והאנימציות",
+    "title": "קפיצה, נפילה וטיפוס",
+    "status": "pending"
+  },
+  {
+    "stage": 64,
+    "section": "הדמות הראשית והאנימציות",
+    "title": "אינטראקציות",
+    "status": "pending"
+  },
+  {
+    "stage": 65,
+    "section": "הדמות הראשית והאנימציות",
+    "title": "מצלמה ושליטה",
+    "status": "pending"
+  },
+  {
+    "stage": 66,
+    "section": "דמויות NPC ועולם אנושי חי",
+    "title": "מגוון דמויות",
+    "status": "pending"
+  },
+  {
+    "stage": 67,
+    "section": "דמויות NPC ועולם אנושי חי",
+    "title": "שגרת חיים",
+    "status": "pending"
+  },
+  {
+    "stage": 68,
+    "section": "דמויות NPC ועולם אנושי חי",
+    "title": "ניווט עירוני",
+    "status": "pending"
+  },
+  {
+    "stage": 69,
+    "section": "דמויות NPC ועולם אנושי חי",
+    "title": "אינטראקציות חברתיות",
+    "status": "pending"
+  },
+  {
+    "stage": 70,
+    "section": "דמויות NPC ועולם אנושי חי",
+    "title": "תגובות לאירועים",
+    "status": "pending"
+  },
+  {
+    "stage": 71,
+    "section": "דמויות NPC ועולם אנושי חי",
+    "title": "זיכרון והתנהגות עקבית",
+    "status": "pending"
+  },
+  {
+    "stage": 72,
+    "section": "נהיגה, רכבים ותחבורה",
+    "title": "פיזיקת נהיגה",
+    "status": "pending"
+  },
+  {
+    "stage": 73,
+    "section": "נהיגה, רכבים ותחבורה",
+    "title": "מודלים ופנים רכבים",
+    "status": "pending"
+  },
+  {
+    "stage": 74,
+    "section": "נהיגה, רכבים ותחבורה",
+    "title": "תאונות ונזקים",
+    "status": "pending"
+  },
+  {
+    "stage": 75,
+    "section": "נהיגה, רכבים ותחבורה",
+    "title": "תנועה אזרחית",
+    "status": "pending"
+  },
+  {
+    "stage": 76,
+    "section": "נהיגה, רכבים ותחבורה",
+    "title": "תחבורה ציבורית ומסילות",
+    "status": "pending"
+  },
+  {
+    "stage": 77,
+    "section": "נהיגה, רכבים ותחבורה",
+    "title": "תחבורה ימית ואווירית",
+    "status": "pending"
+  },
+  {
+    "stage": 78,
+    "section": "משימות, כלכלה ומשחקיות",
+    "title": "מערכת משימות מורחבת",
+    "status": "pending"
+  },
+  {
+    "stage": 79,
+    "section": "משימות, כלכלה ומשחקיות",
+    "title": "סיפורים ודמויות",
+    "status": "pending"
+  },
+  {
+    "stage": 80,
+    "section": "משימות, כלכלה ומשחקיות",
+    "title": "כלכלה חיה",
+    "status": "pending"
+  },
+  {
+    "stage": 81,
+    "section": "משימות, כלכלה ומשחקיות",
+    "title": "עסקים ומקומות שימושיים",
+    "status": "pending"
+  },
+  {
+    "stage": 82,
+    "section": "משימות, כלכלה ומשחקיות",
+    "title": "התקדמות ותגמולים",
+    "status": "pending"
+  },
+  {
+    "stage": 83,
+    "section": "משימות, כלכלה ומשחקיות",
+    "title": "איזון וחוויית משחק",
+    "status": "pending"
+  },
+  {
+    "stage": 84,
+    "section": "משטרה ובינה מלאכותית",
+    "title": "זיהוי עבירות",
+    "status": "pending"
+  },
+  {
+    "stage": 85,
+    "section": "משטרה ובינה מלאכותית",
+    "title": "ניידות ומרדפים",
+    "status": "pending"
+  },
+  {
+    "stage": 86,
+    "section": "משטרה ובינה מלאכותית",
+    "title": "שוטרים ברגל",
+    "status": "pending"
+  },
+  {
+    "stage": 87,
+    "section": "משטרה ובינה מלאכותית",
+    "title": "מערכת דרגות חיפוש",
+    "status": "pending"
+  },
+  {
+    "stage": 88,
+    "section": "משטרה ובינה מלאכותית",
+    "title": "מסוקים ויחידות מיוחדות",
+    "status": "pending"
+  },
+  {
+    "stage": 89,
+    "section": "משטרה ובינה מלאכותית",
+    "title": "איזון המשטרה",
+    "status": "pending"
+  },
+  {
+    "stage": 90,
+    "section": "בעלי חיים ועולם טבעי",
+    "title": "דולפינים",
+    "status": "pending"
+  },
+  {
+    "stage": 91,
+    "section": "בעלי חיים ועולם טבעי",
+    "title": "דגים",
+    "status": "pending"
+  },
+  {
+    "stage": 92,
+    "section": "בעלי חיים ועולם טבעי",
+    "title": "תנינים",
+    "status": "pending"
+  },
+  {
+    "stage": 93,
+    "section": "בעלי חיים ועולם טבעי",
+    "title": "פלמינגו",
+    "status": "pending"
+  },
+  {
+    "stage": 94,
+    "section": "בעלי חיים ועולם טבעי",
+    "title": "אנפות וציפורי מים",
+    "status": "pending"
+  },
+  {
+    "stage": 95,
+    "section": "בעלי חיים ועולם טבעי",
+    "title": "מערכת אקולוגית משולבת",
+    "status": "pending"
+  },
+  {
+    "stage": 96,
+    "section": "סאונד וממשק משתמש",
+    "title": "סאונד סביבתי תלת־ממדי",
+    "status": "pending"
+  },
+  {
+    "stage": 97,
+    "section": "סאונד וממשק משתמש",
+    "title": "אפקטים מדויקים",
+    "status": "pending"
+  },
+  {
+    "stage": 98,
+    "section": "סאונד וממשק משתמש",
+    "title": "מוזיקה ואווירה",
+    "status": "pending"
+  },
+  {
+    "stage": 99,
+    "section": "סאונד וממשק משתמש",
+    "title": "מפת משחק וניווט",
+    "status": "pending"
+  },
+  {
+    "stage": 100,
+    "section": "סאונד וממשק משתמש",
+    "title": "ממשק מקצועי ונגיש",
+    "status": "pending"
+  },
+  {
+    "stage": 101,
+    "section": "שמירות, יציבות ובדיקות סופיות",
+    "title": "מערכת שמירה מלאה",
+    "status": "pending"
+  },
+  {
+    "stage": 102,
+    "section": "שמירות, יציבות ובדיקות סופיות",
+    "title": "שמירה אמינה ושחזור",
+    "status": "pending"
+  },
+  {
+    "stage": 103,
+    "section": "שמירות, יציבות ובדיקות סופיות",
+    "title": "בדיקות משחק ממושכות",
+    "status": "pending"
+  },
+  {
+    "stage": 104,
+    "section": "שמירות, יציבות ובדיקות סופיות",
+    "title": "בדיקות דפדפנים וחומרה",
+    "status": "pending"
+  },
+  {
+    "stage": 105,
+    "section": "שמירות, יציבות ובדיקות סופיות",
+    "title": "גימור ומסירה",
+    "status": "pending"
+  }
+]

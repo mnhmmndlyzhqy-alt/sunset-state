@@ -1,0 +1,8 @@
+{
+  "stage": 17,
+  "mode": "OFF",
+  "checks": 9,
+  "passed": 9,
+  "failed": [],
+  "gpuValidated": false
+}

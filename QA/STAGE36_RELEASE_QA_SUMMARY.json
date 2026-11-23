@@ -1,0 +1,64 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 36,
+  "programmeTotal": 105,
+  "releaseClass": "new opt-in performance audit; no real hardware FPS/GPU certification",
+  "sourceArchiveName": "SUNSET_STATE_STAGE36_OF105_FULL.zip",
+  "websiteArchiveName": "SUNSET_STATE_STAGE36_GITHUB_PAGES_SITE.zip",
+  "stage35SiteBaselineHash": "5d7a7fb463053c9c3e648ce726e32fc3b15db919ec07750060c01a1af7345f62",
+  "stage32SourceBaselineHash": "7e59daf5c9d12d220dce98ff0577027cdee250e2fa8801afddae876fa1ce3b7a",
+  "stage35RuntimeFilesPreserved": 169,
+  "stage35RuntimeFilesModified": [
+    "SITE_FILE_MANIFEST.json",
+    "START_GAME.html",
+    "engine44.js",
+    "index.html"
+  ],
+  "stage32HistoricalSourcePathsPreserved": 1085,
+  "unavailableFullSource35Archive": true,
+  "sourceReconstruction": "Stage32 full source plus verified Stage35 runnable site plus available Stage35 documents",
+  "tests": {
+    "optInUnit": [
+      33,
+      33
+    ],
+    "cumulativeIntegration": [
+      16,
+      16
+    ],
+    "save": [
+      95,
+      95
+    ],
+    "collision": [
+      39,
+      39
+    ],
+    "interiors": [
+      13,
+      13
+    ],
+    "characters": [
+      35,
+      35
+    ],
+    "vehicles": [
+      37,
+      37
+    ],
+    "wildlife": [
+      46,
+      46
+    ],
+    "siteAudit": [
+      1357,
+      1357
+    ]
+  },
+  "sampledStaticObjects": 7030,
+  "sampledCameraProbes": 6,
+  "realGpuTimingMeasured": false,
+  "native1920x1080Fps50Verified": false,
+  "publicDeploymentPerformed": false,
+  "nextStage": 37
+}

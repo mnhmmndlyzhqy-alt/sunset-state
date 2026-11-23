@@ -1,0 +1,352 @@
+[
+  {
+    "id": 1,
+    "building": [
+      -372,
+      -244,
+      50.510892587015405,
+      18
+    ],
+    "ext": {
+      "X": 24.3354462935077,
+      "Z": 8.17
+    },
+    "portal": [
+      -346.17,
+      -247.6,
+      "east"
+    ],
+    "bounds": {
+      "xmin": -395.8354462935077,
+      "xmax": -348.1645537064923,
+      "zmin": -251.67,
+      "zmax": -236.33
+    },
+    "entry": {
+      "x": -348.8745537064923,
+      "z": -247.6
+    },
+    "lift": {
+      "x": -370.85,
+      "z": -238.55
+    },
+    "solids": 29,
+    "stage06": {
+      "colliders": 1,
+      "meshes": 0,
+      "meshFragments": 0
+    },
+    "materials": {
+      "concrete": 70,
+      "paint": 292,
+      "metal": 190,
+      "unknown": 10,
+      "glass": 12,
+      "paving": 3,
+      "light_emissive": 37,
+      "foliage": 8,
+      "fabric": 3,
+      "wood": 3
+    }
+  },
+  {
+    "id": 24,
+    "building": [
+      384,
+      -136,
+      49.904110576724634,
+      18
+    ],
+    "ext": {
+      "X": 24.032055288362315,
+      "Z": 8.17
+    },
+    "portal": [
+      409.52,
+      -139.6,
+      "east"
+    ],
+    "bounds": {
+      "xmin": 360.4679447116377,
+      "xmax": 407.5320552883623,
+      "zmin": -143.67,
+      "zmax": -128.32999999999998
+    },
+    "entry": {
+      "x": 406.8220552883623,
+      "z": -139.6
+    },
+    "lift": {
+      "x": 385.15,
+      "z": -130.54999999999998
+    },
+    "solids": 28,
+    "stage06": {
+      "colliders": 0,
+      "meshes": 0,
+      "meshFragments": 0
+    },
+    "materials": {
+      "concrete": 72,
+      "paint": 233,
+      "metal": 183,
+      "unknown": 10,
+      "glass": 13,
+      "paving": 3,
+      "light_emissive": 41,
+      "foliage": 8,
+      "fabric": 3,
+      "wood": 3
+    }
+  },
+  {
+    "id": 35,
+    "building": [
+      -48,
+      80,
+      53.54496768838726,
+      18
+    ],
+    "ext": {
+      "X": 25.852483844193628,
+      "Z": 8.17
+    },
+    "portal": [
+      -20.66,
+      76.4,
+      "east"
+    ],
+    "bounds": {
+      "xmin": -73.35248384419363,
+      "xmax": -22.647516155806372,
+      "zmin": 72.33,
+      "zmax": 87.67
+    },
+    "entry": {
+      "x": -23.35751615580637,
+      "z": 76.4
+    },
+    "lift": {
+      "x": -46.85,
+      "z": 85.45
+    },
+    "solids": 28,
+    "stage06": {
+      "colliders": 0,
+      "meshes": 0,
+      "meshFragments": 0
+    },
+    "materials": {
+      "concrete": 72,
+      "paint": 233,
+      "metal": 183,
+      "unknown": 10,
+      "glass": 14,
+      "paving": 3,
+      "light_emissive": 41,
+      "foliage": 8,
+      "fabric": 3,
+      "wood": 3
+    }
+  },
+  {
+    "id": 50,
+    "building": [
+      60,
+      188,
+      47.233016649028286,
+      18
+    ],
+    "ext": {
+      "X": 22.69650832451414,
+      "Z": 8.17
+    },
+    "portal": [
+      84.19,
+      184.4,
+      "east"
+    ],
+    "bounds": {
+      "xmin": 37.80349167548586,
+      "xmax": 82.19650832451414,
+      "zmin": 180.33,
+      "zmax": 195.67
+    },
+    "entry": {
+      "x": 81.48650832451413,
+      "z": 184.4
+    },
+    "lift": {
+      "x": 61.15,
+      "z": 193.45
+    },
+    "solids": 29,
+    "stage06": {
+      "colliders": 0,
+      "meshes": 0,
+      "meshFragments": 0
+    },
+    "materials": {
+      "concrete": 68,
+      "paint": 205,
+      "metal": 213,
+      "unknown": 10,
+      "glass": 29,
+      "paving": 3,
+      "light_emissive": 46,
+      "foliage": 8,
+      "fabric": 3,
+      "wood": 3
+    }
+  },
+  {
+    "id": 62,
+    "building": [
+      168,
+      296,
+      57.161957015516236,
+      18
+    ],
+    "ext": {
+      "X": 27.660978507758117,
+      "Z": 8.17
+    },
+    "portal": [
+      197.15,
+      292.4,
+      "east"
+    ],
+    "bounds": {
+      "xmin": 140.8390214922419,
+      "xmax": 195.1609785077581,
+      "zmin": 288.33,
+      "zmax": 303.67
+    },
+    "entry": {
+      "x": 194.45097850775812,
+      "z": 292.4
+    },
+    "lift": {
+      "x": 169.15,
+      "z": 301.45000000000005
+    },
+    "solids": 29,
+    "stage06": {
+      "colliders": 1,
+      "meshes": 0,
+      "meshFragments": 0
+    },
+    "materials": {
+      "concrete": 70,
+      "paint": 292,
+      "metal": 191,
+      "unknown": 10,
+      "glass": 12,
+      "paving": 3,
+      "light_emissive": 37,
+      "foliage": 8,
+      "fabric": 3,
+      "wood": 3
+    }
+  },
+  {
+    "id": 67,
+    "building": [
+      -372,
+      404,
+      54.77462162752636,
+      18
+    ],
+    "ext": {
+      "X": 26.467310813763177,
+      "Z": 8.17
+    },
+    "portal": [
+      -344.04,
+      400.4,
+      "east"
+    ],
+    "bounds": {
+      "xmin": -397.96731081376316,
+      "xmax": -346.03268918623684,
+      "zmin": 396.33,
+      "zmax": 411.67
+    },
+    "entry": {
+      "x": -346.7426891862368,
+      "z": 400.4
+    },
+    "lift": {
+      "x": -370.85,
+      "z": 409.45000000000005
+    },
+    "solids": 29,
+    "stage06": {
+      "colliders": 0,
+      "meshes": 0,
+      "meshFragments": 0
+    },
+    "materials": {
+      "concrete": 70,
+      "paint": 292,
+      "metal": 191,
+      "unknown": 10,
+      "glass": 12,
+      "paving": 3,
+      "light_emissive": 37,
+      "foliage": 8,
+      "fabric": 3,
+      "wood": 3
+    }
+  },
+  {
+    "id": 78,
+    "building": [
+      265,
+      352.5,
+      50.17132377391681,
+      18.900000000000002
+    ],
+    "ext": {
+      "X": 24.165661886958404,
+      "Z": 8.620000000000001
+    },
+    "portal": [
+      290.66,
+      356.28,
+      "east"
+    ],
+    "bounds": {
+      "xmin": 241.3343381130416,
+      "xmax": 288.6656618869584,
+      "zmin": 344.38,
+      "zmax": 360.62
+    },
+    "entry": {
+      "x": 287.9556618869584,
+      "z": 356.28
+    },
+    "lift": {
+      "x": 266.15,
+      "z": 358.40000000000003
+    },
+    "solids": 28,
+    "stage06": {
+      "colliders": 0,
+      "meshes": 0,
+      "meshFragments": 0
+    },
+    "materials": {
+      "concrete": 72,
+      "paint": 233,
+      "metal": 183,
+      "unknown": 10,
+      "glass": 14,
+      "paving": 3,
+      "light_emissive": 41,
+      "foliage": 8,
+      "fabric": 3,
+      "wood": 3
+    }
+  }
+]

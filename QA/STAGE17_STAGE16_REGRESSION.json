@@ -1,0 +1,40 @@
+{
+  "stage": 16,
+  "checks": 7815,
+  "passed": 7815,
+  "failed": [],
+  "notes": {
+    "stage": 16,
+    "issue": "S01-GL-01",
+    "kind": "real game JavaScript plus simulated renderer",
+    "gpuValidated": false,
+    "native1080pFpsValidated": false,
+    "limits": {
+      "maxBreakableFacadePanes": 864,
+      "fpsNotMeasured": true,
+      "legacyOpaqueWallRemains": true
+    },
+    "samples": [],
+    "metrics": {
+      "registryCoverage": {
+        "valid": 864,
+        "rotated": 194,
+        "ground": 735,
+        "existing": 864
+      },
+      "raycastSamples": {
+        "north": 125,
+        "east": 124,
+        "west": 126
+      },
+      "raycast160Ms": 117.03
+    }
+  },
+  "metadata": {
+    "legacyGlass": 124,
+    "newGlass": 864,
+    "buildingCount": 130,
+    "originalWallsNotCut": true,
+    "gpuCheckPending": true
+  }
+}

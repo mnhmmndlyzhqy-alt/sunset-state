@@ -1,0 +1,144 @@
+{
+  "stage": 9,
+  "passed": 25,
+  "total": 25,
+  "failed": 0,
+  "source": "CPU Game world using real engine, fake graphics renderer",
+  "gpuVerified": false,
+  "stats": {
+    "stage": 9,
+    "issueId": "S01-BL-06",
+    "source": "reference469.coast signed terrain mask",
+    "gpuVerified": false,
+    "renderedScreenshotVerified": false,
+    "worldMutated": false,
+    "totalPortals": 429,
+    "activePortals": 214,
+    "dormantPortals": 215,
+    "waterClassifiedAll": 116,
+    "dormantWaterDescriptors": 116,
+    "activeWaterAtDoor": 0,
+    "activeWaterWithin6m": 0,
+    "nearestActiveShore": 11.5,
+    "nearestApproachShore6m": 4.966,
+    "nearShoreAt8m": [
+      {
+        "portalId": 369,
+        "shoreAt8m": 1.734,
+        "minimum6m": 4.966
+      }
+    ],
+    "invalidPortals": [],
+    "flags": [],
+    "classification": "historical_inactive_descriptors_only"
+  },
+  "checks": [
+    {
+      "name": "report_installed_once_and_idempotent",
+      "pass": true
+    },
+    {
+      "name": "new_check_can_be_reproduced_in_strict_mode",
+      "pass": true
+    },
+    {
+      "name": "source_429_portals_remain",
+      "pass": true
+    },
+    {
+      "name": "214_usable_entrances_preserved",
+      "pass": true
+    },
+    {
+      "name": "215_inactive_historical_descriptors_kept_inert",
+      "pass": true
+    },
+    {
+      "name": "116_coast_flags_are_inactive_descriptors_only",
+      "pass": true
+    },
+    {
+      "name": "water_flag_count_not_confused_with_active",
+      "pass": true
+    },
+    {
+      "name": "all_214_active_entries_outside_water",
+      "pass": true
+    },
+    {
+      "name": "all_214_active_6m_approaches_are_land",
+      "pass": true
+    },
+    {
+      "name": "active_only_coastal_classification_clear",
+      "pass": true
+    },
+    {
+      "name": "near_8m_coastal_site_reported_without_forcing_relocation",
+      "pass": true,
+      "data": [
+        {
+          "portalId": 369,
+          "shoreAt8m": 1.734,
+          "minimum6m": 4.966
+        }
+      ]
+    },
+    {
+      "name": "all_active_portals_still_have_physical_door_records",
+      "pass": true
+    },
+    {
+      "name": "all_dormant_water_ids_have_no_interactive_doors",
+      "pass": true
+    },
+    {
+      "name": "all_116_water_dormant_entries_reject_direct_interaction",
+      "pass": true
+    },
+    {
+      "name": "no_fake_indoor_state_from_dormant_entries",
+      "pass": true
+    },
+    {
+      "name": "no_invalid_portal_data_found",
+      "pass": true
+    },
+    {
+      "name": "coastal_invariant_fails_closed_in_strict_QA_for_simulated_regression",
+      "pass": true
+    },
+    {
+      "name": "coastal_validator_does_not_mutate_original_descriptors",
+      "pass": true
+    },
+    {
+      "name": "stage08_1586_windows_still_exist",
+      "pass": true
+    },
+    {
+      "name": "stage07_34_rotations_still_exist",
+      "pass": true
+    },
+    {
+      "name": "52_roads_and_all_waypoints_unchanged",
+      "pass": true
+    },
+    {
+      "name": "no_geometry_or_collision_change_from_inspection",
+      "pass": true
+    },
+    {
+      "name": "no_door_or_portal_count_change",
+      "pass": true
+    },
+    {
+      "name": "gpu_visual_not_claimed",
+      "pass": true
+    },
+    {
+      "name": "stage09_script_position_correct",
+      "pass": true
+    }
+  ]
+}

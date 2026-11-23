@@ -1,0 +1,23 @@
+{
+  "stage": 31,
+  "baseArchive": "SUNSET_STATE_STAGE30_OF35_FULL.zip",
+  "baseSHA256": "84bc0c8b261e5d6f415f9a2f3853717186ff36b409b0122b12f1cf1bb6489064",
+  "baseEntries": 1030,
+  "allBasePathsPreserved": true,
+  "missing": [],
+  "intentionalEdits": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "README_35_STAGE_HE.md",
+    "README_GITHUB_PAGES_HE.md",
+    "SITE_FILE_MANIFEST.json",
+    "START_GAME.html",
+    "engine44.js",
+    "index.html"
+  ],
+  "originalFilesUnchanged": 1022,
+  "originalFilesUpdatedWithVerifiedBackups": 8,
+  "fileByFileSha256Checked": 1030,
+  "originalVehicleAssetsUnmodified": true,
+  "hardwareGPUVerified": false
+}

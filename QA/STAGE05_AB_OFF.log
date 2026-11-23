@@ -1,0 +1,47 @@
+{
+  "scope": "A/B toggle Stage05 OFF with actual game world, fake renderer",
+  "pass": 10,
+  "total": 10,
+  "cases": [
+    {
+      "name": "stage05_disabled",
+      "pass": true
+    },
+    {
+      "name": "legacy_84_ready",
+      "pass": true
+    },
+    {
+      "name": "legacy_299_total",
+      "pass": true
+    },
+    {
+      "name": "legacy_215_orphans_remain_unready",
+      "pass": true
+    },
+    {
+      "name": "city20_130_decorative_shells_preserved",
+      "pass": true
+    },
+    {
+      "name": "city20_no_gameplay_portal_added",
+      "pass": true
+    },
+    {
+      "name": "legacy_84_city_buildings",
+      "pass": true
+    },
+    {
+      "name": "all_52_roads_retained",
+      "pass": true
+    },
+    {
+      "name": "stage04_hotel_still_open",
+      "pass": true
+    },
+    {
+      "name": "stage05_compact_runtime_not_used",
+      "pass": true
+    }
+  ]
+}

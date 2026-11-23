@@ -1,0 +1,13 @@
+{
+  "pass": 22,
+  "total": 22,
+  "errors": [],
+  "summary": {
+    "oriented": 173,
+    "legacy": 60,
+    "new": 113,
+    "retainedNorth": 41,
+    "totalAccessible": 214,
+    "roadCount": 52
+  }
+}

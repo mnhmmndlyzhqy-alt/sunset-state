@@ -1,0 +1,36 @@
+{
+  "stage": 7,
+  "passed": true,
+  "tests": 17,
+  "buildings": 130,
+  "geometry": 464,
+  "byKind": {
+    "villa": 19,
+    "resort": 19,
+    "warehouse": 19,
+    "service": 19,
+    "civic": 18,
+    "midrise": 18,
+    "tower": 18
+  },
+  "features": {
+    "eave": 38,
+    "gable": 38,
+    "balcony": 38,
+    "balcony_rail": 38,
+    "industrial_roof": 38,
+    "loading_canopy": 38,
+    "loading_header": 38,
+    "civic_portico": 18,
+    "civic_pier": 36,
+    "civic_parapet": 18,
+    "midrise_wing": 18,
+    "midrise_cornice": 18,
+    "shop_canopy": 18,
+    "tower_spandrel": 54,
+    "tower_entry_canopy": 18
+  },
+  "roadCount": 52,
+  "entrances": 298,
+  "gpu1080p50Verified": false
+}

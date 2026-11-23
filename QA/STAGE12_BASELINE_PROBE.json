@@ -1,0 +1,242 @@
+{
+  "world": {
+    "boxes": 194478,
+    "solids": 3230,
+    "propSolids": 796,
+    "roads": 52,
+    "doors": 214
+  },
+  "groups": {
+    "planter-base": {
+      "count": 166,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "plant-canopy": {
+      "count": 166,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 166,
+      "nearDoor": 0,
+      "first": [
+        {
+          "id": 0,
+          "x": -356.23368720875123,
+          "z": -283.13500000000005,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 0,
+          "x": -356.23368720875123,
+          "z": -277.185,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 1,
+          "x": -344.7245537064923,
+          "z": -250.57500000000002,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 1,
+          "x": -344.7245537064923,
+          "z": -244.62499999999997,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 2,
+          "x": -300.1474171514669,
+          "z": -263.525,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 2,
+          "x": -300.1474171514669,
+          "z": -269.475,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 3,
+          "x": -163.61999999999998,
+          "z": -287.42499999999995,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 3,
+          "x": -163.61999999999998,
+          "z": -293.375,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 4,
+          "x": -73.975,
+          "z": -303.82414095637387,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 4,
+          "x": -68.025,
+          "z": -303.82414095637387,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        }
+      ]
+    },
+    "safety-bollard": {
+      "count": 166,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "curb-accent": {
+      "count": 83,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "streetlamp-post": {
+      "count": 28,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 0,
+      "nearDoor": 0,
+      "first": []
+    },
+    "streetlamp-head": {
+      "count": 28,
+      "inRoad": 0,
+      "inWater": 0,
+      "overlapExisting": 28,
+      "nearDoor": 0,
+      "first": [
+        {
+          "id": 2,
+          "x": -300.79741715146696,
+          "z": -271.025,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 5,
+          "x": -23.475,
+          "z": -291.0119350885088,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 8,
+          "x": 287.92499999999995,
+          "z": -284.27000000000004,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 11,
+          "x": -412.21422590229656,
+          "z": -181.52499999999998,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 14,
+          "x": -149.3542207972333,
+          "z": -170.975,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 17,
+          "x": -28.475,
+          "z": -151.42,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 20,
+          "x": 122.87678269522266,
+          "z": -172.525,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 23,
+          "x": 403.1714384537935,
+          "z": -167.63500000000002,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 26,
+          "x": -373.45687383397484,
+          "z": -46.52499999999998,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        },
+        {
+          "id": 29,
+          "x": 413.7495299099991,
+          "z": -37.47500000000002,
+          "road": false,
+          "water": false,
+          "existing": true,
+          "door": false
+        }
+      ]
+    }
+  },
+  "possible": []
+}

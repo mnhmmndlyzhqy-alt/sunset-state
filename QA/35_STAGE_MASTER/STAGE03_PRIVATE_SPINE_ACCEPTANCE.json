@@ -1,0 +1,157 @@
+{
+  "stage": 3,
+  "totalStages": 35,
+  "issueId": "S01-RD-02",
+  "kind": "actual game source, Node CPU engine, no GPU",
+  "checks": [
+    {
+      "name": "base_waypoints_14_to_13",
+      "pass": true,
+      "details": {
+        "before": 14,
+        "after": 13
+      }
+    },
+    {
+      "name": "only_spurious_first_waypoint_removed",
+      "pass": true
+    },
+    {
+      "name": "false_house_spur_removed",
+      "pass": true
+    },
+    {
+      "name": "end_of_road_unchanged",
+      "pass": true
+    },
+    {
+      "name": "crossing_anchor_preserved",
+      "pass": true
+    },
+    {
+      "name": "135_degree_hook_removed",
+      "pass": true,
+      "details": {
+        "maxBefore": 135.89380388068267,
+        "maxAfter": 74.7584855422006
+      }
+    },
+    {
+      "name": "source_line_changed_only_one_route",
+      "pass": true
+    },
+    {
+      "name": "52_routes_preserved",
+      "pass": true
+    },
+    {
+      "name": "51_other_road_sample_centerlines_same",
+      "pass": true
+    },
+    {
+      "name": "sampled_road_finite",
+      "pass": true
+    },
+    {
+      "name": "unchanged_downstream_road_endpoint",
+      "pass": true
+    },
+    {
+      "name": "road_centerline_has_no_extreme_sample_bend",
+      "pass": true,
+      "details": {
+        "maxSampleBend": 36.20676328184635
+      }
+    },
+    {
+      "name": "road_at_centerline",
+      "pass": true
+    },
+    {
+      "name": "building_counts_identical",
+      "pass": true
+    },
+    {
+      "name": "portals_identical",
+      "pass": true
+    },
+    {
+      "name": "collision_solids_remain_within_expected_local_road_delta",
+      "pass": true,
+      "details": {
+        "before": 1320,
+        "after": 1320
+      }
+    },
+    {
+      "name": "other_road_widths_preserved",
+      "pass": true
+    },
+    {
+      "name": "traffic_finite_dir_1",
+      "pass": true,
+      "details": {
+        "direction": 1,
+        "start": 7,
+        "steps": 700,
+        "invalid": 0,
+        "offroad": 37,
+        "endX": -960.6054089607348,
+        "endZ": 295.30119989869763
+      }
+    },
+    {
+      "name": "traffic_finite_dir_-1",
+      "pass": true,
+      "details": {
+        "direction": -1,
+        "start": 55,
+        "steps": 700,
+        "invalid": 0,
+        "offroad": 44,
+        "endX": -887.6759888677444,
+        "endZ": -12.696213552406165
+      }
+    }
+  ],
+  "passed": 19,
+  "total": 19,
+  "metrics": {
+    "route": "privateSpine469",
+    "waypointsBefore": 14,
+    "waypointsAfter": 13,
+    "lengthBefore": 1047.6508887221128,
+    "lengthAfter": 1004.8734295907699,
+    "removedMeters": 42.77745913134288,
+    "maxBendBefore": 135.89380388068267,
+    "maxBendAfter": 74.7584855422006,
+    "samplesBefore": 191,
+    "samplesAfter": 183,
+    "maxSampleBendAfter": 36.20676328184635,
+    "roadCount": 52,
+    "entrances": 298,
+    "solids": 1320,
+    "solidsBefore": 1320,
+    "simulations": [
+      {
+        "direction": 1,
+        "start": 7,
+        "steps": 700,
+        "invalid": 0,
+        "offroad": 37,
+        "endX": -960.6054089607348,
+        "endZ": 295.30119989869763
+      },
+      {
+        "direction": -1,
+        "start": 55,
+        "steps": 700,
+        "invalid": 0,
+        "offroad": 44,
+        "endX": -887.6759888677444,
+        "endZ": -12.696213552406165
+      }
+    ]
+  },
+  "GPUverified": false
+}

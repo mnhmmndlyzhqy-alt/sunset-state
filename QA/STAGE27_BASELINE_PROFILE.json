@@ -1,0 +1,796 @@
+{
+  "sourceStage": 26,
+  "roads": 52,
+  "samples": 3390,
+  "joins": 38,
+  "joinMismatches": [
+    {
+      "road": "northRing",
+      "y": 3.6557507727587017,
+      "x": -453.08653846153845,
+      "z": -432,
+      "roads": [
+        "northRing",
+        "westExpress"
+      ],
+      "gap": 6.45,
+      "values": [
+        3.6558,
+        10.1058
+      ]
+    }
+  ],
+  "topJoins": [
+    {
+      "road": "northRing",
+      "y": 3.6557507727587017,
+      "x": -453.08653846153845,
+      "z": -432,
+      "roads": [
+        "northRing",
+        "westExpress"
+      ],
+      "gap": 6.45,
+      "values": [
+        3.6558,
+        10.1058
+      ]
+    },
+    {
+      "road": "northRing",
+      "y": 3.464,
+      "x": -877.8484848484849,
+      "z": -649.2857142857143,
+      "roads": [
+        "northRing",
+        "northKeys",
+        "cargoEntry"
+      ],
+      "gap": 0,
+      "values": [
+        3.464,
+        3.464,
+        3.464
+      ]
+    },
+    {
+      "road": "northRing",
+      "y": 2.6885224252721835,
+      "x": -361.08653846153845,
+      "z": -432,
+      "roads": [
+        "northRing",
+        "northeastRamp",
+        "southeastRamp"
+      ],
+      "gap": 0,
+      "values": [
+        2.6885,
+        2.6885,
+        2.6885
+      ]
+    },
+    {
+      "road": "northRing",
+      "y": 2.593970839257363,
+      "x": -216,
+      "z": -432,
+      "roads": [
+        "northRing",
+        "northAccessMarket"
+      ],
+      "gap": 0,
+      "values": [
+        2.594,
+        2.594
+      ]
+    },
+    {
+      "road": "northRing",
+      "y": 2.5359002986073973,
+      "x": -108,
+      "z": -432,
+      "roads": [
+        "northRing",
+        "northPrison"
+      ],
+      "gap": 0,
+      "values": [
+        2.5359,
+        2.5359
+      ]
+    },
+    {
+      "road": "northRing",
+      "y": 2.2090227039483543,
+      "x": 0,
+      "z": -432,
+      "roads": [
+        "northRing",
+        "northAccessCentral"
+      ],
+      "gap": 0,
+      "values": [
+        2.209,
+        2.209
+      ]
+    },
+    {
+      "road": "northRing",
+      "y": 8.457113036421566,
+      "x": 324,
+      "z": -432,
+      "roads": [
+        "northRing",
+        "northAccessEast",
+        "wetlands"
+      ],
+      "gap": 0,
+      "values": [
+        8.4571,
+        8.4571,
+        8.4571
+      ]
+    },
+    {
+      "road": "northRing",
+      "y": 2.0803734476581868,
+      "x": 579.6666666666666,
+      "z": -482.84444444444443,
+      "roads": [
+        "northRing",
+        "eastCoast"
+      ],
+      "gap": 0,
+      "values": [
+        2.0804,
+        2.0804
+      ]
+    },
+    {
+      "road": "westExpress",
+      "y": 5.159264918290759,
+      "x": -453.08653846153845,
+      "z": -516,
+      "roads": [
+        "westExpress",
+        "northwestRamp",
+        "northeastRamp"
+      ],
+      "gap": 0,
+      "values": [
+        5.1593,
+        5.1593,
+        5.1593
+      ]
+    },
+    {
+      "road": "westExpress",
+      "y": 3.324683919911564,
+      "x": -453.08653846153845,
+      "z": -348,
+      "roads": [
+        "westExpress",
+        "southwestRamp",
+        "southeastRamp"
+      ],
+      "gap": 0,
+      "values": [
+        3.3247,
+        3.3247,
+        3.3247
+      ]
+    },
+    {
+      "road": "westExpress",
+      "y": 7.743923279752022,
+      "x": -453.08653846153845,
+      "z": 432,
+      "roads": [
+        "westExpress",
+        "southRing"
+      ],
+      "gap": 0,
+      "values": [
+        7.7439,
+        7.7439
+      ]
+    },
+    {
+      "road": "westExpress",
+      "y": 2.114,
+      "x": -473.08653846153845,
+      "z": 632,
+      "roads": [
+        "westExpress",
+        "airportWestAccess"
+      ],
+      "gap": 0,
+      "values": [
+        2.114,
+        2.114
+      ]
+    },
+    {
+      "road": "northwestRamp",
+      "y": 3.464,
+      "x": -545.0865384615385,
+      "z": -432,
+      "roads": [
+        "northwestRamp",
+        "southwestRamp"
+      ],
+      "gap": 0,
+      "values": [
+        3.464,
+        3.464
+      ]
+    },
+    {
+      "road": "eastAccessNorth",
+      "y": 4.9935050916351,
+      "x": 510.0363636363636,
+      "z": -310.25454545454545,
+      "roads": [
+        "eastAccessNorth",
+        "eastCoast"
+      ],
+      "gap": 0,
+      "values": [
+        4.9935,
+        4.9935
+      ]
+    },
+    {
+      "road": "eastAccessMid",
+      "y": 3.464,
+      "x": 442.54545454545456,
+      "z": 88.36363636363637,
+      "roads": [
+        "eastAccessMid",
+        "eastCoast",
+        "parkingEntry"
+      ],
+      "gap": 0,
+      "values": [
+        3.464,
+        3.464,
+        3.464
+      ]
+    },
+    {
+      "road": "southRing",
+      "y": 5.625196075403135,
+      "x": -695.75,
+      "z": 448.5,
+      "roads": [
+        "southRing",
+        "privateSpine469"
+      ],
+      "gap": 0,
+      "values": [
+        5.6252,
+        5.6252
+      ]
+    },
+    {
+      "road": "southRing",
+      "y": 1.100904483681516,
+      "x": 216,
+      "z": 432,
+      "roads": [
+        "southRing",
+        "terminalEntry"
+      ],
+      "gap": 0,
+      "values": [
+        1.1009,
+        1.1009
+      ]
+    },
+    {
+      "road": "southRing",
+      "y": 0.0837068750792959,
+      "x": 434.1090909090909,
+      "z": 435.3,
+      "roads": [
+        "southRing",
+        "eastCoast"
+      ],
+      "gap": 0,
+      "values": [
+        0.0837,
+        0.0837
+      ]
+    },
+    {
+      "road": "eastCoast",
+      "y": 1.4043293492258238,
+      "x": 708.9333333333334,
+      "z": -634.4285714285714,
+      "roads": [
+        "eastCoast",
+        "isletLink"
+      ],
+      "gap": 0,
+      "values": [
+        1.4043,
+        1.4043
+      ]
+    },
+    {
+      "road": "eastCoast",
+      "y": 5.133318279295315,
+      "x": 493.1636363636364,
+      "z": -216.78545454545454,
+      "roads": [
+        "eastCoast",
+        "stadiumEntry"
+      ],
+      "gap": 0,
+      "values": [
+        5.1333,
+        5.1333
+      ]
+    },
+    {
+      "road": "eastCoast",
+      "y": 0.2611398254870348,
+      "x": 427.9052132701422,
+      "z": 355.0254545454545,
+      "roads": [
+        "eastCoast",
+        "hospitalEntry",
+        "hospitalWest"
+      ],
+      "gap": 0,
+      "values": [
+        0.2611,
+        0.2611,
+        0.2611
+      ]
+    },
+    {
+      "road": "eastCoast",
+      "y": 0.092064567498751,
+      "x": 436.2181818181818,
+      "z": 452.9,
+      "roads": [
+        "eastCoast",
+        "toResort"
+      ],
+      "gap": 0,
+      "values": [
+        0.0921,
+        0.0921
+      ]
+    },
+    {
+      "road": "northKeys",
+      "y": 5.023012710594318,
+      "x": -771,
+      "z": -429,
+      "roads": [
+        "northKeys",
+        "keysNorthLoop"
+      ],
+      "gap": 0,
+      "values": [
+        5.023,
+        5.023
+      ]
+    },
+    {
+      "road": "northKeys",
+      "y": 2.5297883638958525,
+      "x": -797,
+      "z": -346,
+      "roads": [
+        "northKeys",
+        "keysNorthLoop"
+      ],
+      "gap": 0,
+      "values": [
+        2.5298,
+        2.5298
+      ]
+    },
+    {
+      "road": "northKeys",
+      "y": 2.1896406884327666,
+      "x": -864,
+      "z": -305,
+      "roads": [
+        "northKeys",
+        "keysCanals"
+      ],
+      "gap": 0,
+      "values": [
+        2.1896,
+        2.1896
+      ]
+    }
+  ],
+  "topSlopes": [
+    {
+      "road": "northRing",
+      "max": 0.09
+    },
+    {
+      "road": "westExpress",
+      "max": 0.09
+    },
+    {
+      "road": "northwestRamp",
+      "max": 0.09
+    },
+    {
+      "road": "northeastRamp",
+      "max": 0.09
+    },
+    {
+      "road": "southwestRamp",
+      "max": 0.09
+    },
+    {
+      "road": "southeastRamp",
+      "max": 0.09
+    },
+    {
+      "road": "southRing",
+      "max": 0.09
+    },
+    {
+      "road": "northKeys",
+      "max": 0.09
+    },
+    {
+      "road": "keysCanals",
+      "max": 0.09
+    },
+    {
+      "road": "keysNorthLoop",
+      "max": 0.09
+    },
+    {
+      "road": "keysMiddleLoop",
+      "max": 0.09
+    },
+    {
+      "road": "keysCrossing",
+      "max": 0.09
+    },
+    {
+      "road": "keysSouthLoop",
+      "max": 0.09
+    },
+    {
+      "road": "marinaAccess",
+      "max": 0.09
+    },
+    {
+      "road": "northPrison",
+      "max": 0.09
+    },
+    {
+      "road": "wetlands",
+      "max": 0.09
+    },
+    {
+      "road": "privateSpine469",
+      "max": 0.09
+    },
+    {
+      "road": "outerLink",
+      "max": 0.0892
+    },
+    {
+      "road": "northAccessEast",
+      "max": 0.0887
+    },
+    {
+      "road": "toResort",
+      "max": 0.0879
+    }
+  ],
+  "submergedCount": 0,
+  "submerged": [],
+  "raisedCount": 429,
+  "raised": [
+    {
+      "road": "northRing",
+      "i": 0,
+      "x": -877.8485,
+      "z": -649.2857,
+      "above": 4.31,
+      "coast": -6.8
+    },
+    {
+      "road": "northRing",
+      "i": 1,
+      "x": -876.2384,
+      "z": -647.7374,
+      "above": 4.2621,
+      "coast": -6.3783
+    },
+    {
+      "road": "northRing",
+      "i": 2,
+      "x": -873.5889,
+      "z": -645.2068,
+      "above": 3.7468,
+      "coast": -1.2082
+    },
+    {
+      "road": "northRing",
+      "i": 3,
+      "x": -870.0761,
+      "z": -641.8569,
+      "above": 3.1771,
+      "coast": 5.6464
+    },
+    {
+      "road": "northRing",
+      "i": 73,
+      "x": -553.8521,
+      "z": -434.296,
+      "above": 3.1627,
+      "coast": 3.9177
+    },
+    {
+      "road": "northRing",
+      "i": 74,
+      "x": -547.4121,
+      "z": -433.7522,
+      "above": 4.7948,
+      "coast": -12.24
+    },
+    {
+      "road": "northRing",
+      "i": 75,
+      "x": -541.2843,
+      "z": -433.2567,
+      "above": 4.1719,
+      "coast": -5.602
+    },
+    {
+      "road": "northRing",
+      "i": 76,
+      "x": -535.6264,
+      "z": -432.8216,
+      "above": 3.0722,
+      "coast": 8.9061
+    },
+    {
+      "road": "northRing",
+      "i": 148,
+      "x": -137.9786,
+      "z": -432,
+      "above": 3.2161,
+      "coast": 2.4272
+    },
+    {
+      "road": "northRing",
+      "i": 149,
+      "x": -131.6595,
+      "z": -432,
+      "above": 3.7612,
+      "coast": -1.36
+    },
+    {
+      "road": "northRing",
+      "i": 150,
+      "x": -125.7486,
+      "z": -432,
+      "above": 3.7612,
+      "coast": -1.36
+    },
+    {
+      "road": "northRing",
+      "i": 151,
+      "x": -120.3365,
+      "z": -432,
+      "above": 3.1896,
+      "coast": 4.3854
+    },
+    {
+      "road": "northRing",
+      "i": 231,
+      "x": 327.5025,
+      "z": -432,
+      "above": 5.7914,
+      "coast": 85.68
+    },
+    {
+      "road": "northRing",
+      "i": 232,
+      "x": 332.0051,
+      "z": -432,
+      "above": 5.3649,
+      "coast": 85.68
+    },
+    {
+      "road": "northRing",
+      "i": 233,
+      "x": 337.3412,
+      "z": -432,
+      "above": 4.8603,
+      "coast": 85.68
+    }
+  ],
+  "bridges": [
+    {
+      "road": "northRing",
+      "elevated": 39,
+      "samples": 279
+    },
+    {
+      "road": "westExpress",
+      "elevated": 41,
+      "samples": 278
+    },
+    {
+      "road": "northwestRamp",
+      "elevated": 4,
+      "samples": 28
+    },
+    {
+      "road": "northeastRamp",
+      "elevated": 2,
+      "samples": 27
+    },
+    {
+      "road": "southwestRamp",
+      "elevated": 7,
+      "samples": 26
+    },
+    {
+      "road": "southeastRamp",
+      "elevated": 4,
+      "samples": 27
+    },
+    {
+      "road": "northAccessEast",
+      "elevated": 4,
+      "samples": 21
+    },
+    {
+      "road": "eastAccessMid",
+      "elevated": 6,
+      "samples": 6
+    },
+    {
+      "road": "southRing",
+      "elevated": 36,
+      "samples": 237
+    },
+    {
+      "road": "eastCoast",
+      "elevated": 19,
+      "samples": 351
+    },
+    {
+      "road": "toResort",
+      "elevated": 64,
+      "samples": 109
+    },
+    {
+      "road": "isletLink",
+      "elevated": 46,
+      "samples": 129
+    },
+    {
+      "road": "northKeys",
+      "elevated": 85,
+      "samples": 264
+    },
+    {
+      "road": "keysCanals",
+      "elevated": 76,
+      "samples": 254
+    },
+    {
+      "road": "keysNorthLoop",
+      "elevated": 4,
+      "samples": 48
+    },
+    {
+      "road": "keysWestLoop",
+      "elevated": 29,
+      "samples": 44
+    },
+    {
+      "road": "keysWestSouthLoop",
+      "elevated": 22,
+      "samples": 38
+    },
+    {
+      "road": "keysMiddleLoop",
+      "elevated": 1,
+      "samples": 57
+    },
+    {
+      "road": "keysCrossing",
+      "elevated": 28,
+      "samples": 44
+    },
+    {
+      "road": "keysSouthLoop",
+      "elevated": 3,
+      "samples": 71
+    },
+    {
+      "road": "outerLink",
+      "elevated": 30,
+      "samples": 45
+    },
+    {
+      "road": "marinaAccess",
+      "elevated": 22,
+      "samples": 47
+    },
+    {
+      "road": "northPrison",
+      "elevated": 4,
+      "samples": 27
+    },
+    {
+      "road": "wetlands",
+      "elevated": 48,
+      "samples": 68
+    },
+    {
+      "road": "parkingEntry",
+      "elevated": 7,
+      "samples": 22
+    },
+    {
+      "road": "cargoEntry",
+      "elevated": 5,
+      "samples": 27
+    },
+    {
+      "road": "privateSpine469",
+      "elevated": 39,
+      "samples": 183
+    }
+  ],
+  "geometry": {
+    "boxes": 194835,
+    "solids": 3230,
+    "entrances": 429,
+    "shoreVerts": 0,
+    "shoreTriangles": 0
+  },
+  "preexisting": {
+    "city20Stage04": {
+      "stage": 4,
+      "roads": 52,
+      "modifiedRoutes": 33,
+      "modifiedSamples": 715,
+      "revertedRoads": [
+        "southRing"
+      ],
+      "maxHeightAdjustmentMeters": 0.6457990148486252,
+      "previousMaximumGrade": 0.0900000000000002,
+      "newMaximumGrade": 0.09000096950978245,
+      "previousMaximumGradeChange": 0.17565627948326104,
+      "newMaximumGradeChange": 0.14087200816980303,
+      "originalMeanGradeChange": 0.005265825290276231,
+      "currentMeanGradeChange": 0.004282565595071419,
+      "numberOfProfiles": 52
+    },
+    "roadRepair477": {
+      "roads": 52,
+      "segments": 3338,
+      "gradeBefore": 1.8415593869979245,
+      "gradeAfter": 0.0900000000000002,
+      "raisedSamples": 311,
+      "junctions": 37
+    },
+    "rails477": {
+      "segments": 630,
+      "cells": 347
+    }
+  }
+}

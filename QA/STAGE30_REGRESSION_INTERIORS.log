@@ -1,0 +1,2 @@
+STAGE29 QA 13/13 {"worldBaseline":{"boxes":196817,"roads":52,"solids":3230,"props":796,"shops":59,"portals":429,"ready":214,"glass":988},"interiorPlansAudited":214,"retailScenesAudited":59,"generatedFloors":224,"ABInteriors":56,"maxNewMeshesPerInterior":9,"newRealInteriorLights":224,"newRealRetailLights":118,"cpuIssues":[],"realGPUVerified":false,"fullHD50FPSVerified":false}
+elapsed=28.15

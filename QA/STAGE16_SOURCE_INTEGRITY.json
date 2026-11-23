@@ -1,0 +1,20 @@
+{
+  "stage": 16,
+  "priorStage": 15,
+  "previousArchive": "SUNSET_STATE_STAGE15_OF35_FULL.zip",
+  "previousArchiveSHA256": "732194bddaed0afe3ca49947c3d97ac1c6123cfc84b7ad8d62cbcdc809f83b34",
+  "keyFiles": {
+    "START_GAME.html": "4f57db085dc570634dfca6857e2051c3304f9c03edcc62cea4ba6f4ffe0da397",
+    "engine44.js": "796a695a2ce8d32a8f1173452ee671a86c7b8ce57193c7e891b7fb9bf4f1ac84",
+    "assets/stage16_facade_glass.js": "e5aacf73a248a5b482451e9a7b696ca782c2acfc476c8388f334a1a14e000391",
+    "QA/run_stage16_of35_acceptance.cjs": "a8e3481e2f6604d3b4e40f0ba4f546341478e9afe8e6500d786ab40f33a1d764",
+    "QA/run_stage16_ab_off.cjs": "2c96fa1047dda3239e3aa3c10b69eae16830fe66e86e50768f2e6709f37e088c",
+    "PROJECT/35_STAGE_PLAN_HE.md": "e097e1b3681666fd20d9ed1de658e7e8a34e13ce139fadf647e9e41e3aca11a6",
+    "PROJECT/35_STAGE_PROGRESS.json": "264a431d8f276d446c68f44f90bffc2f2eeb6ee114a455ffd7c951fb5f5b38d0",
+    "PROJECT/STAGE16_OF35_REPORT_HE.md": "c2250eb37d160954949637fdaed83f27414b5d2247ef3f57829faac11f601c00"
+  },
+  "gpuWebGLVerified": false,
+  "fps1920x1080Verified": false,
+  "lastTechnicalStage": 16,
+  "nextStage": 17
+}

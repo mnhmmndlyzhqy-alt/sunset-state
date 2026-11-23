@@ -1,0 +1,586 @@
+{
+  "counts": {
+    "streetVenues": 66,
+    "retailShops": 59,
+    "decorated": 60,
+    "decoratedRetail": 54,
+    "decoratedNonRetail": 6
+  },
+  "missingRetail": [
+    {
+      "id": 3,
+      "kind": "flower",
+      "bid": 5,
+      "retail": false,
+      "parts": 3,
+      "portalId": 5,
+      "labels": [
+        "venue-signband",
+        "venue-sign-trim",
+        "venue-door-canopy"
+      ],
+      "hasBank": false
+    },
+    {
+      "id": 8,
+      "kind": "cafe",
+      "bid": 17,
+      "retail": false,
+      "parts": 3,
+      "portalId": 17,
+      "labels": [
+        "venue-signband",
+        "venue-sign-trim",
+        "venue-door-canopy"
+      ],
+      "hasBank": false
+    },
+    {
+      "id": 16,
+      "kind": "cafe",
+      "bid": 40,
+      "retail": false,
+      "parts": 3,
+      "portalId": 37,
+      "labels": [
+        "venue-signband",
+        "venue-sign-trim",
+        "venue-door-canopy"
+      ],
+      "hasBank": false
+    },
+    {
+      "id": 21,
+      "kind": "flower",
+      "bid": 57,
+      "retail": false,
+      "parts": 3,
+      "portalId": 54,
+      "labels": [
+        "venue-signband",
+        "venue-sign-trim",
+        "venue-door-canopy"
+      ],
+      "hasBank": false
+    },
+    {
+      "id": 27,
+      "kind": "cafe",
+      "bid": 73,
+      "retail": false,
+      "parts": 3,
+      "portalId": 70,
+      "labels": [
+        "venue-signband",
+        "venue-sign-trim",
+        "venue-door-canopy"
+      ],
+      "hasBank": false
+    },
+    {
+      "id": 28,
+      "kind": "cafe",
+      "bid": 76,
+      "retail": false,
+      "parts": 3,
+      "portalId": 73,
+      "labels": [
+        "venue-signband",
+        "venue-sign-trim",
+        "venue-door-canopy"
+      ],
+      "hasBank": false
+    }
+  ],
+  "extraRetail": [
+    {
+      "id": 150,
+      "kind": "cafe",
+      "bid": null,
+      "retail": true,
+      "parts": 0,
+      "door": -350.312,
+      "portalId": null,
+      "labels": [],
+      "hasBank": false
+    },
+    {
+      "id": 151,
+      "kind": "grocery",
+      "bid": null,
+      "retail": true,
+      "parts": 0,
+      "door": -70.312,
+      "portalId": null,
+      "labels": [],
+      "hasBank": false
+    },
+    {
+      "id": 152,
+      "kind": "bookshop",
+      "bid": null,
+      "retail": true,
+      "parts": 0,
+      "door": 282.688,
+      "portalId": null,
+      "labels": [],
+      "hasBank": false
+    },
+    {
+      "id": 153,
+      "kind": "pharmacy",
+      "bid": null,
+      "retail": true,
+      "parts": 0,
+      "door": -299.312,
+      "portalId": null,
+      "labels": [],
+      "hasBank": false
+    },
+    {
+      "id": 154,
+      "kind": "gallery",
+      "bid": null,
+      "retail": true,
+      "parts": 0,
+      "door": -191.312,
+      "portalId": null,
+      "labels": [],
+      "hasBank": false
+    }
+  ],
+  "venueTypes": {
+    "gallery": 9,
+    "bakery": 7,
+    "grocery": 14,
+    "flower": 10,
+    "pharmacy": 7,
+    "cafe": 9,
+    "bank": 1,
+    "bookshop": 8,
+    "garden": 1
+  },
+  "decoratedVenues": [
+    {
+      "id": 0,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 2,
+      "parts": 6
+    },
+    {
+      "id": 1,
+      "kind": "bakery",
+      "retail": true,
+      "portalId": 3,
+      "parts": 6
+    },
+    {
+      "id": 2,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 4,
+      "parts": 6
+    },
+    {
+      "id": 3,
+      "kind": "flower",
+      "retail": false,
+      "portalId": 5,
+      "parts": 3
+    },
+    {
+      "id": 4,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 8,
+      "parts": 6
+    },
+    {
+      "id": 5,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 9,
+      "parts": 6
+    },
+    {
+      "id": 6,
+      "kind": "pharmacy",
+      "retail": true,
+      "portalId": 11,
+      "parts": 6
+    },
+    {
+      "id": 7,
+      "kind": "bakery",
+      "retail": true,
+      "portalId": 16,
+      "parts": 6
+    },
+    {
+      "id": 8,
+      "kind": "cafe",
+      "retail": false,
+      "portalId": 17,
+      "parts": 3
+    },
+    {
+      "id": 9,
+      "kind": "bakery",
+      "retail": true,
+      "portalId": 19,
+      "parts": 6
+    },
+    {
+      "id": 10,
+      "kind": "pharmacy",
+      "retail": true,
+      "portalId": 22,
+      "parts": 6
+    },
+    {
+      "id": 11,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 23,
+      "parts": 6
+    },
+    {
+      "id": 12,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 24,
+      "parts": 6
+    },
+    {
+      "id": 13,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 26,
+      "parts": 6
+    },
+    {
+      "id": 14,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 29,
+      "parts": 6
+    },
+    {
+      "id": 15,
+      "kind": "bank",
+      "retail": true,
+      "portalId": 33,
+      "parts": 6
+    },
+    {
+      "id": 16,
+      "kind": "cafe",
+      "retail": false,
+      "portalId": 37,
+      "parts": 3
+    },
+    {
+      "id": 17,
+      "kind": "pharmacy",
+      "retail": true,
+      "portalId": 43,
+      "parts": 6
+    },
+    {
+      "id": 18,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 44,
+      "parts": 6
+    },
+    {
+      "id": 19,
+      "kind": "bookshop",
+      "retail": true,
+      "portalId": 52,
+      "parts": 6
+    },
+    {
+      "id": 20,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 53,
+      "parts": 6
+    },
+    {
+      "id": 21,
+      "kind": "flower",
+      "retail": false,
+      "portalId": 54,
+      "parts": 3
+    },
+    {
+      "id": 22,
+      "kind": "bookshop",
+      "retail": true,
+      "portalId": 55,
+      "parts": 6
+    },
+    {
+      "id": 23,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 60,
+      "parts": 6
+    },
+    {
+      "id": 24,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 63,
+      "parts": 6
+    },
+    {
+      "id": 25,
+      "kind": "bookshop",
+      "retail": true,
+      "portalId": 64,
+      "parts": 6
+    },
+    {
+      "id": 26,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 69,
+      "parts": 6
+    },
+    {
+      "id": 27,
+      "kind": "cafe",
+      "retail": false,
+      "portalId": 70,
+      "parts": 3
+    },
+    {
+      "id": 28,
+      "kind": "cafe",
+      "retail": false,
+      "portalId": 73,
+      "parts": 3
+    },
+    {
+      "id": 29,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 75,
+      "parts": 6
+    },
+    {
+      "id": 30,
+      "kind": "pharmacy",
+      "retail": true,
+      "portalId": 76,
+      "parts": 6
+    },
+    {
+      "id": 31,
+      "kind": "cafe",
+      "retail": true,
+      "portalId": 78,
+      "parts": 6
+    },
+    {
+      "id": 32,
+      "kind": "bookshop",
+      "retail": true,
+      "portalId": 79,
+      "parts": 6
+    },
+    {
+      "id": 123,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 2,
+      "parts": 6
+    },
+    {
+      "id": 124,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 3,
+      "parts": 6
+    },
+    {
+      "id": 125,
+      "kind": "bakery",
+      "retail": true,
+      "portalId": 4,
+      "parts": 6
+    },
+    {
+      "id": 126,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 8,
+      "parts": 6
+    },
+    {
+      "id": 127,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 9,
+      "parts": 6
+    },
+    {
+      "id": 128,
+      "kind": "cafe",
+      "retail": true,
+      "portalId": 11,
+      "parts": 6
+    },
+    {
+      "id": 129,
+      "kind": "gallery",
+      "retail": true,
+      "portalId": 16,
+      "parts": 6
+    },
+    {
+      "id": 130,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 19,
+      "parts": 6
+    },
+    {
+      "id": 131,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 22,
+      "parts": 6
+    },
+    {
+      "id": 132,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 23,
+      "parts": 6
+    },
+    {
+      "id": 133,
+      "kind": "pharmacy",
+      "retail": true,
+      "portalId": 24,
+      "parts": 6
+    },
+    {
+      "id": 134,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 26,
+      "parts": 6
+    },
+    {
+      "id": 135,
+      "kind": "bakery",
+      "retail": true,
+      "portalId": 29,
+      "parts": 6
+    },
+    {
+      "id": 136,
+      "kind": "bookshop",
+      "retail": true,
+      "portalId": 33,
+      "parts": 6
+    },
+    {
+      "id": 137,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 43,
+      "parts": 6
+    },
+    {
+      "id": 138,
+      "kind": "pharmacy",
+      "retail": true,
+      "portalId": 44,
+      "parts": 6
+    },
+    {
+      "id": 139,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 52,
+      "parts": 6
+    },
+    {
+      "id": 140,
+      "kind": "bakery",
+      "retail": true,
+      "portalId": 53,
+      "parts": 6
+    },
+    {
+      "id": 141,
+      "kind": "cafe",
+      "retail": true,
+      "portalId": 55,
+      "parts": 6
+    },
+    {
+      "id": 142,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 60,
+      "parts": 6
+    },
+    {
+      "id": 143,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 63,
+      "parts": 6
+    },
+    {
+      "id": 144,
+      "kind": "flower",
+      "retail": true,
+      "portalId": 64,
+      "parts": 6
+    },
+    {
+      "id": 145,
+      "kind": "bakery",
+      "retail": true,
+      "portalId": 69,
+      "parts": 6
+    },
+    {
+      "id": 146,
+      "kind": "bookshop",
+      "retail": true,
+      "portalId": 75,
+      "parts": 6
+    },
+    {
+      "id": 147,
+      "kind": "cafe",
+      "retail": true,
+      "portalId": 76,
+      "parts": 6
+    },
+    {
+      "id": 148,
+      "kind": "bookshop",
+      "retail": true,
+      "portalId": 78,
+      "parts": 6
+    },
+    {
+      "id": 149,
+      "kind": "grocery",
+      "retail": true,
+      "portalId": 79,
+      "parts": 6
+    }
+  ]
+}
+elapsed=29.25 s memory=664844 KB

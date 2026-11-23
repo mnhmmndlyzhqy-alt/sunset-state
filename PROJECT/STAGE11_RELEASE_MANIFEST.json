@@ -1,0 +1,45 @@
+{
+  "project": "SUNSET STATE",
+  "stage": 11,
+  "issue": "S01-ST-02",
+  "basedOnArchive": "SUNSET_STATE_STAGE10_OF35_FULL.zip",
+  "basedOnSHA256": "fbd36fd204c9539348d20fcd58513ca769db0771aee1fbd7e205ce1e77eb54ea",
+  "modifiedOriginalFiles": [
+    "START_GAME.html",
+    "QA/stage05_bootstrap.cjs",
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "README_35_STAGE_HE.md"
+  ],
+  "newRuntimeFiles": [
+    "assets/stage11_streetlamp_safety.js"
+  ],
+  "original30FlagCount": "historic_not_live",
+  "liveLampPairs": 28,
+  "lampPairsAligned": 25,
+  "lampPairsMovedHorizontally": 0,
+  "liveRoadWaterAndWalkwayConflicts": 0,
+  "stage11CPUAcceptance": "118/118",
+  "ABComparison": "pass",
+  "stage10Regression": "39/39",
+  "stage08Regression": "28/28",
+  "stage07Regression": "23/23",
+  "compatSmoke": "30/30",
+  "compatPhysics": "29/29",
+  "gpuVerified": false,
+  "fps1080pVerified": false,
+  "loadedJavaScriptFileCount": 70,
+  "sourceJavaScriptPathsVerified": true,
+  "previousArchiveFiles": 514,
+  "newFiles": 25,
+  "allPreviousFilePathsPreserved": true,
+  "changedOriginalPaths": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "QA/STAGE05_PHYSICS_RECOVERY04_ACCEPTANCE.json",
+    "QA/STAGE07_OF35_ACCEPTANCE.json",
+    "QA/stage05_bootstrap.cjs",
+    "README_35_STAGE_HE.md",
+    "START_GAME.html"
+  ]
+}

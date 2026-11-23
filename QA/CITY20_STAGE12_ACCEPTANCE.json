@@ -1,0 +1,15 @@
+{
+  "stage": 12,
+  "tests": 26,
+  "passed": true,
+  "stats": {
+    "stage": 12,
+    "readyPortals": 198,
+    "zonedLobbies": 198,
+    "skippedWithoutPlan": 0,
+    "skippedSmall": 0,
+    "geometryAdded": 1980,
+    "collisionsAdded": 0,
+    "gpuFpsVerified": false
+  }
+}

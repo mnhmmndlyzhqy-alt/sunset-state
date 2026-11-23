@@ -1,0 +1,488 @@
+{
+  "project": "SUNSET STATE",
+  "phase": "20-STAGE CITY REBUILD",
+  "stage": 1,
+  "base": "4.7.9",
+  "when": "2026-11-21",
+  "gameMechanicsModified": false,
+  "reference": {
+    "name": "CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+    "size": {
+      "width": 1408,
+      "height": 768
+    },
+    "sha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+    "registrationsApproximate": true
+  },
+  "geometry": {
+    "buildings": 84,
+    "boxes": 176421,
+    "roadRoutes": 52,
+    "roadSegmentsSampled": 3354,
+    "maximumRoadSlope": 0.0900000000000002,
+    "coastalVerts": 34042,
+    "coastalTriangles": 65012,
+    "crocodilesInWater": 8
+  },
+  "benchmark": {
+    "requireInternalPx": [
+      1920,
+      1080
+    ],
+    "minimumFps": 50,
+    "liveGpuValidated": false,
+    "minimumFpsAchieved": null,
+    "reason": "Only code and CPU baseline measured; browser GPU cannot be assumed."
+  },
+  "cpuBuildTimingMs": 5838,
+  "compileAndEvalMs": 6146,
+  "benchmarkTimingNotRepresentativeOfGpu": true,
+  "visualAnchors": [
+    {
+      "id": "CITY_CENTER_AERIAL",
+      "name": "מרכז העיר ממסוק",
+      "category": "center",
+      "radius": 200,
+      "imagePxOriginal": [
+        764,
+        365
+      ],
+      "worldTarget": {
+        "x": -24.62,
+        "z": -70
+      },
+      "camera": {
+        "x": -144.62,
+        "y": 115,
+        "z": 85,
+        "tx": -24.62,
+        "ty": 5,
+        "tz": -70,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 13,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "CITY_CENTER_STREET",
+      "name": "רחוב מסחרי מרכזי",
+      "category": "center",
+      "radius": 80,
+      "imagePxOriginal": [
+        790,
+        452
+      ],
+      "worldTarget": {
+        "x": 27.71,
+        "z": 164.19
+      },
+      "camera": {
+        "x": 27.71,
+        "y": 2,
+        "z": 180.19,
+        "tx": 27.71,
+        "ty": 1.8,
+        "tz": 164.19,
+        "fov": 66
+      },
+      "nearbyPrimaryBuildings": 3,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "CANAL_NEIGHBORHOODS",
+      "name": "שכונות ותעלות במערב",
+      "category": "residential",
+      "radius": 170,
+      "imagePxOriginal": [
+        275,
+        463
+      ],
+      "worldTarget": {
+        "x": -816.08,
+        "z": 193.8
+      },
+      "camera": {
+        "x": -896.08,
+        "y": 38,
+        "z": 303.8,
+        "tx": -816.08,
+        "ty": 5,
+        "tz": 193.8,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "PORT_WATERFRONT",
+      "name": "הנמל הצפון מערבי",
+      "category": "port",
+      "radius": 200,
+      "imagePxOriginal": [
+        196,
+        134
+      ],
+      "worldTarget": {
+        "x": -914.88,
+        "z": -665.61
+      },
+      "camera": {
+        "x": -1004.88,
+        "y": 75,
+        "z": -535.61,
+        "tx": -914.88,
+        "ty": 5,
+        "tz": -665.61,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "STADIUM_AND_BEACH",
+      "name": "האצטדיון והחוף המזרחי",
+      "category": "east_coast",
+      "radius": 185,
+      "imagePxOriginal": [
+        1122,
+        292
+      ],
+      "worldTarget": {
+        "x": 678.08,
+        "z": -266.5
+      },
+      "camera": {
+        "x": 583.08,
+        "y": 72,
+        "z": -161.5,
+        "tx": 678.08,
+        "ty": 5,
+        "tz": -266.5,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "AIRPORT_AND_RUNWAY",
+      "name": "שדה התעופה והמסלול בדרום",
+      "category": "airport",
+      "radius": 240,
+      "imagePxOriginal": [
+        706,
+        665
+      ],
+      "worldTarget": {
+        "x": -141.34,
+        "z": 667.38
+      },
+      "camera": {
+        "x": -246.34,
+        "y": 110,
+        "z": 812.38,
+        "tx": -141.34,
+        "ty": 5,
+        "tz": 667.38,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    },
+    {
+      "id": "NORTH_WETLANDS",
+      "name": "הביצות והטבע בצפון",
+      "category": "wetlands",
+      "radius": 210,
+      "imagePxOriginal": [
+        973,
+        78
+      ],
+      "worldTarget": {
+        "x": 396,
+        "z": -766.18
+      },
+      "camera": {
+        "x": 336,
+        "y": 62,
+        "z": -691.18,
+        "tx": 396,
+        "ty": 5,
+        "tz": -766.18,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "wetland water and raised ground"
+    },
+    {
+      "id": "RESORT_AND_ISLANDS",
+      "name": "איים וחוף במזרח",
+      "category": "islands",
+      "radius": 150,
+      "imagePxOriginal": [
+        1288,
+        190
+      ],
+      "worldTarget": {
+        "x": 1003.22,
+        "z": -563.78
+      },
+      "camera": {
+        "x": 928.22,
+        "y": 63,
+        "z": -463.78,
+        "tx": 1003.22,
+        "ty": 5,
+        "tz": -563.78,
+        "fov": 69
+      },
+      "nearbyPrimaryBuildings": 0,
+      "terrain": "inspect visual match to reference"
+    }
+  ],
+  "scriptInventory": {
+    "assets/aerowild_player_meshes.js": {
+      "bytes": 132831,
+      "sha256": "2c50cd39e6878aa5100c7f3d280d6e28f72d4b70623234c97f1d7a1efc25cb6f"
+    },
+    "assets/aerowild_player.js": {
+      "bytes": 5820,
+      "sha256": "478723948f331f96ffa85a37055ded5b493b0362dcd92ad67b36f98ea4ce7d4f"
+    },
+    "assets/city_441.js": {
+      "bytes": 14773,
+      "sha256": "1ebec70dd4966198b92ce40aa3db0fd4ddf7384c830dae191e460a0c4e0a40d2"
+    },
+    "assets/urban_441.js": {
+      "bytes": 942,
+      "sha256": "37f79571677da5a020afd8419150e40201732829b074b138b32608134dd03274"
+    },
+    "assets/commerce_442.js": {
+      "bytes": 9409,
+      "sha256": "7b5ce37f05c0e40c048b2a09812e2760ea6bd56d62af734b4274056cc79b548d"
+    },
+    "assets/gt_meshes_442.js": {
+      "bytes": 166626,
+      "sha256": "a56009c774d14aac3f5ae1db02dfac48620d8537a559d95c7bc2eda3183adb0a"
+    },
+    "assets/gt_442.js": {
+      "bytes": 6308,
+      "sha256": "63e5e5930b2c08b4abb4047ae7172e3619b0a8188e769f3a0a494b04ba5ad150"
+    },
+    "assets/city_442.js": {
+      "bytes": 7157,
+      "sha256": "c0a0b91ec856af840abc54b7d28b2d9ecbf268656c9da9e418f16a91ef3c61d5"
+    },
+    "assets/overpass_443.js": {
+      "bytes": 5646,
+      "sha256": "d328afe36ab19ea4c7f7c26c3decf7fdb2c13316df95d425a70909cc2cd25997"
+    },
+    "assets/terrain_444.js": {
+      "bytes": 5819,
+      "sha256": "d07703a0203605ff1ae9e406213cf7ef78570810b6ea840ce8a6733d3b4248bb"
+    },
+    "assets/ridge_443.js": {
+      "bytes": 8785,
+      "sha256": "c13167ad2b69081018dedb3c5a066b5dfee4aa8cd7a6cc349f38f733c275fb74"
+    },
+    "assets/street_life_443.js": {
+      "bytes": 4646,
+      "sha256": "ed34ac6709f01fca6ed4665c95d13a277baf41f3e72024ce8586c48fc0629fc0"
+    },
+    "assets/marina_444.js": {
+      "bytes": 6051,
+      "sha256": "9b09ea7307b5d5bdfca8544cc7deb966da0fc74fe440246a74da70d1c0301b0e"
+    },
+    "assets/render_442.js": {
+      "bytes": 1211,
+      "sha256": "e834e11fcc3b31c632e06d97dce5302cbc9a8e571f52449338468d5aac486436"
+    },
+    "assets/navigation_445.js": {
+      "bytes": 30817,
+      "sha256": "d882e671583be709d6285e17138939cfc916f63b408daf1a3f0803069faec0bd"
+    },
+    "assets/city_445.js": {
+      "bytes": 11909,
+      "sha256": "541857d487eff2f3927c25a514ccf6b25d5d30c0f4444395e1ce5af2e36a0311"
+    },
+    "assets/life_445.js": {
+      "bytes": 10377,
+      "sha256": "b08063f98e83ce55d1f7253b4b861ef2031ba75ff842a724d7068c52717a06c4"
+    },
+    "assets/visual_450.js": {
+      "bytes": 10983,
+      "sha256": "f0232f392ccc840930e50174f6027321b81618efab64ba8853c2934d51ae5975"
+    },
+    "assets/city_455.js": {
+      "bytes": 17527,
+      "sha256": "46b1ac0e548d023dae82ed56c5639f9f7853e3c30c2fcc1a2571d7ff9e83c1ae"
+    },
+    "assets/reference_coast_469.js": {
+      "bytes": 907808,
+      "sha256": "79306923b05904ac9d71fce618f3a3a23ab30230aa91699b0f6a822625c25700"
+    },
+    "assets/reference_plan_469.js": {
+      "bytes": 5148,
+      "sha256": "72307c4de4a27780c4cabbb3269054e55ce0b8b4060b8a28bf5221b7fba4666a"
+    },
+    "assets/coast_461.js": {
+      "bytes": 17359,
+      "sha256": "a2893be4e6ba882ddc95f9ef057b2ef365591f51712b65f34c02adb01f61be48"
+    },
+    "assets/city_plan_463.js": {
+      "bytes": 12403,
+      "sha256": "f786ad2816fcbfe966c232fe5707d756d70839fc5573fcef2e6847c9a08b6a1d"
+    },
+    "assets/districts_461.js": {
+      "bytes": 17868,
+      "sha256": "54b29545909cf351eee7302644245c4e822d67e43b9563fe047f7877c3ce9626"
+    },
+    "assets/landmarks_461.js": {
+      "bytes": 44615,
+      "sha256": "862bba4fc00cffdf37e92374948525fe8af2bfe667b5e74c51f712d439503236"
+    },
+    "assets/prison_471.js": {
+      "bytes": 26463,
+      "sha256": "037d8a37d1ceaeaeb69503573e2b22ae49c1d04d2104ad1ffc542223091d46bd"
+    },
+    "assets/activity_461.js": {
+      "bytes": 6889,
+      "sha256": "eb2bba0af80bf55842a2a6c028d54e09ee49c1b227b7501d64572aaaa9ee7633"
+    },
+    "assets/streets_461.js": {
+      "bytes": 20263,
+      "sha256": "3f4e6fdf2470ecc7552040b774d980251f04ff179ae57fc72b6a8d06689fb3de"
+    },
+    "assets/finish_461.js": {
+      "bytes": 16480,
+      "sha256": "443b6abba706eb576e775ec031f89d1ec34f7c6ea6d86bcac80a50b5feb1186f"
+    },
+    "assets/reference_buildings_469.js": {
+      "bytes": 7001,
+      "sha256": "8e118ea7849fa81e2e0dc7329c51e046aa28d36ab8cf036e9366da1daaedda1c"
+    },
+    "assets/terrain_463.js": {
+      "bytes": 9733,
+      "sha256": "16ecc680f7372e02fdb7be12b57599d3aa1a2011bf9e0719fcc51d00bedce5cf"
+    },
+    "assets/performance_475.js": {
+      "bytes": 6395,
+      "sha256": "286e7dd1b6f238c7caecbbe07c6624199d1e7ab321fc222d39032e4ddc91bbe6"
+    },
+    "assets/continuation_476.js": {
+      "bytes": 11364,
+      "sha256": "421a04e7dc9e29a9e2278e747298ac83567bfe1ff902fd8d3709f68fa9031deb"
+    },
+    "assets/performance_476.js": {
+      "bytes": 7350,
+      "sha256": "69ae743cd94db4585516ed5a384be8e7161695e95d07f5378512282c12b4f252"
+    },
+    "assets/repair_477.js": {
+      "bytes": 12516,
+      "sha256": "707a2ff6d8c97d0535a4cd5c6a428964232ef04bb3df18a5acb0d370365eb449"
+    },
+    "assets/continuation_478.js": {
+      "bytes": 7211,
+      "sha256": "05bf00aeb3717b2674d639c19421ee5c40b320dc21ff2ee93e907520083c32d0"
+    },
+    "assets/continuation_479.js": {
+      "bytes": 5138,
+      "sha256": "11ecad888546d0f9fd5f7ef9423566604a4af820506cba74705ec39b62dbcadc"
+    },
+    "START_GAME.html": {
+      "bytes": 64919,
+      "sha256": "fe2138740f8b6d5364abe55bccdc0cfcad10bff5d6f1a9f592c806fc6ebdd811"
+    },
+    "engine44.js": {
+      "bytes": 21421496,
+      "sha256": "6316f1473c5d1a5dd2acdcb88e92c29b7677dc33cba7977cdbf5805d2be826ce"
+    },
+    "REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png": {
+      "bytes": 2620601,
+      "sha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38"
+    }
+  },
+  "checks": [
+    {
+      "id": "has_chosen_reference",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "reference_is_original_1408x768",
+      "passed": true,
+      "details": {
+        "width": 1408,
+        "height": 768
+      }
+    },
+    {
+      "id": "all_external_js_exist",
+      "passed": true,
+      "details": {
+        "scripts": 37
+      }
+    },
+    {
+      "id": "custom_webgl2_engine_preserved",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "native_1080_mode_intact",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "performance_tools_present",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "engine_world_api",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "has_real_roads",
+      "passed": true,
+      "details": {
+        "roads": 52
+      }
+    },
+    {
+      "id": "road_slope_repair_still_active",
+      "passed": true,
+      "details": {
+        "maxGrade": 0.0900000000000002
+      }
+    },
+    {
+      "id": "crocodiles_in_water",
+      "passed": true,
+      "details": {
+        "count": 8
+      }
+    },
+    {
+      "id": "no_added_timber_boardwalk",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "geometry_nonempty",
+      "passed": true,
+      "details": {
+        "buildings": 84,
+        "meshes": 176421
+      }
+    },
+    {
+      "id": "eight_camera_anchors_valid",
+      "passed": true,
+      "details": {}
+    }
+  ],
+  "passed": 13,
+  "total": 13,
+  "allPassed": true
+}

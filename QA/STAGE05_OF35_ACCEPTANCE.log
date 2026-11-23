@@ -1,0 +1,17 @@
+{
+  "passed": 32,
+  "total": 32,
+  "failures": [],
+  "summary": {
+    "newBuildings": 130,
+    "oldAccessible": 84,
+    "newAccessible": 130,
+    "totalAccessible": 214,
+    "portals": 429,
+    "compact": 122,
+    "gameplayTested": 130,
+    "legacyTested": 84,
+    "buildings": 84,
+    "roads": 52
+  }
+}

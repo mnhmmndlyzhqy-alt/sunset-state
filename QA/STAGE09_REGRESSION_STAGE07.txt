@@ -1,0 +1,15 @@
+{
+  "pass": 23,
+  "total": 23,
+  "failed": [],
+  "summary": {
+    "rotated": 34,
+    "unchanged": 96,
+    "oneFloorEligible": 65,
+    "addedCollisionCells": 1750,
+    "originalBuildings": 84,
+    "roads": 52,
+    "activeEntrances": 214
+  }
+}
+DURATION=26.56 s,PEAKKB=516968

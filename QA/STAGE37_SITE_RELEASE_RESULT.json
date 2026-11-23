@@ -1,0 +1,25 @@
+{
+  "stage": 37,
+  "siteFiles": 178,
+  "priorSiteFilesPreserved": 174,
+  "intendedPreviousFilesModified": [
+    "SITE_FILE_MANIFEST.json",
+    "START_GAME.html",
+    "engine44.js",
+    "index.html"
+  ],
+  "newFiles": [
+    "README_STAGE37_GITHUB_PAGES_HE.md",
+    "README_STAGE37_HE.md",
+    "STAGE37_AB_BENCHMARK.html",
+    "assets/stage37_render_optimization.js"
+  ],
+  "javascriptSyntaxChecks": 134,
+  "scriptsPerEntry": 92,
+  "checks": 1216,
+  "passed": 1216,
+  "failed": [],
+  "gpuMeasured": false,
+  "native1080Fps50Verified": false,
+  "publicDeployment": false
+}

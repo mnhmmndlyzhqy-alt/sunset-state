@@ -1,0 +1,222 @@
+{
+  "version": "4.7.8",
+  "date": "2026-11-21",
+  "testType": "code/CPU simulation, not GPU rasterization",
+  "checksPassed": 14,
+  "checksTotal": 14,
+  "allPassed": true,
+  "durationMs": 6677,
+  "worldAdded": {
+    "reeds": 23,
+    "bankStones": 9,
+    "streetBeds": 8,
+    "optionalMeshes": 48,
+    "allOnLand": true,
+    "noTimberPlatformAdded": true,
+    "maxViewDistance": 180,
+    "usesPerformanceGuard475": true
+  },
+  "traffic": [
+    {
+      "road": "westExpress",
+      "offroad": 0
+    },
+    {
+      "road": "westExpress",
+      "offroad": 0
+    },
+    {
+      "road": "northRing",
+      "offroad": 0
+    },
+    {
+      "road": "northRing",
+      "offroad": 0
+    },
+    {
+      "road": "northRing",
+      "offroad": 0
+    },
+    {
+      "road": "northRing",
+      "offroad": 0
+    },
+    {
+      "road": "southRing",
+      "offroad": 0
+    },
+    {
+      "road": "westExpress",
+      "offroad": 0
+    },
+    {
+      "road": "westExpress",
+      "offroad": 0
+    },
+    {
+      "road": "northRing",
+      "offroad": 0
+    },
+    {
+      "road": "northRing",
+      "offroad": 0
+    },
+    {
+      "road": "keysCanals",
+      "offroad": 0
+    },
+    {
+      "road": "eastCoast",
+      "offroad": 0
+    },
+    {
+      "road": "eastCoast",
+      "offroad": 0
+    },
+    {
+      "road": "westExpress",
+      "offroad": 0
+    },
+    {
+      "road": "northRing",
+      "offroad": 0
+    },
+    {
+      "road": "southRing",
+      "offroad": 0
+    },
+    {
+      "road": "westExpress",
+      "offroad": 0
+    },
+    {
+      "road": "eastCoast",
+      "offroad": 0
+    },
+    {
+      "road": "keysCanals",
+      "offroad": 0
+    },
+    {
+      "road": "westExpress",
+      "offroad": 0
+    },
+    {
+      "road": "eastCoast",
+      "offroad": 0
+    }
+  ],
+  "checks": [
+    {
+      "id": "script_loaded_once",
+      "passed": true,
+      "details": {
+        "scripts": 37
+      }
+    },
+    {
+      "id": "real_roads_preserved",
+      "passed": true,
+      "details": {
+        "count": 52
+      }
+    },
+    {
+      "id": "native_full_hd_code_kept",
+      "passed": true,
+      "details": {
+        "setting": "native1080"
+      }
+    },
+    {
+      "id": "new_guards_are_versioned",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "grade_cap_not_regressed",
+      "passed": true,
+      "details": {
+        "maxSlope": 0.0900000000000002
+      }
+    },
+    {
+      "id": "bounded_optional_detail",
+      "passed": true,
+      "details": {
+        "meshes": 48,
+        "stats": {
+          "reeds": 23,
+          "bankStones": 9,
+          "streetBeds": 8,
+          "optionalMeshes": 48,
+          "allOnLand": true,
+          "noTimberPlatformAdded": true,
+          "maxViewDistance": 180,
+          "usesPerformanceGuard475": true
+        }
+      }
+    },
+    {
+      "id": "new_details_have_no_colliders",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "all_new_detail_on_dry_land",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "no_fake_water_or_timber_path",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "id": "crocodiles_still_in_water",
+      "passed": true,
+      "details": {
+        "animals": 8
+      }
+    },
+    {
+      "id": "traffic_still_spawns_on_roads",
+      "passed": true,
+      "details": {
+        "cars": 25
+      }
+    },
+    {
+      "id": "npc_predictive_braking",
+      "passed": true,
+      "details": {
+        "brake": true,
+        "gas": 0
+      }
+    },
+    {
+      "id": "npc_does_not_brake_for_sidecar",
+      "passed": true,
+      "details": {
+        "brake": false,
+        "gas": 0.3
+      }
+    },
+    {
+      "id": "npc_regression_22_routes",
+      "passed": true,
+      "details": {
+        "total": 22,
+        "offroad": 0,
+        "invalid": 0
+      }
+    }
+  ],
+  "gpuFpsVerified": false,
+  "native1080GpuVerified": false,
+  "notes": [
+    "No complete user GPU 1920x1080/50FPS benchmark.",
+    "Optional new details use the existing FPS rollback guard.",
+    "Physical gameplay and visual QA remain necessary."
+  ]
+}

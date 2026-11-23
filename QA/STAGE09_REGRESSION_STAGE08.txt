@@ -1,0 +1,40 @@
+{
+  "pass": 28,
+  "total": 28,
+  "issues": [],
+  "stats": {
+    "stage": 8,
+    "issue": "S01-BL-05",
+    "buildingCount": 130,
+    "windowBays": 1586,
+    "glazing": 1586,
+    "trim": 1586,
+    "sills": 1586,
+    "mullions": 1076,
+    "doorwayBaysSkipped": 138,
+    "setbackTierRowsSkipped": 7,
+    "sideWindows": 1025,
+    "rearWindows": 561,
+    "rotatedBuildingsCovered": 34,
+    "faces": {
+      "north": 561,
+      "east": 519,
+      "west": 506
+    },
+    "byKind": {
+      "tower": 257,
+      "villa": 795,
+      "civic": 195,
+      "midrise": 53,
+      "warehouse": 151,
+      "service": 8,
+      "resort": 127
+    },
+    "visualMeshesAdded": 5834,
+    "collisionsAdded": 0,
+    "breaksGlass": false,
+    "actualOpeningsCut": false,
+    "gpu1080pVerified": false
+  }
+}
+DURATION=27.00 s,PEAKKB=738092

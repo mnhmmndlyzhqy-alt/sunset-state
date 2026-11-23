@@ -1,0 +1,64 @@
+{
+  "pass": true,
+  "protectedWorldKeysEqual": {
+    "boxes": 194478,
+    "solids": 3230,
+    "roads": 52,
+    "activePortals": 214,
+    "stage10": 0,
+    "stage11": 0
+  },
+  "additionalColliders": 360,
+  "physicalBefore": [
+    {
+      "kind": "planter-base",
+      "fromX": -357.404,
+      "finalX": -353.607,
+      "centerX": -356.234,
+      "physicallyBlocked": false,
+      "carContact": false
+    },
+    {
+      "kind": "safety-bollard",
+      "fromX": -356.969,
+      "finalX": -353.172,
+      "centerX": -356.034,
+      "physicallyBlocked": false,
+      "carContact": false
+    },
+    {
+      "kind": "streetlamp-post",
+      "fromX": -301.717,
+      "finalX": -298.587,
+      "centerX": -300.797,
+      "physicallyBlocked": false,
+      "carContact": false
+    }
+  ],
+  "physicalAfter": [
+    {
+      "kind": "planter-base",
+      "fromX": -357.404,
+      "finalX": -356.939,
+      "centerX": -356.234,
+      "physicallyBlocked": true,
+      "carContact": true
+    },
+    {
+      "kind": "safety-bollard",
+      "fromX": -356.969,
+      "finalX": -356.504,
+      "centerX": -356.034,
+      "physicallyBlocked": true,
+      "carContact": true
+    },
+    {
+      "kind": "streetlamp-post",
+      "fromX": -301.717,
+      "finalX": -301.252,
+      "centerX": -300.797,
+      "physicallyBlocked": true,
+      "carContact": true
+    }
+  ]
+}

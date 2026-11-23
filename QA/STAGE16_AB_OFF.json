@@ -1,0 +1,8 @@
+{
+  "stage": 16,
+  "comparison": "stage16 OFF",
+  "passed": 7,
+  "total": 7,
+  "mode": "CPU original Game world",
+  "gpuValidated": false
+}

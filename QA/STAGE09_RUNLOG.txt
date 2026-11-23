@@ -1,0 +1,34 @@
+{
+  "stage": 9,
+  "passed": 25,
+  "total": 25,
+  "failed": 0,
+  "stats": {
+    "stage": 9,
+    "issueId": "S01-BL-06",
+    "source": "reference469.coast signed terrain mask",
+    "gpuVerified": false,
+    "renderedScreenshotVerified": false,
+    "worldMutated": false,
+    "totalPortals": 429,
+    "activePortals": 214,
+    "dormantPortals": 215,
+    "waterClassifiedAll": 116,
+    "dormantWaterDescriptors": 116,
+    "activeWaterAtDoor": 0,
+    "activeWaterWithin6m": 0,
+    "nearestActiveShore": 11.5,
+    "nearestApproachShore6m": 4.966,
+    "nearShoreAt8m": [
+      {
+        "portalId": 369,
+        "shoreAt8m": 1.734,
+        "minimum6m": 4.966
+      }
+    ],
+    "invalidPortals": [],
+    "flags": [],
+    "classification": "historical_inactive_descriptors_only"
+  }
+}
+DURATION=26.66 sec,PEAKKB=496092

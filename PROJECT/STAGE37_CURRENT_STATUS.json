@@ -1,0 +1,55 @@
+{
+  "stage": 37,
+  "programmeTotal": 105,
+  "completed": true,
+  "nextStage": 38,
+  "sourceBaseline": "SUNSET_STATE_STAGE36_OF105_FULL.zip",
+  "historicalSourceLimitation": "PROJECT/STAGE36_SOURCE_PROVENANCE_HE.md",
+  "changes": [
+    "numeric cell lookup",
+    "static GPU upload capacity reuse",
+    "skip empty instance draws"
+  ],
+  "qa": {
+    "renderAcceptance": [
+      70,
+      70
+    ],
+    "cellLookupMatch": true,
+    "save": [
+      95,
+      95
+    ],
+    "vehicleCCD": [
+      39,
+      39
+    ],
+    "interiors": [
+      13,
+      13
+    ],
+    "characters": [
+      35,
+      35
+    ],
+    "traffic": [
+      37,
+      37
+    ],
+    "wildlife": [
+      46,
+      46
+    ],
+    "stage36Profiler": [
+      33,
+      33
+    ],
+    "stage36Integration": [
+      16,
+      16
+    ]
+  },
+  "nativeGPUVerified": false,
+  "fullHd50FpsVerified": false,
+  "publicDeployment": false
+}

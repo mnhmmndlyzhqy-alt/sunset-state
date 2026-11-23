@@ -1,0 +1,8 @@
+SUNSET STATE — Stage 05/35 technical checkpoint
+Base: verified Stage04 full project, no rebuild.
+New: 130 CITY20 entrances/interior plans, 84 old entrances preserved.
+CPU QA: Stage05 32/32; A/B OFF 10/10; Stage04 34/34; smoke 30/30; physics 29/29.
+GPU WebGL, screenshots, native 1080p/50FPS: NOT YET VERIFIED.
+Next: Stage 06/35 — orient doors toward actual frontage.
+Restore: extract untouched SUNSET_STATE_STAGE04_OF35_FULL.zip,
+or use ?stage05EntriesOff=1 for a runtime A/B comparison.

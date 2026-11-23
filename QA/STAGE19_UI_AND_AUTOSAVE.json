@@ -1,0 +1,7 @@
+{
+  "stage": 19,
+  "passed": 17,
+  "total": 17,
+  "failed": [],
+  "caveat": "Headless DOM; no GPU/browser screenshots"
+}

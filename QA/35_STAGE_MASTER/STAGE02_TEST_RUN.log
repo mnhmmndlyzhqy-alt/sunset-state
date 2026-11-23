@@ -1,0 +1,55 @@
+{
+  "passed": 23,
+  "total": 23,
+  "failed": [],
+  "measurements": {
+    "roadCount": 52,
+    "samples": 279,
+    "waypointsBefore": 17,
+    "waypointsAfter": 16,
+    "beforeLengthMeters": 1593.8670081803793,
+    "afterLengthMeters": 1549.7900851034565,
+    "reversePathRemovedMeters": 44.07692307692287,
+    "rawMaxBendDegrees": 27.46829221257628,
+    "sampleMaxBendDegrees": 6.1723168578087915,
+    "worldBuildMs": 7376,
+    "buildings": 84,
+    "portals": 298,
+    "solids": 1320,
+    "geometry": 190851,
+    "bridgeIndex": {
+      "segments": 622,
+      "cells": 346
+    },
+    "roadProfileIndex": {
+      "segments": 3346,
+      "cells": 1315
+    }
+  },
+  "simulations": [
+    {
+      "dir": 1,
+      "initialIndex": 63,
+      "frames": 364,
+      "finalX": -443.6708032755988,
+      "finalZ": -429.990876373546,
+      "passedBend": true,
+      "invalid": 0,
+      "offroad": 0,
+      "minHP": 100,
+      "finished": false
+    },
+    {
+      "dir": -1,
+      "initialIndex": 100,
+      "frames": 327,
+      "finalX": -555.0653524736373,
+      "finalZ": -436.89867171480523,
+      "passedBend": true,
+      "invalid": 0,
+      "offroad": 0,
+      "minHP": 100,
+      "finished": false
+    }
+  ]
+}

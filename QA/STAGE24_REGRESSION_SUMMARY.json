@@ -1,0 +1,27 @@
+{
+  "stage": 24,
+  "scope": "Re-execution against Stage23 source-identical game code (Stage24 changed documentation only).",
+  "hardwareGpuTested": false,
+  "regressions": [
+    {
+      "stage": 23,
+      "test": "QA/run_stage23_profiler_acceptance.cjs",
+      "log": "QA/STAGE24_REGRESSION_STAGE23_PROFILER.log",
+      "passed": 51,
+      "total": 51,
+      "execution": "real Node test, simulated WebGL context"
+    },
+    {
+      "stage": 22,
+      "test": "QA/run_stage22_benchmark_acceptance.cjs",
+      "log": "QA/STAGE24_REGRESSION_STAGE22_BENCHMARK.log",
+      "passed": 52,
+      "total": 52,
+      "execution": "real Node test, simulated WebGL context"
+    }
+  ],
+  "allPassed": true,
+  "passed": 103,
+  "total": 103,
+  "limits": "Not GPU rendering or gameplay FPS measurement; prior stage test reports are not automatically rerun."
+}

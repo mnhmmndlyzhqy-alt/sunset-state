@@ -1,0 +1,220 @@
+{
+  "project": "SUNSET STATE CITY20",
+  "stage": 6,
+  "baseStage": 5,
+  "status": "CPU/geometry/scene acceptance only. GPU 1920x1080 >=50FPS UNVERIFIED",
+  "visualScope": "Building silhouettes, stepped 3D towers, rooftop crowns, civic and midrise height rhythm; NOT new playable interiors.",
+  "changed": {
+    "stage": 6,
+    "reference": "CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+    "remodeledMappedTowers": 4,
+    "removedMappedTowerParts": 22,
+    "tierVolumes": 65,
+    "permanentRooflines": 108,
+    "closeDetails": 40,
+    "coreHighrise": 16,
+    "coreMidrise": 33,
+    "civicUpgraded": 9,
+    "midriseUpgraded": 2,
+    "netWorldMeshes": 146,
+    "newGeometryInstances": 168,
+    "native1080GpuFpsVerified": false,
+    "roadCountUnchanged": true,
+    "portalCountUnchanged": true,
+    "collisionsUnchanged": true,
+    "newMeshesUseExistingSharedShapes": true,
+    "mappedFootprints": 130,
+    "existingPortals": 298,
+    "originalCoreBuildings": 84,
+    "roadRoutes": 52,
+    "stage05StaticMeshes": 177527,
+    "stage06StaticMeshes": 177673,
+    "newStage06Meshes": 168,
+    "netStaticMeshes": 146,
+    "estimatedExtraStaticMeshPercent": 0.0822
+  },
+  "qa": {
+    "passed": 28,
+    "total": 28,
+    "checks": [
+      {
+        "name": "reference_image_exact_sha256",
+        "passed": true
+      },
+      {
+        "name": "stage06_hook_present_and_disable_is_byte_exact",
+        "passed": true
+      },
+      {
+        "name": "all_scripts_in_document_exist",
+        "passed": true,
+        "details": {
+          "scripts": 42
+        }
+      },
+      {
+        "name": "20_stage_archive_pipeline",
+        "passed": true
+      },
+      {
+        "name": "stage2_130_building_locations_and_kinds_unchanged",
+        "passed": true
+      },
+      {
+        "name": "core_84_buildings_same_locations_sizes_and_categories",
+        "passed": true
+      },
+      {
+        "name": "all_298_portals_and_interaction_state_unchanged",
+        "passed": true
+      },
+      {
+        "name": "no_added_removed_or_relocated_collision_solids",
+        "passed": true,
+        "details": {
+          "solids": 1320
+        }
+      },
+      {
+        "name": "no_changed_map_features",
+        "passed": true,
+        "details": {
+          "mapFeatures": 402
+        }
+      },
+      {
+        "name": "52_roads_positions_elevations_and_widths_exact",
+        "passed": true
+      },
+      {
+        "name": "water_and_terrain_mesh_positions_colors_and_indices_byte_equal",
+        "passed": true
+      },
+      {
+        "name": "all_nonreplaced_geometry_primitives_identical",
+        "passed": true,
+        "details": {
+          "unchangedCount": 177505,
+          "oldTowerPartsRemoved": 22,
+          "firstMismatch": null
+        }
+      },
+      {
+        "name": "four_stage2_towers_sculpted_into_multi_tier_mass",
+        "passed": true,
+        "details": {
+          "remodeledTowers": 4,
+          "removedOriginalParts": 22,
+          "tiers": 65
+        }
+      },
+      {
+        "name": "each_mapped_tower_has_four_actual_distinct_tiers",
+        "passed": true
+      },
+      {
+        "name": "four_core_tower_shapes_reused_from_existing_mesh_library",
+        "passed": true
+      },
+      {
+        "name": "skyline_roof_masses_persist_to_3km",
+        "passed": true,
+        "details": {
+          "persistent": 124
+        }
+      },
+      {
+        "name": "core_highrise_midrise_civic_and_mapped_midrise_upgrades",
+        "passed": true,
+        "details": {
+          "stage": 6,
+          "reference": "CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+          "remodeledMappedTowers": 4,
+          "removedMappedTowerParts": 22,
+          "tierVolumes": 65,
+          "permanentRooflines": 108,
+          "closeDetails": 40,
+          "coreHighrise": 16,
+          "coreMidrise": 33,
+          "civicUpgraded": 9,
+          "midriseUpgraded": 2,
+          "netWorldMeshes": 146,
+          "newGeometryInstances": 168,
+          "native1080GpuFpsVerified": false,
+          "roadCountUnchanged": true,
+          "portalCountUnchanged": true,
+          "collisionsUnchanged": true,
+          "newMeshesUseExistingSharedShapes": true
+        }
+      },
+      {
+        "name": "roof_crowns_change_real_visible_skyline",
+        "passed": true,
+        "details": {
+          "roofs": 55
+        }
+      },
+      {
+        "name": "geometry_piece_count_budget",
+        "passed": true,
+        "details": {
+          "geometryAdded": 168,
+          "netIncrease": 146,
+          "ratioPercent": 0.0822
+        }
+      },
+      {
+        "name": "no_invalid_mesh_dimensions_or_positions",
+        "passed": true
+      },
+      {
+        "name": "stage06_decorations_do_not_add_collision_or_interiors",
+        "passed": true
+      },
+      {
+        "name": "no_meshes_or_new_buildings_in_protected_water",
+        "passed": true
+      },
+      {
+        "name": "no_new_overhead_camera_occluders",
+        "passed": true
+      },
+      {
+        "name": "crocodiles_still_in_water",
+        "passed": true
+      },
+      {
+        "name": "timber_boardwalk_not_reintroduced",
+        "passed": true
+      },
+      {
+        "name": "water_stage05_shader_untouched",
+        "passed": true
+      },
+      {
+        "name": "fullhd_quality_mode_preserved",
+        "passed": true
+      },
+      {
+        "name": "stage06_explicit_a_b_switch_supported",
+        "passed": true
+      }
+    ],
+    "allPassed": true
+  },
+  "performance": {
+    "target": [
+      1920,
+      1080
+    ],
+    "minFps": 50,
+    "measuredOnUserGpu": false,
+    "verified": false,
+    "baselineWorldStartupCpuMs": 6848,
+    "newWorldStartupCpuMs": 7532,
+    "note": "VM CPU object construction varies between runs; NOT a frame-rate measurement. Scene mesh delta does not prove no GPU regression."
+  },
+  "references": {
+    "originalLayoutSha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38"
+  }
+}

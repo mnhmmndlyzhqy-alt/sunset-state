@@ -1,0 +1,207 @@
+{
+  "scope": "Historic suite and full-world audit, phase4 unchanged behavior regression",
+  "count": 22,
+  "passed": 22,
+  "failed": [],
+  "results": [
+    {
+      "name": "run_animal_recovery03.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 422,
+      "output": "Animal recovery phase03 12/12 PASS\n",
+      "errors": ""
+    },
+    {
+      "name": "run_interior_recovery02.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 32,
+      "output": "PASS 19/19 interior recovery phase 2\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage01_baseline.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 7514,
+      "output": "{\"passed\":13,\"total\":13,\"geometry\":{\"buildings\":84,\"boxes\":176421,\"roadRoutes\":52,\"roadSegmentsSampled\":3354,\"maximumRoadSlope\":0.0900000000000002,\"coastalVerts\":34042,\"coastalTriangles\":65012,\"crocodilesInWater\":8},\"reference\":{\"name\":\"CHOSEN_CITY_LAYOUT_ORIGINAL.png\",\"size\":{\"width\":1408,\"height\":768},\"sha256\":\"7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38\",\"registrationsApproximate\":true},\"anchorNames\":[\"CITY_CENTER_AERIAL\",\"CITY_CENTER_STREET\",\"CANAL_NEIGHBORHOODS\",\"PORT_WATERFRONT\",\"STADIUM_AND_BEACH\",\"AIRPORT_AND_RUNWAY\",\"NORTH_WETLANDS\",\"RESORT_AND_ISLANDS\"],\"CPUms\":6555}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_deep_audit_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 16545,
+      "output": "{\n  \"passed\": 36,\n  \"total\": 36,\n  \"failed\": [],\n  \"buildMs\": {\n    \"withoutAudit\": 7655,\n    \"withAudit\": 6828\n  },\n  \"auditStats\": {\n    \"revision\": 1,\n    \"commercialVenues\": 60,\n    \"storefrontDetailsAdded\": 342,\n    \"compactFoyersDecorated\": 28,\n    \"compactInteriorDetailsAdded\": 56,\n    \"planterSitesMoved\": 55,\n    \"planterPiecesMoved\": 222,\n    \"lampsMoved\": 13,\n    \"treesMoved\": 19,\n    \"gardenShrubsMoved\": 22,\n    \"unresolvedPlanters\": 181,\n    \"unresolvedLamps\": 30,\n    \"unresolvedTrees\": 0,\n    \"unresolvedShrubs\": 0,\n    \"unsafePlantersBefore\": 236,\n    \"unsafePlantersAfter\": 181,\n    \"unsafeTreesBefore\": 5,\n    \"unsafeTreesAfter\": 0,\n    \"unsafeGardenShrubsBefore\": 7,\n    \"unsafeGardenShrubsAfter\": 0,\n    \"geometryAdded\": 398,\n    \"collisionsAdded\": 0,\n    \"portalChanges\": 0,\n    \"roadChanges\": 0,\n    \"referenceChanged\": false,\n    \"gpuFpsVerified\": false\n  },\n  \"green\": {\n    \"tree-trunk\": {\n      \"before\": 5,\n      \"after\": 0\n    },\n    \"garden-shrub\": {\n      \"before\": 7,\n      \"after\": 0\n    },\n    \"planter-shrub\": {\n      \"before\": 236,\n      \"after\": 181\n    }\n  },\n  \"waterClassifiedEntrances\": 116\n}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage02_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 12345,
+      "output": ": 52,\n    \"solids\": 1190,\n    \"mapFeatures\": 272\n  },\n  \"after\": {\n    \"boxes\": 176944,\n    \"buildings\": 84,\n    \"portals\": 298,\n    \"roads\": 52,\n    \"solids\": 1320,\n    \"mapFeatures\": 402\n  },\n  \"added\": 130,\n  \"meshes\": 523,\n  \"regions\": [\n    {\n      \"id\": \"CENTRAL_URBAN_BLOCKS\",\n      \"kind\": \"tower\",\n      \"accepted\": 4,\n      \"limit\": 31,\n      \"attempted\": 323,\n      \"skipped\": 319\n    },\n    {\n      \"id\": \"CANAL_WEST_SOUTH\",\n      \"kind\": \"villa\",\n      \"accepted\": 60,\n      \"limit\": 104,\n      \"attempted\": 572,\n      \"skipped\": 512\n    },\n    {\n      \"id\": \"CANAL_WEST_NORTH\",\n      \"kind\": \"villa\",\n      \"accepted\": 29,\n      \"limit\": 46,\n      \"attempted\": 196,\n      \"skipped\": 167\n    },\n    {\n      \"id\": \"CIVIC_NORTH_EDGE\",\n      \"kind\": \"civic\",\n      \"accepted\": 9,\n      \"limit\": 12,\n      \"attempted\": 44,\n      \"skipped\": 35\n    },\n    {\n      \"id\": \"EAST_DOWNTOWN_EDGE\",\n      \"kind\": \"midrise\",\n      \"accepted\": 2,\n      \"limit\": 18,\n      \"attempted\": 50,\n      \"skipped\": 48\n    },\n    {\n      \"id\": \"NORTHWEST_PORT\",\n      \"kind\": \"warehouse\",\n      \"accepted\": 14,\n      \"limit\": 14,\n      \"attempted\": 72,\n      \"skipped\": 58\n    },\n    {\n      \"id\": \"AIRFIELD_PERIMETER_WEST\",\n      \"kind\": \"service\",\n      \"accepted\": 0,\n      \"limit\": 8,\n      \"attempted\": 30,\n      \"skipped\": 30\n    },\n    {\n      \"id\": \"AIRFIELD_PERIMETER_EAST\",\n      \"kind\": \"service\",\n      \"accepted\": 1,\n      \"limit\": 8,\n      \"attempted\": 30,\n      \"skipped\": 29\n    },\n    {\n      \"id\": \"COASTAL_RESORT_ISLANDS\",\n      \"kind\": \"resort\",\n      \"accepted\": 11,\n      \"limit\": 20,\n      \"attempted\": 135,\n      \"skipped\": 124\n    }\n  ],\n  \"buildMs\": {\n    \"baseline\": 5679,\n    \"candidate\": 6118,\n    \"note\": \"CPU startup only; not GPU frames or FPS and subject to host variance\"\n  }\n}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage03_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 13704,
+      "output": "{\n  \"passed\": 19,\n  \"total\": 19,\n  \"geometry\": {\n    \"originalWorldBoxes\": 176944,\n    \"currentWorldBoxes\": 177083,\n    \"addedStage03Foundations\": 130,\n    \"originalTerrainVertices\": 34042,\n    \"newTerrainVertices\": 34042,\n    \"originalTerrainTriangles\": 65012,\n    \"newTerrainTriangles\": 65012,\n    \"changedTerrainHeightVertices\": 9016,\n    \"maxHeightDifference\": 1.027,\n    \"minimumDelta\": -0.6804,\n    \"maximumDelta\": 1.027,\n    \"originalFootprintTerrainSpreadMeters\": 0.3403,\n    \"newFootprintTerrainSpreadMeters\": 0.1324,\n    \"legacyBuildings\": 84,\n    \"legacyEntrances\": 298,\n    \"roads\": 52,\n    \"maxRoadSlope\": 0.0900000000000002\n  },\n  \"runtime\": {\n    \"sourceWorldConstructMs\": 6118,\n    \"stage03WorldConstructMs\": 6862,\n    \"diagnosticSampleHeightCalls\": 4000,\n    \"baselineSampleMs\": 36.36,\n    \"stage03SampleMs\": 44.49,\n    \"note\": \"CPU only, non-deterministic; NOT measured 1080p render performance or user device FPS\"\n  },\n  \"hardware\": {\n    \"targetResolutionPx\": [\n      1920,\n      1080\n    ],\n    \"minimumFPS\": 50,\n    \"measuredOnGPU\": false,\n    \"verified\": false\n  }\n}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage04_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 16054,
+      "output": "{\n  \"passed\": 22,\n  \"total\": 22,\n  \"geometry\": {\n    \"routes\": 52,\n    \"samples\": 729,\n    \"modifiedRoutes\": 33,\n    \"maxProfileElevationAdjustment\": 0.6457990148486252,\n    \"maxGrade\": 0.09000096950978245,\n    \"meanGradeTransitionBefore\": 0.006628128460644123,\n    \"meanGradeTransitionAfter\": 0.0051047316557453854,\n    \"averageGradeTransitionImprovementPercent\": 22.98381532500795,\n    \"newSurfaceOrParapetBoxes\": 444,\n    \"newBridgeJoints\": 33,\n    \"roadJunctionsProtected\": 307,\n    \"buildings\": 84,\n    \"newMassing\": 130,\n    \"portals\": 298,\n    \"foundations\": 130\n  },\n  \"performance\": {\n    \"baselineWorldConstructMs\": 6544,\n    \"newWorldConstructMs\": 7683,\n    \"note\": \"Individual CPU world-build times, NOT 1080p performance; host load is uncontrolled.\",\n    \"targetPx\": [\n      1920,\n      1080\n    ],\n    \"targetFps\": 50,\n    \"verifiedOnPhysicalGpu\": false\n  }\n}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage05_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 16022,
+      "output": "{\n  \"passed\": 24,\n  \"total\": 24,\n  \"allPassed\": true,\n  \"geometry\": {\n    \"legacyBuildings\": 84,\n    \"mappedBuildingMasses\": 130,\n    \"existingEntrances\": 298,\n    \"roadRoutes\": 52,\n    \"staticMeshes\": 177527,\n    \"coastalTerrainVertices\": 34042,\n    \"coastalTriangles\": 65012,\n    \"changedCoastalVertexColorComponents\": 6505,\n    \"indexErrors\": 0,\n    \"geometricErrors\": 0,\n    \"addedTerrainTriangles\": 0,\n    \"addedWorldMeshes\": 0,\n    \"additionalDrawCalls\": 0,\n    \"additionalWaterTextures\": 0,\n    \"changedCoastalFallbackTriangleColors\": 8306,\n    \"waterZoneColors\": [\n      \"open sea\",\n      \"sheltered canals\",\n      \"marsh/wetlands\"\n    ],\n    \"shorePaletteCumulative\": {\n      \"stage\": 5,\n      \"modifiedShoreColorSamples\": 15126,\n      \"wetlandBankSamples\": 2005,\n      \"canalBankSamples\": 4542,\n      \"beachBankSamples\": 1525,\n      \"preservedStreetAndRoadSamples\": 71032,\n      \"addedLandMeshes\": 0,\n      \"addedLandDrawCalls\": 0,\n      \"addedTerrainTriangles\": 0\n    }\n  },\n  \"benchmark\": {\n    \"beforeWorldConstructionMs\": 7394,\n    \"afterWorldConstructionMs\": 7923,\n    \"note\": \"Uncontrolled CPU build durations; not GPU FPS, GPU frame time or a reproducible performance benchmark.\",\n    \"requiresNativeGpuMeasurement\": true,\n    \"requestedPixels\": [\n      1920,\n      1080\n    ],\n    \"requestedMinFps\": 50\n  }\n}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage07_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 31,
+      "output": "{\"stage\":7,\"passed\":true,\"tests\":17,\"buildings\":130,\"geometry\":464,\"byKind\":{\"villa\":19,\"resort\":19,\"warehouse\":19,\"service\":19,\"civic\":18,\"midrise\":18,\"tower\":18},\"features\":{\"eave\":38,\"gable\":38,\"balcony\":38,\"balcony_rail\":38,\"industrial_roof\":38,\"loading_canopy\":38,\"loading_header\":38,\"civic_portico\":18,\"civic_pier\":36,\"civic_parapet\":18,\"midrise_wing\":18,\"midrise_cornice\":18,\"shop_canopy\":18,\"tower_spandrel\":54,\"tower_entry_canopy\":18},\"roadCount\":52,\"entrances\":298,\"gpu1080p50Verified\":false}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage08_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 113,
+      "output": "{\"stage\":8,\"passed\":true,\"tests\":20,\"shaderSourceCharsAdded\":1883,\"materialFamilies\":5,\"extraTextures\":0,\"extraDrawCalls\":0,\"extraGeometry\":0,\"gpu1080p50Verified\":false}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage09_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 40,
+      "output": "{\"stage\":9,\"passed\":true,\"tests\":19,\"geometryAdded\":2640,\"windowPanels\":1284,\"litPanels\":162,\"gpuFpsVerified\":false}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage10_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 40,
+      "output": "{\"stage\":10,\"passed\":true,\"tests\":21,\"stats\":{\"stage\":10,\"portalsDetailed\":298,\"readyPortals\":198,\"unreadyPortals\":100,\"frames\":894,\"canopies\":298,\"thresholds\":298,\"lamps\":198,\"geometryAdded\":1688,\"collisionsAdded\":0,\"gpuFpsVerified\":false}}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage11_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 38,
+      "output": "{\"stage\":11,\"tests\":25,\"passed\":true,\"stats\":{\"stage\":11,\"readyPortals\":198,\"decoratedLobbies\":198,\"skippedWithoutPlan\":0,\"skippedSmallFoyer\":0,\"geometryAdded\":1782,\"collisionsAdded\":0,\"gpuFpsVerified\":false}}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage12_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 41,
+      "output": "{\"stage\":12,\"tests\":26,\"passed\":true,\"stats\":{\"stage\":12,\"readyPortals\":198,\"zonedLobbies\":198,\"skippedWithoutPlan\":0,\"skippedSmall\":0,\"geometryAdded\":1980,\"collisionsAdded\":0,\"gpuFpsVerified\":false}}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage13_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 39,
+      "output": "{\"stage\":13,\"tests\":28,\"passed\":true,\"stats\":{\"stage\":13,\"readyPortals\":198,\"litLobbies\":198,\"skippedWithoutPlan\":0,\"skippedSmall\":0,\"geometryAdded\":1782,\"collisionsAdded\":0,\"corridorWidth\":2.8,\"actualDynamicLightsAdded\":0,\"gpuFpsVerified\":false}}\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage14_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 46,
+      "output": "Stage14 25/25 PASS\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage15_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 43,
+      "output": "Stage15 26/26 PASS\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage16_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 38,
+      "output": "Stage16 23/23 PASS\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage17_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 132,
+      "output": "Stage17 18/18 PASS\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage18_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 163,
+      "output": "Stage18 15/15 PASS\n",
+      "errors": ""
+    },
+    {
+      "name": "run_visual_recovery01.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 31,
+      "output": "PASS 18/18 visual recovery phase 1\n",
+      "errors": ""
+    },
+    {
+      "name": "run_stage06_acceptance.cjs",
+      "passed": true,
+      "exit": 0,
+      "signal": null,
+      "elapsedMs": 15783,
+      "output": "{\n  \"pass\": 28,\n  \"total\": 28,\n  \"stats\": {\n    \"stage\": 6,\n    \"reference\": \"CHOSEN_CITY_LAYOUT_ORIGINAL.png\",\n    \"remodeledMappedTowers\": 4,\n    \"removedMappedTowerParts\": 22,\n    \"tierVolumes\": 65,\n    \"permanentRooflines\": 108,\n    \"closeDetails\": 40,\n    \"coreHighrise\": 16,\n    \"coreMidrise\": 33,\n    \"civicUpgraded\": 9,\n    \"midriseUpgraded\": 2,\n    \"netWorldMeshes\": 146,\n    \"newGeometryInstances\": 168,\n    \"native1080GpuFpsVerified\": false,\n    \"roadCountUnchanged\": true,\n    \"portalCountUnchanged\": true,\n    \"collisionsUnchanged\": true,\n    \"newMeshesUseExistingSharedShapes\": true,\n    \"mappedFootprints\": 130,\n    \"existingPortals\": 298,\n    \"originalCoreBuildings\": 84,\n    \"roadRoutes\": 52,\n    \"stage05StaticMeshes\": 177527,\n    \"stage06StaticMeshes\": 177673,\n    \"newStage06Meshes\": 168,\n    \"netStaticMeshes\": 146,\n    \"estimatedExtraStaticMeshPercent\": 0.0822\n  },\n  \"worldCpu\": {\n    \"target\": [\n      1920,\n      1080\n    ],\n    \"minFps\": 50,\n    \"measuredOnUserGpu\": false,\n    \"verified\": false,\n    \"baselineWorldStartupCpuMs\": 7551,\n    \"newWorldStartupCpuMs\": 7234,\n    \"note\": \"VM CPU object construction varies between runs; NOT a frame-rate measurement. Scene mesh delta does not prove no GPU regression.\"\n  }\n}\n",
+      "errors": ""
+    }
+  ],
+  "hardwareFPSVerified": false
+}

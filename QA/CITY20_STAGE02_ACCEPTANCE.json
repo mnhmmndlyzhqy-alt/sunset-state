@@ -1,0 +1,262 @@
+{
+  "project": "SUNSET STATE CITY20",
+  "stage": 2,
+  "sourceVersion": "4.7.9 + stages 1,2",
+  "reference": "REFERENCE/CHOSEN_CITY_LAYOUT_ORIGINAL.png",
+  "baseline": {
+    "boxes": 176421,
+    "buildings": 84,
+    "portals": 298,
+    "roads": 52,
+    "solids": 1190,
+    "mapFeatures": 272
+  },
+  "after": {
+    "boxes": 176944,
+    "buildings": 84,
+    "portals": 298,
+    "roads": 52,
+    "solids": 1320,
+    "mapFeatures": 402
+  },
+  "additions": {
+    "newMappedBuildingVolumes": 130,
+    "addedInstancedGeometryObjects": 523,
+    "regions": [
+      {
+        "id": "CENTRAL_URBAN_BLOCKS",
+        "kind": "tower",
+        "accepted": 4,
+        "limit": 31,
+        "attempted": 323,
+        "skipped": 319
+      },
+      {
+        "id": "CANAL_WEST_SOUTH",
+        "kind": "villa",
+        "accepted": 60,
+        "limit": 104,
+        "attempted": 572,
+        "skipped": 512
+      },
+      {
+        "id": "CANAL_WEST_NORTH",
+        "kind": "villa",
+        "accepted": 29,
+        "limit": 46,
+        "attempted": 196,
+        "skipped": 167
+      },
+      {
+        "id": "CIVIC_NORTH_EDGE",
+        "kind": "civic",
+        "accepted": 9,
+        "limit": 12,
+        "attempted": 44,
+        "skipped": 35
+      },
+      {
+        "id": "EAST_DOWNTOWN_EDGE",
+        "kind": "midrise",
+        "accepted": 2,
+        "limit": 18,
+        "attempted": 50,
+        "skipped": 48
+      },
+      {
+        "id": "NORTHWEST_PORT",
+        "kind": "warehouse",
+        "accepted": 14,
+        "limit": 14,
+        "attempted": 72,
+        "skipped": 58
+      },
+      {
+        "id": "AIRFIELD_PERIMETER_WEST",
+        "kind": "service",
+        "accepted": 0,
+        "limit": 8,
+        "attempted": 30,
+        "skipped": 30
+      },
+      {
+        "id": "AIRFIELD_PERIMETER_EAST",
+        "kind": "service",
+        "accepted": 1,
+        "limit": 8,
+        "attempted": 30,
+        "skipped": 29
+      },
+      {
+        "id": "COASTAL_RESORT_ISLANDS",
+        "kind": "resort",
+        "accepted": 11,
+        "limit": 20,
+        "attempted": 135,
+        "skipped": 124
+      }
+    ]
+  },
+  "maxRoadGrade": 0.0900000000000002,
+  "originalModelAndVehicleAssetsUnchanged": true,
+  "buildTimingMs": {
+    "baseline": 5610,
+    "candidate": 5964,
+    "note": "CPU startup only; not GPU frames or FPS and subject to host variance"
+  },
+  "hardwarePerformance": {
+    "requiredDrawingBufferPx": [
+      1920,
+      1080
+    ],
+    "requiredMinimumFPS": 50,
+    "measuredOnUserGPU": false,
+    "verified": false
+  },
+  "checks": [
+    {
+      "id": "source_reference_unchanged",
+      "pass": true
+    },
+    {
+      "id": "all_js_exists",
+      "pass": true,
+      "extra": {
+        "count": 38
+      }
+    },
+    {
+      "id": "only_qa_mode_loads_benchmark",
+      "pass": true
+    },
+    {
+      "id": "native_1080_setting_still_present",
+      "pass": true
+    },
+    {
+      "id": "baseline_without_stage02",
+      "pass": true,
+      "extra": {
+        "originalBoxCount": 176421
+      }
+    },
+    {
+      "id": "stage02_stats",
+      "pass": true
+    },
+    {
+      "id": "new_buildings_over_120",
+      "pass": true,
+      "extra": {
+        "added": 130
+      }
+    },
+    {
+      "id": "new_geometry_within_budget",
+      "pass": true,
+      "extra": {
+        "added": 523
+      }
+    },
+    {
+      "id": "all_original_boxes_retained",
+      "pass": true
+    },
+    {
+      "id": "all_original_buildings_retained",
+      "pass": true
+    },
+    {
+      "id": "all_existing_portals_retained",
+      "pass": true
+    },
+    {
+      "id": "roads_same_number",
+      "pass": true,
+      "extra": {
+        "origRoadCount": 52
+      }
+    },
+    {
+      "id": "road_coordinates_unchanged",
+      "pass": true
+    },
+    {
+      "id": "road_slope_at_most_9percent",
+      "pass": true,
+      "extra": {
+        "maxGrade": 0.0900000000000002
+      }
+    },
+    {
+      "id": "all_crocodiles_in_water",
+      "pass": true,
+      "extra": {
+        "count": 8
+      }
+    },
+    {
+      "id": "boardwalk_still_absent",
+      "pass": true
+    },
+    {
+      "id": "no_airfield_warehouse_or_stadium_overlap",
+      "pass": true
+    },
+    {
+      "id": "no_entrances_blocked",
+      "pass": true,
+      "extra": {
+        "doorBlock": 0
+      }
+    },
+    {
+      "id": "no_water_landings",
+      "pass": true,
+      "extra": {
+        "seaBlock": 0
+      }
+    },
+    {
+      "id": "no_road_landings",
+      "pass": true,
+      "extra": {
+        "roadBlock": 0
+      }
+    },
+    {
+      "id": "no_new_building_overlap",
+      "pass": true,
+      "extra": {
+        "intraOverlap": 0
+      }
+    },
+    {
+      "id": "new_map_footprints_match",
+      "pass": true
+    },
+    {
+      "id": "new_solids_match",
+      "pass": true
+    },
+    {
+      "id": "city_massing_remains_visible_aerial",
+      "pass": true
+    },
+    {
+      "id": "districts_have_distinct_zoning",
+      "pass": true
+    },
+    {
+      "id": "stage02_immutable_reference_world_coordinates",
+      "pass": true
+    },
+    {
+      "id": "all_placeholders_marked_unfinished_interiors",
+      "pass": true
+    }
+  ],
+  "pass": 27,
+  "total": 27,
+  "allPassed": true
+}

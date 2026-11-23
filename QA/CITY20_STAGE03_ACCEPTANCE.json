@@ -1,0 +1,190 @@
+{
+  "project": "SUNSET STATE CITY20",
+  "stage": 3,
+  "status": "CPU/game-source verified; GPU FPS not verified",
+  "baseVersion": "4.7.9 + CITY20 stages 1,2",
+  "nextStage": 4,
+  "referenceHash": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38",
+  "geometry": {
+    "originalWorldBoxes": 176473,
+    "currentWorldBoxes": 176612,
+    "addedStage03Foundations": 130,
+    "originalTerrainVertices": 34042,
+    "newTerrainVertices": 34042,
+    "originalTerrainTriangles": 65012,
+    "newTerrainTriangles": 65012,
+    "changedTerrainHeightVertices": 9017,
+    "maxHeightDifference": 1.027,
+    "minimumDelta": -0.6804,
+    "maximumDelta": 1.027,
+    "originalFootprintTerrainSpreadMeters": 0.3403,
+    "newFootprintTerrainSpreadMeters": 0.1324,
+    "legacyBuildings": 84,
+    "legacyEntrances": 298,
+    "roads": 52,
+    "maxRoadSlope": 0.0900000000000002
+  },
+  "runtime": {
+    "sourceWorldConstructMs": 5668,
+    "stage03WorldConstructMs": 6895,
+    "diagnosticSampleHeightCalls": 4000,
+    "baselineSampleMs": 40.25,
+    "stage03SampleMs": 44.99,
+    "note": "CPU only, non-deterministic; NOT measured 1080p render performance or user device FPS"
+  },
+  "hardware": {
+    "targetResolutionPx": [
+      1920,
+      1080
+    ],
+    "minimumFPS": 50,
+    "measuredOnGPU": false,
+    "verified": false
+  },
+  "sourceImpact": {
+    "originalSelectedReferenceUntouched": true,
+    "assetsAndModelsUnaffected": true,
+    "roadPlanUnchanged": true,
+    "missionsAndGameAIUnchanged": true,
+    "noNewTerrainTriangles": true
+  },
+  "checks": [
+    {
+      "name": "exact_chosen_reference_unchanged",
+      "pass": true,
+      "info": {
+        "sha256": "7768201672d081a906d6a075af71dc6a9f655d8ba7715b209b333c10053e8b38"
+      }
+    },
+    {
+      "name": "stage02_130_exact_original_sites",
+      "pass": true,
+      "info": {
+        "approved": 130,
+        "retained": 130
+      }
+    },
+    {
+      "name": "footings_130_existing_masses_only",
+      "pass": true,
+      "info": {
+        "count": 130
+      }
+    },
+    {
+      "name": "all_52_road_routes_identical_xyz",
+      "pass": true,
+      "info": {
+        "maxRoadYDiff": 0,
+        "roadPoints": 3390
+      }
+    },
+    {
+      "name": "road_slope_9percent_max",
+      "pass": true,
+      "info": {
+        "maxRoadSlope": 0.0900000000000002
+      }
+    },
+    {
+      "name": "84_legacy_building_geometry_preserved",
+      "pass": true,
+      "info": {
+        "buildings": 84
+      }
+    },
+    {
+      "name": "298_legacy_entrances_preserved",
+      "pass": true,
+      "info": {
+        "doors": 298
+      }
+    },
+    {
+      "name": "new_and_old_collision_solids_unchanged",
+      "pass": true,
+      "info": {
+        "solids": 1320
+      }
+    },
+    {
+      "name": "reference_registered_map_features_preserved",
+      "pass": true,
+      "info": {
+        "features": 402
+      }
+    },
+    {
+      "name": "terrain_mesh_topology_unchanged",
+      "pass": true,
+      "info": {
+        "vertices": 34042,
+        "triangles": 65012
+      }
+    },
+    {
+      "name": "terrain_has_real_vertex_height_changes",
+      "pass": true,
+      "info": {
+        "changed": 9017,
+        "peak": 1.0269553661346436,
+        "minDelta": -0.6804318428039551,
+        "maxDelta": 1.0269553661346436
+      }
+    },
+    {
+      "name": "visual_terrain_and_physics_share_height",
+      "pass": true,
+      "info": {
+        "sampled": 370,
+        "passSamples": 370,
+        "maxMismatch": 4.428463658001647e-7
+      }
+    },
+    {
+      "name": "every_footing_hides_base_to_lowest_ground",
+      "pass": true,
+      "info": {
+        "foundationGaps": 0,
+        "maxBefore": 1.0807582131640654,
+        "maxAfter": 1.0807582131640654
+      }
+    },
+    {
+      "name": "foundation_terrain_flatter_on_average",
+      "pass": true,
+      "info": {
+        "avgBefore": 0.3403338889750362,
+        "avgAfter": 0.1324031203167725,
+        "maxBefore": 1.0807582131640654,
+        "maxAfter": 1.0807582131640654
+      }
+    },
+    {
+      "name": "8_crocodiles_still_in_real_water",
+      "pass": true,
+      "info": {
+        "crocodiles": 8
+      }
+    },
+    {
+      "name": "old_timber_walkway_still_removed",
+      "pass": true
+    },
+    {
+      "name": "native1080_mode_code_preserved",
+      "pass": true
+    },
+    {
+      "name": "no_new_terrain_tris_shaders_or_texture_lookups",
+      "pass": true
+    },
+    {
+      "name": "airport_downtown_overpass_and_marina_protected",
+      "pass": true
+    }
+  ],
+  "passed": 19,
+  "total": 19,
+  "allPassed": true
+}

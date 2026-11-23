@@ -1,0 +1,98 @@
+{
+  "stage": 18,
+  "passed": true,
+  "checks": 4376,
+  "variants": [
+    {
+      "name": "crocodile_hi",
+      "triangles": 195560,
+      "drawables": 24,
+      "bones": [
+        12,
+        24
+      ],
+      "nodes": 50,
+      "clips": [
+        "IDLE",
+        "WALK",
+        "SWIM",
+        "DIVE",
+        "BITE"
+      ],
+      "bounding": [
+        [
+          -5.619999885559082,
+          -0.16976004838943481,
+          -1.3319532871246338
+        ],
+        [
+          3.218250036239624,
+          1.2766249179840088,
+          1.3319532871246338
+        ]
+      ],
+      "packed_sha256": "70661c8d758cc9928554025e9b388d6bd729598ef7ff132297f91a3499d355c7"
+    },
+    {
+      "name": "crocodile_mid",
+      "triangles": 64156,
+      "drawables": 24,
+      "bones": [
+        12,
+        24
+      ],
+      "nodes": 50,
+      "clips": [
+        "IDLE",
+        "WALK",
+        "SWIM",
+        "DIVE",
+        "BITE"
+      ],
+      "bounding": [
+        [
+          -5.619999885559082,
+          -0.1696813702583313,
+          -1.3318963050842285
+        ],
+        [
+          3.218250036239624,
+          1.2766249179840088,
+          1.3319532871246338
+        ]
+      ],
+      "packed_sha256": "2c8aba33d7b1ceef46fa352986c8f6e242661667ce2d822ab82581b1e5f3a54a"
+    },
+    {
+      "name": "crocodile_far",
+      "triangles": 9532,
+      "drawables": 7,
+      "bones": [
+        12,
+        24
+      ],
+      "nodes": 50,
+      "clips": [
+        "IDLE",
+        "WALK",
+        "SWIM",
+        "DIVE",
+        "BITE"
+      ],
+      "bounding": [
+        [
+          -5.619999885559082,
+          -0.1696813702583313,
+          -1.3079999685287476
+        ],
+        [
+          3.218250036239624,
+          1.2766249179840088,
+          1.2660000324249268
+        ]
+      ],
+      "packed_sha256": "84675a5cfcf2ec23afc626f31f170c2c1593a103b91bb7e6d8cf885b522b74e5"
+    }
+  ],
+  "scope": "GLB geometry, rig, index, animation and embedded image structural checks, not GPU validation"
+}

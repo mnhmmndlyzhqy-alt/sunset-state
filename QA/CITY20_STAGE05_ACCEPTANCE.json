@@ -1,0 +1,199 @@
+{
+  "project": "SUNSET STATE CITY20",
+  "stage": 5,
+  "baseStage": 4,
+  "status": "CPU/geometry/shader source acceptance; 1920x1080 >=50FPS on target GPU UNVERIFIED",
+  "geometry": {
+    "legacyBuildings": 84,
+    "mappedBuildingMasses": 130,
+    "existingEntrances": 298,
+    "roadRoutes": 52,
+    "staticMeshes": 177527,
+    "coastalTerrainVertices": 34042,
+    "coastalTriangles": 65012,
+    "changedCoastalVertexColorComponents": 6505,
+    "indexErrors": 0,
+    "geometricErrors": 0,
+    "addedTerrainTriangles": 0,
+    "addedWorldMeshes": 0,
+    "additionalDrawCalls": 0,
+    "additionalWaterTextures": 0,
+    "changedCoastalFallbackTriangleColors": 8306,
+    "waterZoneColors": [
+      "open sea",
+      "sheltered canals",
+      "marsh/wetlands"
+    ],
+    "shorePaletteCumulative": {
+      "stage": 5,
+      "modifiedShoreColorSamples": 15126,
+      "wetlandBankSamples": 2005,
+      "canalBankSamples": 4542,
+      "beachBankSamples": 1525,
+      "preservedStreetAndRoadSamples": 71032,
+      "addedLandMeshes": 0,
+      "addedLandDrawCalls": 0,
+      "addedTerrainTriangles": 0
+    }
+  },
+  "benchmark": {
+    "beforeWorldConstructionMs": 6847,
+    "afterWorldConstructionMs": 6310,
+    "note": "Uncontrolled CPU build durations; not GPU FPS, GPU frame time or a reproducible performance benchmark.",
+    "requiresNativeGpuMeasurement": true,
+    "requestedPixels": [
+      1920,
+      1080
+    ],
+    "requestedMinFps": 50
+  },
+  "checkCount": 24,
+  "passed": 24,
+  "checks": [
+    {
+      "name": "original_reference_sha_preserved",
+      "passed": true
+    },
+    {
+      "name": "only_stage05_is_enabled_in_a_b",
+      "passed": true
+    },
+    {
+      "name": "52_road_routes_preserved",
+      "passed": true
+    },
+    {
+      "name": "130_new_building_masses_stable",
+      "passed": true
+    },
+    {
+      "name": "all_original_buildings_portals",
+      "passed": true
+    },
+    {
+      "name": "world_primitives_and_collision_exactly_preserved",
+      "passed": true,
+      "details": {
+        "boxes": [
+          177527,
+          177527
+        ],
+        "solids": [
+          1320,
+          1320
+        ]
+      }
+    },
+    {
+      "name": "no_placed_geometry_or_unrelated_color_changed",
+      "passed": true,
+      "details": {
+        "disturbedMeshes": 0,
+        "changedMeshes": 8306,
+        "unrelatedColorChanges": 0
+      }
+    },
+    {
+      "name": "terrain_buffer_vertex_counts_unchanged",
+      "passed": true
+    },
+    {
+      "name": "shoreline_mesh_same_positions_normals_sand_blend_and_indices",
+      "passed": true,
+      "details": {
+        "indexErrors": 0,
+        "geometricErrors": 0
+      }
+    },
+    {
+      "name": "many_shore_colors_genuinely_changed",
+      "passed": true,
+      "details": {
+        "colorChanges": 6505,
+        "stats": {
+          "stage": 5,
+          "modifiedShoreColorSamples": 15126,
+          "wetlandBankSamples": 2005,
+          "canalBankSamples": 4542,
+          "beachBankSamples": 1525,
+          "preservedStreetAndRoadSamples": 71032,
+          "addedLandMeshes": 0,
+          "addedLandDrawCalls": 0,
+          "addedTerrainTriangles": 0
+        }
+      }
+    },
+    {
+      "name": "shore_bank_regional_variants_present",
+      "passed": true,
+      "details": {
+        "stage": 5,
+        "modifiedShoreColorSamples": 15126,
+        "wetlandBankSamples": 2005,
+        "canalBankSamples": 4542,
+        "beachBankSamples": 1525,
+        "preservedStreetAndRoadSamples": 71032,
+        "addedLandMeshes": 0,
+        "addedLandDrawCalls": 0,
+        "addedTerrainTriangles": 0
+      }
+    },
+    {
+      "name": "eight_crocs_in_real_water",
+      "passed": true
+    },
+    {
+      "name": "no_wetland_timber_boardwalk_recreated",
+      "passed": true
+    },
+    {
+      "name": "no_new_water_mesh_or_terrain_draw_calls",
+      "passed": true
+    },
+    {
+      "name": "water_shader_patch_wired_in_renderer",
+      "passed": true
+    },
+    {
+      "name": "disabled_water_shader_byte_exact",
+      "passed": true
+    },
+    {
+      "name": "patch_only_water_branch",
+      "passed": true
+    },
+    {
+      "name": "water_preserves_original_depth_mask_and_land_discard",
+      "passed": true
+    },
+    {
+      "name": "water_includes_ocean_canal_marsh_calm_shallow_reflection_and_foam",
+      "passed": true
+    },
+    {
+      "name": "no_extra_water_texture_samples",
+      "passed": true,
+      "details": {
+        "original": 1,
+        "improved": 1
+      }
+    },
+    {
+      "name": "coastal_water_quality_a_b_switch_preserved",
+      "passed": true
+    },
+    {
+      "name": "high_resolution_mode_and_qa_preserved",
+      "passed": true
+    },
+    {
+      "name": "prior_stage_code_still_present",
+      "passed": true
+    },
+    {
+      "name": "shore_bed_and_shoreline_height_not_displaced",
+      "passed": true
+    }
+  ],
+  "allPassed": true
+}

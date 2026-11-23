@@ -1,0 +1,18 @@
+{
+  "stage": 14,
+  "tests": 25,
+  "passed": true,
+  "syntheticWorldStats": {
+    "stage": 14,
+    "portalsScanned": 298,
+    "commercialFronts": 150,
+    "windowBays": 300,
+    "signBands": 150,
+    "awningPanels": 150,
+    "displayPlinths": 300,
+    "geometryAdded": 1500,
+    "collisionsAdded": 0,
+    "openedPortals": 0,
+    "gpuFpsVerified": false
+  }
+}

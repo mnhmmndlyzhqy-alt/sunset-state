@@ -1,0 +1,434 @@
+{
+  "stage": 37,
+  "checks": [
+    {
+      "name": "module_loaded_before_engine",
+      "pass": true
+    },
+    {
+      "name": "baseline_source_over_190k",
+      "pass": true,
+      "details": 196817
+    },
+    {
+      "name": "world_roads_preserved",
+      "pass": true
+    },
+    {
+      "name": "world_shops_preserved",
+      "pass": true
+    },
+    {
+      "name": "world_portals_preserved",
+      "pass": true
+    },
+    {
+      "name": "stage36_monitor_preserved",
+      "pass": true
+    },
+    {
+      "name": "stage34_material_polish_preserved",
+      "pass": true
+    },
+    {
+      "name": "default_enabled",
+      "pass": true
+    },
+    {
+      "name": "renderer_uses_stage37_index",
+      "pass": true
+    },
+    {
+      "name": "renderer_uses_stage37_static_upload",
+      "pass": true
+    },
+    {
+      "name": "visibility_reference_parity_spawn",
+      "pass": true,
+      "details": {
+        "old": 3338,
+        "new": 3338
+      }
+    },
+    {
+      "name": "canonical_cells_unchanged_spawn",
+      "pass": true,
+      "details": 383
+    },
+    {
+      "name": "movement_reference_parity_spawn",
+      "pass": true
+    },
+    {
+      "name": "index_has_numeric_rows_spawn",
+      "pass": true
+    },
+    {
+      "name": "visibility_reference_parity_east",
+      "pass": true,
+      "details": {
+        "old": 2476,
+        "new": 2476
+      }
+    },
+    {
+      "name": "canonical_cells_unchanged_east",
+      "pass": true,
+      "details": 383
+    },
+    {
+      "name": "movement_reference_parity_east",
+      "pass": true
+    },
+    {
+      "name": "index_has_numeric_rows_east",
+      "pass": true
+    },
+    {
+      "name": "visibility_reference_parity_north",
+      "pass": true,
+      "details": {
+        "old": 2647,
+        "new": 2647
+      }
+    },
+    {
+      "name": "canonical_cells_unchanged_north",
+      "pass": true,
+      "details": 383
+    },
+    {
+      "name": "movement_reference_parity_north",
+      "pass": true
+    },
+    {
+      "name": "index_has_numeric_rows_north",
+      "pass": true
+    },
+    {
+      "name": "visibility_reference_parity_aerial",
+      "pass": true,
+      "details": {
+        "old": 7907,
+        "new": 7907
+      }
+    },
+    {
+      "name": "canonical_cells_unchanged_aerial",
+      "pass": true,
+      "details": 383
+    },
+    {
+      "name": "movement_reference_parity_aerial",
+      "pass": true
+    },
+    {
+      "name": "index_has_numeric_rows_aerial",
+      "pass": true
+    },
+    {
+      "name": "visibility_reference_parity_west",
+      "pass": true,
+      "details": {
+        "old": 4285,
+        "new": 4285
+      }
+    },
+    {
+      "name": "canonical_cells_unchanged_west",
+      "pass": true,
+      "details": 383
+    },
+    {
+      "name": "movement_reference_parity_west",
+      "pass": true
+    },
+    {
+      "name": "index_has_numeric_rows_west",
+      "pass": true
+    },
+    {
+      "name": "visibility_reference_parity_retail",
+      "pass": true,
+      "details": {
+        "old": 2995,
+        "new": 2995
+      }
+    },
+    {
+      "name": "canonical_cells_unchanged_retail",
+      "pass": true,
+      "details": 383
+    },
+    {
+      "name": "movement_reference_parity_retail",
+      "pass": true
+    },
+    {
+      "name": "index_has_numeric_rows_retail",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_0",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_1",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_2",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_3",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_4",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_5",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_6",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_7",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_8",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_9",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_10",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_11",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_12",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_13",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_14",
+      "pass": true
+    },
+    {
+      "name": "repeat_frame_exact_visibility_15",
+      "pass": true
+    },
+    {
+      "name": "index_cache_used",
+      "pass": true,
+      "details": 27
+    },
+    {
+      "name": "disabled_lookup_returns_null",
+      "pass": true
+    },
+    {
+      "name": "upload_bytes_exact_10_52",
+      "pass": true,
+      "details": "allocate"
+    },
+    {
+      "name": "upload_bytes_exact_11_53",
+      "pass": true,
+      "details": "grow"
+    },
+    {
+      "name": "upload_bytes_exact_9_54",
+      "pass": true,
+      "details": "subdata"
+    },
+    {
+      "name": "upload_bytes_exact_120_55",
+      "pass": true,
+      "details": "grow"
+    },
+    {
+      "name": "upload_bytes_exact_90_56",
+      "pass": true,
+      "details": "subdata"
+    },
+    {
+      "name": "upload_bytes_exact_10_57",
+      "pass": true,
+      "details": "subdata"
+    },
+    {
+      "name": "upload_bytes_exact_0_58",
+      "pass": true,
+      "details": "legacy"
+    },
+    {
+      "name": "upload_bytes_exact_10_59",
+      "pass": true,
+      "details": "grow"
+    },
+    {
+      "name": "upload_bytes_exact_120_60",
+      "pass": true,
+      "details": "grow"
+    },
+    {
+      "name": "upload_bytes_exact_210_61",
+      "pass": true,
+      "details": "grow"
+    },
+    {
+      "name": "buffer_subdata_used",
+      "pass": true,
+      "details": 8
+    },
+    {
+      "name": "capacity_reuse_observed",
+      "pass": true,
+      "details": 8
+    },
+    {
+      "name": "buffer_grew_as_needed",
+      "pass": true,
+      "details": 6
+    },
+    {
+      "name": "off_uses_original_bufferdata",
+      "pass": true
+    },
+    {
+      "name": "toggle_recovers_true_gpu_buffer_size",
+      "pass": true
+    },
+    {
+      "name": "optimized_empty_frame_no_gl_draws",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "fallback_keeps_legacy_zero_draw_calls",
+      "pass": true,
+      "details": [
+        {
+          "count": 36,
+          "instances": 0
+        },
+        {
+          "count": 36,
+          "instances": 0
+        }
+      ]
+    },
+    {
+      "name": "same_nonzero_draw_geometry",
+      "pass": true
+    }
+  ],
+  "passed": 70,
+  "total": 70,
+  "environment": "real cumulative game with actual GLRenderer methods; fake CPU/GL emulator; no GPU",
+  "baselineStage": 36,
+  "sampledStatic": 14059,
+  "worldStatic": 196817,
+  "cameraScenarios": [
+    {
+      "scene": "spawn",
+      "sourceObjects": 14059,
+      "visible": 3338,
+      "oldInitMs": 22.222,
+      "newInitMs": 18.934,
+      "oldMoved": 3104,
+      "newMoved": 3104
+    },
+    {
+      "scene": "east",
+      "sourceObjects": 14059,
+      "visible": 2476,
+      "oldInitMs": 18.675,
+      "newInitMs": 14.425,
+      "oldMoved": 2100,
+      "newMoved": 2100
+    },
+    {
+      "scene": "north",
+      "sourceObjects": 14059,
+      "visible": 2647,
+      "oldInitMs": 14.283,
+      "newInitMs": 13.783,
+      "oldMoved": 2414,
+      "newMoved": 2414
+    },
+    {
+      "scene": "aerial",
+      "sourceObjects": 14059,
+      "visible": 7907,
+      "oldInitMs": 10.616,
+      "newInitMs": 12.515,
+      "oldMoved": 7799,
+      "newMoved": 7799
+    },
+    {
+      "scene": "west",
+      "sourceObjects": 14059,
+      "visible": 4285,
+      "oldInitMs": 36.99,
+      "newInitMs": 20.466,
+      "oldMoved": 4298,
+      "newMoved": 4298
+    },
+    {
+      "scene": "retail",
+      "sourceObjects": 14059,
+      "visible": 2995,
+      "oldInitMs": 23.987,
+      "newInitMs": 24.448,
+      "oldMoved": 2721,
+      "newMoved": 2721
+    }
+  ],
+  "orderedRefParity": true,
+  "boundedRefreshMs": {
+    "legacy": {
+      "p50": 5.949,
+      "p95": 11.514
+    },
+    "optimized": {
+      "p50": 5.842,
+      "p95": 25.184
+    }
+  },
+  "glUploadEmulator": {
+    "dataCalls": 8,
+    "subDataCalls": 9,
+    "exactPayloadChecks": true
+  },
+  "runtimeCounters": {
+    "stage": 37,
+    "gridBuilds": 8,
+    "gridReuses": 27,
+    "gridCells": 2681,
+    "staticUploadCalls": 15,
+    "staticBufferAllocations": 6,
+    "staticSubDataCalls": 9,
+    "bytesUploaded": 47776,
+    "drawsSkippedEmpty": 2,
+    "nativeGpuVerified": false,
+    "fullHd50FpsVerified": false
+  },
+  "hardwareGpuMeasured": false,
+  "realFpsMeasured": false
+}

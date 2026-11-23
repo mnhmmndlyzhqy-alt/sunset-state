@@ -1,0 +1,81 @@
+{
+  "stage": 36,
+  "environment": "real cumulative game world; fake renderer and synthetic RAF timestamps",
+  "passed": 16,
+  "total": 16,
+  "checks": [
+    {
+      "name": "installs_after_optin_for_real_game_class",
+      "pass": true
+    },
+    {
+      "name": "installs_only_once",
+      "pass": true
+    },
+    {
+      "name": "real_game_world_baseline",
+      "pass": true
+    },
+    {
+      "name": "game_tick_wrapped",
+      "pass": true
+    },
+    {
+      "name": "enabled_with_query_string",
+      "pass": true
+    },
+    {
+      "name": "no_save_format_changes",
+      "pass": true
+    },
+    {
+      "name": "begin_real_game_capture",
+      "pass": true
+    },
+    {
+      "name": "capture_returns_result",
+      "pass": true
+    },
+    {
+      "name": "renderer_restored",
+      "pass": true
+    },
+    {
+      "name": "game_update_restored",
+      "pass": true
+    },
+    {
+      "name": "no_hardware_claim_for_fake_renderer",
+      "pass": true
+    },
+    {
+      "name": "no_game_world_geometry_mutation",
+      "pass": true
+    },
+    {
+      "name": "roads_retain_count",
+      "pass": true
+    },
+    {
+      "name": "portals_retain_count",
+      "pass": true
+    },
+    {
+      "name": "shops_retain_count",
+      "pass": true
+    },
+    {
+      "name": "pedestrians_retain_count",
+      "pass": true
+    }
+  ],
+  "activeFrames": 10,
+  "nativeFpsClaim": false,
+  "world": {
+    "boxes": 196817,
+    "roads": 52,
+    "portals": 429,
+    "shops": 59,
+    "pedestrians": 238
+  }
+}

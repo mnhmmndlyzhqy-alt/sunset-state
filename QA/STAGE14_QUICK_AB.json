@@ -1,0 +1,8 @@
+{
+  "stage": 14,
+  "mode": "focused in-process A/B",
+  "checks": 39,
+  "passed": 39,
+  "failed": [],
+  "gpuVerified": false
+}

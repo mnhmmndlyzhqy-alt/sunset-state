@@ -1,0 +1,22 @@
+{
+  "originalStage1FileCount": 121,
+  "originalFilesRemoved": [],
+  "originalFilesModified": [
+    "PROJECT/CITY20_PROGRESS.json",
+    "README_CITY20_HE.md",
+    "START_GAME.html"
+  ],
+  "newFilesAdded": [
+    "PROJECT/STAGE02_REPORT.md",
+    "PROJECT/STAGE03_WORKORDER.md",
+    "QA/CITY20_STAGE02_ACCEPTANCE.json",
+    "QA/CITY20_STAGE02_PLACEMENTS.json",
+    "QA/CITY20_STAGE02_REFERENCE_OVERLAY.png",
+    "QA/run_stage02_acceptance.cjs",
+    "assets/city20_stage02.js"
+  ],
+  "unchangedOriginalFiles": 118,
+  "referenceImageByteIdenticalToStage1": true,
+  "gameEngine44JsUnchanged": true,
+  "status": "source retention verified"
+}

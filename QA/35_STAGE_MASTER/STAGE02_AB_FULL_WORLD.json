@@ -1,0 +1,69 @@
+{
+  "kind": "A/B full world CPU comparison; no actual WebGL",
+  "stage": 2,
+  "totalStages": 35,
+  "baseline": {
+    "totalRoadSamples": 3406,
+    "northRingSamples": 287,
+    "boxes": 191121,
+    "solids": 1320
+  },
+  "repaired": {
+    "totalRoadSamples": 3398,
+    "northRingSamples": 279,
+    "boxes": 190851,
+    "solids": 1320
+  },
+  "passed": 8,
+  "total": 8,
+  "checks": [
+    {
+      "name": "reference_road_count",
+      "pass": true
+    },
+    {
+      "name": "all_51_other_road_profiles_UNCHANGED",
+      "pass": true,
+      "data": {
+        "sameOther": 51,
+        "otherChanges": []
+      }
+    },
+    {
+      "name": "north_ring_sample_count_reduced",
+      "pass": true,
+      "data": {
+        "before": 287,
+        "after": 279
+      }
+    },
+    {
+      "name": "north_ring_endpoints_preserved",
+      "pass": true
+    },
+    {
+      "name": "interior_portals_identical",
+      "pass": true,
+      "data": {
+        "before": 298,
+        "after": 298
+      }
+    },
+    {
+      "name": "building_masses_identical",
+      "pass": true
+    },
+    {
+      "name": "collision_solid_count_preserved",
+      "pass": true,
+      "data": {
+        "before": 1320,
+        "after": 1320
+      }
+    },
+    {
+      "name": "animal_habitat_preserved",
+      "pass": true
+    }
+  ]
+}

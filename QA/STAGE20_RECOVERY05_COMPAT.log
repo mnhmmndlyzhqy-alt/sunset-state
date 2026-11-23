@@ -1,0 +1,24 @@
+{
+  "passed": 39,
+  "total": 39,
+  "failed": [],
+  "stats": {
+    "installed": true,
+    "routeCalls": 843,
+    "routeMicrosteps": 847,
+    "routeInvalidDt": 1,
+    "bridgeHazardsRejected": 1,
+    "bridgeCrossingCarsRejected": 1,
+    "bridgeYieldRejected": 1,
+    "conversationsPaused": 1,
+    "blockedDialogues": 1,
+    "talkPosesRestored": 1
+  },
+  "world": {
+    "boxes": 194319,
+    "roads": 52,
+    "portals": 429,
+    "spawnedPedestrians": 180,
+    "buildMs": 26170
+  }
+}

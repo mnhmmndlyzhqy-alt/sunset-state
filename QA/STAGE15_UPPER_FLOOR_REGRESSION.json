@@ -1,0 +1,148 @@
+{
+  "stage": 15,
+  "upperFloorScenarios": 20,
+  "pass": 100,
+  "failed": [],
+  "details": [
+    {
+      "portal": 0,
+      "city20": false,
+      "added": 4,
+      "interaction": 6,
+      "doors": 4
+    },
+    {
+      "portal": 1,
+      "city20": false,
+      "added": 1,
+      "interaction": 4,
+      "doors": 4
+    },
+    {
+      "portal": 2,
+      "city20": false,
+      "added": 7,
+      "interaction": 10,
+      "doors": 4
+    },
+    {
+      "portal": 3,
+      "city20": false,
+      "added": 4,
+      "interaction": 6,
+      "doors": 4
+    },
+    {
+      "portal": 4,
+      "city20": false,
+      "added": 4,
+      "interaction": 6,
+      "doors": 4
+    },
+    {
+      "portal": 5,
+      "city20": false,
+      "added": 4,
+      "interaction": 6,
+      "doors": 4
+    },
+    {
+      "portal": 6,
+      "city20": false,
+      "added": 7,
+      "interaction": 10,
+      "doors": 4
+    },
+    {
+      "portal": 7,
+      "city20": false,
+      "added": 4,
+      "interaction": 7,
+      "doors": 4
+    },
+    {
+      "portal": 8,
+      "city20": false,
+      "added": 4,
+      "interaction": 6,
+      "doors": 4
+    },
+    {
+      "portal": 9,
+      "city20": false,
+      "added": 0,
+      "interaction": 2,
+      "doors": 4
+    },
+    {
+      "portal": 304,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 309,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 311,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 315,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 319,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 321,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 323,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 324,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 328,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    },
+    {
+      "portal": 330,
+      "city20": true,
+      "added": 0,
+      "interaction": 3,
+      "doors": 0
+    }
+  ]
+}

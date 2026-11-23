@@ -1,0 +1,197 @@
+{
+  "stage": 31,
+  "basis": "real Stage30 cumulative Game source + CPU stub renderer; no GPU test",
+  "passed": 37,
+  "total": 37,
+  "checks": [
+    {
+      "name": "Stage31 hooks installed exactly once",
+      "pass": true
+    },
+    {
+      "name": "Stage30 preserved",
+      "pass": true
+    },
+    {
+      "name": "Stage29 interiors preserved",
+      "pass": true
+    },
+    {
+      "name": "Stage21 CCD preserved",
+      "pass": true
+    },
+    {
+      "name": "214 active entrances and 59 shops intact",
+      "pass": true
+    },
+    {
+      "name": "52 roads, 130 CITY20 and 84 legacy buildings intact",
+      "pass": true
+    },
+    {
+      "name": "All original colliders/glass and Stage28 facades intact",
+      "pass": true
+    },
+    {
+      "name": "All six original interceptor variants retained",
+      "pass": true
+    },
+    {
+      "name": "Perfectly healthy dry-road car retains Stage30 dynamics",
+      "pass": true
+    },
+    {
+      "name": "Wet-road positive throttle reduced without reversing",
+      "pass": true
+    },
+    {
+      "name": "Wet-road car stays finite and within world limits",
+      "pass": true
+    },
+    {
+      "name": "Low grip does not turn steering into handbrake",
+      "pass": true
+    },
+    {
+      "name": "Throttle in rain remains above 75% of player input",
+      "pass": true
+    },
+    {
+      "name": "Damaged steering rack produces bounded steering pull",
+      "pass": true
+    },
+    {
+      "name": "Bent steering does not increase vehicle health",
+      "pass": true
+    },
+    {
+      "name": "Existing garage repair resets rack and tyre damage",
+      "pass": true
+    },
+    {
+      "name": "Fully repaired original steering feel restored",
+      "pass": true
+    },
+    {
+      "name": "Approaching stopped lead vehicle triggers headway sensor",
+      "pass": true
+    },
+    {
+      "name": "Civilian applies original SERVICE braking rather than handbrake",
+      "pass": true
+    },
+    {
+      "name": "Traffic without nearby vehicles maintains original accelerator",
+      "pass": true
+    },
+    {
+      "name": "Adjacent lane at >6 m lateral separation not mistaken for blockage",
+      "pass": true
+    },
+    {
+      "name": "Elevated road and street below stay separated",
+      "pass": true
+    },
+    {
+      "name": "A/B toggle disables module on command",
+      "pass": true
+    },
+    {
+      "name": "Actual Game.moveCar routes civilian braking into vehicle physics",
+      "pass": true
+    },
+    {
+      "name": "Civilian headway sensor also sees stopped public buses",
+      "pass": true
+    },
+    {
+      "name": "Impact zones create local physical render meshes",
+      "pass": true
+    },
+    {
+      "name": "Wear geometry only uses bounded, finite meshes",
+      "pass": true
+    },
+    {
+      "name": "Distant vehicles receive no new wear mesh",
+      "pass": true
+    },
+    {
+      "name": "Undamaged vehicles receive no cosmetic wear mesh",
+      "pass": true
+    },
+    {
+      "name": "Real car graphics retain original mesh source and ordering",
+      "pass": true
+    },
+    {
+      "name": "A/B switch restores exact Stage30 car geometry",
+      "pass": true
+    },
+    {
+      "name": "320 real physics steps remain finite with rain, nitro, braking, cornering",
+      "pass": true
+    },
+    {
+      "name": "Real vehicle remains steerable and finite after >5 seconds of driving",
+      "pass": true
+    },
+    {
+      "name": "Existing core world state unchanged by vehicle QA",
+      "pass": true
+    },
+    {
+      "name": "No new vehicles, collision bodies, garage saves or GLB replacements",
+      "pass": true
+    },
+    {
+      "name": "No unverified GPU/FPS certification claimed",
+      "pass": true
+    },
+    {
+      "name": "Stage31 module loaded before engine which installs Game hooks",
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "metrics": {
+    "worldPreserved": true,
+    "stage30World": {
+      "boxes": 196817,
+      "roads": 52,
+      "buildings": 84,
+      "mapped": 130,
+      "shops": 59,
+      "portals": 214,
+      "walls": 3230,
+      "props": 796,
+      "glass": 988,
+      "cars": 79,
+      "parked": 52
+    },
+    "trafficRiskNear": 0.9248590592979713,
+    "cosmeticMeshes": 9,
+    "physicsSimulationSteps": 320,
+    "stats": {
+      "installed": true,
+      "playerSteps": 324,
+      "tractionInterventions": 68,
+      "damageSteeringInterventions": 1,
+      "civilianChecks": 3,
+      "civilianBraking": 2,
+      "nearCrashDetails": 8,
+      "damageEvents": 0,
+      "addedCollisionBodies": 0,
+      "changedVehicleModels": 0,
+      "saveSchemaChanges": 0,
+      "gpuVerified": false,
+      "native1080p50fpsVerified": false
+    }
+  },
+  "caveats": {
+    "nativeWebGL2": false,
+    "hardwareGPU": false,
+    "fullHD50Fps": false,
+    "publicGithubPages": false
+  }
+}

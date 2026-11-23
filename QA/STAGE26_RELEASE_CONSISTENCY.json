@@ -1,0 +1,21 @@
+{
+  "stage": 26,
+  "scope": "Source SHA from embedded Stage25 baseline, canonical status, browser collector and site manifest; no GPU testing",
+  "allPassed": true,
+  "passed": 1055,
+  "checks": 1055,
+  "baselineArchive": "SUNSET_STATE_STAGE25_OF35_FULL.zip",
+  "baselineFileCount": 887,
+  "newTotalFiles": 916,
+  "issues": 25,
+  "originalScriptCount": 82,
+  "modifiedOldFiles": [
+    "PROJECT/35_STAGE_PLAN_HE.md",
+    "PROJECT/35_STAGE_PROGRESS.json",
+    "README_35_STAGE_HE.md",
+    "README_FIRST_HE.md",
+    "START_GAME.html",
+    "index.html"
+  ],
+  "failures": []
+}

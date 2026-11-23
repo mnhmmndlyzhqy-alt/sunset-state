@@ -1,0 +1,257 @@
+{
+  "source": "runtime built in isolated VM with fake renderer; not GPU",
+  "roads": 52,
+  "portals": 298,
+  "collisions": 1320,
+  "propertyCollisions": 436,
+  "geometry": 191357,
+  "glassPanels": 124,
+  "buildingsMapped": 130,
+  "portalsReady": 83,
+  "portalsWaterClassified": 116,
+  "portalsReadyInWater": 0,
+  "entranceFacingTypes": {
+    "north": 298
+  },
+  "assets": {
+    "START_GAME.html": 65203,
+    "engine44.js": 21421496,
+    "assets/aerowild_player_meshes.js": 132831,
+    "assets/aerowild_player.js": 5820,
+    "assets/city_441.js": 14773,
+    "assets/urban_441.js": 942,
+    "assets/commerce_442.js": 9409,
+    "assets/gt_meshes_442.js": 166626,
+    "assets/gt_442.js": 6308,
+    "assets/city_442.js": 7157,
+    "assets/overpass_443.js": 5646,
+    "assets/terrain_444.js": 5819,
+    "assets/ridge_443.js": 8785,
+    "assets/street_life_443.js": 4646,
+    "assets/marina_444.js": 6051,
+    "assets/render_442.js": 1211,
+    "assets/navigation_445.js": 30817,
+    "assets/city_445.js": 11909,
+    "assets/life_445.js": 10377,
+    "assets/visual_450.js": 10983,
+    "assets/city_455.js": 17527,
+    "assets/reference_coast_469.js": 907808,
+    "assets/reference_plan_469.js": 5148,
+    "assets/coast_461.js": 17359,
+    "assets/city_plan_463.js": 12403,
+    "assets/districts_461.js": 17868,
+    "assets/landmarks_461.js": 44615,
+    "assets/prison_471.js": 26463,
+    "assets/activity_461.js": 6889,
+    "assets/streets_461.js": 20263,
+    "assets/finish_461.js": 16480,
+    "assets/reference_buildings_469.js": 7001,
+    "assets/terrain_463.js": 9733,
+    "assets/performance_475.js": 6395,
+    "assets/continuation_476.js": 11364,
+    "assets/performance_476.js": 7350,
+    "assets/repair_477.js": 12516,
+    "assets/continuation_478.js": 7211,
+    "assets/continuation_479.js": 5138,
+    "assets/city20_stage02.js": 11555,
+    "assets/city20_stage03.js": 11955,
+    "assets/city20_stage04.js": 8140,
+    "assets/city20_stage05.js": 8025,
+    "assets/city20_stage06.js": 9397,
+    "assets/city20_stage07.js": 4672,
+    "assets/city20_stage08.js": 3052,
+    "assets/city20_stage09.js": 3194,
+    "assets/city20_stage10.js": 3670,
+    "assets/city20_stage11.js": 3095,
+    "assets/city20_stage12.js": 3852,
+    "assets/city20_stage13.js": 3225,
+    "assets/city20_stage14.js": 3953,
+    "assets/city20_stage15.js": 3407,
+    "assets/city20_stage16.js": 3669,
+    "assets/visual_quality_phase01.js": 4407,
+    "assets/interior_recovery_phase02.js": 3741,
+    "assets/city20_deep_audit_repair.js": 11029,
+    "assets/physics_recovery_phase04.js": 4281,
+    "assets/city_life_recovery_phase05.js": 5996,
+    "assets/performance_recovery_phase06.js": 4346,
+    "summary": {
+      "assetFiles": 101,
+      "assetsBytes": 156733749,
+      "jsFileBytes": 1718302
+    }
+  },
+  "stageGeometry": {
+    "2": {
+      "added": 523,
+      "colliders": null,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "3": {
+      "added": null,
+      "colliders": null,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "4": {
+      "added": null,
+      "colliders": null,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "6": {
+      "added": null,
+      "colliders": null,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "7": {
+      "added": 503,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "9": {
+      "added": 1740,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": 864,
+      "decorated": null
+    },
+    "10": {
+      "added": 1573,
+      "colliders": 0,
+      "portalsDetailed": 298,
+      "windows": null,
+      "decorated": null
+    },
+    "11": {
+      "added": 684,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": 76
+    },
+    "12": {
+      "added": 710,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "13": {
+      "added": 639,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "14": {
+      "added": 0,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "15": {
+      "added": 2284,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "16": {
+      "added": 752,
+      "colliders": 0,
+      "portalsDetailed": null,
+      "windows": null,
+      "decorated": null
+    },
+    "planter-shrub": {
+      "total": 596,
+      "unsafe": 181
+    },
+    "tree-trunk": {
+      "total": 48,
+      "unsafe": 0
+    },
+    "garden-shrub": {
+      "total": 60,
+      "unsafe": 0
+    },
+    "glazing": 864,
+    "wall-panel": 152,
+    "light-strip": 152,
+    "store-sign-band": 0,
+    "streetlamp-head": 99
+  },
+  "roadMetrics": {
+    "samples": 3406,
+    "segments": 3354,
+    "sharpBendsOver95": 3,
+    "roadsWithSharp": 2,
+    "steepEdgesOver24Percent": 0,
+    "zeroLengthSampleSteps": 0,
+    "sharp": [
+      {
+        "route": "northRing",
+        "index": 6,
+        "angle": 180,
+        "x": -545.09,
+        "z": -432,
+        "before": 22,
+        "after": 92
+      },
+      {
+        "route": "northRing",
+        "index": 5,
+        "angle": 174.7,
+        "x": -523.05,
+        "z": -432,
+        "before": 75,
+        "after": 22
+      },
+      {
+        "route": "privateSpine469",
+        "index": 1,
+        "angle": 135.9,
+        "x": -887.61,
+        "z": -16.1,
+        "before": 42.8,
+        "after": 118.2
+      }
+    ],
+    "steep": [],
+    "yjumps": []
+  },
+  "game": {
+    "pedestrians": 238,
+    "parked": 52,
+    "civilian": 79,
+    "police": 0,
+    "buses": 3,
+    "trams": 0,
+    "officers": 6,
+    "weather": {
+      "control": "auto",
+      "active": "clear",
+      "cloud": 0.11,
+      "rain": 0,
+      "wind": 0.1,
+      "flash": 0,
+      "nextChange": 100,
+      "nextLightning": 20,
+      "thunderWait": -1,
+      "lightningCount": 0,
+      "thunderCount": 0,
+      "changedCount": 0,
+      "seed": 699182113
+    },
+    "clock": 12.25
+  }
+}
