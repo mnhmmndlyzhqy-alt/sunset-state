@@ -396,6 +396,63 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
           }
 `;
 
+  const WATER39 = `          if(matId==23.0){
+            vec2 p=vPosition.xz;
+            vec2 cuv=p/vec2(2600.0,1920.0)+.5;
+            vec2 coast=texture(uCoastalDepth461,cuv).rg;
+            float outside=max(abs(cuv.x-.5),abs(cuv.y-.5));
+            if(outside<=.5&&coast.g>.56)discard;
+            float deep=outside>.5?1.0:coast.r;
+            float d=distance(vPosition,uCamera);
+            float canals=(1.0-smoothstep(-515.0,-430.0,p.x))*smoothstep(-585.0,-505.0,p.y)*(1.0-smoothstep(725.0,820.0,p.y));
+            float marsh=smoothstep(158.0,238.0,p.x)*(1.0-smoothstep(642.0,725.0,p.x))*(1.0-smoothstep(-510.0,-446.0,p.y));
+            float calm=clamp((canals*.8+marsh*.9)*(1.0-smoothstep(.23,.78,deep)),0.0,.9);
+            float wind=.55+clamp(uWeather.w,0.0,1.5)*.6+uWeather.y*.4;
+            float amp=mix(1.0,.25,calm)*wind;
+            // Directional wind-wave spectrum (analytic slopes), filtered by pixel footprint.
+            float foot=length(fwidth(p));
+            vec2 slope=vec2(0.0);
+            vec2 dirs[6]=vec2[6](vec2(.94,.34),vec2(.71,-.70),vec2(.20,.98),vec2(-.55,.83),vec2(.99,-.12),vec2(-.31,-.95));
+            float lens[6]=float[6](38.0,23.0,14.0,8.6,4.9,2.7);
+            float wsum=0.0;
+            for(int i=0;i<6;i++){
+              float k=6.2831853/lens[i];
+              float aa=1.0-smoothstep(.15,.5,foot*k*.25);
+              float c=sqrt(9.81/k);
+              float ph=dot(dirs[i],p)*k-uTime*c*k+float(i)*1.7;
+              float a=.0085*lens[i]*.5*aa;
+              slope+=dirs[i]*cos(ph)*a*k;
+              wsum+=sin(ph)*a;
+            }
+            vec2 q=p*1.9+vec2(uTime*.6,-uTime*.45);
+            float rip=smoothNoise(q)-smoothNoise(q*1.7+3.1);
+            slope+=vec2(rip,smoothNoise(q.yx*1.3)-.5)*.035*(1.0-smoothstep(.04,.25,foot));
+            slope*=amp*(1.0-smoothstep(600.0,2600.0,d)*.7);
+            vec3 wn=normalize(vec3(-slope.x,1.0,-slope.y));
+            float NoV=max(dot(wn,v),.02);
+            float F=.02+.98*pow(1.0-NoV,5.0);
+            vec3 R=reflect(-v,wn);R.y=abs(R.y);
+            vec3 refl=rcEnvRadiance(R,.03);
+            float sunUp=smoothstep(-.035,.06,sun.y);
+            float NoL=max(dot(wn,sun),0.0);
+            vec3 hv=normalize(sun+v);
+            float rgh=clamp(.06+.05*wind+foot*.004,.05,.3);
+            float glint=rcGGX(max(dot(wn,hv),0.0),pow(rgh,4.0))*rcVis(NoL,NoV,rgh)*F*NoL*3.14159;
+            // Water body: absorption/scattering, turquoise shallows to deep ocean blue.
+            vec3 shallowC=vec3(.040,.205,.185),deepC=vec3(.004,.030,.055);
+            vec3 body=mix(shallowC,deepC,smoothstep(.04,.85,deep))*(rcSkyUp*.9+rcSunColor*max(sun.y,0.0)*.35);
+            body+=vec3(.02,.10,.08)*rcSunColor*sunUp*pow(max(0.0,dot(-v,sun)),3.0)*(.5+wsum*4.0)*.25;
+            vec3 col=mix(body,refl,F)+rcSunColor*sunUp*min(glint,60.0);
+            // Breaking foam along the shore.
+            float shore=outside>.5?0.0:smoothstep(.36,.54,coast.g);
+            float foamN=smoothNoise(p*.45+vec2(uTime*.35,0.0))*.6+smoothNoise(p*1.3-uTime*.25)*.4;
+            float foam=shore*smoothstep(.45,.75,foamN+.25*sin(deep*70.0-uTime*1.6))*(1.0-calm*.7);
+            col=mix(col,(rcSkyUp+rcSunColor*max(sun.y,0.0))*.75,foam*.65);
+            col=rcFogApply(col,vPosition)*rcExposure.x;
+            if(uUnderwater445>.5)col=mix(col,vec3(.01,.06,.075)*rcExposure.x,.5);
+            outputColor=vec4(rcEmit(col),1.0);rcLinear_=true;return;
+          }
+`;
   function between(src, start, end) {
     const i = src.indexOf(start);
     if (i < 0 || src.indexOf(start, i + start.length) >= 0) throw Error('anchor not unique: ' + start.slice(0, 40));
@@ -423,6 +480,8 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
     s = s.slice(0, a) + BLOCK34 + s.slice(b);
     [a, b] = between(s, '          if(matId>=30.0&&matId<=32.0){', '          if(matId==17.0){');
     s = s.slice(0, a) + BLOCK30 + s.slice(b);
+    [a, b] = between(s, '          if(matId==23.0){', '          float emission=max(0.0,vColor.a);');
+    s = s.slice(0, a) + WATER39 + s.slice(b);
     s = replaceUnique(s, '          vec3 albedo=vColor.rgb;',
       '          vec3 albedo=vColor.rgb;\n          if(rcOverride.x>=0.0){albedo=rcOverride.rgb;rough=rcOverride.a;metal=rcOverrideMetal;}');
     // 4. Facades in linear light.
@@ -1282,13 +1341,13 @@ void main(){
         const sunVis = (1 - .86 * cloud) * (1 - .35 * rain);
         F.sunColor = T.map(v => ATM.E0 / Math.PI * v * sunVis);
         F.skyUp = S.skyUp; F.skySun = S.skySun; F.skyAway = S.skyAway; F.ground = S.ground;
-        const fogDensity = (1 / 10500) * (1 + rain * 7 + cloud * .8) * (1 + (1 - clamp(sun[1] * 4, 0, 1)) * .6);
+        const fogDensity = (1 / 16000) * (1 + rain * 7 + cloud * .8) * (1 + (1 - clamp(sun[1] * 4, 0, 1)) * .6);
         F.fog = [fogDensity, 1 / 420, clamp(cloud * .9 + rain * .4, 0, 1), indoors ? 0 : 1];
         F.cam = [c.x, c.y, c.z];
         const now = performance.now();
         const dt = this.lastExposureMs ? clamp((now - this.lastExposureMs) / 1000, 0, .25) : 0;
         this.lastExposureMs = now;
-        const target = indoors ? 1.0 : A.targetExposure;
+        const target = indoors ? .8 : A.targetExposure;
         this.exposureState = this.exposureState == null ? target :
           Math.exp(Math.log(this.exposureState) + (Math.log(target) - Math.log(this.exposureState)) * (1 - Math.exp(-dt * 2.2)));
         const night = 1 - clamp((sun[1] + .06) / .16, 0, 1);
@@ -1356,7 +1415,7 @@ void main(){
         const shadowAge = nowShadow - (this.lastShadowMs ?? -Infinity);
         // Characters move every frame: refresh the map often when they cast into it.
         const dynamicCasters = RC.passes.shadow.length > 0;
-        if (shadowMode && (shadowTravel > 6 || shadowAge > (dynamicCasters ? 70 : 220) ||
+        if (shadowMode && (shadowTravel > 6 || shadowAge > (dynamicCasters ? (this.rcShadowPeriod || 160) : 260) ||
           Math.abs(hour - (this.lastShadowHour ?? hour)) > .02 || this.shadowFrameIndex === 0)) {
           this.drawSunShadows(nearStatic, dynamicObjects, c);
           this.lastShadowMs = nowShadow; this.shadowX = c.x; this.shadowZ = c.z; this.lastShadowHour = hour;
