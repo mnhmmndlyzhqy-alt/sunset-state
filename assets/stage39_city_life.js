@@ -72,7 +72,7 @@ var Heatline = globalThis.Heatline || {};
       E.add((px + nx) / 2, py + sh / 2, (pz + nz) / 2, r, sh * 1.05, r, i % 2 ? '#8a7356' : '#7d6750', 'bark', { shape: 'cylinder', cap: 400 });
       px = nx; pz = nz; py += sh;
     }
-    E.add(px, py + .2, pz, .55, .5, .55, '#6b5a3c', 'bark', { shape: 'sphere', cap: 400 });
+    E.add(px, py + .2, pz, .55, .5, .55, '#6b5a3c', 'bark', { shape: 'rounded', cap: 400 });
     const fronds = 11;
     for (let i = 0; i < fronds; i++) {
       const a = i / fronds * 6.283 + seed * 3;
@@ -80,9 +80,9 @@ var Heatline = globalThis.Heatline || {};
       const droop = .35 + hash(seed * 51, i) * .35;
       const cx = px + Math.cos(a) * len * .45, cz = pz + Math.sin(a) * len * .45;
       E.add(cx, py + .25 - droop * .9, cz, .62, .07, len, i % 3 ? '#4d7a31' : '#5f8a37', 'foliage',
-        { yaw: -a + Math.PI / 2, pitch: droop, shape: 'rounded_smooth', cap: 400 });
+        { yaw: -a + Math.PI / 2, pitch: droop, cap: 400 });
     }
-    for (let i = 0; i < 3; i++) E.add(px + Math.cos(i * 2.1) * .3, py - .15, pz + Math.sin(i * 2.1) * .3, .2, .2, .2, '#7a5a2a', 'wood', { shape: 'sphere', cap: 160 });
+    for (let i = 0; i < 3; i++) E.add(px + Math.cos(i * 2.1) * .3, py - .15, pz + Math.sin(i * 2.1) * .3, .2, .2, .2, '#7a5a2a', 'wood', { shape: 'rounded', cap: 120 });
     stats.palms++;
     return { x, z, hw: .4, hd: .4 };
   }
@@ -93,15 +93,15 @@ var Heatline = globalThis.Heatline || {};
     const flowers = ['#e84a7a', '#f2c230', '#ff7a3a', '#c05ad8', '#f5f0e6', '#e8343a'];
     for (let i = 0; i < 5; i++) {
       const [bx, bz] = L(-.9 + i * .45, (hash(i, seed * 7) - .5) * .3);
-      E.add(bx, y + .85, bz, .5, .45, .5, i % 2 ? '#4f7f35' : '#3f6d2e', 'foliage', { shape: 'sphere', cap: 200 });
-      E.add(bx, y + 1.06, bz, .16, .12, .16, flowers[(i + Math.floor(seed * 6)) % flowers.length], 'fabric', { shape: 'sphere', cap: 120 });
+      E.add(bx, y + .85, bz, .5, .45, .5, i % 2 ? '#4f7f35' : '#3f6d2e', 'foliage', { shape: 'sphere_lod38', cap: 200 });
+      E.add(bx, y + 1.06, bz, .16, .12, .16, flowers[(i + Math.floor(seed * 6)) % flowers.length], 'fabric', { shape: 'rounded', cap: 90 });
     }
     stats.planters++;
     return { x, z, hw: 1.15, hd: 1.15 };
   }
   function hydrant(E, x, z, y) {
     E.add(x, y + .38, z, .26, .76, .26, '#c8322a', 'paint', { shape: 'cylinder', cap: 140 });
-    E.add(x, y + .8, z, .3, .14, .3, '#c8322a', 'paint', { shape: 'sphere', cap: 140 });
+    E.add(x, y + .8, z, .3, .14, .3, '#c8322a', 'paint', { shape: 'rounded', cap: 140 });
     E.add(x, y + .5, z, .46, .1, .1, '#d9b43a', 'metal', { cap: 120 });
   }
   function bin(E, x, z, y, yaw) {
@@ -151,7 +151,7 @@ var Heatline = globalThis.Heatline || {};
     for (let i = 0; i <= n; i++) {
       const t = i / n, sag = Math.sin(t * Math.PI) * .55;
       const col = ['#ffd9a0', '#ffe8c2', '#ffc98a'][(i + Math.floor(seed * 3)) % 3];
-      E.add(x0 + (x1 - x0) * t, y - sag, z0 + (z1 - z0) * t, .09, .12, .09, col, null, { glow: 1.25, shape: 'sphere', cap: 260 });
+      E.add(x0 + (x1 - x0) * t, y - sag, z0 + (z1 - z0) * t, .09, .12, .09, col, null, { glow: 1.25, cap: 200 });
     }
   }
   function neonBlade(E, x, y, z, yaw, seed) {
@@ -262,6 +262,7 @@ var Heatline = globalThis.Heatline || {};
         stringLights(E, s0x, s0z, s1x, s1z, y + 3.4, h);
         const [p0x, p0z] = L(-4.6, -6.4);
         E.add(p0x, y + 1.7, p0z, .08, 3.4, .08, '#2a2c2e', 'metal', { cap: 200 });
+        for (let i = 0; i < 2; i++) { const [cx, cz] = L(5.4 + i * .9, -1.6); scooter(E, cx, cz, ground(cx, cz), yaw + Math.PI / 2, hash(i, h * 13)); }
         stats.cafes++;
       }
       // Glowing shop sign over the awning.
@@ -309,7 +310,7 @@ var Heatline = globalThis.Heatline || {};
               const [rx, rz] = L(0, (fz || fx) > 0 ? .72 : -.72);
               E.add(rx, y + .45, rz, w, .95, .04, '#9fb6bf', 'glass', { yaw, cap: 260 });
               E.add(rx, y + .95, rz, w + .04, .06, .08, '#2b2f33', 'metal', { yaw, cap: 260 });
-              if (hash(k, f + seed) > .55) E.add(x + (fx ? 0 : .9), y + .32, z + (fz ? 0 : .9), .55, .5, .55, '#4b7a34', 'foliage', { shape: 'sphere', cap: 200 });
+              if (hash(k, f + seed) > .55) E.add(x + (fx ? 0 : .9), y + .32, z + (fz ? 0 : .9), .55, .5, .55, '#4b7a34', 'foliage', { shape: 'sphere_lod38', cap: 200 });
               if (hash(f, k + seed * 3) > .7) {
                 const [ax, az] = L(1.25, (fz || fx) > 0 ? -.25 : .25);
                 E.add(ax, y + .3, az, .8, .55, .35, '#cfd2d0', 'metal', { yaw, cap: 220 });
@@ -353,7 +354,7 @@ var Heatline = globalThis.Heatline || {};
         E.add(gx, roof + .12, gz, b.w * .45, .2, b.d * .3, '#a07a54', 'wood', { cap: 700 });
         for (let i = 0; i < 6; i++) {
           const [px, pz] = L((hash(i, seed * 9) - .5) * b.w * .4, -b.d * .15 + (hash(seed * 9, i) - .5) * b.d * .25);
-          E.add(px, roof + .7, pz, 1.1, 1.0, 1.1, '#4f8536', 'foliage', { shape: 'sphere', cap: 500 });
+          E.add(px, roof + .7, pz, 1.1, 1.0, 1.1, '#4f8536', 'foliage', { shape: 'sphere_lod38', cap: 500 });
         }
       }
       stats.rooftops++;
@@ -385,7 +386,7 @@ var Heatline = globalThis.Heatline || {};
         E.add(fx, y + 1.55, fz, .16, 3.1, .18, '#8a6a42', 'bronze471', { yaw, cap: 220 });
         const [px, pz] = L(s * (w / 2 + 1.1), -1.0);
         E.add(px, y + .42, pz, .7, .84, .7, '#cfc7b8', 'concrete', { yaw, shape: 'cylinder', cap: 200 });
-        E.add(px, y + 1.15, pz, .85, .9, .85, '#477a33', 'foliage', { shape: 'sphere', cap: 200 });
+        E.add(px, y + 1.15, pz, .85, .9, .85, '#477a33', 'foliage', { shape: 'sphere_lod38', cap: 200 });
       }
       const [sx, sz] = L(0, -.8);
       E.add(sx, y + .07, sz, w + .4, .14, 1.6, '#d8d3c8', 'travertine471', { yaw, cap: 200 });
@@ -397,6 +398,79 @@ var Heatline = globalThis.Heatline || {};
     }
   }
 
+
+  /* ---------------- building articulation: plinths, pilasters, parapets, billboards ---------------- */
+  function buildArticulation(world, E) {
+    const ads = [['#ff4f8b', '#ffd23f', '#2ec4d6'], ['#3a86ff', '#f1f1f1', '#ff006e'], ['#06d6a0', '#073b4c', '#ffd166'], ['#ff7b00', '#fff3e0', '#7b2cbf']];
+    for (const b of world.buildings || []) {
+      if (!(b.h > 6) || !b.w || !b.d) continue;
+      const base = b.stage42Ground ?? ground(b.x, b.z), roof = base + b.h, seed = hash(b.z, b.x);
+      const stone = ['#b9ad98', '#a89f92', '#c4b8a2', '#8f8a82'][Math.floor(seed * 4)];
+      const hw = b.w / 2, hd = b.d / 2;
+      // Stone plinth (ground-floor base) and roof parapet on all four sides.
+      for (const [x, z, w, d] of [[b.x, b.z - hd - .08, b.w + .3, .3], [b.x, b.z + hd + .08, b.w + .3, .3], [b.x - hw - .08, b.z, .3, b.d + .3], [b.x + hw + .08, b.z, .3, b.d + .3]]) {
+        E.add(x, base + .7, z, w, 1.4, d, stone, 'concrete', { cap: 520 });
+        E.add(x, roof + .45, z, w, .9, d, '#d9d3c7', 'concrete', { cap: 1200 });
+      }
+      // Vice-City style neon roof outline on towers; warm uplights at the base.
+      if (b.h > 24 && seed > .35) {
+        const neon = ['#ff2fa0', '#29e3ff', '#b45cff', '#ff8a2b', '#2bff9c'][Math.floor(hash(seed, b.h) * 5)];
+        for (const [x, z, w, d] of [[b.x, b.z - hd - .2, b.w + .5, .12], [b.x, b.z + hd + .2, b.w + .5, .12], [b.x - hw - .2, b.z, .12, b.d + .5], [b.x + hw + .2, b.z, .12, b.d + .5]])
+          E.add(x, roof + .95, z, w, .14, d, neon, null, { glow: 1.4, cap: 2400 });
+        stats.neonOutlines = (stats.neonOutlines || 0) + 1;
+      }
+      if (seed < .5) for (const [x, z, w, d] of [[b.x, b.z - hd - .25, b.w * .9, .1], [b.x, b.z + hd + .25, b.w * .9, .1]])
+        E.add(x, base + 1.45, z, w, .08, d, '#ffd6a0', null, { glow: .9, cap: 420 });
+      // Hedges in front of residential facades, clear of the lobby doors.
+      if (/resid|apart|home/i.test(String(b.kind || '')) || seed > .6) {
+        const doors = (world.entrancePortals || []).filter(p => Math.abs(p.x - b.x) < hw + 6 && Math.abs(p.z - b.z) < hd + 6);
+        for (const sz of [-1, 1]) {
+          const z = b.z + sz * (hd + 1.15);
+          for (let x = b.x - hw + 1.2; x < b.x + hw - 1.2; x += 1.8) {
+            if (doors.some(p => Math.hypot(p.x - x, p.z - z) < 5)) continue;
+            const y = ground(x, z);
+            E.add(x, y + .45, z, 1.75, .9, .8, hash(x, z) > .5 ? '#3f6e31' : '#4a7a36', 'foliage', { shape: 'rounded', cap: 260 });
+          }
+        }
+        stats.hedges = (stats.hedges || 0) + 1;
+      }
+      // Corner pilasters.
+      if (b.h > 12) for (const [sx, sz] of [[-1, -1], [1, -1], [-1, 1], [1, 1]])
+        E.add(b.x + sx * (hw + .1), base + b.h / 2, b.z + sz * (hd + .1), .7, b.h, .7, '#e3ddd1', 'concrete', { cap: 1500 });
+      // Lit rooftop billboard on some mid-rise buildings.
+      if (b.h > 16 && b.h < 70 && seed > .72) {
+        const pal = ads[Math.floor(hash(b.x, seed) * ads.length)];
+        const along = b.w >= b.d, w = Math.min(14, (along ? b.w : b.d) * .6);
+        const yaw = along ? 0 : Math.PI / 2;
+        const bx = b.x + (along ? 0 : hw * .35), bz = b.z + (along ? hd * .35 : 0);
+        for (const s of [-1, 1]) {
+          const L = frame(bx, bz, yaw); const [lx, lz] = L(s * w * .35, 0);
+          E.add(lx, roof + 2.2, lz, .25, 4.4, .25, '#3b3f44', 'metal', { yaw, cap: 1200 });
+        }
+        E.add(bx, roof + 6.2, bz, w + .4, 4.4, .35, '#2a2d31', 'metal', { yaw, cap: 1400 });
+        const L = frame(bx, bz, yaw);
+        for (let i = 0; i < 3; i++) {
+          const [px, pz] = L(-w / 3 + i * w / 3, -.2);
+          E.add(px, roof + 6.2, pz, w / 3 - .15, 3.9, .06, pal[i], null, { yaw, glow: .55, cap: 1500 });
+          const [qx, qz] = L(-w / 3 + i * w / 3, .2);
+          E.add(qx, roof + 6.2, qz, w / 3 - .15, 3.9, .06, pal[2 - i], null, { yaw, glow: .55, cap: 1500 });
+        }
+        stats.billboards = (stats.billboards || 0) + 1;
+      }
+    }
+  }
+  function scooter(E, x, z, y, yaw, seed) {
+    const L = frame(x, z, yaw), col = ['#e63946', '#f1faee', '#a8dadc', '#ffb703', '#2a9d8f'][Math.floor(seed * 5)];
+    E.add(x, y + .45, z, .32, .35, 1.1, col, 'paint', { yaw, shape: 'rounded', cap: 130 });
+    const [sx, sz] = L(0, .15); E.add(sx, y + .72, sz, .3, .1, .55, '#1d1d1f', 'fabric', { yaw, cap: 110 });
+    const [hx, hz] = L(0, -.55); E.add(hx, y + .85, hz, .5, .06, .06, '#2b2b2b', 'metal', { yaw, cap: 110 });
+    for (const t of [-.5, .5]) { const [wx, wz] = L(0, t); E.add(wx, y + .2, wz, .1, .4, .4, '#151515', 'rubber', { yaw, cap: 110 }); }
+  }
+  function lightenLegacySpheres(world) {
+    let n = 0;
+    for (const b of world.boxes) if (b.shape === 'sphere' && b.lodMin === undefined && b.lodMax === undefined && Math.max(b.w, b.h, b.d) < 2.2) { b.shape = 'sphere_lod38'; n++; }
+    stats.spheresLightened = n;
+  }
   /* ---------------- interiors ---------------- */
   function decorateInterior(scene, plan) {
     if (!scene || scene.__rc39 || !Array.isArray(scene.boxes)) return scene;
@@ -430,7 +504,7 @@ var Heatline = globalThis.Heatline || {};
       add(r.x, ceiling - .55, r.z, .45, .22, .45, '#fff1d6', null, 1.2, 'sphere');
       const px = r.x + (seed > .5 ? 1.6 : -1.6), pz = r.z - 1.1;
       add(px, y + .25, pz, .42, .5, .42, '#c7b9a4', 'concrete', 0, 'cylinder');
-      add(px, y + .85, pz, .7, .9, .7, '#3f7a35', 'foliage', 0, 'sphere');
+      add(px, y + .85, pz, .7, .9, .7, '#3f7a35', 'foliage', 0, 'sphere_lod38');
       if (r.use === 'home' || r.use === 'suite' || r.use === 'reading') {
         add(r.x - 1.5, y + .75, r.z + 1.2, .05, 1.5, .05, '#2a2a2a', 'metal');
         add(r.x - 1.5, y + 1.55, r.z + 1.2, .38, .3, .38, '#ffe6bd', null, 1.0, 'cylinder');
@@ -480,6 +554,8 @@ var Heatline = globalThis.Heatline || {};
           buildFrontages(world, E, solids);
           buildArchitecture(world, E);
           buildEntrances(world, E);
+          buildArticulation(world, E);
+          lightenLegacySpheres(world);
           for (const b of E.out) world.boxes.push(b);
           for (const s of solids) if (s && Number.isFinite(s.x)) world.solids.push(s);
           if (world.nearbyRegions473 instanceof Map) world.nearbyRegions473 = new Map();

@@ -147,7 +147,7 @@ float rcShadow(vec3 world,vec3 n,vec3 sun,float dist){
   float fadeOut=smoothstep(.43,.497,edge);
   float reference=uv.z-(.00010+.00030*(1.0-NoL));
   if(uShadowsActive==3)return mix(texture(uShadow,vec3(uv.xy,reference)),1.0,fadeOut);
-  float radius=(1.35+dist*.010)/4096.0;
+  float radius=(1.35+dist*.010)*rcShadowTexel/260.0;
   float sum=0.0;
   int taps=uShadowsActive==2?6:12;
   for(int i=0;i<12;i++){
@@ -453,6 +453,71 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
             outputColor=vec4(rcEmit(col),1.0);rcLinear_=true;return;
           }
 `;
+  const TOWER29 = `          if(matId==29.0){
+            float face=abs(n.x)>.65?vPosition.z:vPosition.x;
+            float pane=fract(face/2.36),pixel=fwidth(face),index=floor(face/2.36);
+            float seam=min(pane,1.0-pane)*2.36;
+            float frame=(1.0-smoothstep(.037,.071+pixel,seam))*(1.0-smoothstep(.08,.40,pixel));
+            float height=vPosition.y-vObjectCentre.y+vWindowSize.y*.5;
+            float floorIndex=floor(height/3.55);
+            float band=fract(height/3.55),floorPixel=fwidth(height);
+            float spandrel=(1.0-smoothstep(.10,.15+floorPixel*.17,band))*step(5.0,vWindowSize.y);
+            float grade=hash(vec2(index,vObjectCentre.y+floorIndex));
+            vec3 pn=normalize(n+vec3(n.z,0.0,-n.x)*(grade-.5)*.04);
+            float NoV=max(dot(pn,v),.02);
+            float F=mix(.18,1.0,pow(1.0-NoV,5.0));
+            vec3 env=rcEnvRadiance(reflect(-v,pn),.02)*mix(vec3(.62,.80,.90),clamp(vColor.rgb*1.3+.15,0.0,1.0),.3);
+            float sunUp=smoothstep(-.035,.06,sun.y);
+            float NoL=max(dot(pn,sun),0.0);
+            float vis=NoL>0.0&&sunUp>0.0?rcShadow(vPosition,n,sun,dist):0.0;
+            vec3 hv=normalize(sun+v);
+            float glint=rcGGX(max(dot(pn,hv),0.0),.00004)*rcVis(NoL,NoV,.015)*NoL*3.14159*F;
+            vec3 inside=rcToLinear(vColor.rgb*.22)*rcAmbient(n)*.35;
+            float occupied=step(.68,hash(vec2(index*1.7,floorIndex)))*rcExposure.y;
+            inside+=rcToLinear(vec3(.95,.72,.45))*occupied*.24/max(rcExposure.x,.05);
+            vec3 glass=mix(inside,env,F)+rcSunColor*sunUp*min(glint,80.0)*vis;
+            vec3 lit=rcAmbient(n)+rcSunColor*max(dot(n,sun),0.0)*vis*sunUp;
+            vec3 col=mix(glass,rcToLinear(vColor.rgb*.55)*lit*.7+env*.06,spandrel*.85);
+            col=mix(col,rcToLinear(vec3(.20,.22,.23))*lit,frame*.85);
+            outputColor=vec4(rcEmit(rcFogApply(col,vPosition)*rcExposure.x),1.0);rcLinear_=true;return;
+          }
+`;
+  const WINDOW_FUNC = `
+vec3 rcWindow(vec3 n,vec3 v,float seed,float feature,float dist){
+  vec2 uv=vWindowPlane+.5;
+  vec2 edge=min(uv,1.0-uv)*vWindowSize;
+  float reveal=min(edge.x,edge.y);
+  float panes=clamp(floor(vWindowSize.x/1.78+.20),1.0,26.0);
+  float floors=clamp(floor(vWindowSize.y/3.48+.14),1.0,32.0);
+  vec2 sections=vec2(panes,floors);
+  vec2 panel=fract(uv*sections);
+  vec2 pe=min(panel,1.0-panel)*vWindowSize/sections;
+  float pixel=max(.006,max(fwidth(uv.x)*vWindowSize.x,fwidth(uv.y)*vWindowSize.y));
+  float detail=(1.0-smoothstep(74.0,202.0,dist))*(1.0-smoothstep(.040,.186,pixel));
+  float vertical=panes>1.0?(1.0-smoothstep(.021,.041+pixel,pe.x))*.68:0.0;
+  float horizontal=floors>1.0?(1.0-smoothstep(.050,.107+pixel,pe.y))*.56:0.0;
+  float frame=max(max(vertical,horizontal),1.0-smoothstep(.028,.079+pixel,reveal))*detail;
+  float paneIndex=floor(uv.x*panes)+floor(uv.y*floors)*.419;
+  float occ=fract(seed*17.93+paneIndex*.414);
+  vec3 pn=normalize(n+vec3(n.z,0.0,-n.x)*(occ-.5)*.03);
+  float NoV=max(dot(pn,v),.02);
+  float F=mix(.08,1.0,pow(1.0-NoV,5.0));
+  vec3 env=rcEnvRadiance(reflect(-v,pn),.03)*vec3(.80,.90,.95);
+  vec3 amb=rcAmbient(n);
+  vec3 interior=rcToLinear(vec3(.05,.06,.065))*(amb*.5+.01);
+  float blinds=step(.46,occ)*step(.52+occ*.34,panel.y);
+  interior=mix(interior,rcToLinear(vec3(.30,.26,.21))*amb*.4,blinds*.7);
+  float lit=step(.70,occ+.17*feature);
+  vec3 lamp=mix(vec3(.95,.62,.33),vec3(.62,.80,.92),step(.80,fract(seed*11.67)));
+  interior+=rcToLinear(lamp)*lit*rcExposure.y*.22/max(rcExposure.x,.05);
+  vec3 sun=rcSunDir;float sunUp=smoothstep(-.035,.06,sun.y);
+  float NoL=max(dot(pn,sun),0.0);vec3 hv=normalize(sun+v);
+  float glint=rcGGX(max(dot(pn,hv),0.0),.00008)*rcVis(NoL,NoV,.02)*NoL*3.14159*F;
+  vec3 glass=mix(interior,env,F)+rcSunColor*sunUp*min(glint,40.0);
+  vec3 trim=rcToLinear(vec3(.20,.21,.21))*(amb+rcSunColor*max(dot(n,sun),0.0)*sunUp*.8);
+  return rcFogApply(mix(glass,trim,frame),vPosition)*rcExposure.x;
+}
+`;
   function between(src, start, end) {
     const i = src.indexOf(start);
     if (i < 0 || src.indexOf(start, i + start.length) >= 0) throw Error('anchor not unique: ' + start.slice(0, 40));
@@ -478,6 +543,10 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
       '          float matId=floor(materialKey+.001);\n          vec4 rcOverride=vec4(-1.0);float rcOverrideMetal=0.0;');
     let [a, b] = between(s, '          if(matId==34.0){', '          if(matId==29.0){');
     s = s.slice(0, a) + BLOCK34 + s.slice(b);
+    [a, b] = between(s, '          if(matId==29.0){', '          if(matId>=30.0&&matId<=32.0){');
+    s = s.slice(0, a) + TOWER29 + s.slice(b);
+    s = replaceUnique(s, '            outputColor=vec4(buildingWindow(n,v,hash(vObjectCentre.xz+vObjectCentre.y*vec2(2.83,.79)),fract(materialKey),dist),1.0);',
+      '            outputColor=vec4(rcEmit(rcWindow(n,v,hash(vObjectCentre.xz+vObjectCentre.y*vec2(2.83,.79)),fract(materialKey),dist)),1.0);rcLinear_=true;');
     [a, b] = between(s, '          if(matId>=30.0&&matId<=32.0){', '          if(matId==17.0){');
     s = s.slice(0, a) + BLOCK30 + s.slice(b);
     [a, b] = between(s, '          if(matId==23.0){', '          float emission=max(0.0,vColor.a);');
@@ -494,7 +563,7 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
     // 6. Legacy main -> helper, new main encodes for the HDR target.
     const mainIdx = s.lastIndexOf('        void main(){');
     if (mainIdx < 0) throw Error('main missing');
-    s = s.slice(0, mainIdx) + FACADE_FUNC + '        void rcLegacyMain_(){' + s.slice(mainIdx + '        void main(){'.length);
+    s = s.slice(0, mainIdx) + FACADE_FUNC + WINDOW_FUNC + '        void rcLegacyMain_(){' + s.slice(mainIdx + '        void main(){'.length);
     s += `
         void main(){
           outputColor=vec4(0.0,0.0,0.0,1.0);
@@ -512,7 +581,7 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
 
   function patchMainVertex(src) {
     let s = replaceUnique(src, '        uniform mat4 uViewProj;',
-      '        uniform mat4 uViewProj;\n        uniform float uTime; uniform vec4 uWeather;');
+      '        uniform mat4 uViewProj;\n        uniform float uTime; uniform vec4 uWeather;\n        invariant gl_Position;');
     s = replaceUnique(s, '          vec4 p=model*vec4(aPosition,1.0);', `          vec4 p=model*vec4(aPosition,1.0);
           if(iColor.a<-14.5&&iColor.a>-15.5){
             // Stage39: canopy sways as a whole and individual leaves flutter.
@@ -1279,12 +1348,65 @@ void main(){
         this.exposureState = this.atmosphere.targetExposure;
         try { this.rcComposite = new HDRComposite(g, this.rcHdr); }
         catch (error) { console.warn('[Realism39] HDR composite unavailable', error); this.rcComposite = null; }
+        // Integrated-GPU profile: same shaders and look, lighter fixed costs.
+        let adapter = '';
+        try { const info = g.getExtension('WEBGL_debug_renderer_info'); adapter = info ? String(g.getParameter(info.UNMASKED_RENDERER_WEBGL)) : ''; } catch { }
+        this.rcIntegrated = params.has('realismHigh') ? false :
+          params.has('realismLow') || /intel|uhd|iris|hd graphics|radeon\(tm\) graphics|vega \d+ graphics|mali|adreno|apple gpu|swiftshader|llvmpipe/i.test(adapter);
+        RC.stats.adapter = adapter; RC.stats.integratedProfile = this.rcIntegrated;
+        if (this.rcIntegrated) {
+          if (this.rcComposite) this.rcComposite.maxSamplesOverride = 2;
+          if (this.shadowReady && this.shadowSize > 2048) {
+            const oldTex = this.shadowTexture, oldFb = this.shadowFrame;
+            this.shadowSize = 2048;
+            this.installShadows();
+            if (this.shadowReady) { g.deleteTexture(oldTex); g.deleteFramebuffer(oldFb); }
+          }
+        }
         this.composite = null;
         this.rcGrade = { bloom: .045, grain: .012, time: 0, vignette: .22, saturation: 1.06, contrast: .16,
           whiteBalance: [1, 1, 1], lift: [0, 0, 0] };
         RC.renderer = this;
+        try { this.rcTimerExt = params.has('realismNoTimer') ? null : g.getExtension('EXT_disjoint_timer_query_webgl2'); } catch { this.rcTimerExt = null; }
         try { canvas.style.filter = 'none'; } catch {}
         this.resize();
+      }
+      rcPrepassProgram() {
+        if (this.rcPrepass !== undefined) return this.rcPrepass;
+        this.rcPrepass = null;
+        if (!params.has('realismPrepass')) return null;
+        try {
+          const g = this.gl;
+          const vsSrc = (g.getAttachedShaders(this.prog) || []).map(sh => g.getShaderSource(sh))
+            .find(src => src && src.includes('flat out vec3 vDistanceBands;') && src.includes('invariant gl_Position'));
+          if (!vsSrc) return null;
+          const fs = `#version 300 es
+// RC-NATIVE prepass
+precision highp float;
+flat in vec3 vDistanceBands;flat in vec3 vObjectCentre;
+uniform vec3 uCamera;
+float vsm(float a,float b,float x){float t=clamp((x-a)/max(.001,b-a),0.0,1.0);return t*t*(3.0-2.0*t);}
+void main(){
+  float dist=distance(vObjectCentre.xz,uCamera.xz);
+  float visible=1.0;
+  if(vDistanceBands.x>.0)visible*=vsm(max(0.0,vDistanceBands.x-42.0),vDistanceBands.x+42.0,dist);
+  if(vDistanceBands.y>.0)visible*=1.0-vsm(max(0.0,vDistanceBands.y-42.0),vDistanceBands.y+42.0,dist);
+  if(vDistanceBands.z>.0)visible*=1.0-vsm(max(0.0,vDistanceBands.z-70.0),vDistanceBands.z,dist);
+  if(visible<.9999){
+    int col=int(mod(floor(gl_FragCoord.x),4.0));
+    int row=int(mod(floor(gl_FragCoord.y),4.0));
+    const float bayer[16]=float[16](0.,8.,2.,10.,12.,4.,14.,6.,3.,11.,1.,9.,15.,7.,13.,5.);
+    float threshold=(bayer[row*4+col]+.5)/16.0;
+    if(vDistanceBands.x>.0)threshold=1.0-threshold;
+    if(visible<threshold)discard;
+  }
+}`;
+          const prog = makeProgram(g, vsSrc, fs, 'rc-prepass');
+          this.rcPrepass = { prog, vp: g.getUniformLocation(prog, 'uViewProj'), time: g.getUniformLocation(prog, 'uTime'),
+            weather: g.getUniformLocation(prog, 'uWeather'), cam: g.getUniformLocation(prog, 'uCamera') };
+        } catch (error) { console.warn('[Realism39] depth prepass unavailable', error); this.rcPrepass = null; }
+        RC.stats.prepass = !!this.rcPrepass;
+        return this.rcPrepass;
       }
       pack(objects, reuse = false) {
         // Unknown material names (e.g. 'stone') used to upload NaN, which blanked the
@@ -1364,7 +1486,13 @@ void main(){
         G.time = t;
       }
       drawSunShadows(statics, dynamics, c) {
-        super.drawSunShadows(statics, dynamics, c);
+        // Tiny decorative parts (bulbs, flowers, rails) cost GPU time in the
+        // shadow map but cast no visible shadow: skip them.
+        if (statics !== this.rcShadowSource) {
+          this.rcShadowSource = statics;
+          this.rcShadowCasters = statics.filter(o => !(Math.max(o.w, o.h, o.d) < 1.1 || (o.cityLife39 && o.h < .5 && Math.min(o.w, o.d) < 2)));
+        }
+        super.drawSunShadows(this.rcShadowCasters, dynamics, c);
         if (!this.shadowReady || !RC.passes.shadow.length) return;
         const g = this.gl;
         g.bindFramebuffer(g.FRAMEBUFFER, this.shadowFrame);
@@ -1400,16 +1528,47 @@ void main(){
         const scene = indoors ? this.indoorStatic : this.outdoorStatic;
         if (this.activeStaticScene !== scene) this.shadowFrameIndex = 0;
         this.activeStaticScene = scene;
+        const tq = this.rcTimerExt;
+        if (tq) {
+          if (this.rcQuery && g.getQueryParameter(this.rcQuery, g.QUERY_RESULT_AVAILABLE)) {
+            if (!g.getParameter(tq.GPU_DISJOINT_EXT)) {
+              const ms = g.getQueryParameter(this.rcQuery, g.QUERY_RESULT) / 1e6;
+              this.rcGpuMs = this.rcGpuMs == null ? ms : this.rcGpuMs * .85 + ms * .15;
+            }
+            g.deleteQuery(this.rcQuery); this.rcQuery = null;
+          }
+          if (!this.rcQuery) { this.rcQuery = g.createQuery(); g.beginQuery(tq.TIME_ELAPSED_EXT, this.rcQuery); this.rcQueryOpen = true; }
+        }
         const nearStatic = this.getVisibleStatic(staticObjects, c, scene);
+        // Screen-size LOD for moving parts: car bodies are 12k triangles and each
+        // alloy rim 3.7k; far away they are a few pixels. Lights always stay.
+        if (!params.has('realismDynLodOff') && dynamicObjects.length) {
+          const px = .92 * Math.min(this.glWidth, this.glHeight) / Math.tan(clamp(c.fov || 67, 54, 92) * Math.PI / 360) * .5;
+          const mr = this.modelRanges, keepList = [];
+          for (const o of dynamicObjects) {
+            if (o.glow > .3 || o.material === 'light_beam' || o.material === 'light_core') { keepList.push(o); continue; }
+            const dx = o.x - c.x, dz = o.z - c.z, d = Math.sqrt(dx * dx + dz * dz) + .001;
+            const size = Math.max(o.w, o.h, o.d) * px / d;
+            if (size < 1.5) continue;
+            const shape = o.shape;
+            if (shape && size < 14) {
+              const tris = (mr.get(shape)?.count || 0) / 3;
+              if (tris > 2500 && size < 10) continue;
+              if (size < 8 && /_rim_|alloy_rim/.test(shape)) continue;
+            }
+            keepList.push(o);
+          }
+          dynamicObjects = keepList;
+        }
         const daylight = H.daylightFromHour(hour);
-        window.__SUNSET_STAGE17_VISIBILITY = { renderer: this.name, ...this.getVisibilityInfo(),
+        window.__SUNSET_STAGE17_VISIBILITY = { renderer: this.name, gpuMs: this.rcGpuMs, ...this.getVisibilityInfo(),
           staticInstances: scene.cubeCount, quality: this.qualityScale, fadeMeters: 70, lodBlendMeters: 84, resolutionScale: this.rcResScale };
         this.sunlightHour = hour;
         this.updateAtmosphere(hour, weather, indoors, c, t);
         const sun29 = RC.frame.sunDir;
         const sunUp = sun29[1] > -.02;
         const shadowMode = this.shadowReady && c.satellite468 ? 3 :
-          this.shadowReady && !indoors && c.y < 140 && sunUp ? (this.rcResScale < .62 ? 2 : 1) : 0;
+          this.shadowReady && !indoors && c.y < 140 && sunUp ? (this.rcIntegrated || this.rcResScale < .62 ? 2 : 1) : 0;
         const nowShadow = performance.now();
         const shadowTravel = Math.hypot(c.x - (this.shadowX ?? c.x), c.z - (this.shadowZ ?? c.z));
         const shadowAge = nowShadow - (this.lastShadowMs ?? -Infinity);
@@ -1452,6 +1611,11 @@ void main(){
         g.uniform1f(this.worldQuality, 1);
         g.uniform1f(this.worldUnderwater445, c.underwater445 ? 1 : 0);
         g.uniform3f(this.worldSun, ...sun29);
+        // In daylight street lamps are invisible next to the sun; skipping them
+        // saves 12 per-pixel light evaluations. Headlight cones stay.
+        const dayFactor = indoors ? 0 : clamp((sun29[1] - .04) / .12, 0, 1);
+        if (dayFactor >= 1) lights = lights.filter(l => l.cone > 0);
+        else if (dayFactor > 0) lights = lights.filter(l => l.cone > 0 || (l.r + l.g + l.b) * (1 - dayFactor) > .3);
         const closest = H.stage34RenderSoundPolish?.enabled() ?
           H.stage34RenderSoundPolish.selectLights(lights, c, 12) :
           lights.map(l => ({ l, dist: (l.x - c.x) ** 2 + (l.z - c.z) ** 2 }))
@@ -1499,15 +1663,35 @@ void main(){
           scene.cubeCount = cubes.length; scene.wedgeCount = wedges.length; scene.seaCount = sea.length;
           scene.uploaded = nearStatic;
         }
-        this.bindInstances(scene.cubes);
-        if (scene.cubeCount) g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 0, scene.cubeCount);
-        if (scene.wedgeCount) { this.bindInstances(scene.wedges); g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 144, scene.wedgeCount); }
-        for (const [name, entry] of scene.extra) {
-          if (entry.count === 0) continue;
-          const range = this.modelRanges.get(name);
-          this.bindInstances(entry.buffer);
-          g.drawElementsInstanced(g.TRIANGLES, range.count, g.UNSIGNED_INT, range.offset, entry.count);
+        const drawStatics = () => {
+          this.bindInstances(scene.cubes);
+          if (scene.cubeCount) g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 0, scene.cubeCount);
+          if (scene.wedgeCount) { this.bindInstances(scene.wedges); g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 144, scene.wedgeCount); }
+          for (const [name, entry] of scene.extra) {
+            if (entry.count === 0) continue;
+            const range = this.modelRanges.get(name);
+            this.bindInstances(entry.buffer);
+            g.drawElementsInstanced(g.TRIANGLES, range.count, g.UNSIGNED_INT, range.offset, entry.count);
+          }
+        };
+        // Depth pre-pass: identical (invariant) vertex shader + LOD dither only.
+        // The expensive PBR shader then runs once per visible pixel.
+        const pre = this.rcPrepassProgram();
+        if (pre) {
+          g.useProgram(pre.prog);
+          g.uniformMatrix4fv(pre.vp, false, viewProjection);
+          g.uniform1f(pre.time, t);
+          g.uniform4f(pre.weather, weather.cloud, weather.rain, weather.flash, weather.wind);
+          g.uniform3f(pre.cam, c.x, c.y, c.z);
+          g.colorMask(false, false, false, false);
+          drawStatics();
+          g.colorMask(true, true, true, true);
+          g.useProgram(this.prog);
+          g.depthMask(false);
+          g.depthFunc(g.LEQUAL);
         }
+        drawStatics();
+        if (pre) { g.depthMask(true); g.depthFunc(g.LESS); }
         if (!indoors && staticObjects.shoreMesh463) {
           this.drawShore463(staticObjects.shoreMesh463, viewProjection, c, sun29, daylight, weather, shadowMode, this.shadowMatrix);
           g.useProgram(this.prog); g.bindVertexArray(this.vao);
@@ -1539,18 +1723,34 @@ void main(){
           this.bindInstances(this.wheelBuffer);
           g.drawElementsInstanced(g.TRIANGLES, this.wheelIndexCount, g.UNSIGNED_INT, 288, wheels.length);
         }
+        // All per-shape dynamic instances go up in ONE buffer upload; each shape
+        // then draws from its offset (was ~170 separate uploads per frame).
         let twoSided = false;
+        const batches = [];
+        let floats = 0;
         for (const [shape, list] of dg) {
           const range = this.modelRanges.get(shape);
           if (!range) continue;
-          const both = TWO_SIDED(shape);
-          if (both !== twoSided) { twoSided = both; if (twoSided) g.disable(g.CULL_FACE); else g.enable(g.CULL_FACE); }
-          let buffer = this.modelBuffers.get(shape);
-          if (!buffer) { buffer = g.createBuffer(); this.modelBuffers.set(shape, buffer); }
-          g.bindBuffer(g.ARRAY_BUFFER, buffer);
-          g.bufferData(g.ARRAY_BUFFER, this.pack(list, true), g.DYNAMIC_DRAW);
-          this.bindInstances(buffer);
-          g.drawElementsInstanced(g.TRIANGLES, range.count, g.UNSIGNED_INT, range.offset, list.length);
+          batches.push({ shape, list, range, first: floats / 20 });
+          floats += list.length * 20;
+        }
+        if (batches.length) {
+          if (!this.rcDynArray || this.rcDynArray.length < floats) this.rcDynArray = new Float32Array(Math.max(floats, (this.rcDynArray?.length || 0) * 2, 4096));
+          let o = 0;
+          for (const b of batches) { const packed = this.pack(b.list, true); this.rcDynArray.set(packed, o); o += packed.length; }
+          if (!this.rcDynBuffer) this.rcDynBuffer = g.createBuffer();
+          g.bindBuffer(g.ARRAY_BUFFER, this.rcDynBuffer);
+          g.bufferData(g.ARRAY_BUFFER, this.rcDynArray.subarray(0, floats), g.STREAM_DRAW);
+          for (const b of batches) {
+            const both = TWO_SIDED(b.shape);
+            if (both !== twoSided) { twoSided = both; if (twoSided) g.disable(g.CULL_FACE); else g.enable(g.CULL_FACE); }
+            for (let i = 0; i < 5; i++) {
+              g.enableVertexAttribArray(2 + i);
+              g.vertexAttribPointer(2 + i, 4, g.FLOAT, false, 80, b.first * 80 + i * 16);
+              g.vertexAttribDivisor(2 + i, 1);
+            }
+            g.drawElementsInstanced(g.TRIANGLES, b.range.count, g.UNSIGNED_INT, b.range.offset, b.list.length);
+          }
         }
         if (twoSided) g.enable(g.CULL_FACE);
         const frame = { viewProjection, c, t, hour, weather, indoors, daylight, shadowMode, sun: sun29, width: this.glWidth, height: this.glHeight };
@@ -1670,6 +1870,7 @@ void main(){
           }
         }
         if (composited) this.rcComposite.present(projectionField, indoors, nearPlaneOf(c), this.rcGrade);
+        if (this.rcQueryOpen) { g.endQuery(this.rcTimerExt.TIME_ELAPSED_EXT); this.rcQueryOpen = false; }
       }
     }
     // Tighter static culling: the legacy culler kept a 170 m circle behind the
@@ -1684,7 +1885,7 @@ void main(){
         ['Math.abs(c.y-(scene.cullY??c.y))<7 && turn<.38)', 'Math.abs(c.y-(scene.cullY??c.y))<7 && turn<.21)'],
         ['rotateBoxLocal(', 'Heatline.rotateBoxLocal('],
         ['if (o.lodMin !== undefined && o.lodMin > lodPreload &&',
-          'if(d2>230*230&&o.layer>=3&&!(o.glow>.5)&&!o.stage450Proxy&&!o.terrainTile42){const a=o.w,b=o.h,e=o.d;const mid=a>b?(b>e?b:(a>e?e:a)):(a>e?a:(b>e?e:b));if(mid*pixelScale475<1.3*Math.sqrt(d2))return false;}\n                if (o.lodMin !== undefined && o.lodMin > lodPreload &&']
+          'if(d2>150*150&&o.layer>=3&&!(o.glow>.5)&&!o.stage450Proxy&&!o.terrainTile42){const a=o.w,b=o.h,e=o.d;const mid=a>b?(b>e?b:(a>e?e:a)):(a>e?a:(b>e?e:b));if(mid*pixelScale475<(Heatline.realism39.cullPx||2.6)*Math.sqrt(d2))return false;}\n                if (o.lodMin !== undefined && o.lodMin > lodPreload &&']
       ];
       for (const [a, b] of swaps) {
         if (src.split(a).length !== 2) throw Error('cull anchor: ' + a.slice(0, 40));
@@ -1712,6 +1913,12 @@ void main(){
       if (!active || this.graphicsLost || this.activeFrames < 240 || now - (this.rcQualityLast || 0) < 4000) return;
       this.rcQualityLast = now;
       const frame = this.frameTimeMs || 16;
+      // Preferred: real GPU time from a timer query (target ~36 ms GPU / frame).
+      if (r.rcGpuMs != null) {
+        if (r.rcGpuMs > 38 && r.rcResScale > .62) r.setResolutionScale(r.rcResScale - (r.rcGpuMs > 70 ? .12 : .06));
+        else if (r.rcGpuMs < 22 && r.rcResScale < 1) r.setResolutionScale(r.rcResScale + .05);
+        return;
+      }
       // A resize reallocates every render target, so it must never oscillate.
       // After a drop, verify it actually helped; if the frame is CPU-bound,
       // restore full resolution and stop probing for a while.
