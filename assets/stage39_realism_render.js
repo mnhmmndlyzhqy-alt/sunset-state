@@ -780,7 +780,7 @@ void main(){
   const ATM = {
     R0: 6360e3, RT: 6420e3, h0: 45,
     betaR: [5.802e-6, 13.558e-6, 33.1e-6], HR: 8000,
-    betaM: 7.0e-6, betaMExt: 7.8e-6, HM: 1250, g: .78,
+    betaM: 11.0e-6, betaMExt: 12.2e-6, HM: 1400, g: .80,
     ozone: [0.65e-6, 1.881e-6, 0.085e-6],
     E0: 9.2, MS: 1.85, groundAlbedo: .16
   };
@@ -887,6 +887,7 @@ void main(){
         rgb[c] = rgb[c] * (1 - over) + grey * tint * over * (1 - rain * .25);
         rgb[c] += nightSky[c] * night + [.0045, .0030, .0018][c] * glow;
       }
+      if (RC.tropical) { const w = Math.exp(-Math.max(0, el) * 2.2); rgb[0] *= 1 + .26 * w; rgb[1] *= 1 + .06 * w; rgb[2] *= 1 - .26 * w; }
       return rgb;
     }
     step(sun, weather, budget = 220) {
@@ -1478,7 +1479,7 @@ void main(){
         // Grading drifts warm at golden hour, cool and slightly desaturated at night.
         const golden = clamp(1 - Math.abs(sun[1] - .12) / .22, 0, 1) * (1 - night);
         const G = this.rcGrade;
-        G.whiteBalance = [1 + .035 * golden - .05 * night, 1 - .005 * golden - .01 * night, 1 - .05 * golden + .07 * night];
+        G.whiteBalance = RC.tropical ? [1.07, 1.0, .9] : [1 + .035 * golden - .05 * night, 1 - .005 * golden - .01 * night, 1 - .05 * golden + .07 * night];
         G.saturation = 1.07 - .14 * night - .12 * cloud;
         G.contrast = .17 - .05 * cloud;
         G.lift = [.006 * night, .008 * night, .014 * night];
@@ -1905,6 +1906,19 @@ void main(){
   RC.installGame = function (Game) {
     if (!Game || Game.prototype.__realism39Render) return;
     Game.prototype.__realism39Render = true;
+    // Fixed tropical afternoon: no day/night cycle, warm golden light, clear skies.
+    RC.tropical = !params.has('dayNight');
+    if (RC.tropical) {
+      const TROPICAL_HOUR = 17.35;
+      const upd = Game.prototype.update;
+      Game.prototype.update = function (dt) {
+        this.worldHour = TROPICAL_HOUR; this.clockRunning = false;
+        if (!this.rcWeatherSet && this.weather?.setControl) { this.rcWeatherSet = true; try { this.weather.setControl('clear'); } catch { } }
+        return upd.call(this, dt);
+      };
+      const hide = () => { for (const id of ['clock-display', 'clock-range', 'clock-toggle', 'day-phase']) { const el = document.getElementById(id); if (el) el.style.display = 'none'; } };
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hide); else hide();
+    }
     const legacyQuality = Game.prototype.manageVisualQuality450;
     Game.prototype.manageVisualQuality450 = function (active, now) {
       const r = this.renderer;

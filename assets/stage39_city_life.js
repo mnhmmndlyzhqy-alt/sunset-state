@@ -535,6 +535,30 @@ var Heatline = globalThis.Heatline || {};
       H.makeElevatorCabin = decorateCabin(H.makeElevatorCabin);
       H.makeElevatorCabin.__rc39 = true;
     }
+    // Seagull flocks gliding and flapping over the city (dynamic, a few boxes each).
+    const build = Game.prototype.buildDynamic;
+    Game.prototype.buildDynamic = function () {
+      const out = build.call(this);
+      if (this.inside || params.has('birdsOff')) return out;
+      try {
+        const c = this.cam, t = this.seconds || 0;
+        for (let f = 0; f < 3; f++) {
+          const cx = Math.round(c.x / 120) * 120 + (f - 1) * 90, cz = Math.round(c.z / 120) * 120 + (f % 2 ? 60 : -50);
+          for (let i = 0; i < 6; i++) {
+            const ph = t * (.16 + f * .03) + i * .55 + f * 2.1, r = 22 + i * 3 + f * 6;
+            const x = cx + Math.cos(ph) * r, z = cz + Math.sin(ph) * r, y = 30 + f * 9 + Math.sin(t * .7 + i) * 2.5;
+            const yaw = Math.PI - ph, flap = Math.sin(t * 9 + i * 1.3) * .55 * (Math.sin(t * .9 + i) > .2 ? 1 : .15);
+            const body = H.box(x, y, z, .16, .14, .5, '#eceae4', yaw, 4); body.material = 'paint'; out.push(body);
+            for (const sd of [-1, 1]) {
+              const wx = x + Math.cos(yaw) * sd * .42, wz = z + Math.sin(yaw) * sd * .42;
+              const wing = H.box(wx, y + Math.abs(flap) * .18, wz, .78, .025, .22, sd > 0 ? '#d9d7d0' : '#d4d2cb', yaw, 4);
+              wing.roll = flap * sd; wing.material = 'paint'; out.push(wing);
+            }
+          }
+        }
+      } catch { }
+      return out;
+    };
     const sceneForFloor = Game.prototype.sceneForFloor;
     Game.prototype.sceneForFloor = function (plan, floor) {
       const scene = sceneForFloor.call(this, plan, floor);

@@ -81,7 +81,7 @@ var Heatline = globalThis.Heatline || {};
       }
     }
     // Lofted limb along a bone: elliptical sections with a radius profile.
-    limb(bone, child, p0, p1, prof, colorAt, rough, rows = 9, cols = 14, ends = true) {
+    limb(bone, child, p0, p1, prof, colorAt, rough, rows = 10, cols = 16, ends = true) {
       const dir = [p1[0] - p0[0], p1[1] - p0[1], p1[2] - p0[2]], len = Math.hypot(...dir);
       const d = dir.map(x => x / len);
       let ax = Math.abs(d[1]) > .9 ? [1, 0, 0] : [0, 1, 0];
@@ -134,7 +134,7 @@ var Heatline = globalThis.Heatline || {};
     // Pelvis block (pants) + torso (shirt).
     mb.limb(B.pelvis, -1, [0, .84, 0], [0, 1.02, 0], t => [(.158 * hw) * bulk, .112 * bulk], () => pants, .85, 4, 18, false);
     mb.ellipsoid(B.pelvis, B.pelvis, [0, .86, 0], .155 * hw * bulk, .07, .108 * bulk, pants, .85, 6, 18);
-    mb.limb(B.spine, B.chest, [0, 1.00, 0], [0, 1.47, 0], torsoProf, shirtCol, .82, 10, 18, false);
+    mb.limb(B.spine, B.chest, [0, 1.00, 0], [0, 1.47, 0], torsoProf, shirtCol, .82, 12, 24, false);
     // Shoulder caps.
     for (const side of [-1, 1]) mb.ellipsoid(B.chest, side < 0 ? B.armL : B.armR, [side * .165 * sw, 1.425, 0], .075 * bulk, .062, .075 * bulk, shirt, .82, 7, 12, .7);
     // Neck & head.
@@ -195,6 +195,20 @@ var Heatline = globalThis.Heatline || {};
     if (o.backpack) {
       mb.ellipsoid(B.chest, B.chest, [0, 1.25, .16], .15, .2, .075, hexLin(o.backpack), .75, 8, 14, 1, (x, y, z) => 1 / Math.max(.75, Math.pow(Math.abs(x) ** 4 + Math.abs(y) ** 4 + Math.abs(z) ** 4, .25)));
       for (const side of [-1, 1]) mb.limb(B.chest, B.chest, [side * .1, 1.43, .02], [side * .11, 1.12, -.03], t => [.018, .006], () => hexLin('#3a2a22'), .7, 4, 6, false);
+    }
+    // Detail pass: collar, belt + buckle, fingers, watch, sneaker toe caps.
+    for (const side of [-1, 1]) mb.ellipsoid(B.chest, B.neck, [side * .045, 1.455, -.07], .05, .018, .035, shirt, .8, 4, 10, .8);
+    mb.limb(B.pelvis, -1, [0, .975, 0], [0, 1.012, 0], t => [(.162 * hw) * bulk, .118 * bulk], () => hexLin(o.belt || '#2a211c'), .55, 2, 20, false);
+    mb.ellipsoid(B.pelvis, B.pelvis, [0, .993, -.118 * bulk], .03, .02, .008, [.75, .68, .5], .25, 4, 8);
+    for (const side of [-1, 1]) {
+      const L = side < 0 ? 'L' : 'R', wr = jp('hand' + L), hb = B['hand' + L];
+      for (let f = 0; f < 4; f++) {
+        const fz = wr[2] - .03 + f * .016 - .02;
+        mb.limb(hb, hb, [wr[0], wr[1] - .1, fz], [wr[0] + side * .004, wr[1] - .165 + Math.abs(f - 1.5) * .008, fz - .006], t => [.0085, .0085], () => skin, .5, 3, 6, false);
+      }
+      if (side < 0) mb.limb(hb, hb, [wr[0], wr[1] + .025, wr[2]], [wr[0], wr[1] + .005, wr[2]], t => [.03, .03], () => hexLin(o.watch || '#c9c3b8'), .2, 2, 10, false);
+      const an = jp('foot' + L);
+      mb.ellipsoid(B['foot' + L], B['foot' + L], [an[0], .04, an[2] - .15], .045, .03, .04, hexLin(o.sole || '#e6e2da'), .8, 4, 10);
     }
     return { vertices: new Float32Array(mb.v), indices: new Uint16Array(mb.i) };
   }
@@ -505,6 +519,9 @@ void main(){
     const dt = clamp((now - (st.lastMs || now - 16)) / 1000, 0, .1);
     st.lastMs = now;
     const pose = animate(w, st, dt);
+    // Talking: head and jaw-line nod with the speech loudness envelope.
+    const talk = RC.speechLoudness ? RC.speechLoudness(w) : 0;
+    if (talk > .02) { pose.R[B.head][0] += -.10 * talk * (.6 + .4 * Math.sin(st.t * 17)); pose.R[B.neck][0] += .04 * talk; pose.R[B.head][1] += .05 * Math.sin(st.t * 3.1) * talk; }
     seatOverlay(pose, entryTime);
     let key, outfit, scale;
     if (player) { key = 'hero'; outfit = HERO; scale = 1.04; }
@@ -802,6 +819,22 @@ void main(){
     if (!Number.isFinite(c.x + c.z + c.yaw + c.vx + c.vz)) { c.vx = c.vz = c.yawRate = 0; s.vx = s.vy = s.r = 0; }
   }
   RC.stepCarDynamic = stepCarDynamic;
+  RC.installers.push(function installLuxuryTraffic(Game) {
+    if (params.has('realismPhysicsOff')) return;
+    const premium = c => {
+      const h = ((c.paint || 0) * 2654435761 ^ Math.round((c.x || 0) * 31) ^ Math.round((c.z || 0) * 17)) >>> 0;
+      const r = (h % 1000) / 1000;
+      if (r < .16) c.vehicleClass = 'luxury'; else if (r < .26) c.vehicleClass = 'sport';
+      return c;
+    };
+    const create = Game.prototype.createTraffic;
+    Game.prototype.createTraffic = function () { const c = create.call(this); return c && c.type === 'civilian' ? premium(c) : c; };
+    const update = Game.prototype.update;
+    Game.prototype.update = function (dt) {
+      if (!this.rcParkedPremium && this.parked) { this.rcParkedPremium = true; for (const c of this.parked) if (c.type !== 'police' && c !== this.player) premium(c); for (const c of this.civilian || []) premium(c); }
+      return update.call(this, dt);
+    };
+  });
   RC.installers.push(function installCarPhysics(Game) {
     if (params.has('realismPhysicsOff')) return;
     const legacy = H.stepCar;
