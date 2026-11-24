@@ -138,7 +138,9 @@ var Heatline = globalThis.Heatline || {};
     // Shoulder caps.
     for (const side of [-1, 1]) mb.ellipsoid(B.chest, side < 0 ? B.armL : B.armR, [side * .165 * sw, 1.425, 0], .075 * bulk, .062, .075 * bulk, shirt, .82, 7, 12, .7);
     // Neck & head.
-    mb.limb(B.neck, B.head, [0, 1.46, .005], [0, 1.60, -.005], t => [.052, .056], () => skin, .5, 4, 12, false);
+    mb.limb(B.neck, B.head, [0, 1.44, .012], [0, 1.60, -.002], t => [.064 - .006 * t, .066 - .004 * t], () => skin, .5, 5, 16, false);
+    // Trapezius slope from neck to shoulders.
+    for (const side of [-1, 1]) mb.limb(B.chest, B.neck, [side * .03, 1.47, .02], [side * .14 * sw, 1.43, .01], t => [.045 - .01 * t, .05], () => shirt, .82, 4, 12, false);
     const headC = [0, 1.665, -.012];
     mb.ellipsoid(B.head, B.head, headC, .088, .112, .102, (x, y, z) => skin, .48, 14, 20, 1, (x, y, z) => {
       // Jaw narrows, back of skull fuller, slight chin.

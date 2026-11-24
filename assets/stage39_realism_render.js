@@ -552,7 +552,18 @@ vec3 rcWindow(vec3 n,vec3 v,float seed,float feature,float dist){
     [a, b] = between(s, '          if(matId==23.0){', '          float emission=max(0.0,vColor.a);');
     s = s.slice(0, a) + WATER39 + s.slice(b);
     s = replaceUnique(s, '          vec3 albedo=vColor.rgb;',
-      '          vec3 albedo=vColor.rgb;\n          if(rcOverride.x>=0.0){albedo=rcOverride.rgb;rough=rcOverride.a;metal=rcOverrideMetal;}');
+      `          vec3 albedo=vColor.rgb;
+          if(rcOverride.x>=0.0){albedo=rcOverride.rgb;rough=rcOverride.a;metal=rcOverrideMetal;}
+          if(matId==15.0&&dist<220.0){
+            // Leaf clusters: break the smooth crown silhouette and bend normals per cluster.
+            vec3 q=vPosition*2.6;
+            float leafN=smoothNoise(q.xz+q.y*.7)*.6+smoothNoise(q.xy*1.9+q.zx*.4)*.4;
+            float rim=smoothstep(.45,.92,1.0-abs(dot(normalize(vNormal),v)));
+            if(leafN<rim*.62*(1.0-smoothstep(120.0,220.0,dist)))discard;
+            vec3 cl=vec3(smoothNoise(q.xz*1.7),smoothNoise(q.zy*1.7+5.0),smoothNoise(q.xy*1.7+9.0))-.5;
+            n=normalize(n+cl*1.1*(1.0-smoothstep(60.0,200.0,dist)));
+            albedo*=.82+.36*smoothNoise(q.xz*3.3+q.y);
+          }`);
     // 4. Facades in linear light.
     s = replaceUnique(s, '            outputColor=vec4(cityFacade473(matId,n,v,sun,dist),1.0);',
       '            outputColor=vec4(rcEmit(rcCityFacade(matId,n,v,sun,dist)),1.0);rcLinear_=true;');
@@ -1004,6 +1015,7 @@ uniform sampler2D sceneColor,sceneDepth,bloomTex;
 uniform vec2 pixelSize,projectionScale;
 uniform float nearPlane,aoStrength,bloomStrength,grain,time,vignette,saturation,contrast;
 uniform vec3 whiteBalance,lift;
+uniform vec2 sunUV;uniform float sunVis;uniform vec3 sunCol;
 uniform bool antialias;
 uniform bool hdrInput;
 in vec2 uv;out vec4 result;
@@ -1053,6 +1065,33 @@ void main(){
       shade+=max(0.0,dot(normal,delta)/max(.03,dist)-.10)*w;
     }
     color*=1.0-clamp(shade*.22,0.0,.42)*aoStrength*(1.0-smoothstep(30.0,60.0,depth))*smoothstep(1.2,4.5,depth);
+  }
+  if(hdrInput&&sunVis>.01){
+    // Crepuscular rays: march toward the sun through open sky (depth==far).
+    vec2 delta=(sunUV-uv);float L=length(delta);
+    vec2 stepv=delta/22.0;vec2 p=uv+stepv*ign(gl_FragCoord.xy);float illum=0.0,w=1.0;
+    for(int i=0;i<22;i++){
+      p+=stepv;
+      if(p.x<0.0||p.x>1.0||p.y<0.0||p.y>1.0)break;
+      illum+=step(.99999,texture(sceneDepth,p).r)*w;w*=.93;
+    }
+    color+=sunCol*illum*(1.0/11.0)*exp(-L*2.4)*sunVis*.42;
+    // Lens flare ghosts, only when the sun disc itself is unobstructed.
+    float open=step(.99999,texture(sceneDepth,clamp(sunUV,vec2(0.0),vec2(1.0))).r);
+    if(open>0.0){
+      vec2 axis=vec2(.5)-sunUV;
+      for(int k=0;k<4;k++){
+        float f=float(k);
+        vec2 gp=sunUV+axis*(.55+f*.45);
+        float r=.018+f*.012;
+        vec2 dd=(uv-gp)*vec2(pixelSize.y/pixelSize.x,1.0);
+        float disc=smoothstep(r,r*.55,length(dd));
+        vec3 tint=k==0?vec3(1.0,.62,.3):k==1?vec3(.4,.8,1.0):k==2?vec3(1.0,.45,.75):vec3(.6,1.0,.6);
+        color+=sunCol*tint*disc*.010*sunVis;
+      }
+      vec2 hd=(uv-sunUV)*vec2(pixelSize.y/pixelSize.x,1.0);
+      color+=sunCol*vec3(1.0,.75,.5)*exp(-abs(hd.y)*260.0)*exp(-abs(hd.x)*3.5)*.04*sunVis;
+    }
   }
   if(hdrInput){
     vec3 bloom=texture(bloomTex,uv).rgb;
@@ -1106,7 +1145,7 @@ void main(){
       this.levels = [];
       this.loc = {};
       for (const name of ['sceneColor', 'sceneDepth', 'bloomTex', 'pixelSize', 'projectionScale', 'nearPlane', 'aoStrength',
-        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput'])
+        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput', 'sunUV', 'sunVis', 'sunCol'])
         this.loc[name] = gl.getUniformLocation(this.final, name);
       this.downLoc = { src: gl.getUniformLocation(this.down, 'src'), texel: gl.getUniformLocation(this.down, 'texel'), prefilter: gl.getUniformLocation(this.down, 'prefilter') };
       this.upLoc = { src: gl.getUniformLocation(this.up, 'src'), texel: gl.getUniformLocation(this.up, 'texel'), radius: gl.getUniformLocation(this.up, 'radius') };
@@ -1246,6 +1285,7 @@ void main(){
       g.uniform3fv(L.lift, grade.lift);
       g.uniform1i(L.antialias, this.multisample ? 0 : 1);
       g.uniform1i(L.hdrInput, this.hdr ? 1 : 0);
+      g.uniform2fv(L.sunUV, grade.sunUV || [0, 0]); g.uniform1f(L.sunVis, grade.sunVis || 0); g.uniform3fv(L.sunCol, grade.sunCol || [0, 0, 0]);
       g.drawArrays(g.TRIANGLES, 0, 3);
       g.bindVertexArray(null);
       g.activeTexture(g.TEXTURE0);
@@ -1870,7 +1910,21 @@ void main(){
             g.depthMask(true); g.disable(g.BLEND); g.enable(g.CULL_FACE);
           }
         }
-        if (composited) this.rcComposite.present(projectionField, indoors, nearPlaneOf(c), this.rcGrade);
+        if (composited) {
+          // Sun screen position for shafts / flare.
+          const sd = RC.frame.sunDir, P = viewProjection;
+          const wx = c.x + sd[0] * 4000, wy = c.y + sd[1] * 4000, wz = c.z + sd[2] * 4000;
+          const cx = P[0] * wx + P[4] * wy + P[8] * wz + P[12], cy = P[1] * wx + P[5] * wy + P[9] * wz + P[13], cw = P[3] * wx + P[7] * wy + P[11] * wz + P[15];
+          const G = this.rcGrade;
+          if (cw > 0 && !indoors && sd[1] > -.02) {
+            const u = cx / cw * .5 + .5, v = cy / cw * .5 + .5;
+            G.sunUV = [u, v];
+            G.sunVis = Math.max(0, 1 - Math.max(0, Math.max(Math.abs(u - .5), Math.abs(v - .5)) - .5) / .35) * (1 - (weather.cloud || 0) * .8);
+            const e = RC.frame.exposure[0];
+            G.sunCol = RC.frame.sunColor.map(x => x * e);
+          } else G.sunVis = 0;
+          this.rcComposite.present(projectionField, indoors, nearPlaneOf(c), G);
+        }
         if (this.rcQueryOpen) { g.endQuery(this.rcTimerExt.TIME_ELAPSED_EXT); this.rcQueryOpen = false; }
       }
     }
