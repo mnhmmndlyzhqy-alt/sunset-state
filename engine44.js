@@ -15946,7 +15946,9 @@ var Heatline;
             if (!this.enabled || !this.ctx || !this.master)
                 return;
             const a = this.ctx, t = a.currentTime;
-            const throttle = { glass: .11, hurt: .38, panic: 2.1, footstep: .26, 'train-door': .48, brake: .42, metal: .12 };
+            const throttle = { glass: .11, hurt: .38, panic: 2.1, footstep: .26, 'train-door': .48, brake: .42, metal: .12, reward: .5 };
+            if (!(kind in throttle))
+                return;
             if (t - (this.lastCue.get(kind) ?? -99) < throttle[kind])
                 return;
             this.lastCue.set(kind, t);
@@ -15954,7 +15956,7 @@ var Heatline;
                 glass: [.34, 250, 4600, .035, 1950], hurt: [.26, 90, 920, .039, 420],
                 panic: [.37, 360, 1900, .021, 740], footstep: [.11, 65, 430, .018, 165],
                 'train-door': [.36, 140, 1200, .025, 570], brake: [.34, 200, 2400, .025, 920],
-                metal: [.23, 210, 1600, .032, 690]
+                metal: [.23, 210, 1600, .032, 690], reward: [.42, 900, 3200, .016, 1320]
             };
             const [duration, lo, hi, amplitude, pitch] = cfg[kind];
             const cached=Heatline.stage34RenderSoundPolish?.noiseBuffer(a,kind,duration);
@@ -21773,7 +21775,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 return;
             const interval = .15;
             this.faceMemoryNext442 = this.seconds + interval;
-            const memory = this.faceMemory442;
+            const memory = this.faceMemory442 || (this.faceMemory442 = new Map());
             const night = Heatline.daylightFromHour(this.worldHour) < .40;
             const wanted = this.crimeHeat > 0;
             for (const [unit, seen] of memory)

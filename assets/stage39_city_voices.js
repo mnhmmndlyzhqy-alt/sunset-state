@@ -76,7 +76,7 @@ var Heatline = globalThis.Heatline || {};
     } catch (error) { console.warn('[Voices39] speech engine unavailable', error); V.engine = null; }
     return V.engine;
   }
-  for (const ev of ['pointerdown', 'keydown', 'touchend']) globalThis.addEventListener?.(ev, () => ensureEngine(), { once: false, capture: true, passive: true });
+  for (const ev of ['pointerdown', 'keydown', 'touchend']) globalThis.addEventListener?.(ev, () => { ensureEngine(); if (V.clips && V.clips.ctx && V.clips.ctx.state === 'suspended') V.clips.ctx.resume().catch(() => {}); }, { once: false, capture: true, passive: true });
   // The game ships with sound OFF, which silenced every voice. Pressing Play is a user
   // gesture (required by browsers for audio): switch sound on then, once. The speaker
   // button still mutes it afterwards.
@@ -96,11 +96,113 @@ var Heatline = globalThis.Heatline || {};
   };
   if (typeof document !== 'undefined') { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', enableSoundOnPlay); else enableSoundOnPlay(); }
 
+  // ---- Recorded neural voice clips (assets/voices, made by TOOLS/generate_voices.py) ----
+  // Natural human timbre; played with HRTF 3-D audio. Lines without a clip use the formant engine.
+  const CLIP_VOICE = {
+    police_f1: 'f_mid', police_m1: 'm_tough', police_m2: 'm_deep', tourist_f: 'f_young', tourist_m: 'm_young',
+    woman_elder: 'f_elder', man_elder: 'm_elder', teen_girl: 'teen_f', teen_boy: 'teen_m',
+    man_calm: 'm_mid', man_deep: 'm_deep', man_bright: 'm_young', man_rough: 'm_tough', gangster_2: 'm_deep',
+    woman_calm: 'f_mid', woman_warm: 'f_warm', woman_bright: 'f_young', woman_posh: 'f_warm', man_posh: 'm_mid',
+    driver_m: 'm_mid', driver_f: 'f_mid'
+  };
+  const C = V.clips = { manifest: null, ctx: null, out: null, buffers: new Map(), active: [], last: new WeakMap(), failed: false };
+  const BASE = 'assets/voices/';
+  function loadManifest() {
+    if (C.manifest || C.loading || C.failed || params.get('voices') === 'formant') return;
+    C.loading = true;
+    fetch(BASE + 'manifest.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null)
+      .then(m => { if (m && m.lines) C.manifest = m; else C.failed = true; })
+      .catch(() => { C.failed = true; }).finally(() => { C.loading = false; });
+  }
+  function clipCtx() {
+    if (!C.ctx) {
+      const AC = globalThis.AudioContext || globalThis.webkitAudioContext;
+      if (!AC) return null;
+      C.ctx = new AC();
+      C.out = C.ctx.createGain(); C.out.gain.value = .95;
+      const comp = C.ctx.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3;
+      C.out.connect(comp); comp.connect(C.ctx.destination);
+    }
+    if (C.ctx.state === 'suspended') C.ctx.resume().catch(() => {});
+    return C.ctx;
+  }
+  function clipBuffer(url) {
+    let p = C.buffers.get(url);
+    if (!p) {
+      p = fetch(url).then(r => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+        .then(b => clipCtx().decodeAudioData(b));
+      p.catch(() => C.buffers.delete(url));
+      C.buffers.set(url, p);
+      if (C.buffers.size > 160) C.buffers.delete(C.buffers.keys().next().value);
+    }
+    return p;
+  }
+  /** true when a recorded clip handles the line */
+  function sayClip(who, text, o) {
+    const m = C.manifest, entry = m && m.lines[text];
+    if (!entry) return false;
+    const voice = CLIP_VOICE[o.voice] || (/woman|girl|_f/.test(o.voice || '') ? 'f_mid' : 'm_mid');
+    if (m.voices && !m.voices.includes(voice)) return false;
+    const now = performance.now();
+    if (now - (C.last.get(who) || -1e9) < 1800) return true;
+    if (C.active.length >= 3) {
+      if ((o.priority ?? 1) < 2) return true;
+      const old = C.active.shift(); try { old.src.stop(); } catch { }
+    }
+    C.last.set(who, now);
+    const ctx = clipCtx(); if (!ctx) return false;
+    clipBuffer(BASE + voice + '/' + entry.id + '.mp3').then(buf => {
+      const src = ctx.createBufferSource(); src.buffer = buf;
+      src.playbackRate.value = .97 + (((hashOf(who) >>> 3) % 7) * .01);
+      const pan = ctx.createPanner();
+      Object.assign(pan, { panningModel: 'HRTF', distanceModel: 'inverse', refDistance: 2.2, maxDistance: 60, rolloffFactor: 1.15 });
+      const an = ctx.createAnalyser(); an.fftSize = 256;
+      const g = ctx.createGain(); g.gain.value = o.priority >= 2 ? 1.15 : .95;
+      src.connect(g); g.connect(an); an.connect(pan); pan.connect(C.out);
+      const item = { src, pan, an, who, data: new Uint8Array(an.fftSize) };
+      placeClip(item);
+      C.active.push(item);
+      V.speaking.set(who, 'clip');
+      src.onended = () => { C.active = C.active.filter(x => x !== item); if (V.speaking.get(who) === 'clip') V.speaking.delete(who); V.stats.spoken++; };
+      src.start();
+    }).catch(() => { V.stats.dropped++; });
+    return true;
+  }
+  function placeClip(it) {
+    const w = it.who, t = C.ctx.currentTime;
+    it.pan.positionX.setTargetAtTime(w.x || 0, t, .05);
+    it.pan.positionY.setTargetAtTime((w.y || 0) + 1.6, t, .05);
+    it.pan.positionZ.setTargetAtTime(w.z || 0, t, .05);
+  }
+  function tickClips(game) {
+    if (!C.ctx) return;
+    const c = game.cam, L = C.ctx.listener, t = C.ctx.currentTime;
+    const fx = c.tx - c.x, fy = c.ty - c.y, fz = c.tz - c.z, fl = Math.hypot(fx, fy, fz) || 1;
+    if (L.positionX) {
+      L.positionX.setTargetAtTime(c.x, t, .05); L.positionY.setTargetAtTime(c.y, t, .05); L.positionZ.setTargetAtTime(c.z, t, .05);
+      L.forwardX.setTargetAtTime(fx / fl, t, .05); L.forwardY.setTargetAtTime(fy / fl, t, .05); L.forwardZ.setTargetAtTime(fz / fl, t, .05);
+      L.upX.value = 0; L.upY.value = 1; L.upZ.value = 0;
+    } else { L.setPosition(c.x, c.y, c.z); L.setOrientation(fx / fl, fy / fl, fz / fl, 0, 1, 0); }
+    const muted = document.getElementById('sound-button')?.dataset.off === '1';
+    C.out.gain.setTargetAtTime(muted || game.inside ? 0 : .95, t, .04);
+    for (const it of C.active) placeClip(it);
+  }
+  function clipLoudness(w) {
+    const it = C.active.find(x => x.who === w);
+    if (!it) return 0;
+    it.an.getByteTimeDomainData(it.data);
+    let e = 0; for (let i = 0; i < it.data.length; i++) { const v = (it.data[i] - 128) / 128; e += v * v; }
+    return Math.min(1, Math.sqrt(e / it.data.length) * 4.5);
+  }
+  loadManifest();
+
   function say(game, who, text, o = {}) {
-    const E = V.engine;
-    if (!E || !V.enabled || !who) return;
+    if (!V.enabled || !who) return;
     const muted = typeof document !== 'undefined' && document.getElementById('sound-button')?.dataset.off === '1';
     if (muted || game.inside) return;
+    if (sayClip(who, text, o)) return;
+    const E = V.engine;
+    if (!E) return;
     const { Priority } = globalThis.SunsetSpeech;
     const id = idOf(who);
     const promise = E.speak(text, {
@@ -114,6 +216,7 @@ var Heatline = globalThis.Heatline || {};
   /** loudness 0..1 of a character currently speaking (drives head motion) */
   RC.speechLoudness = function (w) {
     const id = V.speaking.get(w);
+    if (id === 'clip') return clipLoudness(w);
     if (!id || !V.engine) return 0;
     return V.engine.lipSync(id)?.loudness ?? 0;
   };
@@ -170,12 +273,12 @@ var Heatline = globalThis.Heatline || {};
     Game.prototype.update = function (dt) {
       const r = update.call(this, dt);
       const E = V.engine;
-      if (!E) return r;
+      try { tickClips(this); } catch { }
+      if (!E && !C.manifest) return r;
       try {
         const c = this.cam;
         const fx = c.tx - c.x, fz = c.tz - c.z, fl = Math.hypot(fx, fz) || 1;
-        E.setListener({ x: c.x, y: c.y, z: c.z, yaw: Math.atan2(-fx / fl, -fz / fl) });
-        E.update();
+        if (E) { E.setListener({ x: c.x, y: c.y, z: c.z, yaw: Math.atan2(-fx / fl, -fz / fl) }); E.update(); }
         if (this.inside) return r;
         const t = performance.now();
         const a = this.avatar, peds = this.pedestrians || [];
