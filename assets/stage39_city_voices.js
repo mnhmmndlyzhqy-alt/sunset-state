@@ -42,14 +42,15 @@ var Heatline = globalThis.Heatline || {};
   function voiceForWalker(w, kind) {
     const a = hashOf(w);
     if (kind === 'police') return ((a >>> 4) & 3) === 1 ? 'police_f1' : ((a >>> 6) & 1 ? 'police_m1' : 'police_m2');
+    // Same bits the body builder uses: gender, grey hair, build, height, beard.
     const female = ((a >>> 9) & 3) === 1;
     const grey = ((a >>> 15) % 7) === 5;
-    const teen = ((a >>> 20) % 9) === 0;
-    if (w.tourist) return female ? 'tourist_f' : 'tourist_m';
+    const bulk = (a >>> 25) % 4, size = (a >>> 13) % (female ? 4 : 5), beard = !female && ((a >>> 27) % 4 === 0);
     if (grey) return female ? 'woman_elder' : 'man_elder';
-    if (teen) return female ? 'teen_girl' : 'teen_boy';
-    const m = ['man_calm', 'man_deep', 'man_bright', 'man_rough', 'man_calm', 'gangster_2'], f = ['woman_calm', 'woman_warm', 'woman_bright', 'woman_calm'];
-    return female ? f[(a >>> 12) % f.length] : m[(a >>> 12) % m.length];
+    if (w.tourist) return female ? 'woman_bright' : 'man_bright';
+    if (female) return size === 0 ? 'woman_bright' : bulk >= 3 ? 'woman_warm' : 'woman_calm';
+    if (beard || bulk >= 3) return 'man_deep';
+    return size >= 4 ? 'man_rough' : size === 0 ? 'man_bright' : 'man_calm';
   }
   function voiceForCar(c) {
     const cls = H.carClass ? H.carClass(c) : 'standard';
@@ -100,7 +101,7 @@ var Heatline = globalThis.Heatline || {};
   // Natural human timbre; played with HRTF 3-D audio. Lines without a clip use the formant engine.
   const CLIP_VOICE = {
     police_f1: 'f_mid', police_m1: 'm_tough', police_m2: 'm_deep', tourist_f: 'f_young', tourist_m: 'm_young',
-    woman_elder: 'f_elder', man_elder: 'm_elder', teen_girl: 'teen_f', teen_boy: 'teen_m',
+    woman_elder: 'f_elder', man_elder: 'm_elder', teen_girl: 'f_young', teen_boy: 'm_young',
     man_calm: 'm_mid', man_deep: 'm_deep', man_bright: 'm_young', man_rough: 'm_tough', gangster_2: 'm_deep',
     woman_calm: 'f_mid', woman_warm: 'f_warm', woman_bright: 'f_young', woman_posh: 'f_warm', man_posh: 'm_mid',
     driver_m: 'm_mid', driver_f: 'f_mid'
@@ -122,6 +123,16 @@ var Heatline = globalThis.Heatline || {};
       C.out = C.ctx.createGain(); C.out.gain.value = .95;
       const comp = C.ctx.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 3;
       C.out.connect(comp); comp.connect(C.ctx.destination);
+      // Voice bus: cut boomy lows (TTS + HRTF get bassy), add a little presence, and a short
+      // outdoor room so lines do not sound studio-dry and robotic.
+      const hp = C.ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 115; hp.Q.value = .6;
+      const pres = C.ctx.createBiquadFilter(); pres.type = 'peaking'; pres.frequency.value = 3000; pres.Q.value = .9; pres.gain.value = 2.5;
+      const room = C.ctx.createConvolver(), wet = C.ctx.createGain(); wet.gain.value = .13;
+      const sr = C.ctx.sampleRate, len = Math.floor(sr * .38), ir = C.ctx.createBuffer(2, len, sr);
+      for (let ch = 0; ch < 2; ch++) { const d = ir.getChannelData(ch); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3.2) * (i < sr * .012 ? .3 : 1); }
+      room.buffer = ir;
+      C.bus = C.ctx.createGain();
+      C.bus.connect(hp); hp.connect(pres); pres.connect(C.out); pres.connect(room); room.connect(wet); wet.connect(C.out);
     }
     if (C.ctx.state === 'suspended') C.ctx.resume().catch(() => {});
     return C.ctx;
@@ -141,8 +152,8 @@ var Heatline = globalThis.Heatline || {};
   function sayClip(who, text, o) {
     const m = C.manifest, entry = m && m.lines[text];
     if (!entry) return false;
-    const voice = CLIP_VOICE[o.voice] || (/woman|girl|_f/.test(o.voice || '') ? 'f_mid' : 'm_mid');
-    if (m.voices && !m.voices.includes(voice)) return false;
+    let voice = CLIP_VOICE[o.voice] || (/woman|girl|_f/.test(o.voice || '') ? 'f_mid' : 'm_mid');
+    const vs = entry.voices || m.voices || []; if (!vs.includes(voice)) { const f = voice[0] === 'f'; voice = vs.find(x => (x[0] === 'f') === f); if (!voice) return false; }
     const now = performance.now();
     if (now - (C.last.get(who) || -1e9) < 1800) return true;
     if (C.active.length >= 3) {
@@ -153,12 +164,12 @@ var Heatline = globalThis.Heatline || {};
     const ctx = clipCtx(); if (!ctx) return false;
     clipBuffer(BASE + voice + '/' + entry.id + '.mp3').then(buf => {
       const src = ctx.createBufferSource(); src.buffer = buf;
-      src.playbackRate.value = .97 + (((hashOf(who) >>> 3) % 7) * .01);
+      src.playbackRate.value = .995 + (((hashOf(who) >>> 3) % 5) * .006) + (Math.random() * .025 - .01);
       const pan = ctx.createPanner();
       Object.assign(pan, { panningModel: 'HRTF', distanceModel: 'inverse', refDistance: 2.2, maxDistance: 60, rolloffFactor: 1.15 });
       const an = ctx.createAnalyser(); an.fftSize = 256;
       const g = ctx.createGain(); g.gain.value = o.priority >= 2 ? 1.15 : .95;
-      src.connect(g); g.connect(an); an.connect(pan); pan.connect(C.out);
+      src.connect(g); g.connect(an); an.connect(pan); pan.connect(C.bus);
       const item = { src, pan, an, who, data: new Uint8Array(an.fftSize) };
       placeClip(item);
       C.active.push(item);
@@ -194,6 +205,41 @@ var Heatline = globalThis.Heatline || {};
     let e = 0; for (let i = 0; i < it.data.length; i++) { const v = (it.data[i] - 128) / 128; e += v * v; }
     return Math.min(1, Math.sqrt(e / it.data.length) * 4.5);
   }
+  // Chat (stage 48): play recorded sentences one after another for one character.
+  const CHAT_VOICE = { m_mid: 'm_mid', m_deep: 'm_deep', m_young: 'm_young', m_elder: 'm_elder', m_tough: 'm_tough', teen_m: 'm_young',
+    f_mid: 'f_mid', f_warm: 'f_warm', f_young: 'f_young', f_elder: 'f_elder', teen_f: 'f_young' };
+  RC.clipVoiceFor = profile => CLIP_VOICE[profile] || (/woman|girl|_f/.test(profile || '') ? 'f_mid' : 'm_mid');
+  RC.hasClip = text => !!(C.manifest && C.manifest.lines[text]);
+  RC.chatSpeak = function (who, texts, profile, onLine, onDone) {
+    const m = C.manifest, ctx = m && clipCtx();
+    if (!ctx) { onDone && onDone(false); return false; }
+    const want = CHAT_VOICE[RC.clipVoiceFor(profile)] || 'm_mid', fem = want[0] === 'f';
+    let i = 0;
+    const next = () => {
+      if (i >= texts.length) { if (V.speaking.get(who) === 'clip') V.speaking.delete(who); onDone && onDone(true); return; }
+      const index = i, text = texts[i++], e = m.lines[text];
+      const vs = e ? (e.voices || m.voices) : [];
+      const v = vs.includes(want) ? want : vs.find(x => (x[0] === 'f' || x === 'teen_f') === fem);
+      if (!e || !v) { onLine && onLine(index, text); return setTimeout(next, 900); }
+      clipBuffer(BASE + v + '/' + e.id + '.mp3').then(buf => {
+        const src = ctx.createBufferSource(); src.buffer = buf;
+        const pan = ctx.createPanner();
+        Object.assign(pan, { panningModel: 'HRTF', distanceModel: 'inverse', refDistance: 2.5, maxDistance: 60, rolloffFactor: .9 });
+        const an = ctx.createAnalyser(); an.fftSize = 256;
+        const g = ctx.createGain(); g.gain.value = 1.05;
+        src.playbackRate.value = 1 + (Math.random() * .03 - .01);
+        src.connect(g); g.connect(an); an.connect(pan); pan.connect(C.bus);
+        const item = { src, pan, an, who, data: new Uint8Array(an.fftSize), chat: true };
+        placeClip(item); C.active.push(item); V.speaking.set(who, 'clip');
+        onLine && onLine(index, text);
+        src.onended = () => { C.active = C.active.filter(x => x !== item); setTimeout(next, 140 + Math.random() * 260); };
+        src.start();
+      }).catch(() => { onLine && onLine(index, text); setTimeout(next, 600); });
+    };
+    next();
+    return true;
+  };
+  RC.chatStop = function (who) { for (const it of C.active.filter(x => x.chat && x.who === who)) { try { it.src.onended = null; it.src.stop(); } catch { } } C.active = C.active.filter(x => !(x.chat && x.who === who)); };
   loadManifest();
 
   function say(game, who, text, o = {}) {

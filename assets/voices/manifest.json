@@ -5,145 +5,4013 @@
   "m_young",
   "m_elder",
   "m_tough",
-  "teen_m",
   "f_mid",
   "f_warm",
   "f_young",
-  "f_elder",
-  "teen_f"
+  "f_elder"
  ],
  "lines": {
   "מה יש לך?!": {
    "id": "269b8b6b0e",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_elder",
+    "f_mid",
+    "f_mid",
+    "f_warm",
+    "f_warm",
+    "f_young",
+    "f_young",
+    "m_deep",
+    "m_deep",
+    "m_elder",
+    "m_elder",
+    "m_mid",
+    "m_mid",
+    "m_tough",
+    "m_tough",
+    "m_young",
+    "m_young"
+   ]
   },
   "אתה עיוור?!": {
    "id": "b2c97b93d5",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "תסתכל על הכביש!": {
    "id": "6b70f79ed7",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "וואו, באמת?!": {
    "id": "db37ba15cc",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "נהג גרוע!": {
    "id": "9c3b525b9d",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "מה הבעיה שלך?!": {
    "id": "5a0669d9cd",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "היי, תיזהר!": {
    "id": "64fa8cd307",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "סליחה?!": {
    "id": "5ac13f527e",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "לאט לאט!": {
    "id": "1e9fd3d04a",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "היי! זה האוטו שלי!": {
    "id": "43f7850d41",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "גנב! תחזיר את הרכב!": {
    "id": "173f572ea7",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "מישהו, תעזרו!": {
    "id": "30142ca217",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "קדימה, זוז!": {
    "id": "b14b0a4670",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "נו כבר!": {
    "id": "cfc9dece9a",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "זוז מהדרך!": {
    "id": "e1103bda41",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "עצור! משטרה!": {
    "id": "9eeb6c6e9a",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "תעצור בצד!": {
    "id": "805b5a0813",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "ידיים למעלה!": {
    "id": "ae8500f060",
-   "mood": "angry"
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "וואי! כמעט דרסת אותי!": {
    "id": "eb38ecbff8",
-   "mood": "scared"
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "תאט!": {
    "id": "6ebb9bb58b",
-   "mood": "scared"
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "תסתכל לאן אתה נוסע!": {
    "id": "f4940959a9",
-   "mood": "scared"
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "הצילו!": {
    "id": "2accf4b5cb",
-   "mood": "scared"
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "תברחו!": {
    "id": "aa30a9c351",
-   "mood": "scared"
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "אוי!": {
    "id": "8edcf33d51",
-   "mood": "scared"
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "שלום": {
    "id": "9e4a90a09b",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "בוקר טוב": {
    "id": "63b86ef09f",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "מה נשמע?": {
    "id": "b75dc05f2f",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "יום יפה היום": {
    "id": "264a252fba",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "איזה חום היום": {
    "id": "84e8d6472b",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "היי אחי": {
    "id": "faf8f53126",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "סליחה, איפה החוף?": {
    "id": "daa856ef1b",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "יפהפה!": {
    "id": "ece333c13a",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
   },
   "אפשר תמונה?": {
    "id": "a9b41dbc95",
-   "mood": "happy"
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אממ...": {
+   "id": "b8c873454d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תשמע,": {
+   "id": "dea0fb4a83",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "האמת?": {
+   "id": "c32bee0e50",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואלה,": {
+   "id": "2fa79468bd",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חחח": {
+   "id": "4a3a800cfc",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "רגע,": {
+   "id": "99a9fb2ca4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "נו,": {
+   "id": "5f8bd8a66e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יאללה,": {
+   "id": "b3dad78f7c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בקיצור,": {
+   "id": "eb84bda902",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תראה,": {
+   "id": "2349268a46",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ואתה? מה אתה עושה פה?": {
+   "id": "01a17dab0d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה מפה או תייר?": {
+   "id": "6d61c94388",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ומה איתך?": {
+   "id": "4613014292",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "למה אתה שואל?": {
+   "id": "b4a61c5472",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה מכיר את העיר?": {
+   "id": "64b8c1a3b4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מה מביא אותך לפה היום?": {
+   "id": "6ecc44c4c9",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה תמיד מדבר ככה עם אנשים ברחוב?": {
+   "id": "39f5e599a1",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יש לך עוד שאלות?": {
+   "id": "5512cebd4b",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני חייב לזוז, יאללה ביי.": {
+   "id": "ca742a1375",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "טוב, אני ממשיך, ביי!": {
+   "id": "9ac4513281",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "סליחה, אני ממהר.": {
+   "id": "35cd3f924b",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "החוף?": {
+   "id": "47ce3054f7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "הבנק?": {
+   "id": "91dd6d757b",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "משרד הנדל״ן?": {
+   "id": "6f94da3bd7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אולם הרכב?": {
+   "id": "d62065e2bc",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בית החולים?": {
+   "id": "fdbc941078",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "שדה התעופה?": {
+   "id": "8b61691ac6",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תחנת המשטרה?": {
+   "id": "36bcff176a",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "הנמל?": {
+   "id": "00fcab5da0",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "הקניון?": {
+   "id": "7dffa242d3",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "הספרייה?": {
+   "id": "99e7b59a83",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בית הספר?": {
+   "id": "2351917646",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "העירייה?": {
+   "id": "99b1cf69ea",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ממש קרוב, תלך קצת צפונה מפה.": {
+   "id": "66bdfeb207",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ממש קרוב, קצת דרומה מפה.": {
+   "id": "317045d3d7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה קרוב, תלך מזרחה כמה דקות.": {
+   "id": "cc7f13a04b",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה קרוב, תלך מערבה כמה דקות.": {
+   "id": "ece8aea5fc",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה רחוק, צפונה. עדיף לקחת אוטו.": {
+   "id": "dc4e6d9ae7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה רחוק, דרומה. עדיף לקחת אוטו.": {
+   "id": "d0d00ac894",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה רחוק, מזרחה, לכיוון הים. הכי טוב באוטו.": {
+   "id": "1d92598e6e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה רחוק, מערבה. הכי טוב באוטו.": {
+   "id": "6580d097be",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה ממש עומד לידו!": {
+   "id": "aa1482017f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "האמת שאין לי מושג. תסתכל במפה, אולי זה עוזר.": {
+   "id": "31e724fc75",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אממ, לא בטוח שהבנתי. תסביר?": {
+   "id": "b60a2a17e7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מעניין. ספר לי עוד.": {
+   "id": "a4628213e5",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "האמת שלא חשבתי על זה.": {
+   "id": "4b818e6a46",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חחח, אתה תמיד ככה?": {
+   "id": "20c65b972e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואלה, יכול להיות.": {
+   "id": "6d87ee6290",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "רגע, מה התכוונת?": {
+   "id": "bb7be0f46f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לא יודע מה לענות לזה, באמת.": {
+   "id": "ddbb89fcd2",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "שאלה טובה. אין לי מושג.": {
+   "id": "a9cb1a5e67",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מה?": {
+   "id": "0a9c251197",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לא הבנתי, ולא בטוח שאני רוצה להבין.": {
+   "id": "e12d73879e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה מדבר מוזר.": {
+   "id": "cf0fc2a50c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יש לי עוד דברים לעשות היום.": {
+   "id": "d14e9907bd",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "היי! מה נשמע?": {
+   "id": "3378c2aa73",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אהלן, איזה כיף.": {
+   "id": "3e8acd2e55",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "שלום שלום!": {
+   "id": "ef4e6ad3f7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "היי, מה קורה?": {
+   "id": "4ddc6bf6f2",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אהלן אחי!": {
+   "id": "e5b691c17d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "כן, היי.": {
+   "id": "65d123f655",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "שלום. מה אתה צריך?": {
+   "id": "72308b573f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "נו, היי.": {
+   "id": "ad91919093",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בסדר גמור, תודה ששאלת!": {
+   "id": "a7a1cec76b",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אחלה, יום יפה היום.": {
+   "id": "2d8331277d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מעולה, באמת. ואתה?": {
+   "id": "a3d83e41c0",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "סבבה, קצת חם אבל סבבה.": {
+   "id": "7db387bb8c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "האמת שטוב, יצאתי לטייל קצת.": {
+   "id": "1dccd7fa5f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "היה יותר טוב לפני שעצרת אותי.": {
+   "id": "0fff64bff8",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ככה ככה.": {
+   "id": "ead33d27a4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "עייף, עזוב.": {
+   "id": "41b0b26faf",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "איך שהוא מסתדר.": {
+   "id": "a679c076b2",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "למה זה מעניין אותך?": {
+   "id": "d761b6e116",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לא משנה מה השם שלי.": {
+   "id": "dc10cba5a0",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "נעים מאוד!": {
+   "id": "8a2cf70311",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "נעים להכיר!": {
+   "id": "2eb80975a0",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "איזה שם יפה.": {
+   "id": "7b44d468dd",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יופי, אני אזכור.": {
+   "id": "8d4ba11ac4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אוקיי.": {
+   "id": "09002a278b",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "טוב, נעים מאוד, נראה לי.": {
+   "id": "d14fe2bfa3",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לא שואלים את זה! חחח.": {
+   "id": "1e35f7f250",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "צעיר ברוח, זה מה שחשוב.": {
+   "id": "49582a3739",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מספיק מבוגר לדעת שלא עונים על זה.": {
+   "id": "6b4f652947",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה לא עניינך.": {
+   "id": "e16a8a8f9d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יותר מדי בשביל השאלות האלה.": {
+   "id": "a36a152e12",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "איזה יום מושלם, נכון?": {
+   "id": "06bf765c37",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חם, אבל עם הבריזה מהים זה מושלם.": {
+   "id": "4ef04768d3",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "פה תמיד שמש, בגלל זה קוראים לעיר סאנסט.": {
+   "id": "e107849dab",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "השקיעות פה הכי יפות שראיתי.": {
+   "id": "d6dc7b15d1",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חם מדי. אני מת לחזור למזגן.": {
+   "id": "3de718055c",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "השמש הזאת הורגת אותי.": {
+   "id": "3157de4a7e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני מת על העיר הזאת. ים, דקלים, אנשים טובים.": {
+   "id": "6c0216bd38",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "סאנסט זה המקום הכי יפה בעולם, אני אומר לך.": {
+   "id": "f0762ca596",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "גדלתי פה, אני מכיר כל פינה.": {
+   "id": "b4f6c391b8",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תנסה ללכת לטיילת בשקיעה, תודה לי אחר כך.": {
+   "id": "c6886a5fc3",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יותר מדי תיירים, אם אתה שואל אותי.": {
+   "id": "64be552c00",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "פעם היה פה שקט יותר.": {
+   "id": "4095151259",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יש פלאפל מדהים ליד הקניון!": {
+   "id": "ec97fc3992",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תנסה את הקפה ליד הגינה, הכי טוב בעיר.": {
+   "id": "eec707e14d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני מת על הגלידה בטיילת.": {
+   "id": "62a7679610",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "עכשיו גרמת לי להיות רעב.": {
+   "id": "c096440488",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני לא מדריך מסעדות.": {
+   "id": "38b15d9a63",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יש מלא מקומות, תבחר אחד.": {
+   "id": "c2b519bd9f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תעלה למעלית באחד המגדלים, הנוף מטורף.": {
+   "id": "870e9a17b0",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תשכור אוטו ותיסע לאורך החוף.": {
+   "id": "3ef786ab55",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לך לשדה התעופה לראות מטוסים נוחתים.": {
+   "id": "e862d2422c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תבקר בלגונת הפלמינגו, זה משהו אחר.": {
+   "id": "a29cdb3a5c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אם יש לך כסף, תקנה אי. אני רציני.": {
+   "id": "1e6e56c382",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תמצא לבד, אתה גדול.": {
+   "id": "de63139b73",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני לא אחראי על הכיף שלך.": {
+   "id": "3cc2bf674a",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "למה הדג לא משחק כדורגל? כי הוא מפחד מהרשת. חחח.": {
+   "id": "69483326aa",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מה אמר הים לחוף? כלום, הוא רק נופף.": {
+   "id": "127d41c15d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני הבדיחה, תשאל את אשתי חחח.": {
+   "id": "565781c0ea",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אין לי בדיחות, אבל יש לי חיוך.": {
+   "id": "a0f56bda7c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני נראה לך ליצן?": {
+   "id": "2207feb5fb",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "הבדיחה זה שאני עדיין עומד פה.": {
+   "id": "0fa3fde0d6",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואו, תודה! שימחת אותי.": {
+   "id": "d5749a02b7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה מביך אותי חחח.": {
+   "id": "9644348378",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תודה, גם אתה נראה טוב.": {
+   "id": "529c57fea5",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "איזה מתוק אתה.": {
+   "id": "0879e33e37",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "טוב, תודה, נראה לי.": {
+   "id": "e3722afbde",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אל תנסה להחניף לי.": {
+   "id": "569cc0114c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואו, זה לא היה נחמד.": {
+   "id": "95134fb266",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אוקיי... אני חושב שסיימנו.": {
+   "id": "d02830c34c",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "למה אתה מדבר ככה?": {
+   "id": "da52d3f748",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תעוף לי מהעיניים!": {
+   "id": "3d9e260955",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "עוד מילה אחת ואני קורא למשטרה.": {
+   "id": "26e13fb507",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בכיף!": {
+   "id": "16cff09dea",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אין על מה.": {
+   "id": "94837545fe",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בשמחה, באמת.": {
+   "id": "b26f8a0bc2",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בשביל זה אני פה.": {
+   "id": "c14d06146d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "כן כן.": {
+   "id": "27f806fc5f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בסדר.": {
+   "id": "37874f7c0e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ביי! שיהיה לך יום מדהים.": {
+   "id": "36087d9fcf",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "להתראות, תשמור על עצמך.": {
+   "id": "ca4f37f571",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יאללה, נתראה!": {
+   "id": "268fcd50e2",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "היה כיף לדבר איתך.": {
+   "id": "89c57d6206",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "סוף סוף.": {
+   "id": "334c1acad5",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ביי.": {
+   "id": "e4be4addb4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "כן, להתראות.": {
+   "id": "61f205a0e6",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יופי!": {
+   "id": "199519cd86",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מעולה.": {
+   "id": "3eaa17f39f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ידעתי.": {
+   "id": "3fd31c51f1",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אז סגרנו.": {
+   "id": "d21ae8adaf",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "טוב.": {
+   "id": "0cb35a4dfd",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אם אתה אומר.": {
+   "id": "62760f2b72",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אה, טוב, חבל.": {
+   "id": "4c73c62b7f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אוקיי, הבנתי.": {
+   "id": "3da3905753",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בסדר, לא נורא.": {
+   "id": "ceade0a805",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אז למה שאלת?": {
+   "id": "3d502f7c07",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "כרצונך.": {
+   "id": "685cb8c921",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "כסף? תקנה בית על אי ותשכיר אותו. ככה עושים פה כסף.": {
+   "id": "418498fe82",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "הכול פה יקר, אבל שווה.": {
+   "id": "e0cddd8665",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אם אני הייתי עשיר הייתי קונה את אי הדקלים.": {
+   "id": "2743b8bcfa",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אין לי כסף בשבילך.": {
+   "id": "00af351174",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אל תסתכל עליי, אני לא בנק.": {
+   "id": "4949b4296b",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני מת על מכוניות ספורט. ראית את אלה ליד החוף?": {
+   "id": "b17bdc7d79",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יש אולם רכב בעיר, אפשר לקנות שם בלי לגנוב חחח.": {
+   "id": "24f0a193ff",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תיזהר בכבישים, הנהגים פה משוגעים.": {
+   "id": "743cde57a0",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אל תתקרב לאוטו שלי.": {
+   "id": "45ef20b3ee",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני הולך ברגל, תודה.": {
+   "id": "e4f00dc4f2",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "השוטרים פה בסדר, כל עוד אתה לא עושה שטויות.": {
+   "id": "9635da062e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אל תגנוב אוטו, הם שולחים קנסות מהר.": {
+   "id": "2827cc21a7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מה, עשית משהו?": {
+   "id": "b3da9f95cb",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני לא רוצה בעיות עם המשטרה.": {
+   "id": "3c16bd9c45",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "האיים? חלום. יש משרד נדל״ן במרכז העיר.": {
+   "id": "bab4a64dba",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חבר שלי קנה בית על אי השקיעה, הוא לא חוזר מאז.": {
+   "id": "f1eeadd3e4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תתחיל מאי קטן, אחר כך תגדל.": {
+   "id": "46017bb6e6",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "האיים זה לעשירים.": {
+   "id": "7430fb7d96",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני גר בדירה קטנה ומרוצה.": {
+   "id": "be42a3d79f",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יש לי שלושה ילדים, הם משגעים אותי באהבה.": {
+   "id": "809e8357f8",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "המשפחה שלי גרה ליד הגינה הגדולה.": {
+   "id": "fb2a7226fa",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "המשפחה זה הכי חשוב.": {
+   "id": "9d51e93bf3",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "זה פרטי.": {
+   "id": "bea94afeb6",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני גולש כל בוקר.": {
+   "id": "c0180a23fa",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני משחק כדורגל עם החבר'ה ביום שישי.": {
+   "id": "eb618bea52",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני אוהב לשבת בטיילת ולראות שקיעה.": {
+   "id": "f3a83e8d12",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "גולף, מה שנקרא תחביב של עשירים.": {
+   "id": "e3ccc64ca1",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לנוח. זה התחביב שלי.": {
+   "id": "8a14f07922",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אין לי זמן לתחביבים.": {
+   "id": "202a963bb2",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חחח, אתה מהיר מדי.": {
+   "id": "352c9c47ea",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואו, רק עכשיו נפגשנו.": {
+   "id": "81b792a4e7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני תפוס, מצטער.": {
+   "id": "567df2a5d6",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לא, תודה.": {
+   "id": "f619bce848",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לך מפה עם זה.": {
+   "id": "af1eb8ea29",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני? רובוט? חחח, אני סתם בן אדם שהולך ברחוב.": {
+   "id": "21909d0959",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אם אני רובוט אז אתה מה?": {
+   "id": "ed0e0a3c17",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני אמיתי לגמרי, תצבוט אותי.": {
+   "id": "4b5f028db9",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה רובוט.": {
+   "id": "ef56b4c179",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "שאלה מוזרה.": {
+   "id": "236e7c00b8",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "בטח, במה אני יכול לעזור?": {
+   "id": "7d2d0ecf1d",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה יכול לשאול אותי איפה דברים נמצאים.": {
+   "id": "ee7992c2f8",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תגיד לי מה אתה מחפש.": {
+   "id": "1ea3a7a040",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תתקשר למשטרה.": {
+   "id": "a7a38654cf",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני עסוק.": {
+   "id": "eb49a3b6cb",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אין לי שעון, אבל זה בדיוק הזמן לשקיעה.": {
+   "id": "be479e8242",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "שעת זהב, הכי יפה ביום.": {
+   "id": "0573692d14",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תסתכל בטלפון.": {
+   "id": "c56e3537f0",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חחח בדיוק!": {
+   "id": "085c21a9d6",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אתה מצחיק אותי.": {
+   "id": "2ce5084cb1",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "חחח, אני לא יכול איתך.": {
+   "id": "3f44b3598f",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מה מצחיק?": {
+   "id": "2bd5c482d8",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "לא הבנתי מה מצחיק.": {
+   "id": "56fb635a27",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "קוראים לי דני.": {
+   "id": "5684bc0d44",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני יוסי.": {
+   "id": "3b5e42ec52",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "קוראים לי אבי, נעים מאוד.": {
+   "id": "2b8d798099",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני משה.": {
+   "id": "63a767694f",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "קוראים לי רון.": {
+   "id": "69afc6ba1e",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני עומר, נעים מאוד.": {
+   "id": "eac9261345",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "קוראים לי איתי.": {
+   "id": "9350b1d05a",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני מיכאל, אבל כולם קוראים לי מיקי.": {
+   "id": "0716619c9c",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני עובד במסעדה ליד החוף.": {
+   "id": "986231d608",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני מתכנת, עובד מהבית רוב הזמן.": {
+   "id": "140a9e98bf",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני נהג מונית כבר עשרים שנה.": {
+   "id": "57f6eb6bd6",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני מורה בבית הספר.": {
+   "id": "57e3e7686e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני בונה בתים על האיים, יש שם עבודה בשפע.": {
+   "id": "cc7d1c821a",
+   "mood": "chat",
+   "voices": [
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אני חייבת לזוז, יאללה ביי.": {
+   "id": "17a7705dff",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "טוב, אני ממשיכה, ביי!": {
+   "id": "19c891cf2e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "סליחה, אני ממהרת.": {
+   "id": "2f1fbb4e44",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "עייפה, עזוב.": {
+   "id": "2eaf98f5f7",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "צעירה ברוח, זה מה שחשוב.": {
+   "id": "2ec3964661",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "חם מדי. אני מתה לחזור למזגן.": {
+   "id": "781476a787",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני מתה על העיר הזאת. ים, דקלים, אנשים טובים.": {
+   "id": "b41705396c",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "סאנסט זה המקום הכי יפה בעולם, אני אומרת לך.": {
+   "id": "c9981527bf",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "גדלתי פה, אני מכירהה כל פינה.": {
+   "id": "c1472b0bb9",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני מתה על הגלידה בטיילת.": {
+   "id": "1f9e6b2773",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "עכשיו גרמת לי להיות רעבה.": {
+   "id": "917542e689",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני לא מדריכה מסעדות.": {
+   "id": "e735a4979f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אם יש לך כסף, תקנה אי. אני רצינית.": {
+   "id": "5c651229f8",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני לא אחראית על הכיף שלך.": {
+   "id": "935a3fd1f4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני הבדיחה, תשאל את בעלי חחח.": {
+   "id": "692bb27d5d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני נראית לך ליצנית?": {
+   "id": "3926bb1ece",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אוקיי... אני חושבת שסיימנו.": {
+   "id": "c8065b09d1",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "עוד מילה אחת ואני קוראת למשטרה.": {
+   "id": "36720e769f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אם אני הייתי עשירה הייתי קונה את אי הדקלים.": {
+   "id": "e909ff321f",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני מתה על מכוניות ספורט. ראית את אלה ליד החוף?": {
+   "id": "d0a60b10d9",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני הולכת ברגל, תודה.": {
+   "id": "e370d48c11",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני גרה בדירה קטנה ומרוצה.": {
+   "id": "c2c8282140",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני גולשת כל בוקר.": {
+   "id": "27690f219d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני משחקת כדורגל עם החבר'ה ביום שישי.": {
+   "id": "4d581d9951",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני אוהבת לשבת בטיילת ולראות שקיעה.": {
+   "id": "73009e9eea",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני תפוסה, מצטערת.": {
+   "id": "d733151147",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני? רובוט? חחח, אני סתם בחורה שהולך ברחוב.": {
+   "id": "81d21714de",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני אמיתית לגמרי, תצבוט אותי.": {
+   "id": "6ee07f5649",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "בטח, במה אני יכולה לעזור?": {
+   "id": "179bf81921",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני עסוקה.": {
+   "id": "559c0a18b1",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "חחח, אני לא יכולה איתך.": {
+   "id": "e5fb57879e",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "קוראים לי נועה.": {
+   "id": "9869190008",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני מיכל.": {
+   "id": "fad1f69039",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "קוראים לי שירה, נעים מאוד.": {
+   "id": "d4b14e6681",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני רחל.": {
+   "id": "1ad132c581",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "קוראים לי טל.": {
+   "id": "6122bc0632",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני יעל, נעים מאוד.": {
+   "id": "18abfdd21d",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "קוראים לי מאיה.": {
+   "id": "ecc8aa301b",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני אורית, אבל כולם קוראים לי אורי.": {
+   "id": "fac8d07d79",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני עובדת בבית החולים.": {
+   "id": "ed378a0555",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני מעצבת, יש לי סטודיו קטן.": {
+   "id": "5708344970",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני עובדת בבנק, אל תשאל אותי על הכספת חחח.": {
+   "id": "1169871ce4",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
+  },
+  "אני סוכנת נדל״ן, מוכרת וילות על האיים.": {
+   "id": "fba5e6c0db",
+   "mood": "chat",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young"
+   ]
   }
  }
 }
