@@ -472,6 +472,65 @@ var Heatline = globalThis.Heatline || {};
     stats.spheresLightened = n;
   }
   /* ---------------- interiors ---------------- */
+  // Stage 48: full furniture sets per room type (free-standing, around the rug).
+  function furnish(add, r, y, i) {
+    const x = r.x, z = r.z, lab = (r.label || '') + ' ' + (r.use || '');
+    const wood = ['#7a5536', '#5e4130', '#9b7350', '#3f2f25'][i % 4], fab = ['#3d5a73', '#7a4a3a', '#5d6b4a', '#8a7a62', '#4a3f63'][i % 5];
+    const sofa = (sx, sz, w2, c) => {
+      add(sx, y + .22, sz, w2, .44, .9, c, 'fabric'); add(sx, y + .62, sz - .38, w2, .5, .18, c, 'fabric');
+      add(sx - w2 / 2 + .09, y + .5, sz, .18, .3, .9, c, 'fabric'); add(sx + w2 / 2 - .09, y + .5, sz, .18, .3, .9, c, 'fabric');
+      for (let k = 0; k < 2; k++) add(sx - w2 / 4 + k * w2 / 2, y + .55, sz - .22, .45, .32, .14, '#e8dcc0', 'fabric');
+    };
+    const tv = (tx, tz) => {
+      add(tx, y + .25, tz, 1.8, .5, .45, wood, 'wood');
+      add(tx, y + 1.05, tz, 1.6, .9, .05, '#0c0f14', 'metal');
+      add(tx, y + 1.05, tz + .03, 1.5, .8, .01, '#5fa8d8', null, 1.1);
+    };
+    const shelf = (bx, bz) => {
+      add(bx, y + 1.0, bz, 1.6, 2.0, .38, wood, 'wood');
+      const books = ['#a8322d', '#2d5aa8', '#d9b23c', '#3c8a4a', '#6a3c8a', '#e07a2f'];
+      for (let row = 0; row < 4; row++) for (let k = 0; k < 6; k++)
+        add(bx - .62 + k * .25, y + .3 + row * .46, bz + .05, .18, .32, .26, books[(k + row + i) % 6], 'fabric');
+    };
+    const art = (ax, az, c) => { add(ax, y + 1.6, az, 1.1, .75, .04, '#f2ead8', 'wood'); add(ax, y + 1.6, az + .025, .95, .6, .01, c, null, .25); };
+    const lamp = (lx, lz) => { add(lx, y + .7, lz, .05, 1.4, .05, '#2a2a2a', 'metal'); add(lx, y + 1.45, lz, .42, .3, .42, '#ffe6bd', null, 1.0, 'cylinder'); };
+    if (/מטבח|kitchen|cafe/.test(lab)) {
+      add(x - 1.3, y + .45, z - 1.4, 2.8, .9, .65, '#f4f1ea', 'concrete'); add(x - 1.3, y + .92, z - 1.4, 2.9, .05, .7, '#2f3134', 'metal');
+      add(x - 2.1, y + .95, z - 1.35, .55, .04, .4, '#9aa3a8', 'metal');
+      add(x + .6, y + .95, z - 1.45, .75, 1.9, .7, '#d8dde0', 'metal');
+      add(x + .4, y + .74, z + .6, 1.6, .06, .9, wood, 'wood'); add(x + .4, y + .36, z + .6, .12, .72, .12, wood, 'wood');
+      for (const [cx, cz] of [[-.35, 0], [1.15, 0], [-.35, 1.2], [1.15, 1.2]]) {
+        add(x + cx, y + .23, z + cz, .42, .46, .42, fab, 'fabric'); add(x + cx, y + .7, z + cz + (cz ? .2 : -.2), .42, .5, .06, fab, 'fabric');
+      }
+      add(x + .4, y + .86, z + .6, .3, .2, .3, '#d9b23c', null, 0, 'sphere');
+    } else if (/קריאה|reading|ספר|book/.test(lab)) {
+      shelf(x - 1.2, z - 1.5); shelf(x + .6, z - 1.5);
+      add(x + 1.2, y + .25, z + .6, .9, .5, .9, fab, 'fabric'); add(x + 1.2, y + .7, z + .23, .9, .5, .16, fab, 'fabric');
+      add(x + .2, y + .3, z + .7, .5, .6, .5, wood, 'wood', 0, 'cylinder');
+      art(x - 2.2, z + .3, '#3f6f8f');
+    } else if (/וידאו|סלון|lounge|home|living/.test(lab)) {
+      sofa(x, z + 1.3, 2.3, fab); tv(x, z - 1.6);
+      add(x, y + .22, z + .1, 1.1, .08, .6, wood, 'wood'); add(x, y + .1, z + .1, .9, .2, .45, wood, 'wood');
+      add(x - 1.6, y + .25, z + .4, .85, .5, .85, '#8a7a62', 'fabric'); lamp(x + 1.6, z + 1.6); art(x + 2.0, z - .8, '#c0603a');
+    } else if (/סוויטה|שינה|suite|bed|guest/.test(lab)) {
+      add(x, y + .22, z, 1.7, .44, 2.1, wood, 'wood'); add(x, y + .5, z + .05, 1.6, .2, 1.95, '#f4f0e8', 'fabric');
+      add(x, y + .55, z + .6, 1.62, .08, .9, fab, 'fabric'); add(x, y + .85, z - 1.02, 1.8, 1.0, .1, wood, 'wood');
+      for (const s of [-1, 1]) {
+        add(x + s * .45, y + .66, z - .78, .55, .14, .3, '#ffffff', 'fabric');
+        add(x + s * 1.2, y + .28, z - .85, .45, .56, .4, wood, 'wood');
+        add(x + s * 1.2, y + .72, z - .85, .22, .3, .22, '#ffe6bd', null, .9, 'cylinder');
+      }
+      add(x + 1.9, y + .95, z + .6, .55, 1.9, 1.1, wood, 'wood'); art(x - 2.1, z, '#5d8a6a');
+    } else {
+      // studio / workshop / office
+      add(x - .6, y + .74, z - 1.2, 1.8, .05, .8, '#f0ece4', 'wood');
+      for (const s of [-1, 1]) add(x - .6 + s * .8, y + .37, z - 1.2, .06, .74, .7, '#2a2a2a', 'metal');
+      add(x - .6, y + .95, z - 1.4, .7, .42, .04, '#0c0f14', 'metal'); add(x - .6, y + .95, z - 1.38, .64, .36, .01, '#7fc6e0', null, .8);
+      add(x - .6, y + .3, z - .5, .5, .6, .5, '#2a2a2a', 'fabric');
+      add(x + 1.3, y + .9, z + .4, .06, 1.8, .06, wood, 'wood'); add(x + 1.3, y + 1.3, z + .45, .9, 1.1, .04, '#f6f1e6', null, .15);
+      shelf(x + 1.5, z - 1.5); lamp(x - 1.9, z + 1.1);
+    }
+  }
   function decorateInterior(scene, plan) {
     if (!scene || scene.__rc39 || !Array.isArray(scene.boxes)) return scene;
     scene.__rc39 = true;
@@ -505,6 +564,7 @@ var Heatline = globalThis.Heatline || {};
       const px = r.x + (seed > .5 ? 1.6 : -1.6), pz = r.z - 1.1;
       add(px, y + .25, pz, .42, .5, .42, '#c7b9a4', 'concrete', 0, 'cylinder');
       add(px, y + .85, pz, .7, .9, .7, '#3f7a35', 'foliage', 0, 'sphere_lod38');
+      try { furnish(add, r, y, i); } catch { }
       if (r.use === 'home' || r.use === 'suite' || r.use === 'reading') {
         add(r.x - 1.5, y + .75, r.z + 1.2, .05, 1.5, .05, '#2a2a2a', 'metal');
         add(r.x - 1.5, y + 1.55, r.z + 1.2, .38, .3, .38, '#ffe6bd', null, 1.0, 'cylinder');

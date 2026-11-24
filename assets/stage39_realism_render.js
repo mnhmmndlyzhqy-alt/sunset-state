@@ -439,22 +439,22 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
             // Directional wind-wave spectrum (analytic slopes), filtered by pixel footprint.
             float foot=length(fwidth(p));
             vec2 slope=vec2(0.0);
-            vec2 dirs[6]=vec2[6](vec2(.94,.34),vec2(.71,-.70),vec2(.20,.98),vec2(-.55,.83),vec2(.99,-.12),vec2(-.31,-.95));
-            float lens[6]=float[6](38.0,23.0,14.0,8.6,4.9,2.7);
+            vec2 dirs[7]=vec2[7](vec2(.97,.24),vec2(.94,.34),vec2(.71,-.70),vec2(.20,.98),vec2(-.55,.83),vec2(.99,-.12),vec2(-.31,-.95));
+            float lens[7]=float[7](74.0,38.0,23.0,14.0,8.6,4.9,2.7);
             float wsum=0.0;
-            for(int i=0;i<6;i++){
+            for(int i=0;i<7;i++){
               float k=6.2831853/lens[i];
               float aa=1.0-smoothstep(.15,.5,foot*k*.25);
               float c=sqrt(9.81/k);
               float ph=dot(dirs[i],p)*k-uTime*c*k+float(i)*1.7;
-              float a=.0085*lens[i]*.5*aa;
+              float a=.0125*lens[i]*.5*aa;
               slope+=dirs[i]*cos(ph)*a*k;
               wsum+=sin(ph)*a;
             }
             vec2 q=p*1.9+vec2(uTime*.6,-uTime*.45);
             float rip=smoothNoise(q)-smoothNoise(q*1.7+3.1);
             slope+=vec2(rip,smoothNoise(q.yx*1.3)-.5)*.035*(1.0-smoothstep(.04,.25,foot));
-            slope*=amp*(1.0-smoothstep(600.0,2600.0,d)*.7);
+            slope*=amp*(1.0-smoothstep(900.0,3200.0,d)*.55);
             vec3 wn=normalize(vec3(-slope.x,1.0,-slope.y));
             float NoV=max(dot(wn,v),.02);
             float F=.02+.98*pow(1.0-NoV,5.0);
@@ -463,10 +463,11 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
             float sunUp=smoothstep(-.035,.06,sun.y);
             float NoL=max(dot(wn,sun),0.0);
             vec3 hv=normalize(sun+v);
-            float rgh=clamp(.06+.05*wind+foot*.004,.05,.3);
+            float rgh=clamp(.045+.04*wind+foot*.003,.04,.26);
             float glint=rcGGX(max(dot(wn,hv),0.0),pow(rgh,4.0))*rcVis(NoL,NoV,rgh)*F*NoL*3.14159;
             // Water body: absorption/scattering, turquoise shallows to deep ocean blue.
-            vec3 shallowC=vec3(.040,.205,.185),deepC=vec3(.004,.030,.055);
+            // Tropical palette: bright turquoise over sand, saturated blue offshore.
+            vec3 shallowC=vec3(.030,.330,.330),deepC=vec3(.004,.050,.135);
             vec3 body=mix(shallowC,deepC,smoothstep(.04,.85,deep))*(rcSkyUp*.9+rcSunColor*max(sun.y,0.0)*.35);
             body+=vec3(.02,.10,.08)*rcSunColor*sunUp*pow(max(0.0,dot(-v,sun)),3.0)*(.5+wsum*4.0)*.25;
             vec3 col=mix(body,refl,F)+rcSunColor*sunUp*min(glint,60.0);
@@ -474,8 +475,12 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
             float shore=outside>.5?0.0:smoothstep(.36,.54,coast.g);
             float foamN=smoothNoise(p*.45+vec2(uTime*.35,0.0))*.6+smoothNoise(p*1.3-uTime*.25)*.4;
             float foam=shore*smoothstep(.45,.75,foamN+.25*sin(deep*70.0-uTime*1.6))*(1.0-calm*.7);
+            // Small whitecaps on wave crests offshore (fade with distance to avoid shimmer).
+            float cap=smoothstep(.70,.92,smoothNoise(p*.21+vec2(uTime*.12,uTime*.07)))*smoothstep(.0,.05,wsum)*(1.0-calm)*(1.0-smoothstep(120.0,520.0,d))*.32*wind;
+            foam=max(foam,cap);
             col=mix(col,(rcSkyUp+rcSunColor*max(sun.y,0.0))*.75,foam*.65);
-            col=rcFogApply(col,vPosition)*rcExposure.x;
+            // Clear tropical air over the sea: keep most of the colour through the haze.
+            col=mix(rcFogApply(col,vPosition),col,.28*(1.0-smoothstep(1400.0,4200.0,d)))*rcExposure.x;
             if(uUnderwater445>.5)col=mix(col,vec3(.01,.06,.075)*rcExposure.x,.5);
             outputColor=vec4(rcEmit(col),1.0);rcLinear_=true;return;
           }
@@ -1142,6 +1147,9 @@ void main(){
   float y=luma(color);
   color=mix(vec3(y),color,saturation);
   color=clamp(color,0.0,1.0);
+  // Vibrance: lift muted colours (paint, foliage, water) more than already vivid ones.
+  float cMax=max(color.r,max(color.g,color.b)),cMin=min(color.r,min(color.g,color.b));
+  color=clamp(mix(vec3(luma(color)),color,1.0+.38*(1.0-smoothstep(.05,.55,cMax-cMin))),0.0,1.0);
   vec3 s=color*color*(3.0-2.0*color);
   color=mix(color,s,contrast);
   color=color+lift*(1.0-color);
@@ -1565,8 +1573,8 @@ void main(){
         // Grading drifts warm at golden hour, cool and slightly desaturated at night.
         const golden = clamp(1 - Math.abs(sun[1] - .12) / .22, 0, 1) * (1 - night);
         const G = this.rcGrade;
-        G.whiteBalance = RC.tropical ? [1.07, 1.0, .9] : [1 + .035 * golden - .05 * night, 1 - .005 * golden - .01 * night, 1 - .05 * golden + .07 * night];
-        G.saturation = 1.07 - .14 * night - .12 * cloud;
+        G.whiteBalance = RC.tropical ? [1.055, 1.0, .925] : [1 + .035 * golden - .05 * night, 1 - .005 * golden - .01 * night, 1 - .05 * golden + .07 * night];
+        G.saturation = (RC.tropical ? 1.14 : 1.07) - .14 * night - .12 * cloud;
         G.contrast = .17 - .05 * cloud;
         G.lift = [.006 * night, .008 * night, .014 * night];
         G.bloom = .040 + .030 * night + .02 * rain;
@@ -2030,8 +2038,9 @@ void main(){
       const frame = this.frameTimeMs || 16;
       // Preferred: real GPU time from a timer query (target ~36 ms GPU / frame).
       if (r.rcGpuMs != null) {
-        if (r.rcGpuMs > 38 && r.rcResScale > .62) r.setResolutionScale(r.rcResScale - (r.rcGpuMs > 70 ? .12 : .06));
-        else if (r.rcGpuMs < 22 && r.rcResScale < 1) r.setResolutionScale(r.rcResScale + .05);
+        // Never below .74: lower looks blurry on a 1080p screen.
+        if (r.rcGpuMs > 46 && r.rcResScale > .74) r.setResolutionScale(Math.max(.74, r.rcResScale - .06));
+        else if (r.rcGpuMs < 26 && r.rcResScale < 1) r.setResolutionScale(r.rcResScale + .05);
         return;
       }
       // A resize reallocates every render target, so it must never oscillate.
@@ -2043,7 +2052,7 @@ void main(){
         if (frame > probe.frame * .9) { r.setResolutionScale(probe.scale); this.rcResLockUntil = now + 45000; return; }
       }
       if (now < (this.rcResLockUntil || 0)) return;
-      if (frame > 30 && r.rcResScale > .55) {
+      if (frame > 30 && r.rcResScale > .74) {
         this.rcResProbe = { frame, scale: r.rcResScale };
         r.setResolutionScale(r.rcResScale - (frame > 45 ? .15 : .08));
       } else if (frame < 17 && r.rcResScale < 1) r.setResolutionScale(r.rcResScale + .05);

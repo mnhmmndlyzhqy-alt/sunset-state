@@ -1,0 +1,149 @@
+{
+ "voices": [
+  "m_mid",
+  "m_deep",
+  "m_young",
+  "m_elder",
+  "m_tough",
+  "teen_m",
+  "f_mid",
+  "f_warm",
+  "f_young",
+  "f_elder",
+  "teen_f"
+ ],
+ "lines": {
+  "מה יש לך?!": {
+   "id": "269b8b6b0e",
+   "mood": "angry"
+  },
+  "אתה עיוור?!": {
+   "id": "b2c97b93d5",
+   "mood": "angry"
+  },
+  "תסתכל על הכביש!": {
+   "id": "6b70f79ed7",
+   "mood": "angry"
+  },
+  "וואו, באמת?!": {
+   "id": "db37ba15cc",
+   "mood": "angry"
+  },
+  "נהג גרוע!": {
+   "id": "9c3b525b9d",
+   "mood": "angry"
+  },
+  "מה הבעיה שלך?!": {
+   "id": "5a0669d9cd",
+   "mood": "angry"
+  },
+  "היי, תיזהר!": {
+   "id": "64fa8cd307",
+   "mood": "angry"
+  },
+  "סליחה?!": {
+   "id": "5ac13f527e",
+   "mood": "angry"
+  },
+  "לאט לאט!": {
+   "id": "1e9fd3d04a",
+   "mood": "angry"
+  },
+  "היי! זה האוטו שלי!": {
+   "id": "43f7850d41",
+   "mood": "angry"
+  },
+  "גנב! תחזיר את הרכב!": {
+   "id": "173f572ea7",
+   "mood": "angry"
+  },
+  "מישהו, תעזרו!": {
+   "id": "30142ca217",
+   "mood": "angry"
+  },
+  "קדימה, זוז!": {
+   "id": "b14b0a4670",
+   "mood": "angry"
+  },
+  "נו כבר!": {
+   "id": "cfc9dece9a",
+   "mood": "angry"
+  },
+  "זוז מהדרך!": {
+   "id": "e1103bda41",
+   "mood": "angry"
+  },
+  "עצור! משטרה!": {
+   "id": "9eeb6c6e9a",
+   "mood": "angry"
+  },
+  "תעצור בצד!": {
+   "id": "805b5a0813",
+   "mood": "angry"
+  },
+  "ידיים למעלה!": {
+   "id": "ae8500f060",
+   "mood": "angry"
+  },
+  "וואי! כמעט דרסת אותי!": {
+   "id": "eb38ecbff8",
+   "mood": "scared"
+  },
+  "תאט!": {
+   "id": "6ebb9bb58b",
+   "mood": "scared"
+  },
+  "תסתכל לאן אתה נוסע!": {
+   "id": "f4940959a9",
+   "mood": "scared"
+  },
+  "הצילו!": {
+   "id": "2accf4b5cb",
+   "mood": "scared"
+  },
+  "תברחו!": {
+   "id": "aa30a9c351",
+   "mood": "scared"
+  },
+  "אוי!": {
+   "id": "8edcf33d51",
+   "mood": "scared"
+  },
+  "שלום": {
+   "id": "9e4a90a09b",
+   "mood": "happy"
+  },
+  "בוקר טוב": {
+   "id": "63b86ef09f",
+   "mood": "happy"
+  },
+  "מה נשמע?": {
+   "id": "b75dc05f2f",
+   "mood": "happy"
+  },
+  "יום יפה היום": {
+   "id": "264a252fba",
+   "mood": "happy"
+  },
+  "איזה חום היום": {
+   "id": "84e8d6472b",
+   "mood": "happy"
+  },
+  "היי אחי": {
+   "id": "faf8f53126",
+   "mood": "happy"
+  },
+  "סליחה, איפה החוף?": {
+   "id": "daa856ef1b",
+   "mood": "happy"
+  },
+  "יפהפה!": {
+   "id": "ece333c13a",
+   "mood": "happy"
+  },
+  "אפשר תמונה?": {
+   "id": "a9b41dbc95",
+   "mood": "happy"
+  }
+ }
+}

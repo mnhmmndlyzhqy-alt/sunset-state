@@ -20532,7 +20532,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 this.saveVisitRewards();
                 this.rewardFlash = .75;
             }
-            this.showInfo('נכנסת ללובי של ' + scene.name + ' · גש למעלית, פתח L, היכנס לתא ובחר קומה' + (firstVisit ? ' · +35 קרדיטים' : ''), 5.0);
+            this.showInfo('נכנסת ללובי של ' + scene.name + ' · גש למעלית: הדלתות נפתחות לבד, היכנס ובחר קומה בלוח (או 0–9)' + (firstVisit ? ' · +35 קרדיטים' : ''), 5.0);
             this.missionAction30({ type: 'building', id });
             this.updateHUD();
             return true;
