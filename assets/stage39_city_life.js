@@ -566,8 +566,11 @@ var Heatline = globalThis.Heatline || {};
       return scene;
     };
     const attach = Game.prototype.attachImportedModels441;
-    Game.prototype.attachImportedModels441 = function () {
-      const result = attach.call(this);
+    // A restart builds a brand-new world: decorate whichever world is current.
+    const upd = Game.prototype.update;
+    Game.prototype.update = function (dt) { if (this.world && !this.world.__rcCityLife) decorate.call(this); return upd.call(this, dt); };
+    Game.prototype.attachImportedModels441 = function () { const result = attach.call(this); decorate.call(this); return result; };
+    function decorate() {
       const world = this.world;
       if (world && !world.__rcCityLife) {
         world.__rcCityLife = true;
@@ -587,7 +590,6 @@ var Heatline = globalThis.Heatline || {};
         } catch (error) { console.warn('[CityLife39] city details failed', error); }
         stats.ms = Math.round(performance.now() - t0);
       }
-      return result;
-    };
+    }
   });
 })(Heatline);

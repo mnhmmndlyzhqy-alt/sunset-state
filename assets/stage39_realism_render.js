@@ -232,6 +232,31 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
 
   const MAIN_TAIL = `          // ===== Stage39 Realism Core: linear-light physically based shading =====
           {
+          if((matId==6.0||matId==7.0||matId==20.0)&&vObjH>7.0&&abs(n.y)<.35&&dist<200.0){
+            // Facade articulation: floor slabs, panel joints, rain streaks, street grime.
+            float hy=vPosition.y-(vObjectCentre.y-vObjH*.5);
+            float along=abs(n.x)>abs(n.z)?vPosition.z:vPosition.x;
+            float fl=fract(hy/3.3);
+            float fade=1.0-smoothstep(90.0,200.0,dist);
+            float slab=(1.0-smoothstep(.0,.036+fwidth(fl),fl))*step(2.6,hy);
+            float jd=abs(fract(along/5.6+.5)-.5)*5.6;
+            float joint=1.0-smoothstep(.025,.05+fwidth(along),jd);
+            albedo=mix(albedo,albedo*1.16+.02,slab*fade);
+            albedo*=1.0-.09*joint*fade;
+            float streak=smoothNoise(vec2(along*1.6,hy*.12));
+            albedo*=1.0-.14*smoothstep(.6,.92,streak)*(1.0-fl)*fade;
+            albedo*=mix(.72,1.0,smoothstep(.0,1.3,hy));
+            if(slab>.5)n=normalize(n+vec3(0.0,.3,0.0));
+          }
+          if(matId==5.0&&dist<140.0){
+            // Asphalt wear: hairline cracks and repair patches.
+            vec2 pw=vPosition.xz;
+            float cr=abs(smoothNoise(pw*.55)-.5)+abs(smoothNoise(pw*1.3+7.0)-.5)*.5;
+            float crack=(1.0-smoothstep(.0,.022+length(fwidth(pw))*.05,cr))*smoothstep(.55,.75,smoothNoise(pw*.09+3.0));
+            albedo*=1.0-.38*crack*(1.0-smoothstep(40.0,140.0,dist));
+            float patchN=smoothNoise(floor(pw/vec2(3.2,2.1))*.7);
+            albedo*=mix(1.0,.84+.22*patchN,step(.8,smoothNoise(pw*.03+11.0)));
+          }
           vec3 albedoL=rcToLinear(clamp(albedo,0.0,1.0));
           if(matId==4.0)albedoL*=.62;
           if(matId==27.0||matId==15.0){float lum=dot(albedoL,vec3(.2126,.7152,.0722));albedoL=mix(vec3(lum),albedoL,matId==27.0?.72:.82)*(matId==27.0?.80:.90);}
@@ -537,7 +562,7 @@ vec3 rcWindow(vec3 n,vec3 v,float seed,float feature,float dist){
     s = replaceUnique(s, '        out vec4 outputColor;', '        layout(location=0) out vec4 rcFragOut_;\n        vec4 outputColor;\n        bool rcLinear_=false;');
     // 2. Realism uniforms + functions.
     s = replaceUnique(s, '        uniform int uShadowsActive;',
-      '        uniform int uShadowsActive;\n' + RC_UNIFORMS + RC_FUNCS + SHADOW_FUNC + RC_DECODE);
+      '        uniform int uShadowsActive;\n' + '        flat in float vObjH;\n' + RC_UNIFORMS + RC_FUNCS + SHADOW_FUNC + RC_DECODE);
     // 3. Material overrides for travertine / metals / sealed concrete.
     s = replaceUnique(s, '          float matId=floor(materialKey+.001);',
       '          float matId=floor(materialKey+.001);\n          vec4 rcOverride=vec4(-1.0);float rcOverrideMetal=0.0;');
@@ -593,6 +618,8 @@ vec3 rcWindow(vec3 n,vec3 v,float seed,float feature,float dist){
   function patchMainVertex(src) {
     let s = replaceUnique(src, '        uniform mat4 uViewProj;',
       '        uniform mat4 uViewProj;\n        uniform float uTime; uniform vec4 uWeather;\n        invariant gl_Position;');
+    s = replaceUnique(s, '          vColor=iColor;', '          vColor=iColor;vObjH=length(iCol1.xyz);');
+    s = replaceUnique(s, '        out vec3 vNormal; out vec3 vPosition; out vec4 vColor;', '        out vec3 vNormal; out vec3 vPosition; out vec4 vColor; flat out float vObjH;');
     s = replaceUnique(s, '          vec4 p=model*vec4(aPosition,1.0);', `          vec4 p=model*vec4(aPosition,1.0);
           if(iColor.a<-14.5&&iColor.a>-15.5){
             // Stage39: canopy sways as a whole and individual leaves flutter.
