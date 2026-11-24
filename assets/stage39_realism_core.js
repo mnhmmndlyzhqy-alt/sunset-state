@@ -151,15 +151,24 @@ var Heatline = globalThis.Heatline || {};
     mb.ellipsoid(B.head, B.head, [0, 1.655, -.112], .016, .03, .024, skin, .45, 5, 8);
     for (const side of [-1, 1]) {
       mb.ellipsoid(B.head, B.head, [side * .089, 1.665, .0], .012, .028, .02, skin, .5, 5, 8);
-      mb.ellipsoid(B.head, B.head, [side * .034, 1.688, -.093], .016, .011, .008, [.86, .84, .8], .2, 5, 8);
-      mb.ellipsoid(B.head, B.head, [side * .034, 1.688, -.1005], .0075, .0075, .002, hexLin(o.iris || '#4a3a2c'), .1, 4, 8);
-      mb.ellipsoid(B.head, B.head, [side * .036, 1.708, -.097], .022, .005, .008, hair, .7, 4, 8);
+      mb.ellipsoid(B.head, B.head, [side * .033, 1.69, -.1045], .0145, .0095, .0085, [.88, .86, .82], .2, 6, 10);
+      mb.ellipsoid(B.head, B.head, [side * .033, 1.69, -.1118], .0068, .0068, .0022, hexLin(o.iris || '#4a3a2c'), .1, 5, 10);
+      mb.ellipsoid(B.head, B.head, [side * .033, 1.69, -.1132], .003, .003, .001, [.04, .04, .04], .1, 4, 8);
+      mb.ellipsoid(B.head, B.head, [side * .035, 1.708, -.1075], .019, .0035, .006, hair, .7, 4, 8);
     }
-    mb.ellipsoid(B.head, B.head, [0, 1.618, -.098], .024, .007, .01, hexLin(o.lips || '#9a6a5e'), .5, 4, 8);
+    mb.ellipsoid(B.head, B.head, [0, 1.62, -.1015], .019, .0055, .007, hexLin(o.lips || '#a8766a'), .45, 5, 10);
     // Hair: shell over the scalp, shorter at the front; optional beard.
-    mb.ellipsoid(B.head, B.head, [0, 1.69, .002], .094, .088, .106, hair, .75, 10, 18, 1, (x, y, z) => (y < -.05 || (z < -.55 && y < .55) ? .9 : 1.0));
+    // Cap of hair clear of the scalp (no shared surface -> no z-fighting); it sinks
+    // smoothly inside the head over the face and below the ears, so it never covers the face.
+    mb.ellipsoid(B.head, B.head, [0, 1.692, .008], .0975, .0935, .1085, hair, .78, 14, 24, 1, (x, y, z) => {
+      // Hairline: the cap only exists above the forehead (front) and above the ears (sides);
+      // elsewhere it sinks far inside the skull, crossing the skin exactly at the hairline.
+      const front = Math.min(1, Math.max(0, (-z - .05) / .12)) * Math.min(1, Math.max(0, (.50 - y) / .07));
+      const low = Math.min(1, Math.max(0, (-.02 - y) / .07));
+      return 1 - .32 * Math.max(front, low);
+    });
     if (o.beard) mb.ellipsoid(B.head, B.head, [0, 1.6, -.05], .084, .055, .07, hair, .85, 7, 14, 1, (x, y, z) => (z > .2 ? .85 : 1));
-    if (o.kippah) mb.ellipsoid(B.head, B.head, [0, 1.773, .018], .06, .012, .06, hexLin(o.kippah), .7, 4, 14);
+    if (o.kippah) mb.ellipsoid(B.head, B.head, [0, 1.7895, .024], .064, .011, .064, hexLin(o.kippah), .7, 5, 18);
     // Arms (sleeves to the wrist), hands.
     for (const side of [-1, 1]) {
       const L = side < 0 ? 'L' : 'R';
@@ -223,8 +232,9 @@ var Heatline = globalThis.Heatline || {};
     const v = st.speed;
     const run = clamp((v - 2.4) / 2.6, 0, 1), sprint = clamp((v - 5.4) / 2, 0, 1);
     const moving = clamp(v / 1.2, 0, 1);
-    // Cadence: cycles per second (two steps per cycle).
-    const cadence = v < .05 ? 0 : (.62 + .30 * Math.min(v, 2) + .16 * Math.max(0, v - 2) - .008 * Math.max(0, v - 5) * Math.max(0, v - 5));
+    // Gait cycle length (m per two steps) from human gait data; cadence = v / cycle.
+    const cycleLen = .6 + .78 * Math.max(v, .3) - .022 * Math.max(v, .3) * Math.max(v, .3);
+    const cadence = v < .08 ? 0 : v / cycleLen;
     st.phase = (st.phase || 0) + cadence * dt * Math.PI * 2;
     const ph = st.phase;
     st.t = (st.t || 0) + dt;
@@ -238,27 +248,54 @@ var Heatline = globalThis.Heatline || {};
     st.land = Math.max(0, (st.land || 0) - dt * 3.2);
     const R = Array.from({ length: NB }, () => [0, 0, 0]);
     let rootY = 0, rootX = 0;
-    const hipAmp = .38 + .32 * run + .12 * sprint;
-    const kneeAmp = .72 + .70 * run + .25 * sprint;
-    const armAmp = .30 + .55 * run;
+    // ---- Foot-planted locomotion (2-bone IK per leg, sagittal plane) ----
+    const L1 = .425, L2 = .43, LMAX = .848, ANKLE = .085, HIP = .94;
+    const S = cycleLen * moving;                                    // distance travelled per cycle
+    const beta = clamp(.95 / Math.max(S, .01), .24, .62) * (1 - run) + clamp(.95 / Math.max(S, .01), .2, .38) * run; // stance fraction
+    const Ls = S * beta;                                           // stance length = ground travel while planted (no sliding)
+    const front = Ls * (.5 - .12 * run), back = Ls - front;
+    const cyc = ph / (Math.PI * 2);
+    const legs = {};
     for (const side of [-1, 1]) {
-      const p = ph + (side < 0 ? 0 : Math.PI);
-      const s = Math.sin(p), c = Math.cos(p);
-      const thigh = (hipAmp * s + .08 * run) * moving;
-      const swing = Math.max(0, c);
-      const knee = -(kneeAmp * Math.pow(swing, 1.4) + .06 + .25 * run * Math.max(0, -c) * .5) * moving - .04;
-      const ankle = (-thigh - knee) * .45 * moving + (.25 * Math.max(0, -s) * Math.max(0, c) * moving);
-      const L = side < 0 ? 'L' : 'R';
-      R[B['thigh' + L]] = [thigh, 0, side * -.02];
+      const u = ((cyc + (side < 0 ? 0 : .5)) % 1 + 1) % 1;
+      let f, lift, toe;
+      if (u < beta) {                                              // stance: heel strike -> toe off
+        const k = u / beta;
+        f = front - Ls * k; lift = 0;
+        toe = .22 * Math.max(0, 1 - k * 4) - .45 * Math.max(0, (k - .7) / .3) * (.6 + .4 * run);
+        lift += .06 * Math.max(0, (k - .75) / .25) * (1 + run);      // heel rises before toe-off
+      } else {                                                     // swing: arc forward
+        const k = (u - beta) / (1 - beta), e = k * k * (3 - 2 * k);
+        f = -back + (front + back) * e;
+        lift = (.09 + .26 * run + .1 * sprint) * Math.pow(Math.sin(Math.PI * Math.pow(k, .75)), .9);
+        toe = -.35 * (1 - k) * (1 - k) + .18 * Math.max(0, k - .7) / .3;
+      }
+      legs[side] = { f, lift, toe, stance: u < beta };
+    }
+    // Hip height: walking keeps the stance leg nearly straight (pelvis dips at
+    // heel strike); running bounces with a flight phase.
+    let hipWalk = HIP;
+    for (const side of [-1, 1]) if (legs[side].stance) hipWalk = Math.min(hipWalk, ANKLE + legs[side].lift + Math.sqrt(Math.max(.01, LMAX * LMAX - legs[side].f * legs[side].f)));
+    const hipRun = HIP - .07 - .035 * Math.cos(cyc * Math.PI * 4);
+    const hipY = (HIP - .012) * (1 - moving) + (hipWalk * (1 - run) + hipRun * run) * moving;
+    rootY = hipY - HIP;
+    for (const side of [-1, 1]) {
+      const g = legs[side], L = side < 0 ? 'L' : 'R';
+      const fwd = g.f, dy = Math.max(.2, hipY - (ANKLE + g.lift));
+      const D = clamp(Math.hypot(fwd, dy), .3, (L1 + L2) * .999);
+      const a1 = Math.acos(clamp((L1 * L1 + D * D - L2 * L2) / (2 * L1 * D), -1, 1));
+      const kin = Math.acos(clamp((L1 * L1 + L2 * L2 - D * D) / (2 * L1 * L2), -1, 1));
+      const thigh = Math.atan2(fwd, dy) + a1, knee = -(Math.PI - kin);
+      const ankle = g.toe * moving - (thigh + knee);
+      R[B['thigh' + L]] = [thigh, 0, side * -.025];
       R[B['shin' + L]] = [knee, 0, 0];
       R[B['foot' + L]] = [ankle, 0, 0];
-      const arm = -side * 0 + (-armAmp * s) * moving;
-      R[B['arm' + L]] = [arm + .05 * run, 0, side * (.07 + .05 * run)];
-      R[B['fore' + L]] = [.18 + .9 * run + .25 * Math.max(0, arm) * moving, 0, 0];
+      // Arms counter-swing with the same-side leg; elbows bend more when running.
+      const opp = Math.atan2(legs[side].f, .8);
+      const arm = -opp * (.75 + .35 * run) * moving;
+      R[B['arm' + L]] = [arm + .06 * run, 0, side * (.06 + .06 * run)];
+      R[B['fore' + L]] = [.22 + 1.15 * run + .35 * Math.max(0, arm) * (1 - run), 0, 0];
     }
-    // Pelvis: vertical bob (twice per cycle), counter rotation, lateral sway.
-    const bob = (.022 + .03 * run) * moving;
-    rootY = -bob * (.5 + .5 * Math.cos(ph * 2)) - .03 * run * moving;
     const pelvisYaw = .11 * Math.sin(ph) * moving * (1 - .4 * run);
     rootX = .018 * Math.sin(ph) * moving * (1 - run);
     const lean = (.05 * moving + .16 * run + .08 * sprint);
@@ -362,10 +399,10 @@ ${RC.GLSL.funcs}
 out vec4 o;
 float shadowAt(vec3 p,vec3 n,float NoL){
   if(uShadowsActive==0)return 1.0;
-  vec4 q=uSunViewProjection*vec4(p+n*rcShadowTexel*1.5+rcSunDir*rcShadowTexel*.5,1.0);
+  vec4 q=uSunViewProjection*vec4(p+n*rcShadowTexel*2.6+rcSunDir*rcShadowTexel*.8,1.0);
   vec3 uv=q.xyz/q.w*.5+.5;
   if(max(abs(uv.x-.5),abs(uv.y-.5))>.497)return 1.0;
-  float r=1.2/4096.0,ref=uv.z-.00012-.0003*(1.0-NoL),s=0.0;
+  float r=1.5*rcShadowTexel/260.0,ref=uv.z-.00035-.0007*(1.0-NoL),s=0.0;
   s+=texture(uShadow,vec3(uv.xy+vec2(-r,-r),ref));s+=texture(uShadow,vec3(uv.xy+vec2(r,-r),ref));
   s+=texture(uShadow,vec3(uv.xy+vec2(-r,r),ref));s+=texture(uShadow,vec3(uv.xy+vec2(r,r),ref));
   return s*.25;
@@ -467,13 +504,15 @@ void main(){
       g.uniform1i(this.loc.ln, Math.min(12, lights.length));
       g.uniform4fv(this.loc.ld, renderer.lightData);
       g.uniform3fv(this.loc.lc, renderer.lightColors);
-      g.enable(g.CULL_FACE); g.cullFace(g.BACK); g.enable(g.DEPTH_TEST); g.depthMask(true);
+      // Procedural meshes mix winding orders: draw double-sided (shader flips back-face normals).
+      g.disable(g.CULL_FACE); g.enable(g.DEPTH_TEST); g.depthMask(true);
       for (const it of items) {
         g.uniformMatrix4fv(this.loc.bones, false, it.bones);
         g.bindVertexArray(it.meshRef.vao);
         g.drawElements(g.TRIANGLES, it.meshRef.count, g.UNSIGNED_SHORT, 0);
       }
       g.bindVertexArray(null);
+      g.enable(g.CULL_FACE);
     }
     drawShadow(matrix, items) {
       if (!items.length) return;
@@ -717,9 +756,13 @@ void main(){
     for (let k = 0; k < N; k++) {
       const v = Math.hypot(s.vx, s.vy);
       // Steering: rate limited, reduced lock at speed (speed-sensitive rack).
-      const lock = .60 / (1 + Math.max(0, s.vx) / 42);
-      const steerRate = Math.abs(steerIn) < .01 ? 9 : 6.5;
-      s.steer += clamp(steerIn * lock - s.steer, -steerRate * h, steerRate * h);
+      // GTA-style keyboard steering: the wheel ramps in progressively (slower at
+      // speed), returns quickly to centre, and the lock shrinks with speed.
+      const vfw = Math.max(0, Math.abs(s.vx));
+      const lock = .64 / (1 + vfw / 13);
+      const inRate = steerIn === 0 ? 5.5 : (Math.sign(steerIn) !== Math.sign(s.input || 0) && Math.abs(s.input || 0) > .05 ? 6 : 2.8 / (1 + vfw / 22));
+      s.input = (s.input || 0) + clamp(steerIn - (s.input || 0), -inRate * h, inRate * h);
+      s.steer += clamp(s.input * lock - s.steer, -4 * h, 4 * h);
       const delta = s.steer + (c.steeringBias || 0) * .05;
       // Longitudinal load transfer.
       const Fzf = clamp(m * g * b / L - m * s.ax * hcg / L, m * g * .15, m * g * .85);
@@ -772,9 +815,10 @@ void main(){
       // grip limit and lateral slip is damped, except on the handbrake (drift).
       if (!handbrake && dyn > 0) {
         const vabs = Math.max(Math.abs(s.vx), 1);
-        const rLimit = mu * g * .95 / vabs;
+        const rLimit = Math.min(mu, 1.12) * g * .86 / vabs;
         const rTarget = clamp(rKin, -rLimit, rLimit);
-        s.r += (rTarget - s.r) * (1 - Math.exp(-h * 7.5));
+        s.r += (rTarget - s.r) * (1 - Math.exp(-h * 4.6));
+        if (Math.abs(s.r) > rLimit * 1.05) s.r = Math.sign(s.r) * rLimit * 1.05;   // never exceed tyre grip (~1 g)
         s.vy *= Math.exp(-h * (throttle < 0 ? 3.5 : 2.2));
       }
       else if (handbrake && dyn > 0) {

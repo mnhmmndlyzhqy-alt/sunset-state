@@ -1037,7 +1037,7 @@ void main(){
     vec3 tx=abs(dr-depth)<abs(dl-depth)?positionAt(uv+dx,dr)-centre:centre-positionAt(uv-dx,dl);
     vec3 ty=abs(dt-depth)<abs(db-depth)?positionAt(uv+dy,dt)-centre:centre-positionAt(uv-dy,db);
     vec3 normal=normalize(cross(tx,ty));
-    float radius=clamp(depth*.03,.30,1.05);
+    float radius=clamp(depth*.022,.07,1.0);
     vec2 sr=clamp(radius/(2.0*projectionScale*depth),pixelSize*2.0,pixelSize*26.0);
     float a=ign(gl_FragCoord.xy)*6.2831853;
     mat2 rot=mat2(cos(a),-sin(a),sin(a),cos(a));
@@ -1052,7 +1052,7 @@ void main(){
       float w=1.0-smoothstep(.06,radius*1.4,dist);
       shade+=max(0.0,dot(normal,delta)/max(.03,dist)-.10)*w;
     }
-    color*=1.0-clamp(shade*.22,0.0,.48)*aoStrength*(1.0-smoothstep(30.0,60.0,depth));
+    color*=1.0-clamp(shade*.22,0.0,.42)*aoStrength*(1.0-smoothstep(30.0,60.0,depth))*smoothstep(1.2,4.5,depth);
   }
   if(hdrInput){
     vec3 bloom=texture(bloomTex,uv).rgb;
