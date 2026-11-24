@@ -742,7 +742,7 @@ void main(){
     s.r = c.yawRate || 0;
     const m = 1450 * (cls.hw * cls.hd) / (1.34 * 2.42), Iz = m * 1.55, g = 9.81;
     const L = cls.wheelbase * .86, a = L * .47, b = L - a, hcg = .52;
-    const ground = clamp(c.surfaceGrip ?? 1, .45, 1);
+    const ground = clamp(c.surfaceGrip ?? 1, .82, 1);   // grass/sidewalk no longer halve the grip
     const broken = Math.max(...(c.wheelDamage || [0]));
     const wear = clamp(Math.max(c.tireWear || 0, broken * .66), 0, 1);
     const mu = 1.28 * cls.grip * ground * (1 - .45 * wear) * (1 - .2 * (c.suspensionDamage || 0)) * (1 + .12 * clamp(c.tuneGrip || 0, 0, 3));
@@ -776,8 +776,8 @@ void main(){
       // GTA-style keyboard steering: the wheel ramps in progressively (slower at
       // speed), returns quickly to centre, and the lock shrinks with speed.
       const vfw = Math.max(0, Math.abs(s.vx));
-      const lock = .64 / (1 + vfw / 13);
-      const inRate = steerIn === 0 ? 5.5 : (Math.sign(steerIn) !== Math.sign(s.input || 0) && Math.abs(s.input || 0) > .05 ? 6 : 2.8 / (1 + vfw / 22));
+      const lock = .66 / (1 + vfw / 26);
+      const inRate = steerIn === 0 ? 5.5 : (Math.sign(steerIn) !== Math.sign(s.input || 0) && Math.abs(s.input || 0) > .05 ? 6 : 4.6 / (1 + vfw / 45));
       s.input = (s.input || 0) + clamp(steerIn - (s.input || 0), -inRate * h, inRate * h);
       s.steer += clamp(s.input * lock - s.steer, -4 * h, 4 * h);
       const delta = s.steer + (c.steeringBias || 0) * .05;
@@ -832,11 +832,11 @@ void main(){
       // grip limit and lateral slip is damped, except on the handbrake (drift).
       if (!handbrake && dyn > 0) {
         const vabs = Math.max(Math.abs(s.vx), 1);
-        const rLimit = Math.min(mu, 1.12) * g * .86 / vabs;
+        const rLimit = 1.6 * g * ground / vabs;   // arcade grip (~1.6 g) for sharp turns
         const rTarget = clamp(rKin, -rLimit, rLimit);
-        s.r += (rTarget - s.r) * (1 - Math.exp(-h * 4.6));
+        s.r += (rTarget - s.r) * (1 - Math.exp(-h * 7.5));
         if (Math.abs(s.r) > rLimit * 1.05) s.r = Math.sign(s.r) * rLimit * 1.05;   // never exceed tyre grip (~1 g)
-        s.vy *= Math.exp(-h * (throttle < 0 ? 3.5 : 2.2));
+        s.vy *= Math.exp(-h * (throttle < 0 ? 8 : 6.5));   // kill sideways sliding
       }
       else if (handbrake && dyn > 0) {
         // Controlled slide: allow oversteer up to ~1.7x the grip yaw, never a spin.
@@ -912,7 +912,7 @@ void main(){
       st.heading += H.angleDiff(st.heading, target) * (1 - Math.exp(-dt * (2.6 + sp * .025)));
       const fx = -Math.sin(st.heading), fz = -Math.cos(st.heading);
       const ground = H.deckGround443 ? H.deckGround443(p) : 0;
-      const dist = 6.4 + Math.min(2.2, sp * .03), height = 2.15 + Math.min(.9, sp * .012);
+      const dist = 8.2 + Math.min(2.4, sp * .03), height = 3.1 + Math.min(1.0, sp * .012);
       let dest = { x: p.x - fx * dist, y: ground + height, z: p.z - fz * dist };
       const eye = { x: p.x, y: ground + 1.9, z: p.z };
       const hit = this.cameraClearance ? this.cameraClearance(eye, dest, .6) : null;
@@ -921,8 +921,8 @@ void main(){
       st.x += (dest.x - st.x) * k; st.y += (dest.y - st.y) * k; st.z += (dest.z - st.z) * k;
       const pitchKick = clamp((p.rcDyn?.ax || 0) * -.012, -.12, .12);
       c.x = st.x; c.y = st.y + pitchKick; c.z = st.z;
-      const look = 3 + Math.min(6, sp * .08);
-      c.tx = p.x + fx * look; c.ty = ground + 1.25; c.tz = p.z + fz * look;
+      const look = 5 + Math.min(8, sp * .1);
+      c.tx = p.x + fx * look; c.ty = ground + 1.55; c.tz = p.z + fz * look;
       c.fov = clamp(60 + sp * .32, 60, 80) + (this.is && this.is('ShiftLeft', 'ShiftRight') && sp > 25 ? 5 : 0);
       if (sp > 25) { const sh = Math.min(1, (sp - 25) / 40) * .035; c.y += Math.sin(this.seconds * 37) * sh; c.x += Math.sin(this.seconds * 29) * sh; }
     };
