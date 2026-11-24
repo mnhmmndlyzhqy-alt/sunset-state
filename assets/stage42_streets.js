@@ -69,9 +69,9 @@ var Heatline = globalThis.Heatline || {};
             const off = axis + side * (hw + .15);
             E.add(vertical ? off : mid, y + .07, vertical ? mid : off, vertical ? .3 : plen, .16, vertical ? plen : .3, '#b8b4ab', 'concrete', { cap: 420, ...g });
             const goff = axis + side * (hw - .3);
-            E.add(vertical ? goff : mid, y + .012, vertical ? mid : goff, vertical ? .45 : plen, .02, vertical ? plen : .45, '#3a3b3c', 'concrete', { cap: 260, ...g });
+            E.add(vertical ? goff : mid, y + .03, vertical ? mid : goff, vertical ? .45 : plen, .03, vertical ? plen : .45, '#3a3b3c', 'concrete', { cap: 170, ...g });
             const loff = axis + side * (hw - 1.1);
-            E.add(vertical ? loff : mid, y + .016, vertical ? mid : loff, vertical ? .14 : plen, .015, vertical ? plen : .14, '#e9e6dc', 'paint', { cap: 320, ...g });
+            E.add(vertical ? loff : mid, y + .035, vertical ? mid : loff, vertical ? .14 : plen, .03, vertical ? plen : .14, '#e9e6dc', 'paint', { cap: 190, ...g });
             stats.curbs++; stats.lines++;
           }
         }
@@ -96,19 +96,19 @@ var Heatline = globalThis.Heatline || {};
         const h = hash(axis + t * .37, t);
         if (h < .25) {
           const lo = (h - .125) * 6;
-          E.add(vertical ? axis + lo : t, c.top + .012, vertical ? t : axis + lo, .72, .02, .72, '#2c2d2e', 'metal', { shape: 'cylinder', cap: 140, street42: true });
+          E.add(vertical ? axis + lo : t, c.top + .03, vertical ? t : axis + lo, .72, .03, .72, '#2c2d2e', 'metal', { shape: 'cylinder', cap: 110, street42: true });
           stats.manholes++;
         }
         for (const side of [-1, 1]) {
           const hs = hash(t * 1.3 + side, axis);
           // Drain grate at the gutter.
-          if (hs < .18) E.add(vertical ? axis + side * (hw - .35) : t, c.top + .013, vertical ? t : axis + side * (hw - .35), vertical ? .4 : .9, .02, vertical ? .9 : .4, '#1f2021', 'metal', { cap: 120, street42: true });
+          if (hs < .18) E.add(vertical ? axis + side * (hw - .35) : t, c.top + .045, vertical ? t : axis + side * (hw - .35), vertical ? .4 : .9, .03, vertical ? .9 : .4, '#1f2021', 'metal', { cap: 100, street42: true });
           // Street tree in a grate, 3.3 m into the sidewalk.
           const tx = vertical ? axis + side * (hw + 3.3) : t, tz = vertical ? t : axis + side * (hw + 3.3);
           const w = S(tx, tz);
           if (t % 20 === 0 && isWalk(w.mat) && spot(tx, tz, 7)) {
             const y = w.top;
-            E.add(tx, y + .01, tz, 1.5, .03, 1.5, '#2a2b2c', 'metal', { cap: 200, street42: true });
+            E.add(tx, y + .03, tz, 1.5, .04, 1.5, '#2a2b2c', 'metal', { cap: 140, street42: true });
             const th = 3.2 + hs * 1.6;
             E.add(tx, y + th / 2, tz, .26, th, .26, '#5b4a3a', 'bark', { shape: 'cylinder', cap: 600, street42: true });
             const cw = 3.6 + hs * 1.8;

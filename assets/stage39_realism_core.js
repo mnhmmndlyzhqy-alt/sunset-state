@@ -567,7 +567,22 @@ void main(){
     let key, outfit, scale;
     if (player) { key = 'hero'; outfit = HERO; scale = 1.04; }
     else ({ key, outfit, scale } = outfitFor(w));
-    const world = M4.trs(w.x, (w.y || 0), w.z, 0, w.yaw || 0, 0, scale);
+    // Knocked down: tumble onto the back, lie on the ground, then get back up.
+    let pitch = 0, lift = 0;
+    if (w.injuryState === 'down') {
+      st.down = Math.min(1, (st.down || 0) + dt * 2.6);
+      const rising = w.injuryClock < 1.3 ? clamp(1 - w.injuryClock / 1.3, 0, 1) : 0;
+      const d = st.down * (1 - rising * rising * (3 - 2 * rising));
+      pitch = d * Math.PI / 2; lift = .13 * d;
+      const R = pose.R;
+      R[B.armL] = [.4 * d, 0, .9 * d]; R[B.armR] = [-.2 * d, 0, -1.1 * d];
+      R[B.foreL] = [.6 * d, 0, 0]; R[B.foreR] = [.3 * d, 0, 0];
+      R[B.thighL] = [.5 * d, 0, .12 * d]; R[B.shinL] = [-.9 * d, 0, 0];
+      R[B.thighR] = [.08 * d, 0, -.1 * d]; R[B.shinR] = [-.15 * d, 0, 0];
+      R[B.head] = [-.25 * d, .5 * d, 0]; R[B.spine] = [0, 0, 0]; R[B.chest] = [0, 0, 0];
+      pose.rootY = 0; pose.rootX = 0;
+    } else st.down = 0;
+    const world = M4.trs(w.x, (w.y || 0) + lift, w.z, pitch, w.yaw || 0, 0, scale);
     queue.push({ key, outfit, pose, world, x: w.x, z: w.z, player });
   }
 
@@ -577,7 +592,7 @@ void main(){
     if (typeof legacyPose !== 'function') return;
     H.streetCharacterPose32 = function realismCharacter(w, out, seconds, player = false, distance = 0, webgl = true, entryTime) {
       const r = RC.renderer;
-      if (webgl && r && r.rcCharacters && w && w.injuryState === 'walking' && !w.swim445 &&
+      if (webgl && r && r.rcCharacters && w && (w.injuryState === 'walking' || w.injuryState === 'down') && !w.swim445 &&
         !(w.socialPose === 'sit' && !player) && (player || (distance < 46 && queue.length < 26))) {
         enqueue(w, player, seconds, entryTime);
         return;
@@ -604,6 +619,35 @@ void main(){
   /* ================================================================== */
   /*  On-foot locomotion: momentum, acceleration, turn-rate limits        */
   /* ================================================================== */
+  RC.installers.push(function installKnockdowns(Game) {
+    const impact = H.pedestrianVehicleImpact, advance = H.advancePedestrianInjury;
+    if (typeof impact !== 'function' || typeof advance !== 'function') return;
+    const ground = w => { const y = H.outdoorHeight(w.x, w.z); return Number.isFinite(y) ? y : (w.y || 0); };
+    const knockOut = w => { if (w.injuryState === 'dead') { w.injuryState = 'down'; w.injuryClock = 13 + Math.random() * 5; } };
+    H.pedestrianVehicleImpact = function (w, car, speed) {
+      const r = impact.apply(this, arguments);
+      if (r) {
+        knockOut(w);
+        w.y = ground(w);            // was forced to y=0: under the raised terrain, i.e. "vanished"
+        w.rcWasDown = true;
+        const g = globalThis.__SUNSET_PERFORMANCE06_GAME;
+        setTimeout(() => RC.say && g && RC.say(g, w, 'אוי!', { voice: RC.voiceForWalker?.(w), mood: 'scared', priority: 2 }), 500);
+      }
+      return r;
+    };
+    H.advancePedestrianInjury = function (w, dt) {
+      knockOut(w);
+      const r = advance.call(this, w, dt);
+      if (w.injuryState !== 'walking') w.y = ground(w);
+      else if (w.rcWasDown) {
+        w.rcWasDown = false;
+        const g = globalThis.__SUNSET_PERFORMANCE06_GAME;
+        const lines = ['מה יש לך?!', 'אתה עיוור?!', 'תסתכל על הכביש!'];
+        RC.say && g && RC.say(g, w, lines[(Math.random() * lines.length) | 0], { voice: RC.voiceForWalker?.(w), mood: 'angry', priority: 2 });
+      }
+      return r;
+    };
+  });
   RC.installers.push(function installFootPhysics(Game) {
     if (params.has('realismPhysicsOff')) return;
     const legacyStep = H.stepWalker, legacyJump = H.jumpWalker;

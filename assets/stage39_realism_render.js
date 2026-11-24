@@ -33,6 +33,8 @@ var Heatline = globalThis.Heatline || {};
 
   const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
   const TEX_LUT = 10;
+  // Depth precision: 0.25 m near plane z-fought centimetre offsets beyond ~150 m.
+  if (H.SCENE_NEAR !== undefined && H.SCENE_NEAR < .45) H.SCENE_NEAR = .45;
 
   /* ------------------------------------------------------------------ */
   /*  Shared GLSL                                                         */
@@ -1045,6 +1047,7 @@ uniform vec3 whiteBalance,lift;
 uniform vec2 sunUV;uniform float sunVis;uniform vec3 sunCol;
 uniform bool antialias;
 uniform bool hdrInput;
+uniform float sharpen;
 in vec2 uv;out vec4 result;
 const float farPlane=${H.SCENE_FAR ? H.SCENE_FAR.toFixed(1) : '5050.0'};
 const vec2 kernel[8]=vec2[8](vec2(1,0),vec2(-1,0),vec2(0,1),vec2(0,-1),
@@ -1058,6 +1061,14 @@ float ign(vec2 p){return fract(52.9829189*fract(dot(p,vec2(.06711056,.00583715))
 void main(){
   vec3 color=texture(sceneColor,uv).rgb;
   if(any(isnan(color))||any(isinf(color)))color=vec3(0.0);
+  if(sharpen>.001){
+    // Contrast-adaptive sharpening of the upscaled scene (luma-weighted, clamped).
+    vec3 n4=texture(sceneColor,uv+vec2(pixelSize.x,0.0)).rgb+texture(sceneColor,uv-vec2(pixelSize.x,0.0)).rgb+
+            texture(sceneColor,uv+vec2(0.0,pixelSize.y)).rgb+texture(sceneColor,uv-vec2(0.0,pixelSize.y)).rgb;
+    vec3 detail=color-n4*.25;
+    float lc=dot(color,vec3(.2126,.7152,.0722));
+    color=max(vec3(0.0),color+detail*sharpen/(1.0+lc*.6));
+  }
   vec2 dx=vec2(pixelSize.x,0.0),dy=vec2(0.0,pixelSize.y);
   if(antialias){
     vec3 l=texture(sceneColor,uv-dx).rgb,r=texture(sceneColor,uv+dx).rgb;
@@ -1172,7 +1183,7 @@ void main(){
       this.levels = [];
       this.loc = {};
       for (const name of ['sceneColor', 'sceneDepth', 'bloomTex', 'pixelSize', 'projectionScale', 'nearPlane', 'aoStrength',
-        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput', 'sunUV', 'sunVis', 'sunCol'])
+        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput', 'sunUV', 'sunVis', 'sunCol', 'sharpen'])
         this.loc[name] = gl.getUniformLocation(this.final, name);
       this.downLoc = { src: gl.getUniformLocation(this.down, 'src'), texel: gl.getUniformLocation(this.down, 'texel'), prefilter: gl.getUniformLocation(this.down, 'prefilter') };
       this.upLoc = { src: gl.getUniformLocation(this.up, 'src'), texel: gl.getUniformLocation(this.up, 'texel'), radius: gl.getUniformLocation(this.up, 'radius') };
@@ -1290,7 +1301,7 @@ void main(){
       g.disable(g.CULL_FACE);
       const bloomTex = this.hdr ? this.bloom() : null;
       g.bindFramebuffer(g.FRAMEBUFFER, null);
-      g.viewport(0, 0, this.width, this.height);
+      g.viewport(0, 0, grade.outW || this.width, grade.outH || this.height);
       g.useProgram(this.final);
       g.bindVertexArray(this.vao);
       g.activeTexture(g.TEXTURE0); g.bindTexture(g.TEXTURE_2D, this.color);
@@ -1312,6 +1323,7 @@ void main(){
       g.uniform3fv(L.lift, grade.lift);
       g.uniform1i(L.antialias, this.multisample ? 0 : 1);
       g.uniform1i(L.hdrInput, this.hdr ? 1 : 0);
+      g.uniform1f(L.sharpen, grade.sharpen || 0);
       g.uniform2fv(L.sunUV, grade.sunUV || [0, 0]); g.uniform1f(L.sunVis, grade.sunVis || 0); g.uniform3fv(L.sunCol, grade.sunCol || [0, 0, 0]);
       g.drawArrays(g.TRIANGLES, 0, 3);
       g.bindVertexArray(null);
@@ -1423,7 +1435,8 @@ void main(){
           params.has('realismLow') || /intel|uhd|iris|hd graphics|radeon\(tm\) graphics|vega \d+ graphics|mali|adreno|apple gpu|swiftshader|llvmpipe/i.test(adapter);
         RC.stats.adapter = adapter; RC.stats.integratedProfile = this.rcIntegrated;
         if (this.rcIntegrated) {
-          if (this.rcComposite) this.rcComposite.maxSamplesOverride = 2;
+          if (this.rcComposite) this.rcComposite.maxSamplesOverride = 0;
+          this.rcResScale = params.has('realismFullRes') ? 1 : .8;
           if (this.shadowReady && this.shadowSize > 2048) {
             const oldTex = this.shadowTexture, oldFb = this.shadowFrame;
             this.shadowSize = 2048;
@@ -1504,12 +1517,18 @@ void main(){
         this.displayRatio463 = window.devicePixelRatio || 1;
         const maxSide = this.maxSide463 || 4096;
         const maxRatio = Math.min(maxSide / cssW, maxSide / cssH, Math.sqrt(8300000 / (cssW * cssH)));
-        const ratio = Math.min(Math.min(this.displayRatio463, 1.5) * clamp(this.rcResScale || 1, .5, 1), maxRatio);
-        const w = Math.max(1, Math.round(cssW * ratio)), h = Math.max(1, Math.round(cssH * ratio));
-        this.renderNative475 = true; this.framebufferLimited475 = false; this.realPixelRatio475 = ratio;
+        // The canvas always stays at full display resolution (crisp UI/edges); the 3-D
+        // scene renders at rcResScale internally and the composite upscales + sharpens.
+        const outRatio = Math.min(Math.min(this.displayRatio463, 1.5), maxRatio);
+        const ow = Math.max(1, Math.round(cssW * outRatio)), oh = Math.max(1, Math.round(cssH * outRatio));
+        const scale = this.rcComposite ? clamp(this.rcResScale || 1, .5, 1) : 1;
+        const w = Math.max(1, Math.round(ow * scale)), h = Math.max(1, Math.round(oh * scale));
+        this.renderNative475 = true; this.framebufferLimited475 = false; this.realPixelRatio475 = outRatio * scale;
+        if (this.canvas.width !== ow || this.canvas.height !== oh) { this.canvas.width = ow; this.canvas.height = oh; }
+        this.rcOutW = ow; this.rcOutH = oh;
         if (this.glWidth === w && this.glHeight === h) return;
-        this.glWidth = this.canvas.width = w;
-        this.glHeight = this.canvas.height = h;
+        this.glWidth = w;
+        this.glHeight = h;
         this.gl.viewport(0, 0, w, h);
       }
       setResolutionScale(scale) {
@@ -1950,6 +1969,7 @@ void main(){
             const e = RC.frame.exposure[0];
             G.sunCol = RC.frame.sunColor.map(x => x * e);
           } else G.sunVis = 0;
+          G.outW = this.rcOutW; G.outH = this.rcOutH; G.sharpen = this.rcResScale < .99 ? .45 + (1 - this.rcResScale) * .9 : .2;
           this.rcComposite.present(projectionField, indoors, nearPlaneOf(c), G);
         }
         if (this.rcQueryOpen) { g.endQuery(this.rcTimerExt.TIME_ELAPSED_EXT); this.rcQueryOpen = false; }

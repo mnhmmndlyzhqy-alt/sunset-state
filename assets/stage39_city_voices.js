@@ -69,13 +69,32 @@ var Heatline = globalThis.Heatline || {};
     initStarted = true;
     try {
       const { SpeechEngine } = globalThis.SunsetSpeech;
-      const mode = params.get('voices') === 'system' ? 'system' : params.get('voices') === 'formant' ? 'formant' : 'auto';
+      // Default: the engine's own per-character custom voices (formant). ?voices=system uses the OS voice.
+      const mode = params.get('voices') === 'system' ? 'system' : params.get('voices') === 'auto' ? 'auto' : 'formant';
       V.engine = await new SpeechEngine({ mode, channels: 3, maxDistance: 42, speakerCooldownMs: 1800, ttlMs: 2500 }).init();
       V.ready = true;
     } catch (error) { console.warn('[Voices39] speech engine unavailable', error); V.engine = null; }
     return V.engine;
   }
   for (const ev of ['pointerdown', 'keydown', 'touchend']) globalThis.addEventListener?.(ev, () => ensureEngine(), { once: false, capture: true, passive: true });
+  // The game ships with sound OFF, which silenced every voice. Pressing Play is a user
+  // gesture (required by browsers for audio): switch sound on then, once. The speaker
+  // button still mutes it afterwards.
+  const enableSoundOnPlay = () => {
+    const play = document.getElementById('play-button');
+    if (!play || play.__rcSound) return;
+    play.__rcSound = true;
+    play.addEventListener('click', () => {
+      if (V.soundAutoOn) return;
+      V.soundAutoOn = true;
+      ensureEngine();
+      setTimeout(() => {
+        const g = globalThis.__SUNSET_PERFORMANCE06_GAME, btn = document.getElementById('sound-button');
+        if (g && btn && btn.dataset.off === '1' && !params.has('soundOff')) { try { g.muteSound(); } catch { } }
+      }, 60);
+    }, true);
+  };
+  if (typeof document !== 'undefined') { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', enableSoundOnPlay); else enableSoundOnPlay(); }
 
   function say(game, who, text, o = {}) {
     const E = V.engine;
