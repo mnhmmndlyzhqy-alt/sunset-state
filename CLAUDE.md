@@ -41,11 +41,11 @@ $comp = (Get-ChildItem "$env:USERPROFILE\.claude\plugins\cache\openai-codex" -Re
 
 Node must be on PATH (a tool started before Node was installed needs `$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')`).
 
-1. **Check readiness once per session:** `node $comp setup --json` must show `"ready": true` and `loggedIn: true`.
+1. **Preflight before EVERY delegation (global policy in `~/.claude/CLAUDE.md`):** `node "$env:USERPROFILE\.claude\codex-preflight.cjs" --cwd <codex-lane> [--effort xhigh]`. It must print `PREFLIGHT: OK` (model `gpt-6.2-sol`, effort `high`, ChatGPT account). Exit 1 means do not launch. A `WARN` about 90%+ usage means light tasks only and ask the user before anything heavy. Also confirm once per session that `node $comp setup --json` shows `"ready": true` and `loggedIn: true`.
 2. **Write the prompt to a file outside the repo** (long prompts break shell quoting): guard step, exact files Codex may create or modify, a definition of done, "do not touch anything else".
 3. **Launch in the background, inside the lane:**
-   `node $comp task --background --write --cwd <codex-lane> --prompt-file <prompt.txt> --json`
-   It returns a `jobId` immediately. `--cwd` is accepted although the usage text omits it. VERIFIED: the detached worker keeps running after the launching shell exits.
+   `node $comp task --background --write --cwd <codex-lane> --model gpt-6.2-sol --effort high --prompt-file <prompt.txt> --json`
+   Always pass `--model gpt-6.2-sol --effort high` explicitly (`--effort xhigh` only for a very complex task; never astra, spark or another model without the user's explicit approval; no automatic fallback to a weaker model). It returns a `jobId` immediately. `--cwd` is accepted although the usage text omits it. VERIFIED: the detached worker keeps running after the launching shell exits.
 4. **Collect the result automatically (no slash command, no relaying).** Start a waiter as a background shell command so Claude is notified on completion:
    `node $comp status <jobId> --wait --timeout-ms 900000 --poll-interval-ms 3000 --cwd <codex-lane> --json`
    (Bash/PowerShell tool with `run_in_background: true`.) VERIFIED: the completion notification arrived by itself, and the JSON showed `status: completed`.
