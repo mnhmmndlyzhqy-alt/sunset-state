@@ -4,14 +4,16 @@ Family-friendly GTA-6-inspired WebGL2 browser game. Hero always wears a kippah a
 
 This file records a procedure that was run end to end on 2026-11-24 (Codex shader audit and Claude integrity check in parallel, integrated with zero conflicts). Steps marked VERIFIED were observed working; do not skip them.
 
-## Who does what (automatic, no need for the user to ask)
+## Who does what (Codex is OPT-IN: only when the user asks for it)
+
+**Default: Claude works alone on everything, including 3D, graphics, shaders and visual QA.** The split below applies only in a request where the user explicitly asks for Codex / GPT-6.2. Silence about Codex means no Codex. See `~/.claude/CLAUDE.md`.
 
 | Agent | Owns |
 |---|---|
 | Claude | Programming, game mechanics, physics, AI, system architecture, integration, merging |
 | Codex (official `codex@openai-codex` plugin) | 3D modeling, graphics, shaders, visual quality, visual QA |
 
-**Delegation trigger.** Whenever a request involves 3D modeling, meshes, graphics, shaders, lighting or post-processing, visual quality, or visual QA, Claude delegates that part to Codex on its own, in the background, then keeps working on the code part in the Claude lane. Say it in one line ("Delegating X to Codex in lane Y") and start. Do not delegate trivial one-line edits or anything that needs the running game in a browser to judge (Claude does those).
+**Delegation trigger (only when the user asked for Codex in this request).** Claude then hands the 3D modeling, meshes, graphics, shaders, lighting or post-processing, visual quality or visual QA part to Codex in the background and keeps working on the code part in the Claude lane. Say it in one line ("Delegating X to Codex in lane Y") and start. Even then, do not delegate trivial one-line edits or anything that needs the running game in a browser to judge. Never delegate on your own initiative, and a past request to use Codex does not carry over.
 
 **Which path works.** The direct companion runtime below is VERIFIED. The plugin's `codex:codex-rescue` subagent (and so `/codex:rescue`) is loaded in the session but FAILED its probe on 2026-11-24 with `node: not found` (exit 127): that session's shell PATH predates the Node install. After the Claude app is restarted, retry one read-only `codex:codex-rescue` probe and update this line; until then delegate through the companion runtime directly.
 
