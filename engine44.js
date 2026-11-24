@@ -19303,7 +19303,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             this.longestFrameMs = 0;
             this.stutterFrames = 0;
             this.frameTimeMs = 16.7;
-            this.maxSubsteps = 2;
+            this.maxSubsteps = 3;
             this.synth = new Synth();
             this.lastPaint = 0;
             // Uploaded INTERCEPTOR AI V4: one autonomous dispatcher and one audio
@@ -26381,7 +26381,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             this.wasActiveFrame = active;
             if (!visible || this.stage38PreviewFreeze)
                 return;
-            const dt = Math.min(realDt, .045);
+            const dt = Math.min(realDt, .1); // Stage44: real-time simulation on slow GPUs (was .045 -> slow motion below 22 FPS)
             // Door transition uses REAL elapsed time, including low-FPS machines.
             if(active && this.entryTransition)this.updateBuildingEntry(Math.min(realDt,1.0));
             if(active && this.exitTransition)this.stage42UpdateExit(Math.min(realDt,1.0));
@@ -26394,7 +26394,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             if (active) {
                 // Substep reduces tunneling through narrow obstacles at nitro speed.
                 const beforeUpdate = performance.now();
-                const count = Math.max(1, Math.min(this.maxSubsteps, Math.ceil(dt / .024)));
+                const count = Math.max(1, Math.min(this.maxSubsteps, Math.ceil(dt / .034)));
                 for (let i = 0; i < count; i++)
                     this.update(dt / count);
                 // Cabin ride time follows wall time even if rendering a sprawling
