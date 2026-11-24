@@ -18,7 +18,7 @@ var Heatline = globalThis.Heatline || {};
 precision highp float;
 layout(location=0) in vec3 aBlade;
 uniform sampler2D uMask;uniform vec2 uOrigin;uniform float uCell;uniform int uN;
-uniform mat4 uVP;uniform float uTime,uWind,uRadius;uniform vec3 uCamP;
+uniform mat4 uVP;uniform float uTime,uWind,uRadius,uFadeAll;uniform vec3 uCamP;
 out vec3 vP;out vec3 vN;out float vH;out vec3 vCol;
 float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
 void main(){
@@ -31,9 +31,9 @@ void main(){
   float ang=(h3+bi*.37)*6.2831853;
   vec2 pos=base+vec2(cos(ang),sin(ang))*(.04+.055*bi);
   float dist=distance(pos,uCamP.xz);
-  float fade=(1.0-smoothstep(uRadius*.68,uRadius,dist))*m.g;
+  float fade=(1.0-smoothstep(uRadius*.55,uRadius,dist))*m.g*uFadeAll;
   if(fade<.02){gl_Position=vec4(2.0,2.0,2.0,1.0);vP=vec3(0);vN=vec3(0,1,0);vH=0.0;vCol=vec3(0);return;}
-  float height=(.13+.22*hash(pos*3.1))*fade;
+  float height=(.06+.10*hash(pos*3.1)+.05*hash(cell*.21))*fade;
   float t=aBlade.y;
   float facing=ang+1.3*bi;
   vec2 side=vec2(cos(facing),sin(facing));
@@ -41,13 +41,14 @@ void main(){
   float flutter=.22*sin(uTime*3.4+pos.x*1.9+pos.y*1.3+bi);
   vec2 bend=normalize(vec2(.83,.55))*(gust*.32+flutter*.08)+vec2(-side.y,side.x)*(.06+.10*h1);
   vec3 p=vec3(pos.x,m.r,pos.y);
-  p.xz+=side*aBlade.x*.026*(1.0-t*.85)+bend*t*t*height;
+  p.xz+=side*aBlade.x*.02*(1.0-t*.85)+bend*t*t*height;
   p.y+=t*height*(1.0-.25*length(bend));
   vP=p;vH=t;
   vN=normalize(vec3(-side.y,.55,side.x)+vec3(bend.x,0.0,bend.y)*.5);
   float hue=hash(cell*.37);
-  vCol=mix(vec3(.10,.21,.05),vec3(.16,.28,.07),hue);
-  vCol=mix(vCol*.5,mix(vCol,vec3(.27,.34,.10),.25+.25*hue),t);
+  // Matched to the lawn surface so blades blend into the ground.
+  vCol=mix(vec3(.15,.27,.08),vec3(.20,.31,.09),hue);
+  vCol=mix(vCol*.62,vCol*(1.06+.1*hue),t);
   gl_Position=uVP*vec4(p,1.0);
 }`;
   const FS = hdr => `#version 300 es
@@ -83,13 +84,13 @@ void main(){
       const g = this.g = renderer.gl;
       this.prog = RC.makeProgram(g, VS, FS(renderer.rcHdr), 'rc-grass');
       const L = n => g.getUniformLocation(this.prog, n);
-      this.loc = { mask: L('uMask'), origin: L('uOrigin'), cell: L('uCell'), n: L('uN'), vp: L('uVP'), time: L('uTime'), wind: L('uWind'), radius: L('uRadius'), cam: L('uCamP'), shadow: L('uShadow'), sm: L('uSunViewProjection'), sa: L('uShadowsActive') };
-      this.N = renderer.rcIntegrated ? 112 : 150;
-      this.cell = renderer.rcIntegrated ? .5 : .44;
+      this.loc = { mask: L('uMask'), origin: L('uOrigin'), cell: L('uCell'), n: L('uN'), vp: L('uVP'), time: L('uTime'), wind: L('uWind'), radius: L('uRadius'), fadeAll: L('uFadeAll'), cam: L('uCamP'), shadow: L('uShadow'), sm: L('uSunViewProjection'), sa: L('uShadowsActive') };
+      this.N = renderer.rcIntegrated ? 76 : 110;
+      this.cell = renderer.rcIntegrated ? .48 : .42;
       this.radius = this.N * this.cell * .5 - 2;
       // Blade strip: 3 blades x 7 verts (tapered, 5 triangles each).
       const verts = [], idx = [];
-      for (let b = 0; b < 6; b++) {
+      for (let b = 0; b < 5; b++) {
         const o = verts.length / 3;
         for (const [x, t] of [[-1, 0], [1, 0], [-1, .45], [1, .45], [-1, .8], [1, .8], [0, 1]]) verts.push(x, t, b);
         idx.push(o, o + 1, o + 2, o + 1, o + 3, o + 2, o + 2, o + 3, o + 4, o + 3, o + 5, o + 4, o + 4, o + 5, o + 6);
@@ -137,7 +138,7 @@ void main(){
       const ox = Math.floor((cam.x - span / 2) / snap) * snap, oz = Math.floor((cam.z - span / 2) / snap) * snap;
       if (!this.pending && (!this.origin || Math.abs(ox - this.origin[0]) >= snap || Math.abs(oz - this.origin[1]) >= snap)) { this.pending = [ox, oz]; this.row = 0; this.next = new Float32Array(this.N * this.N * 2); }
       if (!this.pending) return;
-      const [px, pz] = this.pending, rows = Math.max(8, Math.ceil(this.N / 6));
+      const [px, pz] = this.pending, rows = 6;
       for (let r = 0; r < rows && this.row < this.N; r++, this.row++) {
         const zz = pz + (this.row + .5) * this.cell;
         for (let i = 0; i < this.N; i++) {
@@ -153,7 +154,13 @@ void main(){
       }
     }
     draw(renderer, frame, world) {
-      if (frame.indoors || frame.c.y - (world ? 0 : 0) > 140 || frame.c.satellite468) return;
+      if (frame.indoors || frame.c.y > 140 || frame.c.satellite468) return;
+      // Fast camera (driving): fade out and stop rebuilding — no cost while driving.
+      const now = performance.now(), c = frame.c;
+      if (this.lastCam) { const dtc = Math.max(.001, (now - this.lastCam.t) / 1000); const v = Math.hypot(c.x - this.lastCam.x, c.z - this.lastCam.z) / dtc; this.camSpeed = (this.camSpeed || 0) * .85 + v * .15; }
+      this.lastCam = { x: c.x, z: c.z, t: now };
+      this.fadeAll = 1 - Math.min(1, Math.max(0, ((this.camSpeed || 0) - 7) / 6));
+      if (this.fadeAll <= .01) return;
       this.update(world, frame.c);
       if (!this.ready) return;
       const g = this.g, L = this.loc;
@@ -165,7 +172,7 @@ void main(){
       g.uniform1i(L.sa, frame.shadowMode && frame.shadowMode !== 3 ? 1 : 0);
       g.uniform2f(L.origin, this.origin[0], this.origin[1]); g.uniform1f(L.cell, this.cell); g.uniform1i(L.n, this.N);
       g.uniformMatrix4fv(L.vp, false, frame.viewProjection);
-      g.uniform1f(L.time, frame.t); g.uniform1f(L.wind, .45 + (frame.weather?.wind || 0) * .9); g.uniform1f(L.radius, this.radius);
+      g.uniform1f(L.time, frame.t); g.uniform1f(L.wind, .45 + (frame.weather?.wind || 0) * .9); g.uniform1f(L.radius, this.radius); g.uniform1f(L.fadeAll, this.fadeAll);
       g.uniform3f(L.cam, frame.c.x, frame.c.y, frame.c.z);
       g.disable(g.CULL_FACE);
       g.bindVertexArray(this.vao);

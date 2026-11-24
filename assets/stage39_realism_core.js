@@ -185,10 +185,10 @@ var Heatline = globalThis.Heatline || {};
     for (const side of [-1, 1]) {
       const L = side < 0 ? 'L' : 'R';
       const hp = jp('thigh' + L), kn = jp('shin' + L), an = jp('foot' + L);
-      mb.limb(B['thigh' + L], B['shin' + L], [hp[0] * hw, hp[1] + .02, hp[2]], kn, t => [(.082 - .03 * t) * bulk * hw, (.088 - .03 * t) * bulk], () => pants, .85, 9, 14);
+      mb.limb(B['thigh' + L], B['shin' + L], [hp[0] * hw, hp[1] + .02, hp[2]], kn, t => [(.096 - .036 * t) * bulk * hw, (.102 - .036 * t) * bulk], () => pants, .85, 9, 14);
       mb.limb(B['shin' + L], B['foot' + L], kn, [an[0], an[1] + .03, an[2]], t => {
         const calf = Math.exp(-(((t - .3) / .22) ** 2));
-        return [(.050 + .012 * calf - .01 * t) * bulk, (.052 + .02 * calf - .01 * t) * bulk];
+        return [(.056 + .014 * calf - .012 * t) * bulk, (.058 + .024 * calf - .012 * t) * bulk];
       }, () => pants, .85, 9, 14);
       mb.ellipsoid(B['foot' + L], B['foot' + L], [an[0], .055, an[2] - .055], .048, .05, .125, shoe, .55, 7, 14, 1, (x, y, z) => (y < -.3 ? 1 : 1));
       mb.ellipsoid(B['foot' + L], B['foot' + L], [an[0], .018, an[2] - .055], .05, .018, .128, hexLin(o.sole || '#e6e2da'), .9, 4, 12);
@@ -306,10 +306,10 @@ var Heatline = globalThis.Heatline || {};
     // Idle: breathing and weight shift.
     const idle = 1 - moving;
     const breath = Math.sin(st.t * 1.6);
-    R[B.spine] = [lean * .5 + .015 * breath * idle, -pelvisYaw * .5, turnLean * .3];
-    R[B.chest] = [lean * .5 + .02 * breath * idle, -pelvisYaw * .9, 0];
-    R[B.neck] = [-lean * .6, 0, 0];
-    R[B.head] = [-lean * .2 + .02 * Math.sin(st.t * .5) * idle, .12 * Math.sin(st.t * .31) * idle, -turnLean * .4];
+    R[B.spine] = [-lean * .55 - .012 * breath * idle, -pelvisYaw * .5, turnLean * .3];
+    R[B.chest] = [-lean * .35 - .018 * breath * idle, -pelvisYaw * .9, 0];
+    R[B.neck] = [lean * .45, 0, 0];
+    R[B.head] = [lean * .35 - .02 * Math.sin(st.t * .5) * idle, .12 * Math.sin(st.t * .31) * idle, -turnLean * .4];
     if (idle > .01) {
       rootX += .012 * Math.sin(st.t * .4) * idle;
       R[B.armL][1] = 0; R[B.armL][2] += .04 * idle; R[B.armR][2] -= .04 * idle;
@@ -330,7 +330,7 @@ var Heatline = globalThis.Heatline || {};
       const k = Math.sin(st.land * Math.PI) * .9;
       rootY -= .12 * k;
       for (const L of ['L', 'R']) { R[B['thigh' + L]][0] += .45 * k; R[B['shin' + L]][0] -= .8 * k; R[B['foot' + L]][0] += .35 * k; }
-      R[B.spine][0] += .2 * k;
+      R[B.spine][0] -= .2 * k;
     }
     // Social poses for citizens.
     if (a.socialPose === 'photo' || (a.navActivity === 'phone' && a.pause > 0)) {
@@ -751,6 +751,21 @@ void main(){
     const boost = input.nitro && (c.engineDamage || 0) < .7;
     const power = 168000 * cls.power * (1 + .11 * clamp(c.tuneEngine || 0, 0, 3)) * engineHealth * (boost ? 1.75 : 1);
     const throttle = clamp(input.gas, -1, 1);
+    // Six-speed automatic gearbox: RPM from road speed, torque curve, shift cut.
+    const GEARS = [3.45, 2.25, 1.62, 1.24, .98, .80], FINAL = 3.55, WHEEL = .34, IDLE = 850, REDLINE = 7000;
+    s.gear = s.gear || 1; s.shift = Math.max(0, (s.shift || 0) - dt);
+    const roadRpm = g => Math.abs(s.vx) / WHEEL * 9.549 * GEARS[g - 1] * FINAL;
+    if (!s.shift && throttle >= 0) {
+      if (s.gear < 6 && roadRpm(s.gear) > 6500) { s.gear++; s.shift = .2; }
+      else if (s.gear > 1 && roadRpm(s.gear) < 2400 && roadRpm(s.gear - 1) < 6000) { s.gear--; s.shift = .14; }
+    }
+    if (s.vx < 3 && throttle <= 0) s.gear = 1;
+    const launch = s.gear === 1 && throttle > 0 ? IDLE + throttle * 3600 * (1 - clamp(Math.abs(s.vx) / 9, 0, 1)) : 0;
+    const rpmTarget = clamp(Math.max(IDLE, roadRpm(s.gear), launch), IDLE, REDLINE);
+    s.rpm = (s.rpm || IDLE) + (rpmTarget - (s.rpm || IDLE)) * (1 - Math.exp(-dt * (s.shift ? 18 : 10)));
+    const rpmN = clamp((s.rpm - 1200) / (REDLINE - 1200), 0, 1);
+    const torqueCurve = (.72 + .28 * Math.sin(Math.PI * Math.min(1, rpmN * 1.15))) * (s.shift ? .18 : 1);
+    c.rcRpm = s.rpm; c.rcGear = s.vx < -.5 ? -1 : s.gear; c.rcShift = s.shift;
     const steerIn = clamp(input.steer, -1, 1) * (1 - Math.min(.22, Math.abs(c.steeringBias || 0) * 1.25));
     const N = Math.max(1, Math.ceil(dt / (1 / 240)));
     const h = dt / N;
@@ -773,7 +788,7 @@ void main(){
       let Fdrive = 0, Fbrake = 0;
       if (throttle > 0) {
         if (s.vx < -.5) Fbrake = m * g * mu * .9 * throttle;
-        else Fdrive = Math.min(9200 * cls.power * (boost ? 1.3 : 1), power / Math.max(4, Math.abs(s.vx))) * throttle;
+        else Fdrive = Math.min(9200 * cls.power * (boost ? 1.3 : 1), power / Math.max(4, Math.abs(s.vx))) * throttle * torqueCurve;
       } else if (throttle < 0) {
         if (s.vx > .8) Fbrake = m * g * mu * .92 * brakeHealth * (1 + .15 * clamp(c.tuneBrakes || 0, 0, 3)) * -throttle;
         else Fdrive = -4200 * engineHealth * -throttle;
@@ -850,7 +865,8 @@ void main(){
     const brakingVis = braking || (input.brake && c.speed > 1);
     c.brakeLight += (Number(brakingVis) - c.brakeLight) * (1 - Math.exp(-dt * 13));
     c.brakeTemperature = clamp(c.brakeTemperature + (brakingVis ? (c.speed / 90) * dt : 0) - dt * .065, 0, 1.3);
-    c.tireSlip += (clamp(slipMax * 3.2 + (input.brake && c.speed > 9 ? .4 : 0), 0, 1) - c.tireSlip) * (1 - Math.exp(-dt * 8));
+    const wheelspin = throttle > .85 && s.gear === 1 && Math.abs(s.vx) < 7 ? .55 * (1 - Math.abs(s.vx) / 7) : 0;
+    c.tireSlip += (clamp(slipMax * 3.2 + wheelspin + (input.brake && c.speed > 9 ? .4 : 0), 0, 1) - c.tireSlip) * (1 - Math.exp(-dt * 8));
     // Body motion from real accelerations: pitch under braking/accel, roll in corners.
     const pitchTarget = clamp(-s.ax * .0105, -.11, .11), rollTarget = clamp(s.ay * .0085 * (1 + (c.suspensionDamage || 0) * .4), -.12, .12);
     [c.bodyPitch, c.pitchVelocity] = H.springStep(c.bodyPitch, c.pitchVelocity, pitchTarget, dt, 70, 11);
@@ -865,6 +881,52 @@ void main(){
     if (!Number.isFinite(c.x + c.z + c.yaw + c.vx + c.vz)) { c.vx = c.vz = c.yawRate = 0; s.vx = s.vy = s.r = 0; }
   }
   RC.stepCarDynamic = stepCarDynamic;
+  RC.installers.push(function installDrivingFeel(Game) {
+    if (params.has('realismPhysicsOff')) return;
+    // Engine note follows RPM (revs climb, drop on each up-shift), not road speed.
+    const update = Game.prototype.update;
+    Game.prototype.update = function (dt) {
+      const syn = this.synth;
+      if (syn && !syn.__rcRpm && typeof syn.update === 'function') {
+        syn.__rcRpm = true;
+        const orig = syn.update.bind(syn), game = this;
+        syn.update = function (speed, ...rest) {
+          const p = game.player;
+          if (game.inVehicle && p && p.rcRpm) speed = (p.rcRpm - 850) / 6150 * 70 * (p.rcShift ? .9 : 1);
+          return orig(speed, ...rest);
+        };
+      }
+      return update.call(this, dt);
+    };
+    // GTA-style chase camera: low and close, swings into turns with lag, shows drift angle.
+    const cam = Game.prototype.updateCamera;
+    Game.prototype.updateCamera = function (dt) {
+      cam.call(this, dt);
+      if (params.has('classicCamera') || !this.inVehicle || this.cameraMode !== 0 || this.vehicleEntry || this.inside || this.cameraTransfer) return;
+      const p = this.player, c = this.cam, st = this.rcChase || (this.rcChase = { heading: p.yaw, x: c.x, y: c.y, z: c.z });
+      dt = Math.min(dt, .05);
+      const sp = Math.hypot(p.vx, p.vz);
+      const travel = sp > 2.5 ? Math.atan2(-p.vx, -p.vz) : p.yaw;
+      const reversing = (p.vx * -Math.sin(p.yaw) + p.vz * -Math.cos(p.yaw)) < -1;
+      let target = reversing ? p.yaw : p.yaw + H.angleDiff(p.yaw, travel) * .55;
+      st.heading += H.angleDiff(st.heading, target) * (1 - Math.exp(-dt * (2.6 + sp * .025)));
+      const fx = -Math.sin(st.heading), fz = -Math.cos(st.heading);
+      const ground = H.deckGround443 ? H.deckGround443(p) : 0;
+      const dist = 6.4 + Math.min(2.2, sp * .03), height = 2.15 + Math.min(.9, sp * .012);
+      let dest = { x: p.x - fx * dist, y: ground + height, z: p.z - fz * dist };
+      const eye = { x: p.x, y: ground + 1.9, z: p.z };
+      const hit = this.cameraClearance ? this.cameraClearance(eye, dest, .6) : null;
+      if (hit && hit.blocked) dest = { x: hit.x, y: Math.max(hit.y, ground + 1.6), z: hit.z };
+      const k = 1 - Math.exp(-dt * 11);
+      st.x += (dest.x - st.x) * k; st.y += (dest.y - st.y) * k; st.z += (dest.z - st.z) * k;
+      const pitchKick = clamp((p.rcDyn?.ax || 0) * -.012, -.12, .12);
+      c.x = st.x; c.y = st.y + pitchKick; c.z = st.z;
+      const look = 3 + Math.min(6, sp * .08);
+      c.tx = p.x + fx * look; c.ty = ground + 1.25; c.tz = p.z + fz * look;
+      c.fov = clamp(60 + sp * .32, 60, 80) + (this.is && this.is('ShiftLeft', 'ShiftRight') && sp > 25 ? 5 : 0);
+      if (sp > 25) { const sh = Math.min(1, (sp - 25) / 40) * .035; c.y += Math.sin(this.seconds * 37) * sh; c.x += Math.sin(this.seconds * 29) * sh; }
+    };
+  });
   RC.installers.push(function installLuxuryTraffic(Game) {
     if (params.has('realismPhysicsOff')) return;
     const premium = c => {
