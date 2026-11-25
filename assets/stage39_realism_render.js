@@ -1053,6 +1053,7 @@ uniform vec2 sunUV;uniform float sunVis;uniform vec3 sunCol;
 uniform bool antialias;
 uniform bool hdrInput;
 uniform float sharpen;
+uniform int aoTaps,shaftTaps;
 in vec2 uv;out vec4 result;
 const float farPlane=${H.SCENE_FAR ? H.SCENE_FAR.toFixed(1) : '5050.0'};
 const vec2 kernel[8]=vec2[8](vec2(1,0),vec2(-1,0),vec2(0,1),vec2(0,-1),
@@ -1063,9 +1064,36 @@ vec3 aces(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.0,1.0);}
 float luma(vec3 c){return dot(c,vec3(.2126,.7152,.0722));}
 vec3 tone(vec3 c){return hdrInput?pow(aces(c),vec3(1.0/2.2)):c;}
 float ign(vec2 p){return fract(52.9829189*fract(dot(p,vec2(.06711056,.00583715))));}
+// Catmull-Rom (5-tap) upscale: much crisper than bilinear when the scene renders below display size.
+vec3 sampleCR(vec2 p){
+  vec2 ts=1.0/pixelSize,pos=p*ts,c=floor(pos-.5)+.5,f=pos-c;
+  vec2 w0=f*(-.5+f*(1.0-.5*f)),w1=1.0+f*f*(-2.5+1.5*f),w2=f*(.5+f*(2.0-1.5*f)),w3=f*f*(-.5+.5*f);
+  vec2 w12=w1+w2,t12=w2/w12;
+  vec2 p0=(c-1.0)*pixelSize,p3=(c+2.0)*pixelSize,p12=(c+t12)*pixelSize;
+  vec3 s=texture(sceneColor,vec2(p12.x,p0.y)).rgb*(w12.x*w0.y)+texture(sceneColor,vec2(p0.x,p12.y)).rgb*(w0.x*w12.y)
+    +texture(sceneColor,p12).rgb*(w12.x*w12.y)+texture(sceneColor,vec2(p3.x,p12.y)).rgb*(w3.x*w12.y)+texture(sceneColor,vec2(p12.x,p3.y)).rgb*(w12.x*w3.y);
+  float ws=w12.x*w0.y+w0.x*w12.y+w12.x*w12.y+w3.x*w12.y+w12.x*w3.y;
+  return max(s/ws,vec3(0.0));
+}
 void main(){
-  vec3 color=texture(sceneColor,uv).rgb;
+  vec2 dx=vec2(pixelSize.x,0.0),dy=vec2(0.0,pixelSize.y);
+  vec3 color=sharpen>.001?sampleCR(uv):texture(sceneColor,uv).rgb;
   if(any(isnan(color))||any(isinf(color)))color=vec3(0.0);
+  if(antialias){
+    // FXAA (edge-directed blur along the edge): removes the stair-steps of a non-MSAA frame.
+    vec3 cNW=texture(sceneColor,uv-dx-dy).rgb,cNE=texture(sceneColor,uv+dx-dy).rgb,cSW=texture(sceneColor,uv-dx+dy).rgb,cSE=texture(sceneColor,uv+dx+dy).rgb;
+    float lM=luma(tone(color)),lNW=luma(tone(cNW)),lNE=luma(tone(cNE)),lSW=luma(tone(cSW)),lSE=luma(tone(cSE));
+    float lMin=min(lM,min(min(lNW,lNE),min(lSW,lSE))),lMax=max(lM,max(max(lNW,lNE),max(lSW,lSE)));
+    if(lMax-lMin>max(.035,lMax*.10)){
+      vec2 dir=vec2(-((lNW+lNE)-(lSW+lSE)),(lNW+lSW)-(lNE+lSE));
+      float reduce=max((lNW+lNE+lSW+lSE)*.03125,.0078125);
+      dir=clamp(dir/(min(abs(dir.x),abs(dir.y))+reduce),-6.0,6.0)*pixelSize;
+      vec3 a=.5*(texture(sceneColor,uv+dir*(1.0/3.0-.5)).rgb+texture(sceneColor,uv+dir*(2.0/3.0-.5)).rgb);
+      vec3 b=a*.5+.25*(texture(sceneColor,uv+dir*-.5).rgb+texture(sceneColor,uv+dir*.5).rgb);
+      float lB=luma(tone(b));
+      color=(lB<lMin||lB>lMax)?a:b;
+    }
+  }
   if(sharpen>.001){
     // Contrast-adaptive sharpening of the upscaled scene (luma-weighted, clamped).
     vec3 n4=texture(sceneColor,uv+vec2(pixelSize.x,0.0)).rgb+texture(sceneColor,uv-vec2(pixelSize.x,0.0)).rgb+
@@ -1074,19 +1102,8 @@ void main(){
     float lc=dot(color,vec3(.2126,.7152,.0722));
     color=max(vec3(0.0),color+detail*sharpen/(1.0+lc*.6));
   }
-  vec2 dx=vec2(pixelSize.x,0.0),dy=vec2(0.0,pixelSize.y);
-  if(antialias){
-    vec3 l=texture(sceneColor,uv-dx).rgb,r=texture(sceneColor,uv+dx).rgb;
-    vec3 b=texture(sceneColor,uv-dy).rgb,t=texture(sceneColor,uv+dy).rgb;
-    float ll=luma(tone(l)),lr=luma(tone(r)),lb=luma(tone(b)),lt=luma(tone(t)),lm=luma(tone(color));
-    float span=max(lm,max(max(ll,lr),max(lb,lt)))-min(lm,min(min(ll,lr),min(lb,lt)));
-    if(span>.06){
-      vec3 across=abs(ll-lr)>abs(lb-lt)?(l+r)*.5:(t+b)*.5;
-      color=mix(color,across,smoothstep(.06,.30,span)*.42);
-    }
-  }
   float depth=depthAt(uv);
-  if(aoStrength>.02&&depth<60.0){
+  if(aoStrength>.02&&aoTaps>0&&depth<60.0){
     vec3 centre=positionAt(uv,depth);
     float dl=depthAt(uv-dx),dr=depthAt(uv+dx),db=depthAt(uv-dy),dt=depthAt(uv+dy);
     vec3 tx=abs(dr-depth)<abs(dl-depth)?positionAt(uv+dx,dr)-centre:centre-positionAt(uv-dx,dl);
@@ -1098,7 +1115,9 @@ void main(){
     mat2 rot=mat2(cos(a),-sin(a),sin(a),cos(a));
     float shade=0.0;
     for(int i=0;i<8;i++){
-      vec2 off=rot*kernel[i]*sr*(i<4?.45:1.0);
+      if(i>=aoTaps)break;
+      int ki=(i*8)/aoTaps;
+      vec2 off=rot*kernel[ki]*sr*(ki<4?.45:1.0);
       vec2 pick=uv+off;
       float sd=depthAt(pick);
       if(abs(sd-depth)>radius*1.4||sd>62.0)continue;
@@ -1109,16 +1128,18 @@ void main(){
     }
     color*=1.0-clamp(shade*.22,0.0,.42)*aoStrength*(1.0-smoothstep(30.0,60.0,depth))*smoothstep(1.2,4.5,depth);
   }
-  if(hdrInput&&sunVis>.01){
+  if(hdrInput&&sunVis>.01&&shaftTaps>0){
     // Crepuscular rays: march toward the sun through open sky (depth==far).
     vec2 delta=(sunUV-uv);float L=length(delta);
-    vec2 stepv=delta/22.0;vec2 p=uv+stepv*ign(gl_FragCoord.xy);float illum=0.0,w=1.0;
+    vec2 stepv=delta/float(shaftTaps);vec2 p=uv+stepv*ign(gl_FragCoord.xy);float illum=0.0,w=1.0;
+    float decay=pow(.93,22.0/float(shaftTaps));
     for(int i=0;i<22;i++){
+      if(i>=shaftTaps)break;
       p+=stepv;
       if(p.x<0.0||p.x>1.0||p.y<0.0||p.y>1.0)break;
-      illum+=step(.99999,texture(sceneDepth,p).r)*w;w*=.93;
+      illum+=step(.99999,texture(sceneDepth,p).r)*w;w*=decay;
     }
-    color+=sunCol*illum*(1.0/11.0)*exp(-L*2.4)*sunVis*.42;
+    color+=sunCol*illum*(2.0/float(shaftTaps))*exp(-L*2.4)*sunVis*.42;
     // Lens flare ghosts, only when the sun disc itself is unobstructed.
     float open=step(.99999,texture(sceneDepth,clamp(sunUV,vec2(0.0),vec2(1.0))).r);
     if(open>0.0){
@@ -1191,7 +1212,7 @@ void main(){
       this.levels = [];
       this.loc = {};
       for (const name of ['sceneColor', 'sceneDepth', 'bloomTex', 'pixelSize', 'projectionScale', 'nearPlane', 'aoStrength',
-        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput', 'sunUV', 'sunVis', 'sunCol', 'sharpen'])
+        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput', 'sunUV', 'sunVis', 'sunCol', 'sharpen', 'aoTaps', 'shaftTaps'])
         this.loc[name] = gl.getUniformLocation(this.final, name);
       this.downLoc = { src: gl.getUniformLocation(this.down, 'src'), texel: gl.getUniformLocation(this.down, 'texel'), prefilter: gl.getUniformLocation(this.down, 'prefilter') };
       this.upLoc = { src: gl.getUniformLocation(this.up, 'src'), texel: gl.getUniformLocation(this.up, 'texel'), radius: gl.getUniformLocation(this.up, 'radius') };
@@ -1332,6 +1353,7 @@ void main(){
       g.uniform1i(L.antialias, this.multisample ? 0 : 1);
       g.uniform1i(L.hdrInput, this.hdr ? 1 : 0);
       g.uniform1f(L.sharpen, grade.sharpen || 0);
+      g.uniform1i(L.aoTaps, grade.aoTaps == null ? 8 : grade.aoTaps); g.uniform1i(L.shaftTaps, grade.shaftTaps == null ? 22 : grade.shaftTaps);
       g.uniform2fv(L.sunUV, grade.sunUV || [0, 0]); g.uniform1f(L.sunVis, grade.sunVis || 0); g.uniform3fv(L.sunCol, grade.sunCol || [0, 0, 0]);
       g.drawArrays(g.TRIANGLES, 0, 3);
       g.bindVertexArray(null);
@@ -1444,7 +1466,7 @@ void main(){
         RC.stats.adapter = adapter; RC.stats.integratedProfile = this.rcIntegrated;
         if (this.rcIntegrated) {
           if (this.rcComposite) this.rcComposite.maxSamplesOverride = 0;
-          this.rcResScale = params.has('realismFullRes') ? 1 : .8;
+          this.rcResScale = params.has('realismFullRes') ? 1 : .9;
           if (this.shadowReady && this.shadowSize > 2048) {
             const oldTex = this.shadowTexture, oldFb = this.shadowFrame;
             this.shadowSize = 2048;
@@ -1578,6 +1600,7 @@ void main(){
         G.contrast = .17 - .05 * cloud;
         G.lift = [.006 * night, .008 * night, .014 * night];
         G.bloom = .040 + .030 * night + .02 * rain;
+        G.aoTaps = this.rcLite ? 0 : (this.rcIntegrated ? 6 : 8); G.shaftTaps = this.rcLite ? 0 : (this.rcIntegrated ? 12 : 22);
         G.time = t;
       }
       drawSunShadows(statics, dynamics, c) {
@@ -1977,7 +2000,7 @@ void main(){
             const e = RC.frame.exposure[0];
             G.sunCol = RC.frame.sunColor.map(x => x * e);
           } else G.sunVis = 0;
-          G.outW = this.rcOutW; G.outH = this.rcOutH; G.sharpen = this.rcResScale < .99 ? .45 + (1 - this.rcResScale) * .9 : .2;
+          G.outW = this.rcOutW; G.outH = this.rcOutH; G.sharpen = this.rcResScale < .99 ? .28 + (1 - this.rcResScale) * .8 : .15;
           this.rcComposite.present(projectionField, indoors, nearPlaneOf(c), G);
         }
         if (this.rcQueryOpen) { g.endQuery(this.rcTimerExt.TIME_ELAPSED_EXT); this.rcQueryOpen = false; }
@@ -2038,9 +2061,10 @@ void main(){
       const frame = this.frameTimeMs || 16;
       // Preferred: real GPU time from a timer query (target ~36 ms GPU / frame).
       if (r.rcGpuMs != null) {
-        // Never below .74: lower looks blurry on a 1080p screen.
-        if (r.rcGpuMs > 46 && r.rcResScale > .74) r.setResolutionScale(Math.max(.74, r.rcResScale - .06));
-        else if (r.rcGpuMs < 26 && r.rcResScale < 1) r.setResolutionScale(r.rcResScale + .05);
+        // Sharpness first: slow GPU -> drop ambient occlusion + sun shafts (rcLite), then at most
+        // down to .8 of display resolution. Fast GPU -> restore effects, then resolution.
+        if (r.rcGpuMs > 52) { if (!r.rcLite) { r.rcLite = true; return; } if (r.rcResScale > .8) r.setResolutionScale(Math.max(.8, r.rcResScale - .04)); }
+        else if (r.rcGpuMs < 28) { if (r.rcResScale < 1) r.setResolutionScale(Math.min(1, r.rcResScale + .04)); else if (r.rcLite && r.rcGpuMs < 22) r.rcLite = false; }
         return;
       }
       // A resize reallocates every render target, so it must never oscillate.
@@ -2052,10 +2076,12 @@ void main(){
         if (frame > probe.frame * .9) { r.setResolutionScale(probe.scale); this.rcResLockUntil = now + 45000; return; }
       }
       if (now < (this.rcResLockUntil || 0)) return;
-      if (frame > 30 && r.rcResScale > .74) {
+      if (frame > 40 && !r.rcLite) { r.rcLite = true; return; }
+      if (frame > 40 && r.rcResScale > .8) {
         this.rcResProbe = { frame, scale: r.rcResScale };
-        r.setResolutionScale(r.rcResScale - (frame > 45 ? .15 : .08));
-      } else if (frame < 17 && r.rcResScale < 1) r.setResolutionScale(r.rcResScale + .05);
+        r.setResolutionScale(Math.max(.8, r.rcResScale - .05));
+      } else if (frame < 20 && r.rcResScale < 1) r.setResolutionScale(r.rcResScale + .04);
+      else if (frame < 16 && r.rcLite) r.rcLite = false;
     };
   };
 

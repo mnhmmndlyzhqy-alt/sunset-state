@@ -296,11 +296,16 @@ var Heatline = globalThis.Heatline || {};
       const opp = Math.atan2(legs[side].f, .8);
       const arm = -opp * (.75 + .35 * run) * moving;
       R[B['arm' + L]] = [arm + .06 * run, 0, side * (.06 + .06 * run)];
-      R[B['fore' + L]] = [.22 + 1.15 * run + .35 * Math.max(0, arm) * (1 - run), 0, 0];
+      R[B['fore' + L]] = [.22 + 1.15 * run + .35 * Math.max(0, arm) * (1 - run) + .12 * sprint, 0, side * -.05 * moving];
     }
     const pelvisYaw = .11 * Math.sin(ph) * moving * (1 - .4 * run);
     rootX = .018 * Math.sin(ph) * moving * (1 - run);
-    const lean = (.05 * moving + .16 * run + .08 * sprint);
+    // Acceleration lean (anticipation): body tips into a start, rocks back when braking.
+    const accRaw = st.lastV == null ? 0 : (v - st.lastV) / Math.max(dt, 1e-3);
+    st.lastV = v;
+    st.acc = (st.acc || 0) + (clamp(accRaw, -16, 16) - (st.acc || 0)) * (1 - Math.exp(-dt * 4.5));
+    const accLean = clamp(st.acc * .013, -.17, .2) * (.35 + .65 * clamp(v / 3, 0, 1));
+    const lean = (.05 * moving + .16 * run + .08 * sprint) + accLean;
     const turnLean = clamp(-st.turn * v * .018, -.28, .28);
     R[B.pelvis] = [0, pelvisYaw, turnLean * .6 + .04 * Math.sin(ph) * moving * (1 - run)];
     // Idle: breathing and weight shift.
@@ -309,7 +314,10 @@ var Heatline = globalThis.Heatline || {};
     R[B.spine] = [-lean * .55 - .012 * breath * idle, -pelvisYaw * .5, turnLean * .3];
     R[B.chest] = [-lean * .35 - .018 * breath * idle, -pelvisYaw * .9, 0];
     R[B.neck] = [lean * .45, 0, 0];
-    R[B.head] = [lean * .35 - .02 * Math.sin(st.t * .5) * idle, .12 * Math.sin(st.t * .31) * idle, -turnLean * .4];
+    // Head: looks into the turn first, stays level against the torso, tiny bob with each step.
+    const look = clamp(st.turn * .09, -.4, .4);
+    R[B.head] = [lean * .35 + accLean * .5 - .02 * Math.sin(st.t * .5) * idle + .018 * Math.cos(ph * 2) * moving, .12 * Math.sin(st.t * .31) * idle + look, -turnLean * .4];
+    R[B.neck][1] = look * .45;
     if (idle > .01) {
       rootX += .012 * Math.sin(st.t * .4) * idle;
       R[B.armL][1] = 0; R[B.armL][2] += .04 * idle; R[B.armR][2] -= .04 * idle;
@@ -942,33 +950,58 @@ void main(){
       }
       return update.call(this, dt);
     };
-    // GTA-style chase camera: low and close, swings into turns with lag, shows drift angle.
+    // One camera for foot AND car (same framing, FOV, smoothing and mouse-drag orbit):
+    // on foot the engine puts it 5.65 m behind / 3.66 m up with FOV 63; in the car we keep that
+    // exact look, scaled by the car's length, and add a gentle auto-follow behind the heading.
+    const orbit = { yaw: 0, pitch: 0, idle: 9, drag: false, lx: 0, ly: 0, bound: false };
+    const bindOrbit = game => {
+      if (orbit.bound || typeof document === 'undefined') return;
+      const canvas = document.querySelector('canvas');
+      if (!canvas) return;
+      orbit.bound = true;
+      canvas.addEventListener('pointerdown', e => {
+        if (e.button !== 0 || !game.inVehicle || game.paused || game.over) return;
+        orbit.drag = true; orbit.lx = e.clientX; orbit.ly = e.clientY; orbit.idle = 0;
+      });
+      window.addEventListener('pointermove', e => {
+        if (!orbit.drag || !game.inVehicle) return;
+        orbit.yaw = clamp(orbit.yaw - clamp(e.clientX - orbit.lx, -55, 55) * .0065, -Math.PI, Math.PI);
+        orbit.pitch = clamp(orbit.pitch + clamp(e.clientY - orbit.ly, -55, 55) * .0036, -.3, .5);
+        orbit.lx = e.clientX; orbit.ly = e.clientY; orbit.idle = 0;
+      });
+      const up = () => { orbit.drag = false; };
+      window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+    };
     const cam = Game.prototype.updateCamera;
     Game.prototype.updateCamera = function (dt) {
       cam.call(this, dt);
       if (params.has('classicCamera') || !this.inVehicle || this.cameraMode !== 0 || this.vehicleEntry || this.inside || this.cameraTransfer) return;
+      bindOrbit(this);
       const p = this.player, c = this.cam, st = this.rcChase || (this.rcChase = { heading: p.yaw, x: c.x, y: c.y, z: c.z });
       dt = Math.min(dt, .05);
       const sp = Math.hypot(p.vx, p.vz);
       const travel = sp > 2.5 ? Math.atan2(-p.vx, -p.vz) : p.yaw;
       const reversing = (p.vx * -Math.sin(p.yaw) + p.vz * -Math.cos(p.yaw)) < -1;
-      let target = reversing ? p.yaw : p.yaw + H.angleDiff(p.yaw, travel) * .55;
+      const target = reversing ? p.yaw : p.yaw + H.angleDiff(p.yaw, travel) * .55;
       st.heading += H.angleDiff(st.heading, target) * (1 - Math.exp(-dt * (2.6 + sp * .025)));
-      const fx = -Math.sin(st.heading), fz = -Math.cos(st.heading);
+      // After a few quiet seconds the player's manual orbit eases back behind the car.
+      orbit.idle += dt;
+      if (!orbit.drag && orbit.idle > 2.2) { const r = Math.exp(-dt * 1.6); orbit.yaw *= r; orbit.pitch *= r; }
+      const h = st.heading + orbit.yaw, bx = Math.sin(h), bz = Math.cos(h);
       const ground = H.deckGround443 ? H.deckGround443(p) : 0;
-      const dist = 8.2 + Math.min(2.4, sp * .03), height = 3.1 + Math.min(1.0, sp * .012);
-      let dest = { x: p.x - fx * dist, y: ground + height, z: p.z - fz * dist };
-      const eye = { x: p.x, y: ground + 1.9, z: p.z };
-      const hit = this.cameraClearance ? this.cameraClearance(eye, dest, .6) : null;
-      if (hit && hit.blocked) dest = { x: hit.x, y: Math.max(hit.y, ground + 1.6), z: hit.z };
-      const k = 1 - Math.exp(-dt * 11);
+      const dist = 9.0 + Math.min(2.2, sp * .026), height = 4.35 + Math.min(.9, sp * .011) + orbit.pitch * 5;
+      let dest = { x: p.x + bx * dist, y: ground + height, z: p.z + bz * dist };
+      const eye = { x: p.x, y: ground + 2.1, z: p.z };
+      const hit = this.cameraClearance ? this.cameraClearance(eye, dest, .58) : null;
+      if (hit && hit.blocked) dest = { x: hit.x, y: Math.max(hit.y, ground + 1.7), z: hit.z };
+      const k = 1 - Math.exp(-dt * 9);
       st.x += (dest.x - st.x) * k; st.y += (dest.y - st.y) * k; st.z += (dest.z - st.z) * k;
       const pitchKick = clamp((p.rcDyn?.ax || 0) * -.012, -.12, .12);
       c.x = st.x; c.y = st.y + pitchKick; c.z = st.z;
-      const look = 5 + Math.min(8, sp * .1);
-      c.tx = p.x + fx * look; c.ty = ground + 1.55; c.tz = p.z + fz * look;
-      c.fov = clamp(60 + sp * .32, 60, 80) + (this.is && this.is('ShiftLeft', 'ShiftRight') && sp > 25 ? 5 : 0);
-      if (sp > 25) { const sh = Math.min(1, (sp - 25) / 40) * .035; c.y += Math.sin(this.seconds * 37) * sh; c.x += Math.sin(this.seconds * 29) * sh; }
+      c.tx = p.x - bx * 3.2; c.ty = ground + 1.45 - orbit.pitch * 2; c.tz = p.z - bz * 3.2;
+      const fovT = 63 + Math.min(9, sp * .1) + (this.is && this.is('ShiftLeft', 'ShiftRight') && sp > 25 ? 5 : 0);
+      c.fov += (fovT - c.fov) * (1 - Math.exp(-dt * 4));
+      if (sp > 25) { const sh = Math.min(1, (sp - 25) / 40) * .03; c.y += Math.sin(this.seconds * 37) * sh; c.x += Math.sin(this.seconds * 29) * sh; }
     };
   });
   RC.installers.push(function installLuxuryTraffic(Game) {

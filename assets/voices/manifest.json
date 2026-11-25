@@ -290,6 +290,51 @@
     "m_young"
    ]
   },
+  "איפה אתה ממהר?!": {
+   "id": "35e447b7d9",
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תאט, יש פה אנשים!": {
+   "id": "0f6f8a0c62",
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואו, איזו מהירות!": {
+   "id": "8633e8bb27",
+   "mood": "angry",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
   "וואי! כמעט דרסת אותי!": {
    "id": "eb38ecbff8",
    "mood": "scared",
@@ -367,6 +412,156 @@
   },
   "אוי!": {
    "id": "8edcf33d51",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מה זה היה?!": {
+   "id": "e665806b30",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ירו! תתכופפו!": {
+   "id": "73b577a685",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואי וואי וואי!": {
+   "id": "e09f1cddae",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תברחו, יורים!": {
+   "id": "40546c0334",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "פיצוץ! תברחו!": {
+   "id": "08f63d16bb",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מה קרה שם?!": {
+   "id": "bb160ce94b",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אלוהים, מה זה היה?!": {
+   "id": "ee131bc026",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אלוהים, הוא בסדר?": {
+   "id": "1f3cc612bd",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "תקראו לאמבולנס!": {
+   "id": "39760a5e84",
+   "mood": "scared",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "מישהו, תעזרו לו!": {
+   "id": "6245cf2b09",
    "mood": "scared",
    "voices": [
     "f_elder",
@@ -502,6 +697,81 @@
   },
   "אפשר תמונה?": {
    "id": "a9b41dbc95",
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "איזו שקיעה יפה היום!": {
+   "id": "1b0d72196f",
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "ערב טוב": {
+   "id": "88924a42b0",
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "וואו, איזה רכב!": {
+   "id": "dabdc9faf7",
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "יפה הרכב הזה!": {
+   "id": "dff620fce5",
+   "mood": "happy",
+   "voices": [
+    "f_elder",
+    "f_mid",
+    "f_warm",
+    "f_young",
+    "m_deep",
+    "m_elder",
+    "m_mid",
+    "m_tough",
+    "m_young"
+   ]
+  },
+  "אחי, איזו מכונית!": {
+   "id": "fc9f9ae919",
    "mood": "happy",
    "voices": [
     "f_elder",

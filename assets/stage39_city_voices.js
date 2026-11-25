@@ -27,7 +27,12 @@ var Heatline = globalThis.Heatline || {};
     nearMiss: ['וואי! כמעט דרסת אותי!', 'תאט!', 'תסתכל לאן אתה נוסע!'],
     stolen: ['היי! זה האוטו שלי!', 'גנב! תחזיר את הרכב!', 'מישהו, תעזרו!'],
     police: ['עצור! משטרה!', 'תעצור בצד!', 'ידיים למעלה!'],
-    greet: ['שלום', 'בוקר טוב', 'מה נשמע?', 'יום יפה היום', 'איזה חום היום', 'היי אחי'],
+    greet: ['שלום', 'בוקר טוב', 'מה נשמע?', 'יום יפה היום', 'איזה חום היום', 'היי אחי', 'איזו שקיעה יפה היום!', 'ערב טוב'],
+    admire: ['וואו, איזה רכב!', 'יפה הרכב הזה!', 'אחי, איזו מכונית!'],
+    shots: ['מה זה היה?!', 'ירו! תתכופפו!', 'וואי וואי וואי!', 'תברחו, יורים!'],
+    boom: ['פיצוץ! תברחו!', 'מה קרה שם?!', 'אלוהים, מה זה היה?!'],
+    help: ['אלוהים, הוא בסדר?', 'תקראו לאמבולנס!', 'מישהו, תעזרו לו!'],
+    fast: ['איפה אתה ממהר?!', 'תאט, יש פה אנשים!', 'וואו, איזו מהירות!'],
     tourist: ['סליחה, איפה החוף?', 'יפהפה!', 'אפשר תמונה?'],
     panic: ['הצילו!', 'תברחו!', 'אוי!'],
     honk: ['קדימה, זוז!', 'נו כבר!', 'זוז מהדרך!']
@@ -297,6 +302,46 @@ var Heatline = globalThis.Heatline || {};
       } catch { }
       return r;
     };
+    // ---- Stage 49: situational reactions (shots, explosions, someone hurt, admiring cars, speed) ----
+    const near = (g, x, z, r, max, skip) => {
+      const out = [];
+      for (const w of g.pedestrians || []) {
+        if (w === skip || w.injuryState !== 'walking') continue;
+        const d = Math.hypot(w.x - x, w.z - z);
+        if (d < r) out.push([d, w]);
+      }
+      return out.sort((a, b) => a[0] - b[0]).slice(0, max).map(e => e[1]);
+    };
+    // Humans react after a beat, not instantly, and not all at once.
+    const later = (g, w, list, o, base = 300) => setTimeout(() => { try { if (g.running) say(g, w, pick(list, Math.random() * 97), { voice: voiceForWalker(w), ...o }); } catch { } }, base + Math.random() * 450);
+    const fire = Game.prototype.fireShot;
+    if (fire) Game.prototype.fireShot = function () {
+      const r = fire.apply(this, arguments);
+      try {
+        const f = this.inVehicle ? this.player : this.avatar;
+        const key = 'shots';
+        if (!this.__shotAt || performance.now() - this.__shotAt > 2500) {
+          this.__shotAt = performance.now();
+          for (const w of near(this, f.x, f.z, 38, 2)) if (ready(w, 6)) later(this, w, LINES[key], { mood: 'scared', priority: 1 });
+        }
+      } catch { }
+      return r;
+    };
+    const alert = Game.prototype.alertCityAt;
+    if (alert) Game.prototype.alertCityAt = function (x, z) {
+      const r = alert.apply(this, arguments);
+      try { for (const w of near(this, x, z, 55, 2)) if (ready(w, 8)) later(this, w, LINES.boom, { mood: 'scared', priority: 1 }, 350); } catch { }
+      return r;
+    };
+    const hit = H.pedestrianVehicleImpact;
+    if (hit) H.pedestrianVehicleImpact = function (w, car, speed) {
+      const out = hit.apply(this, arguments);
+      try {
+        const g = globalThis.__SUNSET_PERFORMANCE06_GAME;
+        if (g && out && out !== 'none') for (const o of near(g, w.x, w.z, 18, 2, w)) if (ready(o, 10)) later(g, o, LINES.help, { mood: 'scared', priority: 1 }, 700);
+      } catch { }
+      return out;
+    };
     // Taking a car: the owner yells.
     const toggle = Game.prototype.toggleVehicle;
     Game.prototype.toggleVehicle = function () {
@@ -333,6 +378,7 @@ var Heatline = globalThis.Heatline || {};
           for (const w of peds) {
             const d = Math.hypot(w.x - a.x, w.z - a.z);
             if (d > 6) continue;
+            if (d >= .95 && d < 2.4 && sp > 7 && ready(w, 12)) { later(this, w, LINES.fast, { mood: 'angry' }, 250); continue; }
             if (d < .95 && sp > 2.2 && ready(w, 5)) { say(this, w, pick(LINES.bumpedFoot, t), { voice: voiceForWalker(w), mood: 'annoyed' }); continue; }
             if (d < 3.4 && sp < 4 && w.panic <= 0 && t - lastGreet > 7000 && Math.random() < dt * .6 && ready(w, 40)) {
               lastGreet = t;
@@ -346,6 +392,11 @@ var Heatline = globalThis.Heatline || {};
             const d = Math.hypot(w.x - p.x, w.z - p.z);
             if (d < 4 && w.injuryState === 'walking' && ready(w, 6)) say(this, w, pick(LINES.nearMiss, t), { voice: voiceForWalker(w), mood: 'scared' });
           }
+          const cls = H.carClass ? H.carClass(p) : 'standard';
+          if (p.speed > 4 && p.speed < 30 && (cls === 'luxury' || cls === 'sport') && Math.random() < dt * .35)
+            for (const w of near(this, p.x, p.z, 13, 1)) if (ready(w, 30)) later(this, w, LINES.admire, { mood: 'happy' }, 500);
+          if (p.speed > 24 && Math.random() < dt * .5)
+            for (const w of near(this, p.x, p.z, 9, 1)) if (ready(w, 14)) later(this, w, LINES.fast, { mood: 'angry' }, 300);
           // Blocking a waiting car: horn, then a shout.
           if (p.speed < .6) {
             const fwdX = -Math.sin(p.yaw), fwdZ = -Math.cos(p.yaw);
