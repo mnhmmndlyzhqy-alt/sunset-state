@@ -1,0 +1,12 @@
+{
+  "passed": 4,
+  "checks": [
+    "approved residents join the actual conversation pool and retain their name, unit and signed rent",
+    "resident feedback follows the actual purchased services and keeps the previous name-memory dialogue",
+    "island directions, activity replies and public-island conversations use live world membership",
+    "actual game effect ducking composes with volume, mute and recovery"
+  ],
+  "browser": false,
+  "audioPlayback": false
+}
+✔ QA/stage53_dialogue_acceptance.cjs (35501.955497ms)

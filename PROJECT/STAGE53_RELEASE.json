@@ -1,0 +1,23 @@
+{
+  "version": "53.0",
+  "title": "Your Island & Living City",
+  "date": "2026-11-26",
+  "cumulativeSource": "SUNSET_STATE_CITY_UPDATE.zip",
+  "sourceSha256": "03a5a1f1696ed1bb616d237a7157da130b68c9b1c630f3978f0919f7f64c00a7",
+  "previousRelease": "52.0",
+  "launch": "RUN_GAME_WINDOWS.bat",
+  "readme": "README_STAGE53_HE.md",
+  "validation": "QA/STAGE53_VALIDATION_REPORT_HE.md",
+  "features": [
+    "private island with paid construction and six rentals",
+    "tenant negotiation and explicit approval",
+    "physical vehicle delivery and persistent car/plane/boat storage",
+    "manual flight and island transportation",
+    "shopfront signs, walk-in football stadium and public islands",
+    "connected road intersections and detailed character policy",
+    "contextual resident AI, grounded tenant dialogue and shared Hebrew voice playback"
+  ],
+  "browserVerified": false,
+  "audiblePlaybackVerified": false,
+  "gpuFpsVerified": false
+}

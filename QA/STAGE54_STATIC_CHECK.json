@@ -1,0 +1,26 @@
+{
+  "syntaxChecked": 364,
+  "syntaxErrors": [],
+  "entryPoints": [
+    {
+      "file": "index.html",
+      "scripts": 129,
+      "missing": [],
+      "duplicateScripts": false
+    },
+    {
+      "file": "START_GAME.html",
+      "scripts": 129,
+      "missing": [],
+      "duplicateScripts": false
+    }
+  ],
+  "identicalEntryPoints": true,
+  "browserRendering": false,
+  "status": "pass",
+  "releaseScriptsSha256": {
+    "assets/stage54_airport_life.js": "b34bce519f1fe346278ae168b8ad282c2099e192ac16438c391710f14139e19f",
+    "assets/stage54_airport_services.js": "dc753b9539b4ffba31935130794839eab725b786c0b19b0c84cdc7d7a076a09b",
+    "assets/stage54_airport_world.js": "6f360cae7b9d81d5820bf38dfc90d0e573028fbfe66201cd449999eaf80a7b83"
+  }
+}

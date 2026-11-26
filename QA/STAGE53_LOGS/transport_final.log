@@ -1,0 +1,82 @@
+{
+  "passed": 47,
+  "rotationKmh": 117,
+  "ferrySeconds": 4.15,
+  "flightSeconds": 34.6,
+  "routes": [
+    {
+      "island": "shell",
+      "routeM": 105,
+      "waypoints": 2
+    },
+    {
+      "island": "reef",
+      "routeM": 486,
+      "waypoints": 3
+    },
+    {
+      "island": "sunset",
+      "routeM": 4119,
+      "waypoints": 17
+    },
+    {
+      "island": "dolphin",
+      "routeM": 3365,
+      "waypoints": 10
+    },
+    {
+      "island": "palms",
+      "routeM": 1044,
+      "waypoints": 7
+    }
+  ],
+  "checks": [
+    "Airport boarding opens the keyboard and pointer flight deck",
+    "Flight deck exposes six ways to act and a throttle slider",
+    "Throttle slider changes the actual throttle",
+    "Flap shortcut deploys while leaving tools holstered",
+    "Runway tests start with the taxi limiter enabled",
+    "Using only throttle slider and pitch button takes off below clean rotation speed",
+    "Cancelled touch releases the pitch control",
+    "Pointer bank changes the real airframe roll",
+    "Lost pointer capture clears its held input",
+    "Reset and exit leave no active transport",
+    "All five surveyed islands offer ferry docks and air pads",
+    "All five island docks appear on the navigation map",
+    "Island pier shell is walkable and its berth is in water",
+    "Ferry route to shell remains in water",
+    "Ferry route back from shell exists",
+    "Island pier reef is walkable and its berth is in water",
+    "Ferry route to reef remains in water",
+    "Ferry route back from reef exists",
+    "Island pier sunset is walkable and its berth is in water",
+    "Ferry route to sunset remains in water",
+    "Ferry route back from sunset exists",
+    "Island pier dolphin is walkable and its berth is in water",
+    "Ferry route to dolphin remains in water",
+    "Ferry route back from dolphin exists",
+    "Island pier palms is walkable and its berth is in water",
+    "Ferry route to palms remains in water",
+    "Ferry route back from palms exists",
+    "Harbor destination menu offers the ferries",
+    "Selecting an island boards a moving ferry at the mainland berth",
+    "Passenger ferry holds its seat until the destination",
+    "Normal Game update moves the ferry through navigable water",
+    "Ferry reaches the island dock in elapsed simulation time",
+    "Ferry arrival exits onto a safe island pier",
+    "The island pier also boards a manually steered skiff",
+    "Manual island skiff accelerates from the berth on water",
+    "A moving manual boat save retains the pier instead of open water",
+    "Space brakes the manual skiff below docking speed",
+    "A manual boat can dock and return full control to the walker",
+    "Airport destination menu offers an island passenger flight",
+    "Island air service starts at the mainland helipad",
+    "Passenger helicopter physically climbs before travelling laterally",
+    "While aboard, saves resolve to the sky service departure point",
+    "Helicopter cruises across to the destination and descends onto its pad",
+    "Passenger flight releases the player to walk around the island",
+    "Island helipad supports independent manual helicopter boarding",
+    "Manual helicopter can lift off from the island pad",
+    "Loading the in-flight save clears caches and restores the grounded departure"
+  ]
+}

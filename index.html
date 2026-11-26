@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="he"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-<meta name="theme-color" content="#244649"><title>SUNSET STATE 4.7.9 — מפת סאנסט</title>
+<meta name="theme-color" content="#244649"><title>SUNSET STATE — שדה תעופה חי והאי שלך · 54</title>
 <!-- Stage 21: Vehicle Physics and Collision Damage remain in the cumulative Stage 23 build. -->
 <!-- Stage 31 imports actual user INTERCEPTOR GLB geometry, retains all city mission systems, and adds civilian color variants plus TAXI sign. -->
 <style>
@@ -413,7 +413,36 @@ background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;
 #stage33-law-context{font-size:10px;color:#d4e8db;margin:4px 0 0}
 @media(max-width:740px){#stage33-start-suggested{font-size:10px;padding:5px;margin:0 5px 5px;width:calc(100% - 10px)}
 #stage33-brief,#stage33-economy,#stage33-receipts{margin:2px 12px 3px;max-width:calc(100% - 24px);font-size:10px}}
-</style></head><body>
+
+#elevator50,#vault-console50,#voices-caption50{position:fixed;z-index:10;left:50%;transform:translateX(-50%);width:min(390px,88vw);direction:rtl;color:#fff7e9;background:#14262eef;border:1px solid #62938d;border-radius:12px;padding:8px 12px;text-align:center}
+#elevator50{bottom:5.8%}
+#elevator50 h2,#vault-console50 h2{margin:1px 0 4px;font-size:15px;color:#ffd8a5}
+#elevator50 output,#vault-console50 output{display:block;font-size:13px;margin:0 0 5px}
+#elevator50 button,#vault-console50 button{margin:3px 2px;padding:5px 9px;background:#23504f;border:1px solid #68988b;border-radius:7px;color:#fff;font:inherit}
+#elevator50 button[aria-pressed=true]{background:#a97848;color:#111}
+#elevator50 button:disabled,#vault-console50 button:disabled{opacity:.48;cursor:default}
+#elevator50[hidden],#elevator50 [hidden],#vault-console50[hidden],#voices-caption50[hidden],.elevator-city50 #interior-floor-chooser,.elevator-city50 #lift-travel-ui{display:none!important}
+#vault-console50{bottom:19%;z-index:12;width:min(300px,85vw)}
+#vault-console50 button{min-width:55px;font-size:16px}
+#voices-caption50{bottom:25%;width:fit-content;max-width:min(440px,79vw);background:#13232de6;font-size:14px;pointer-events:none}
+@media(max-width:700px){#elevator50{bottom:9%;width:min(390px,74vw)}#elevator50 button{padding:4px 6px}#voices-caption50{bottom:35%}}
+</style>
+<link rel="stylesheet" href="assets/stage50_ui.css?v=50">
+<link rel="stylesheet" href="assets/stage51_ui.css?v=51">
+<link rel="stylesheet" href="assets/stage52_ui.css?v=52">
+</head><body>
+<section id="elevator50" aria-label="לוח המעלית" hidden>
+  <h2>מעלית</h2><output id="elevator-status50" aria-live="off"></output>
+  <button id="elevator-call50" type="button">הזמן מעלית · L</button>
+  <div id="elevator-stops50" aria-label="בחירת תחנות" hidden></div>
+  <button id="elevator-cancel50" type="button" hidden>נקה תחנות בתור</button>
+</section>
+<section id="vault-console50" aria-label="משחק הכספת" hidden>
+  <h2>מסוף הכספת</h2><output aria-live="polite"></output>
+  <button type="button" data-vault50="0">1 ●</button><button type="button" data-vault50="1">2 ◆</button><button type="button" data-vault50="2">3 ▲</button>
+</section>
+<div id="voices-caption50" hidden dir="rtl"></div>
+
 <canvas id="game" aria-label="3D open world driving and exploration game"></canvas>
 <canvas id="weather-canvas" aria-hidden="true"></canvas>
 <div id="stage17-diagnostics" class="hidden" role="status" aria-live="off"></div>
@@ -441,17 +470,21 @@ background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;
   <div class="hud-top">
     <div class="heat-panel" aria-label="Pursuit intensity"><div class="chase-symbol"><svg viewBox="0 0 24 24"><path d="M5 18h14M7 18v-5l2-5h6l2 5v5M7 13h10M8 18v2m8-2v2"/></svg></div><div id="heat-lamps" class="lamps"><i></i><i></i><i></i><i></i><i></i><i></i></div><span id="police-status" class="hidden" dir="rtl" role="status" aria-live="off"></span></div>
     <div class="hud-actions">
-      <button id="camera-button" class="icon-button" aria-label="Switch camera"><svg viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13.5" r="3.6"/></svg></button>
-      <button id="garage-button" class="icon-button" aria-label="Garage"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 12h16M8 20v-5h8v5M10 6h4"/></svg></button>
       <button id="missions-button" class="icon-button" aria-label="פתח משימות (K)" title="משימות · K">🧭</button>
-      <button id="map-button" class="icon-button" aria-label="Toggle city map"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg></button>
-      <button id="sound-button" class="icon-button" data-off="1" aria-label="Toggle sound"></button>
+      <button id="map-button" class="icon-button" aria-label="פתח מפת העיר" title="מפת העיר · M"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg></button>
+      <button id="garage-button" class="icon-button" aria-label="מוסך" title="מוסך"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11M4 12h16M8 20v-5h8v5M10 6h4"/></svg></button>
+      <button id="camera-button" class="icon-button" aria-label="Switch camera"><svg viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13.5" r="3.6"/></svg></button>
+      <button id="sound-button" class="icon-button" data-off="1" aria-label="הפעל או השתק קול" title="קול"></button>
       <input id="sound-volume" class="sound-slider" type="range" min="0" max="100" value="28" step="1" aria-label="Sound volume">
-      <button id="pause-button" class="icon-button" aria-label="Pause"><svg viewBox="0 0 24 24"><path d="M7 4v16M17 4v16"/></svg></button>
+      <button id="pause-button" class="icon-button" aria-label="השהה משחק" title="השהיה · Esc"><svg viewBox="0 0 24 24"><path d="M7 4v16M17 4v16"/></svg></button>
     </div>
   </div>
   <div class="minimap-top map-shell"><canvas width="170" height="170" id="minimap" tabindex="0" role="button" aria-label="פתיחת מפת העיר"></canvas></div>
+  <details id="city-discovery50" dir="rtl"><summary>גילויים בעיר</summary>
   <div id="explore-progress" aria-live="off" role="status">🔎 בניינים 0/96 · נקודות עניין 0/25</div>
+  <div id="street-guide" aria-live="off" role="status">🗺 חנויות וגנים · 0 רובעים</div>
+  <div id="streetlife-panel" aria-live="off" role="status">☕ העיר חיה · תושבים מבלים ומשוחחים</div>
+  </details>
   <div id="mission-tracker" aria-label="משימה פעילה">
     <button id="mission-tracker-button" type="button" title="K · יומן המשימות"><strong id="mission-title">🧭 משימות עירוניות</strong>
       <span id="mission-goal">K · בחר פעילות עירונית</span>
@@ -463,8 +496,6 @@ background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;
     <span><strong id="city-service-name">פריט בחנות</strong><br><small id="city-service-wallet">ארנק: 0 🪙</small></span>
     <button id="city-shop-buy" type="button">קנה</button>
   </div>
-  <div id="streetlife-panel" aria-live="off" role="status">☕ העיר חיה · תושבים מבלים ומשוחחים</div>
-  <div id="street-guide" aria-live="off" role="status">🗺 חנויות וגנים · 0 רובעים</div>
   <div id="transit-panel" class="hidden" dir="rtl" role="status" aria-live="off">🚌 פרטי תחבורה ציבורית</div>
   <div class="clock-panel" aria-label="World clock">
     <button id="clock-toggle" type="button" title="Play or pause time (H)" aria-label="Toggle automatic passage of time">⏯</button>
@@ -503,7 +534,7 @@ background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;
 <div id="charge-status" class="charge-status hidden" dir="rtl" role="status" aria-live="polite"></div>
   <div class="hud-bottom">
     <div class="right-gauge"><div class="integrity" aria-label="Vehicle condition"><div class="integrity-line"><div id="health-fill"></div></div></div>
-      <div class="meter" id="speed-meter" style="--percent:0%;--needle:0deg"><div class="meter-core"><strong id="speed-value">0</strong><small>קמ״ש</small></div><div class="meter-needle"></div><div class="meter-hub"></div></div>
+      <div class="meter" id="speed-meter" style="--percent:0%;--needle:0deg"><div class="meter-core"><strong id="speed-value">0</strong><small>קמ״ש</small><span id="drive-gear50" dir="ltr"></span></div><div class="meter-needle"></div><div class="meter-hub"></div></div>
       <div id="vehicle-condition" class="hidden" aria-label="מצב מערכות הרכב" dir="rtl">
         <strong id="vehicle-condition-label">מצב רכב</strong>
         <div id="vehicle-condition-readout">
@@ -552,24 +583,84 @@ background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;
 </div>
 <section id="mission-board" class="hidden" role="dialog" aria-modal="true" aria-labelledby="mission-heading">
   <div class="mission-dialog">
-    <header><div><h2 id="mission-heading">🧭 יומן המשימות — SUNSET STATE</h2>
-      <p>משימות חקר, תחבורה, צילום וקניות. המשטרה אינה תנאי להשלמת אף משימה.</p></div>
+    <header><div><h2 id="mission-heading">יומן המשימות</h2>
+      <p>בחר פעילות ועקוב אחר היעד במפה.</p></div>
       <button id="mission-close" type="button" aria-label="סגור יומן משימות">×</button></header>
     <div id="mission-wallet" aria-live="polite">🪙 450 · ⭐ 0 XP</div>
     <div id="stage33-brief" aria-live="off">🧭 משימות עירוניות פעילות</div>
+    <details id="mission-finance50"><summary>פרטי ארנק ועסקאות</summary>
     <div id="stage33-economy" aria-live="polite">🪙 יתרה · הכנסות והוצאות הסשן</div>
     <div id="stage33-receipts" aria-live="off">פעולות כספיות אחרונות</div>
+    </details>
     <div id="mission-finished">הושלמו 0 מתוך 8 משימות</div>
+    <div id="mission-filters50" role="group" aria-label="סינון משימות">
+      <button type="button" data-kind50="all" aria-pressed="true">הכול</button>
+      <button type="button" data-kind50="city" aria-pressed="false">בעיר</button>
+      <button type="button" data-kind50="drive" aria-pressed="false">בנהיגה</button>
+      <button type="button" data-kind50="water" aria-pressed="false">בחוף</button>
+      <button type="button" data-kind50="chase" aria-pressed="false">שודים ומרדפים</button>
+    </div>
+    <p id="mission-empty50" hidden>אין משימות בקבוצה הזאת.</p>
     <div id="mission-list" aria-label="רשימת משימות זמינות"></div>
     <footer><span>K לפתיחה או סגירה · E לאינטראקציה · O לקנייה · Z לצילום · היעד מסומן על המפה</span>
       <button id="mission-abandon" type="button" class="hidden">הפסק מעקב (ההתקדמות נשמרת)</button></footer>
   </div>
 </section>
-<div id="main-menu" class="overlay"><div class="orb"></div><section class="welcome-brief" dir="rtl"><h1>SUNSET STATE · 4.7.9</h1><p>עיר פתוחה לחקירה. סע באוטובוס, גלה בניינים, שוחח עם אנשים והשלם משימות בלי קשר למשטרה.</p><small>▶ התחל בהליכה · כניסה ללובי בהליכה · L לוח מעלית · WASD · M מפה · F3 FPS · F4 איכות · F8 דוח · F9 בדיקה</small></section><button class="hero-button" id="play-button" aria-label="Start exploring on foot"><svg viewBox="0 0 32 32"><path d="m10 5 17 11-17 11z"/></svg></button></div>
+<div id="main-menu" class="overlay">
+  <section class="welcome-brief" dir="rtl" aria-label="מסך פתיחה">
+    <h1 dir="ltr">SUNSET<br>STATE</h1>
+    <p>צא לרחובות סאנסט. פגוש את התושבים, נהג ברחבי העיר או המריא משדה התעופה.</p>
+    <button class="hero-button" id="play-button" type="button">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="m10 5 17 11-17 11z"/></svg> היכנס לעיר
+    </button>
+    <div class="welcome-controls"><span><kbd>WASD</kbd> תנועה</span><span><kbd>E</kbd> אינטראקציה</span>
+      <span><kbd>M</kbd> מפה</span><span><kbd>K</kbd> משימות</span></div>
+  </section>
+</div>
 <div id="pause-menu" class="overlay hidden"><div class="orb"></div><div class="pause-controls"><div class="pill-actions">
-  <button class="hero-button" id="resume-button" aria-label="Resume"><svg viewBox="0 0 32 32"><path d="m10 5 17 11-17 11z"/></svg></button>
-  <button class="secondary-button" id="restart-button" aria-label="Restart"><svg viewBox="0 0 24 24"><path d="M21 9a9 9 0 1 0 .3 6M21 3v6h-6"/></svg></button>
-</div></div></div>
+  <button class="hero-button" id="resume-button" aria-label="חזור למשחק"><svg viewBox="0 0 32 32"><path d="m10 5 17 11-17 11z"/></svg></button>
+  <button class="secondary-button" id="restart-button" aria-label="התחל משחק חדש"><svg viewBox="0 0 24 24"><path d="M21 9a9 9 0 1 0 .3 6M21 3v6h-6"/></svg></button>
+</div><section id="settings51" dir="rtl" aria-labelledby="settings-title51">
+  <h2 id="settings-title51">הגדרות ושליטה</h2>
+  <p id="quality-mode51">איכות מודלים: מפורטת קבועה</p>
+  <fieldset class="render-panel52"><legend>גרפיקה וביצועים</legend>
+    <div class="render-row52"><label for="render-mode52">רזולוציית הציור</label>
+      <select id="render-mode52"><option value="1080p">Full HD · 1080p</option><option value="native">רזולוציית המסך</option><option value="1440p">QHD · 1440p</option><option value="custom">קנה מידה אישי</option><option value="auto">התאמה לקצב הפריימים</option></select>
+    </div>
+    <div id="render-scale-row52" class="render-row52" hidden><label for="render-scale52">קנה מידה</label><span class="scale-wrap52"><input id="render-scale52" type="range" min="50" max="150" step="1" value="100"><output id="render-scale-value52" for="render-scale52">100%</output></span></div>
+    <div id="render-target-row52" class="render-row52" hidden><label for="render-target52">יעד FPS</label><input id="render-target52" type="number" min="30" max="120" step="1" value="50"></div>
+    <p>במצב התאמה, הרזולוציה הפנימית משתנה לפי העומס. המודלים נשארים מפורטים. קצב הפריימים בפועל תלוי במחשב.</p>
+    <p id="render-status52" dir="rtl" aria-live="polite">הרזולוציה תופיע לאחר הפעלת המשחק</p>
+    <p id="render-fps52">קצב הפריימים יופיע אחרי תחילת המשחק</p>
+    <button type="button" id="render-reset52">חזרה ל־1080p</button>
+    <p><kbd>F4</kbd> מחליף בין הרזולוציה שנבחרה להתאמה אוטומטית.</p>
+  </fieldset>
+  <details><summary>תנועה, מצלמה ושיחות</summary><dl>
+    <dt><kbd>WASD</kbd> / חצים</dt><dd>הליכה או נהיגה</dd>
+    <dt>גרירה בעכבר</dt><dd>סיבוב המצלמה סביב הדמות או הרכב</dd>
+    <dt><kbd>C</kbd></dt><dd>שינוי מבט</dd>
+    <dt><kbd>B</kbd> / <kbd>Q</kbd></dt><dd>מבט לאחור: B בהליכה, Q ברכב</dd>
+    <dt><kbd>E</kbd></dt><dd>אינטראקציה, שיחה וכניסה לרכב</dd>
+    <dt><kbd>Shift</kbd> / רווח</dt><dd>ריצה וקפיצה בהליכה; האצה ובלם יד ברכב</dd>
+    <dt><kbd>M</kbd> / <kbd>K</kbd></dt><dd>מפה ויומן משימות</dd>
+    <dt><kbd>F5</kbd></dt><dd>שמירה ידנית במשבצת שנבחרה</dd>
+  </dl></details>
+  <details><summary>כניסה לבניינים ולבתים</summary><p>גשו אל הדלת מכיוון המדרכה. אפשר לעבור בפתח או ללחוץ E כשהכניסה פנויה. בבית פרטי שבניתם, הדלת נפתחת בהתקרבות ואפשר להיכנס ברגל. המעלית מציעה את הקומות והגג הזמינים בבניין.</p></details>
+  <details><summary>טיסה במטוס</summary>
+    <p>בחרו שדה תעופה במפה, גשו לדלת של מטוס חונה או לסימון הטיסה מחוץ לטרמינל ולחצו E.</p><dl>
+    <dt><kbd>W</kbd> / <kbd>S</kbd></dt><dd>הגדלה / הקטנה של המצערת</dd>
+    <dt><kbd>A</kbd> / <kbd>D</kbd> או ← / →</dt><dd>פנייה והטיה</dd>
+    <dt><kbd>Shift</kbd> או ↑</dt><dd>הרמת האף; להמראה האיצו קודם לאורך המסלול</dd>
+    <dt><kbd>Ctrl</kbd> או ↓</dt><dd>הורדת האף והנמכה</dd>
+    <dt>רווח</dt><dd>בלימה על הקרקע</dd>
+    <dt><kbd>C</kbd></dt><dd>מבט קרוב, רחב או קדמי מהאף</dd>
+    <dt><kbd>X</kbd> ואז <kbd>W</kbd></dt><dd>מצב תנועה לאחור מעצירה</dd>
+    <dt><kbd>T</kbd> / <kbd>L</kbd></dt><dd>מצב הסעה איטית / עזרי נחיתה ומסלול</dd>
+    <dt><kbd>R</kbd></dt><dd>החזרת המטוס לנקודת ההמראה</dd>
+    <dt><kbd>E</kbd></dt><dd>יציאה מהמטוס לאחר נחיתה ועצירה מלאה</dd>
+    </dl><p>שמירה בזמן טיסה שומרת את ההתקדמות. טעינתה מחזירה את הדמות לנקודת העלייה למטוס.</p>
+  </details>
+</section></div></div>
 <div id="gameover-menu" class="overlay hidden"><div class="orb"></div><button class="hero-button" id="retry-button" aria-label="Try again"><svg viewBox="0 0 32 32"><path d="M28 12a12 12 0 1 0 .5 10M28 3v9h-9"/></svg></button></div>
 <aside id="delivery-route476" dir="rtl" aria-live="polite" hidden>
   <strong id="delivery-title476">🚘 מסירת רכב</strong>
@@ -590,19 +681,19 @@ background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;
 <script src="assets/terrain_444.js"></script>
 <script src="assets/ridge_443.js"></script>
 <script src="assets/street_life_443.js"></script>
-<script src="assets/marina_444.js"></script>
-<script src="assets/render_442.js"></script>
-<script src="assets/navigation_445.js"></script>
+<script src="assets/marina_444.js?v=53"></script>
+<script src="assets/render_442.js?v=50"></script>
+<script src="assets/navigation_445.js?v=50"></script>
 <script src="assets/city_445.js"></script>
-<script src="assets/life_445.js"></script>
+<script src="assets/life_445.js?v=50"></script>
 <script src="assets/visual_450.js"></script>
 <script src="assets/city_455.js"></script>
 <script src="assets/reference_coast_469.js"></script>
 <script src="assets/reference_plan_469.js"></script>
 <script src="assets/coast_461.js"></script>
 <script src="assets/city_plan_463.js"></script>
-<script src="assets/districts_461.js"></script>
-<script src="assets/landmarks_461.js"></script>
+<script src="assets/districts_461.js?v=53"></script>
+<script src="assets/landmarks_461.js?v=54"></script>
 <script src="assets/prison_471.js"></script>
 <script src="assets/activity_461.js"></script>
 <script src="assets/streets_461.js"></script>
@@ -658,29 +749,55 @@ background:#1c3238f2;border:1px solid #e3b76780;border-radius:8px;color:#f6e2ad;
 <script src="assets/stage34_render_sound_polish.js"></script>
 <script src="assets/stage36_performance_audit.js"></script>
   <script src="assets/stage37_render_optimization.js"></script>
-<script src="assets/stage38_adaptive_lod.js"></script>
-<script src="engine44.js?v=48"></script>
-<script src="assets/stage05_interior_runtime.js"></script>
+<script src="assets/stage38_adaptive_lod.js?v=51"></script>
+<script src="engine44.js?v=53"></script>
+<script src="assets/stage05_interior_runtime.js?v=52"></script>
 <script src="assets/stage06_interior_runtime.js"></script>
 <script src="assets/stage07_interior_runtime.js"></script>
 <script src="assets/stage13_interior_runtime.js"></script>
 <script src="assets/stage14_interior_lighting.js"></script>
 <script src="assets/stage15_interior_physics.js"></script>
-<script src="assets/stage16_facade_glass.js"></script>
+<script src="assets/stage16_facade_glass.js?v=53"></script>
 <script src="assets/stage17_retail_contracts.js"></script>
-<script src="assets/stage19_persistent_save.js"></script>
+<script src="assets/stage19_persistent_save.js?v=54"></script>
 <script src="assets/stage29_interior_retail_polish.js"></script>
 <script src="assets/stage30_character_polish.js"></script>
-<script src="assets/stage39_realism_render.js?v=49"></script>
-<script src="assets/stage39_realism_core.js?v=49"></script>
+<script src="assets/stage39_realism_render.js?v=53"></script>
+<script src="assets/stage39_realism_core.js?v=54"></script>
 <script src="assets/stage39_city_life.js?v=48"></script>
-<script src="assets/stage39_city_voices.js?v=49"></script>
-<script src="assets/stage48_gameplay.js?v=48b"></script>
-<script src="assets/stage48_property.js?v=48b"></script>
-<script src="assets/stage48_chat.js?v=48c"></script>
+<script src="assets/stage39_city_voices.js?v=54"></script>
+<script src="assets/stage48_gameplay.js?v=50"></script>
+<script src="assets/stage48_property.js?v=53"></script>
+<script src="assets/stage48_chat.js?v=54"></script>
+<script src="assets/stage50_city.js?v=51"></script>
+<script src="assets/stage50_buildings.js?v=52"></script>
+<script src="assets/stage51_quality.js?v=53"></script>
+<script src="assets/stage51_mobility.js?v=54"></script>
+<script src="assets/stage51_city_safety.js?v=51"></script>
+<script src="assets/stage51_interface.js?v=51"></script>
+<script src="assets/stage52_render.js?v=52"></script>
+<script src="assets/stage52_cpu.js?v=52"></script>
+<script src="assets/stage52_buildings.js?v=52"></script>
+<script src="assets/stage52_interior_grade.js?v=52"></script>
+<script src="assets/stage52_interface.js?v=52"></script>
+<script src="assets/stage53_roads.js?v=53"></script>
+<script src="assets/stage53_resident_ai.js?v=53"></script>
+<script src="assets/stage53_shops.js?v=53"></script>
+<script src="assets/stage53_islands.js?v=53"></script>
+<script src="assets/stage53_estate.js?v=54"></script>
+<script src="assets/stage53_flight_controls.js?v=53"></script>
+<script src="assets/stage53_transport.js?v=53"></script>
+<script src="assets/stage53_estate_world.js?v=54"></script>
+<script src="assets/stage53_private_fleet.js?v=54"></script>
+<script src="assets/stage53_stadium.js?v=53"></script>
+<script src="assets/stage53_navigation.js?v=53"></script>
+<script src="assets/stage53_resident_dialogue.js?v=53"></script>
+<script src="assets/stage54_airport_world.js?v=54"></script>
+<script src="assets/stage54_airport_life.js?v=54"></script>
+<script src="assets/stage54_airport_services.js?v=54"></script>
 <script src="assets/stage39_grass.js?v=44"></script>
 <script src="assets/stage42_streets.js?v=46"></script>
-<script type="module" src="assets/stage39_speech_bridge.js?v=40"></script>
+<script type="module" src="assets/stage39_speech_bridge.js?v=53"></script>
 <!-- Recovery 7 manual on-device QA, opt-in only; never loads in normal game. -->
 <script>if(new URLSearchParams(location.search).has('recovery7qa')){const qa7=document.createElement('script');qa7.src='QA/recovery07_live_checklist.js';document.head.appendChild(qa7);}</script>
 <!-- 15-stage improvement plan, stage 1: opt-in live gameplay audit (no changes to default mode). -->

@@ -1,0 +1,18 @@
+{
+  "passed": 8,
+  "comparedSteps": 904,
+  "oldClampCalls": 874,
+  "newClampCalls": 4,
+  "avatarSteps": 48,
+  "npcSteps": 120,
+  "checks": [
+    "Diagonal wall sliding retains the exact previous pose and velocities",
+    "Face and rounded-corner contacts agree in both directions near the radius threshold",
+    "A large solid is handled by its extent when the center is far away",
+    "Idle, strafe, backward, sprint and varied timestep integrations match",
+    "Nearby vehicle contact keeps the existing movement integration",
+    "An airborne walker lands identically while moving near a wall",
+    "Distant solids avoid exact projection while preserving the final circular test near contact",
+    "The production Game path moves the avatar and NPCs with the same core collision results"
+  ]
+}

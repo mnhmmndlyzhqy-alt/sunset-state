@@ -30,19 +30,23 @@ var Heatline = globalThis.Heatline || {};
   /* ================================================================== */
   const M4 = {
     ident: () => new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]),
-    mul(a, b, o = new Float32Array(16)) {
+    mul(a, b, o, offset = 0) {
       for (let c = 0; c < 4; c++) for (let r = 0; r < 4; r++)
-        o[c * 4 + r] = a[r] * b[c * 4] + a[4 + r] * b[c * 4 + 1] + a[8 + r] * b[c * 4 + 2] + a[12 + r] * b[c * 4 + 3];
+        o[offset + c * 4 + r] = a[r] * b[c * 4] + a[4 + r] * b[c * 4 + 1] + a[8 + r] * b[c * 4 + 2] + a[12 + r] * b[c * 4 + 3];
       return o;
     },
     // Translation * Ry(yaw) * Rx(pitch) * Rz(roll)
-    trs(tx, ty, tz, pitch, yaw, roll, s = 1) {
+    trs(tx, ty, tz, pitch, yaw, roll, s = 1, out = new Float32Array(16)) {
       const cx = Math.cos(pitch), sx = Math.sin(pitch), cy = Math.cos(yaw), sy = Math.sin(yaw), cz = Math.cos(roll), sz = Math.sin(roll);
       // R = Ry * Rx * Rz
       const m00 = cy * cz + sy * sx * sz, m01 = -cy * sz + sy * sx * cz, m02 = sy * cx;
       const m10 = cx * sz, m11 = cx * cz, m12 = -sx;
       const m20 = -sy * cz + cy * sx * sz, m21 = sy * sz + cy * sx * cz, m22 = cy * cx;
-      return new Float32Array([m00 * s, m10 * s, m20 * s, 0, m01 * s, m11 * s, m21 * s, 0, m02 * s, m12 * s, m22 * s, 0, tx, ty, tz, 1]);
+      out[0] = m00 * s; out[1] = m10 * s; out[2] = m20 * s; out[3] = 0;
+      out[4] = m01 * s; out[5] = m11 * s; out[6] = m21 * s; out[7] = 0;
+      out[8] = m02 * s; out[9] = m12 * s; out[10] = m22 * s; out[11] = 0;
+      out[12] = tx; out[13] = ty; out[14] = tz; out[15] = 1;
+      return out;
     }
   };
 
@@ -55,7 +59,8 @@ var Heatline = globalThis.Heatline || {};
     ['armL', 2, [-.185, 1.435, 0]], ['foreL', 5, [-.215, 1.150, .01]], ['handL', 6, [-.228, .905, -.01]],
     ['armR', 2, [.185, 1.435, 0]], ['foreR', 8, [.215, 1.150, .01]], ['handR', 9, [.228, .905, -.01]],
     ['thighL', 0, [-.094, .94, 0]], ['shinL', 11, [-.100, .515, .005]], ['footL', 12, [-.104, .085, .02]],
-    ['thighR', 0, [.094, .94, 0]], ['shinR', 14, [.100, .515, .005]], ['footR', 15, [.104, .085, .02]]
+    ['thighR', 0, [.094, .94, 0]], ['shinR', 14, [.100, .515, .005]], ['footR', 15, [.104, .085, .02]],
+    ['jaw', 4, [0, 1.632, .015]]
   ];
   const B = Object.fromEntries(BONES.map((b, i) => [b[0], i]));
   const NB = BONES.length;
@@ -71,13 +76,14 @@ var Heatline = globalThis.Heatline || {};
       this.v.push(p[0], p[1], p[2], n[0], n[1], n[2], col[0], col[1], col[2], rough, b0, b1, w);
       return this.v.length / 13 - 1;
     }
-    grid(rows, cols, at) {
+    grid(rows, cols, at, reverse = false) {
       // at(r,c) -> [pos, normal, color, rough, b0, b1, w]; cols wrap around.
       const base = this.v.length / 13;
       for (let r = 0; r <= rows; r++) for (let c = 0; c < cols; c++) this.vert(...at(r / rows, c / cols));
       for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
         const a = base + r * cols + c, b = base + r * cols + (c + 1) % cols, d = a + cols, e = b + cols;
-        this.i.push(a, d, b, b, d, e);
+        if (reverse) this.i.push(a, b, d, b, e, d);
+        else this.i.push(a, d, b, b, d, e);
       }
     }
     // Lofted limb along a bone: elliptical sections with a radius profile.
@@ -109,7 +115,7 @@ var Heatline = globalThis.Heatline || {};
         const pos = [c[0] + x * rx * k, c[1] + y * ry * k, c[2] + z * rz * k];
         const n = norm([x / rx, y / ry, z / rz]);
         return [pos, n, typeof col === 'function' ? col(x, y, z) : col, rough, bone, bone2, w];
-      });
+      }, true);
       // Close the poles (grid rows include them at t=0,1 with degenerate rings: fine).
     }
   }
@@ -117,11 +123,82 @@ var Heatline = globalThis.Heatline || {};
   function norm(a) { const d = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / d, a[1] / d, a[2] / d]; }
   function jp(name) { return BONES[B[name]][2]; }
 
+  function faceMesh(mb, o, skin, hair) {
+    const variant = o.face ?? 0;
+    const width = .086 + (variant % 3) * .0028;
+    const height = .111 + ((variant >>> 2) % 3) * .0017;
+    const jaw = (variant & 2) ? .12 : .22;
+    const tint = (v, s) => v.map((c, i) => clamp(c * (1 + s * [.18, -.21, -.29][i]), 0, 1));
+    const sculpt = (t, s) => {
+      const th = t * Math.PI, ph = s * Math.PI * 2, sy = Math.sin(th);
+      const x = sy * Math.cos(ph), y = Math.cos(th), z = sy * Math.sin(ph);
+      const front = clamp(-z * 1.9, 0, 1);
+      const cheek = front * Math.exp(-32 * (Math.abs(x) - .55) ** 2 - 68 * (y + .05) ** 2);
+      const socket = front * Math.exp(-54 * (Math.abs(x) - .39) ** 2 - 72 * (y - .25) ** 2);
+      const temple = .97 + .055 * Math.exp(-7 * (y - .49) ** 2);
+      const chin = 1 - jaw * clamp((-y - .15) / .85, 0, 1);
+      const jawWeight = front * clamp((-.18 - y) * 2.7, 0, 1);
+      return { point: [x * width * chin * temple, 1.665 + y * height, -.012 + z * .103 - .010 * cheek + .0085 * socket],
+        color: tint(skin, cheek * .52 + socket * .18), weight: 1 - jawWeight };
+    };
+    mb.grid(16, 24, (t, s) => {
+      const base = sculpt(t, s), across = sculpt(t, s + .001), vertical = sculpt(t + .001, s);
+      const d = (p, q) => p.map((v, i) => v - q[i]);
+      const n = cross(d(across.point, base.point), d(vertical.point, base.point));
+      const normal = Math.hypot(...n) > 1e-8 ? norm(n) : [0, t < .5 ? 1 : -1, 0];
+      return [base.point, normal, base.color, .47, B.head, B.jaw, base.weight];
+    }, true);
+    const scale = 1 + (variant % 4) * .053;
+    const bridge = -.105 - .003 * (variant % 2);
+    mb.limb(B.head, B.head, [0, 1.691, bridge], [0, 1.651, -.122 - .003 * scale],
+      t => [.008 + .005 * t, .006 + .003 * t], () => skin, .46, 4, 9, false);
+    mb.ellipsoid(B.head, B.head, [0, 1.650, -.129], .015 * scale, .012, .013 * scale, skin, .46, 5, 10);
+    const iris = hexLin(o.iris || '#4a3a2c');
+    for (const side of [-1, 1]) {
+      const earX = side * (width - .0005);
+      mb.ellipsoid(B.head, B.head, [earX, 1.664, .008], .013, .027, .019, skin, .51, 6, 10);
+      mb.ellipsoid(B.head, B.head, [earX + side * .009, 1.666, .005], .0045, .015, .011, tint(skin, .36), .52, 4, 8);
+      const x = side * (.031 + (variant & 1) * .002);
+      mb.ellipsoid(B.head, B.head, [x, 1.690, -.1020], .015, .0081, .009, [.86, .84, .79], .23, 5, 10);
+      mb.ellipsoid(B.head, B.head, [x, 1.6905, -.1104], .0066, .0064, .0024, iris, .19, 5, 9);
+      mb.ellipsoid(B.head, B.head, [x, 1.6905, -.1127], .0030, .0032, .0010, [.047, .040, .033], .16, 3, 8);
+      mb.ellipsoid(B.head, B.head, [x - .0019, 1.6929, -.1132], .0013, .0011, .0009, [.93, .91, .86], .17, 3, 6);
+      mb.ellipsoid(B.head, B.head, [x, 1.698, -.107], .0158, .0031, .0058, tint(skin, .12), .55, 4, 9);
+      mb.limb(B.head, B.head, [x - side * .016, 1.709, -.108], [x + side * .017, 1.712, -.103],
+        t => [.0029 - .0016 * t, .0041 - .0013 * t], () => hair, .72, 3, 7, false);
+      mb.ellipsoid(B.head, B.head, [side * .0114, 1.643, -.130], .0047, .0033, .0050, tint(skin, .34), .54, 3, 7);
+    }
+    const lips = hexLin(o.lips || '#a8766a');
+    mb.ellipsoid(B.head, B.head, [0, 1.619, -.107], .019, .0058, .0033, [.22, .103, .091], .62, 4, 10);
+    mb.ellipsoid(B.head, B.head, [0, 1.6229, -.1087], .019, .0031, .0045, lips, .49, 4, 11);
+    mb.ellipsoid(B.jaw, B.jaw, [0, 1.6167, -.1079], .0176, .0039, .0048, tint(lips, .08), .52, 4, 11);
+  }
+
+  function garmentHardware(mb, palette, torsoProf, o) {
+    const trim = hexLin(o.jacketTrim || '#a5a3a0'), seam = palette.map(v => v * .77);
+    if (o.jacketTrim) {
+      mb.limb(B.spine, B.chest, [0, 1.035, -torsoProf(.08)[1] - .003], [0, 1.445, -torsoProf(.95)[1] - .007],
+        () => [.0038, .0075], () => trim, .56, 9, 6, false);
+      mb.limb(B.chest, B.chest, [0, 1.342, -.131], [0, 1.369, -.134],
+        () => [.0045, .0075], () => hexLin('#c7ba95'), .28, 2, 6, false);
+      for (const side of [-1, 1]) mb.limb(B.spine, B.chest, [side * .055, 1.103, -.113], [side * .108, 1.142, -.097],
+        () => [.0040, .0052], () => seam, .87, 5, 6, false);
+    }
+    if (o.scarf) {
+      const color = hexLin(o.scarf);
+      mb.limb(B.neck, B.head, [0, 1.493, .004], [0, 1.543, .006],
+        t => [.075 + .004 * Math.sin(t * Math.PI), .079], () => color, .88, 6, 18, false);
+      mb.limb(B.chest, B.neck, [-.046, 1.493, -.065], [-.061, 1.315, -.114],
+        t => [.018, .030 - .004 * t], () => color, .9, 6, 10, false);
+    }
+  }
+
   // Outfit: colours in sRGB hex. build: shoulder/hip width multipliers.
   function buildCharacter(o) {
     const mb = new MeshBuilder();
     const skin = hexLin(o.skin), shirt = hexLin(o.shirt), pants = hexLin(o.pants), shoe = hexLin(o.shoes), hair = hexLin(o.hair);
     const sw = o.shoulders || 1, hw = o.hips || 1, bulk = o.bulk || 1;
+    const footballSocks = o.footballKit ? hexLin(o.socks || o.shirt) : null;
     // Torso: pelvis to neck, anatomical profile (waist, ribcage, shoulders).
     const torsoProf = t => {
       const waist = .5 + .5 * Math.cos(Math.PI * clamp((t - .32) / .32, -1, 1));
@@ -130,35 +207,23 @@ var Heatline = globalThis.Heatline || {};
       const rz = (.110 + .018 * chest) * bulk * (1 - .08 * waist);
       return [rx * bulk, rz];
     };
-    const shirtCol = (t, s) => (o.jacketTrim && Math.abs(Math.cos(s * Math.PI * 2)) < .06 && Math.sin(s * Math.PI * 2) < 0 ? hexLin(o.jacketTrim) : shirt);
+    const shirtCol = (t, s) => {
+      const angle = s * Math.PI * 2;
+      const gathers = .965 + .035 * Math.cos(angle * 5 + t * 8) * (1 - t) ** 2;
+      return shirt.map(c => c * gathers);
+    };
     // Pelvis block (pants) + torso (shirt).
     mb.limb(B.pelvis, -1, [0, .84, 0], [0, 1.02, 0], t => [(.158 * hw) * bulk, .112 * bulk], () => pants, .85, 4, 18, false);
     mb.ellipsoid(B.pelvis, B.pelvis, [0, .86, 0], .155 * hw * bulk, .07, .108 * bulk, pants, .85, 6, 18);
     mb.limb(B.spine, B.chest, [0, 1.00, 0], [0, 1.47, 0], torsoProf, shirtCol, .82, 12, 24, false);
+    garmentHardware(mb, shirt, torsoProf, o);
     // Shoulder caps.
     for (const side of [-1, 1]) mb.ellipsoid(B.chest, side < 0 ? B.armL : B.armR, [side * .165 * sw, 1.425, 0], .075 * bulk, .062, .075 * bulk, shirt, .82, 7, 12, .7);
     // Neck & head.
     mb.limb(B.neck, B.head, [0, 1.44, .012], [0, 1.60, -.002], t => [.064 - .006 * t, .066 - .004 * t], () => skin, .5, 5, 16, false);
     // Trapezius slope from neck to shoulders.
     for (const side of [-1, 1]) mb.limb(B.chest, B.neck, [side * .03, 1.47, .02], [side * .14 * sw, 1.43, .01], t => [.045 - .01 * t, .05], () => shirt, .82, 4, 12, false);
-    const headC = [0, 1.665, -.012];
-    mb.ellipsoid(B.head, B.head, headC, .088, .112, .102, (x, y, z) => skin, .48, 14, 20, 1, (x, y, z) => {
-      // Jaw narrows, back of skull fuller, slight chin.
-      let k = 1;
-      if (y < -.2) k *= 1 - .18 * (-y - .2);
-      if (z > .3) k *= 1.03;
-      return k;
-    });
-    // Nose, ears, eyes, brows, lips.
-    mb.ellipsoid(B.head, B.head, [0, 1.655, -.112], .016, .03, .024, skin, .45, 5, 8);
-    for (const side of [-1, 1]) {
-      mb.ellipsoid(B.head, B.head, [side * .089, 1.665, .0], .012, .028, .02, skin, .5, 5, 8);
-      mb.ellipsoid(B.head, B.head, [side * .033, 1.69, -.1045], .0145, .0095, .0085, [.88, .86, .82], .2, 6, 10);
-      mb.ellipsoid(B.head, B.head, [side * .033, 1.69, -.1118], .0068, .0068, .0022, hexLin(o.iris || '#4a3a2c'), .1, 5, 10);
-      mb.ellipsoid(B.head, B.head, [side * .033, 1.69, -.1132], .003, .003, .001, [.04, .04, .04], .1, 4, 8);
-      mb.ellipsoid(B.head, B.head, [side * .035, 1.708, -.1075], .019, .0035, .006, hair, .7, 4, 8);
-    }
-    mb.ellipsoid(B.head, B.head, [0, 1.62, -.1015], .019, .0055, .007, hexLin(o.lips || '#a8766a'), .45, 5, 10);
+    faceMesh(mb, o, skin, hair);
     // Hair: shell over the scalp, shorter at the front; optional beard.
     // Cap of hair clear of the scalp (no shared surface -> no z-fighting); it sinks
     // smoothly inside the head over the face and below the ears, so it never covers the face.
@@ -169,13 +234,21 @@ var Heatline = globalThis.Heatline || {};
       const low = Math.min(1, Math.max(0, (-.02 - y) / .07));
       return 1 - .32 * Math.max(front, low);
     });
-    if (o.beard) mb.ellipsoid(B.head, B.head, [0, 1.6, -.05], .084, .055, .07, hair, .85, 7, 14, 1, (x, y, z) => (z > .2 ? .85 : 1));
-    if (o.kippah) mb.ellipsoid(B.head, B.head, [0, 1.7895, .024], .064, .011, .064, hexLin(o.kippah), .7, 5, 18);
+    if (o.beard) mb.ellipsoid(B.head, B.jaw, [0, 1.6, -.05], .084, .055, .07, hair, .85, 7, 14, .24, (x, y, z) => (z > .2 ? .85 : 1));
+    if (o.kippah) {
+      const cap = hexLin(o.kippah);
+      mb.ellipsoid(B.head, B.head, [0, 1.7895, .024], .064, .012, .064,
+        (x, y, z) => cap.map(c => Math.min(1, c * (1.08 + .13 * Math.cos(Math.atan2(z, x) * 12)))), .76, 6, 20);
+      mb.limb(B.head, B.head, [0, 1.787, .024], [0, 1.7895, .024], () => [.064, .064],
+        () => cap.map(c => Math.min(1, .016 + c * 1.28)), .83, 2, 20, false);
+    }
     // Arms (sleeves to the wrist), hands.
     for (const side of [-1, 1]) {
       const L = side < 0 ? 'L' : 'R';
       const sh = jp('arm' + L), el = jp('fore' + L), wr = jp('hand' + L);
-      mb.limb(B['arm' + L], B['fore' + L], [sh[0] * sw, sh[1], sh[2]], el, t => [(.052 - .010 * t) * bulk, (.056 - .010 * t) * bulk], () => shirt, .82, 8, 12);
+      // The shoulder cap already overlaps this sleeve joint.
+      mb.limb(B['arm' + L], B['fore' + L], [sh[0] * sw, sh[1], sh[2]], el,
+        t => [(.052 - .010 * t) * bulk, (.056 - .010 * t) * bulk], () => shirt, .82, 8, 12, false);
       mb.limb(B['fore' + L], B['hand' + L], el, [wr[0], wr[1] + .02, wr[2]], t => [(.044 - .012 * t) * bulk, (.042 - .008 * t) * bulk], t => (t > .9 ? (o.shortSleeve ? skin : shirt) : (o.shortSleeve && t > .05 ? skin : shirt)), .8, 8, 12);
       // Palm + fingers block, thumb.
       mb.ellipsoid(B['hand' + L], B['hand' + L], [wr[0], wr[1] - .055, wr[2] - .005], .022, .058, .042, skin, .5, 7, 12);
@@ -185,11 +258,12 @@ var Heatline = globalThis.Heatline || {};
     for (const side of [-1, 1]) {
       const L = side < 0 ? 'L' : 'R';
       const hp = jp('thigh' + L), kn = jp('shin' + L), an = jp('foot' + L);
-      mb.limb(B['thigh' + L], B['shin' + L], [hp[0] * hw, hp[1] + .02, hp[2]], kn, t => [(.096 - .036 * t) * bulk * hw, (.102 - .036 * t) * bulk], () => pants, .85, 9, 14);
+      mb.limb(B['thigh' + L], B['shin' + L], [hp[0] * hw, hp[1] + .02, hp[2]], kn, t => [(.096 - .036 * t) * bulk * hw, (.102 - .036 * t) * bulk],
+        t => footballSocks && t > .68 ? skin : pants, .85, 9, 14, false);
       mb.limb(B['shin' + L], B['foot' + L], kn, [an[0], an[1] + .03, an[2]], t => {
         const calf = Math.exp(-(((t - .3) / .22) ** 2));
         return [(.056 + .014 * calf - .012 * t) * bulk, (.058 + .024 * calf - .012 * t) * bulk];
-      }, () => pants, .85, 9, 14);
+      }, t => footballSocks ? (t < .24 ? skin : footballSocks) : pants, .85, 9, 14);
       mb.ellipsoid(B['foot' + L], B['foot' + L], [an[0], .055, an[2] - .055], .048, .05, .125, shoe, .55, 7, 14, 1, (x, y, z) => (y < -.3 ? 1 : 1));
       mb.ellipsoid(B['foot' + L], B['foot' + L], [an[0], .018, an[2] - .055], .05, .018, .128, hexLin(o.sole || '#e6e2da'), .9, 4, 12);
     }
@@ -198,7 +272,10 @@ var Heatline = globalThis.Heatline || {};
       for (const side of [-1, 1]) for (const fz of [-1, 1]) {
         for (let k = 0; k < 2; k++) {
           const x = side * (.150 * hw + .004 * k), z = fz * .075 + k * .008;
-          mb.limb(B.pelvis, side < 0 ? B.thighL : B.thighR, [x, .90, z], [x + side * .006, .60 - k * .04, z], t => [.0045, .0045], () => [.95, .93, .88], .9, 3, 5, false);
+          const thigh = side < 0 ? B.thighL : B.thighR;
+          mb.ellipsoid(B.pelvis, thigh, [x, .873 - k * .015, z], .0073, .009, .0073, [.88, .85, .80], .87, 3, 6, .8);
+          mb.limb(B.pelvis, thigh, [x, .89, z], [x + side * .012, .60 - k * .04, z - k * .018],
+            t => [.0050 - .0016 * t, .0050 - .0016 * t], t => t > .26 ? [.96, .94, .89] : [.83, .80, .76], .91, 5, 6, false);
         }
       }
     }
@@ -219,7 +296,13 @@ var Heatline = globalThis.Heatline || {};
       }
       if (side < 0) mb.limb(hb, hb, [wr[0], wr[1] + .025, wr[2]], [wr[0], wr[1] + .005, wr[2]], t => [.03, .03], () => hexLin(o.watch || '#c9c3b8'), .2, 2, 10, false);
       const an = jp('foot' + L);
-      mb.ellipsoid(B['foot' + L], B['foot' + L], [an[0], .04, an[2] - .15], .045, .03, .04, hexLin(o.sole || '#e6e2da'), .8, 4, 10);
+      const foot = B['foot' + L], tread = hexLin(o.sole || '#e6e2da');
+      mb.ellipsoid(foot, foot, [an[0], .04, an[2] - .15], .045, .03, .04, tread, .8, 4, 10);
+      for (let i = 0; i < 3; i++) {
+        const z = an[2] - .099 + i * .013, x = .022 + i * .003;
+        mb.limb(foot, foot, [an[0] - x, .097, z], [an[0] + x, .097, z + .004],
+          () => [.0025, .0025], () => tread, .88, 2, 5, false);
+      }
     }
     return { vertices: new Float32Array(mb.v), indices: new Uint16Array(mb.i) };
   }
@@ -323,6 +406,19 @@ var Heatline = globalThis.Heatline || {};
       R[B.armL][1] = 0; R[B.armL][2] += .04 * idle; R[B.armR][2] -= .04 * idle;
       R[B.foreL][0] += .12 * idle; R[B.foreR][0] += .12 * idle;
     }
+    // Follow the actual travel vector through side steps and turns. Stationary
+    // residents also settle onto one leg rather than running a shared idle.
+    const sideSpeed = ((a.vx || 0) * Math.cos(a.yaw || 0) - (a.vz || 0) * Math.sin(a.yaw || 0));
+    const sidestep = clamp(sideSpeed / Math.max(.7, speed), -.86, .86) * moving;
+    const stanceShift = idle * Math.sin(st.t * .26 + st.seed * 6.28);
+    R[B.pelvis][2] += .042 * stanceShift - sidestep * .064;
+    R[B.chest][2] -= .041 * stanceShift;
+    rootX += .028 * stanceShift;
+    for (const side of [-1, 1]) {
+      const L = side < 0 ? 'L' : 'R';
+      R[B['thigh' + L]][2] -= sidestep * .23 * (legs[side].stance ? .55 : 1);
+      R[B['hand' + L]][0] += -.16 * run * Math.cos(ph + (side < 0 ? 0 : Math.PI));
+    }
     // Airborne tuck and landing absorb.
     const ai = st.air;
     if (ai > .01) {
@@ -339,6 +435,25 @@ var Heatline = globalThis.Heatline || {};
       rootY -= .12 * k;
       for (const L of ['L', 'R']) { R[B['thigh' + L]][0] += .45 * k; R[B['shin' + L]][0] -= .8 * k; R[B['foot' + L]][0] += .35 * k; }
       R[B.spine][0] -= .2 * k;
+    }
+    // Glance toward a nearby disturbance and brace briefly before resuming the gait.
+    st.notice = (st.notice || 0) + ((a.city50Notice?.strength || 0) - (st.notice || 0)) * (1 - Math.exp(-dt * 9));
+    if (st.notice > .02 && a.city50Notice) {
+      const n = a.city50Notice, face = Math.atan2(a.x - n.x, a.z - n.z);
+      R[B.head][1] += clamp(H.angleDiff(a.yaw, face), -.52, .52) * st.notice;
+      R[B.chest][0] += -.12 * st.notice;
+      R[B.armL][2] += .25 * st.notice;
+      R[B.armR][2] -= .25 * st.notice;
+    }
+    const window = a.windowBrowse53;
+    if (window && !air && idle > .2) {
+      const target = Math.atan2(a.x - window.x, a.z - window.z);
+      const yaw = clamp(H.angleDiff(a.yaw, target), -.51, .51) * idle;
+      R[B.neck][1] += yaw * .39;
+      R[B.head][1] += yaw * .61;
+      R[B.head][0] -= (.08 + .03 * Math.sin(st.t * 2.2)) * idle;
+      R[B.armL][0] += .16 * idle;
+      R[B.foreL][0] += .32 * idle;
     }
     // Social poses for citizens.
     if (a.socialPose === 'photo' || (a.navActivity === 'phone' && a.pause > 0)) {
@@ -360,20 +475,20 @@ var Heatline = globalThis.Heatline || {};
     pose.rootY -= seat * .38;
     return seat;
   }
-  function boneMatrices(pose, world, out) {
-    const globals = new Array(NB);
+  const inverseBind = BONES.map(([, , [x, y, z]]) => M4.trs(-x, -y, -z, 0, 0, 0));
+  function boneMatrices(pose, world, out, globals, local) {
     for (let i = 0; i < NB; i++) {
-      const [name, parent, rest] = BONES[i];
+      const [, parent, rest] = BONES[i];
       const r = pose.R[i];
-      const pr = parent >= 0 ? BONES[parent][2] : [0, 0, 0];
-      const local = parent >= 0 ? M4.trs(rest[0] - pr[0], rest[1] - pr[1], rest[2] - pr[2], r[0], r[1], r[2])
-        : M4.trs(rest[0] + pose.rootX, rest[1] + pose.rootY, rest[2], r[0], r[1], r[2]);
-      globals[i] = parent >= 0 ? M4.mul(globals[parent], local) : M4.mul(world, local);
-      const invBind = M4.trs(-rest[0], -rest[1], -rest[2], 0, 0, 0);
-      out.set(M4.mul(globals[i], invBind), i * 16);
-      void name;
+      if (parent >= 0) {
+        const pr = BONES[parent][2];
+        M4.trs(rest[0] - pr[0], rest[1] - pr[1], rest[2] - pr[2], r[0], r[1], r[2], 1, local);
+      } else {
+        M4.trs(rest[0] + pose.rootX, rest[1] + pose.rootY, rest[2], r[0], r[1], r[2], 1, local);
+      }
+      M4.mul(parent >= 0 ? globals[parent] : world, local, globals[i]);
+      M4.mul(globals[i], inverseBind[i], out, i * 16);
     }
-    return out;
   }
 
   /* ================================================================== */
@@ -459,7 +574,12 @@ void main(){
     shoes: ['#1e1e22', '#e9e6e0', '#5a4434', '#2d3a4a', '#7a6a5a']
   };
   const HERO = { skin: '#c58c6c', shirt: '#2f5f93', jacketTrim: '#8aaecc', pants: '#343b46', shoes: '#26282c', sole: '#3a3a3c',
-    hair: '#241f1e', kippah: '#1c294a', tzitzit: true, backpack: '#5a3f30', iris: '#3d2f24', beard: false, shoulders: 1.06, hips: 1, bulk: 1.02 };
+    hair: '#241f1e', kippah: '#1c294a', tzitzit: true, backpack: '#5a3f30', iris: '#3d2f24', beard: false,
+    shoulders: 1.06, hips: 1, bulk: 1.02, face: 5 };
+  const HERO_CLOTHES = [HERO,
+    { ...HERO, shirt: '#8c765e', jacketTrim: '#c0aa8b', scarf: '#b6cdd0' },
+    { ...HERO, shirt: '#293b50', jacketTrim: '#8292a5', scarf: '#bdac83' }];
+  RC.character53 = { buildCharacter, heroOutfits: HERO_CLOTHES, bones: BONES.map(b => b[0]) };
 
   class CharacterRenderer {
     constructor(gl, hdr) {
@@ -471,11 +591,17 @@ void main(){
         ld: L('uLightData[0]'), lc: L('uLightRGB[0]'), ln: L('uLightCount') };
       this.sloc = { bones: gl.getUniformLocation(this.shadowProg, 'uBones'), vp: gl.getUniformLocation(this.shadowProg, 'uVP') };
       this.meshes = new Map();
-      this.boneBuf = new Float32Array(NB * 16);
+      this.meshLimit = 96;
+      this.boneLocal = new Float32Array(16);
+      this.boneGlobals = BONES.map(() => new Float32Array(16));
     }
     mesh(key, outfit) {
       let m = this.meshes.get(key);
-      if (m) return m;
+      if (m) {
+        this.meshes.delete(key);
+        this.meshes.set(key, m);
+        return m;
+      }
       const g = this.gl, data = buildCharacter(outfit);
       const vao = g.createVertexArray(), vb = g.createBuffer(), ib = g.createBuffer();
       g.bindVertexArray(vao);
@@ -488,21 +614,44 @@ void main(){
       for (let i = 4; i < 8; i++) g.disableVertexAttribArray(i);
       g.bindBuffer(g.ELEMENT_ARRAY_BUFFER, ib); g.bufferData(g.ELEMENT_ARRAY_BUFFER, data.indices, g.STATIC_DRAW);
       g.bindVertexArray(null);
-      m = { vao, count: data.indices.length, tris: data.indices.length / 3 };
+      m = { vao, vb, ib, count: data.indices.length, tris: data.indices.length / 3 };
       this.meshes.set(key, m);
-      if (this.meshes.size > 40) { const first = this.meshes.keys().next().value; if (first !== 'hero') this.meshes.delete(first); }
       return m;
     }
     prepare(items) {
       for (const it of items) {
+        if (it.meshRef) continue;
         it.meshRef = this.mesh(it.key, it.outfit);
-        boneMatrices(it.pose, it.world, it.bones || (it.bones = new Float32Array(NB * 16)));
+        it.bones ||= new Float32Array(NB * 16);
+        boneMatrices(it.pose, it.world, it.bones, this.boneGlobals, this.boneLocal);
       }
     }
-    draw(renderer, frame, items) {
-      if (!items.length) return;
+    trimMeshes(queued) {
+      if (this.meshes.size <= this.meshLimit) return;
+      // Keep every mesh used in the current frame, including shadow casters.
+      // A dense crowd can occupy more than the normal cache capacity.
+      const inUse = new Set(queued.filter(it => it.meshRef).map(it => it.key));
+      for (const [key, mesh] of this.meshes) {
+        if (key.startsWith('hero') || inUse.has(key)) continue;
+        this.gl.deleteVertexArray(mesh.vao);
+        this.gl.deleteBuffer(mesh.vb);
+        this.gl.deleteBuffer(mesh.ib);
+        this.meshes.delete(key);
+        if (this.meshes.size <= this.meshLimit) break;
+      }
+    }
+    draw(renderer, frame, queued) {
       const g = this.gl;
+      const vp = frame.viewProjection;
+      const planes = [];
+      for (let axis = 0; axis < 3; axis++) for (const side of [-1, 1]) {
+        const x = vp[3] + side * vp[axis], y = vp[7] + side * vp[4 + axis];
+        const z = vp[11] + side * vp[8 + axis], w = vp[15] + side * vp[12 + axis];
+        planes.push([x, y, z, w + 1.45 * Math.hypot(x, y, z)]);
+      }
+      const items = queued.filter(it => it.player || planes.every(([x, y, z, w]) => x * it.x + y * (it.y + .8) + z * it.z + w >= 0));
       this.prepare(items);
+      if (!items.length) { this.trimMeshes(queued); return; }
       g.useProgram(this.prog);
       RC.applyUniforms(g, this.prog);
       g.uniformMatrix4fv(this.loc.vp, false, frame.viewProjection);
@@ -523,6 +672,7 @@ void main(){
       }
       g.bindVertexArray(null);
       g.enable(g.CULL_FACE);
+      this.trimMeshes(queued);
     }
     drawShadow(matrix, items) {
       if (!items.length) return;
@@ -545,36 +695,73 @@ void main(){
   /*  Integration: replace rigid character parts with skinned actors     */
   /* ================================================================== */
   const queue = [];
+  const poseSlots = [];
   const animStates = new WeakMap();
-  let lastBuild = performance.now();
   RC.characterQueue = queue;
-  function outfitFor(w) {
+  function outfitFor(w, kippah) {
     const a = w.appearance >>> 0;
     const pick = (arr, shift) => arr[(a >>> shift) % arr.length];
     const female = ((a >>> 9) & 3) === 1;
     return {
-      key: 'c' + ((a >>> 2) % 36),
+      key: 'c' + a + ':' + (kippah ? w.style % 2 : '-'),
       outfit: { skin: pick(PAL.skin, 3), shirt: pick(PAL.shirt, 6), pants: pick(PAL.pants, 11), hair: pick(PAL.hair, 15), shoes: pick(PAL.shoes, 19),
         shoulders: female ? .9 : 1 + ((a >>> 23) % 3) * .04, hips: female ? 1.08 : .98, bulk: .94 + ((a >>> 25) % 4) * .045,
-        beard: !female && ((a >>> 27) % 4 === 0), kippah: H.stage32HasKippah?.(w, false) ? (w.style % 2 ? '#1b273b' : '#e4e2d7') : null,
-        tzitzit: false, shortSleeve: ((a >>> 28) % 3) === 0, iris: pick(['#3d2f24', '#4a6a7a', '#5a4a2a', '#2a2420'], 29) },
+        beard: !female && ((a >>> 27) % 4 === 0), kippah: kippah ? (w.style % 2 ? '#1b273b' : '#e4e2d7') : null,
+        face: (a >>> 5) & 15, tzitzit: false, shortSleeve: ((a >>> 28) % 3) === 0, iris: pick(['#3d2f24', '#4a6a7a', '#5a4a2a', '#2a2420'], 29) },
       scale: female ? .955 + ((a >>> 13) % 4) * .012 : .99 + ((a >>> 13) % 5) * .014
     };
   }
   function enqueue(w, player, seconds, entryTime) {
     const now = performance.now();
     let st = animStates.get(w);
-    if (!st) { st = {}; animStates.set(w, st); }
+    if (!st) {
+      const seed = (w.appearance >>> 0) % 101 / 101;
+      st = { t: seed * 19, phase: seed * Math.PI * 2, seed };
+      animStates.set(w, st);
+    }
     const dt = clamp((now - (st.lastMs || now - 16)) / 1000, 0, .1);
     st.lastMs = now;
     const pose = animate(w, st, dt);
-    // Talking: head and jaw-line nod with the speech loudness envelope.
-    const talk = RC.speechLoudness ? RC.speechLoudness(w) : 0;
-    if (talk > .02) { pose.R[B.head][0] += -.10 * talk * (.6 + .4 * Math.sin(st.t * 17)); pose.R[B.neck][0] += .04 * talk; pose.R[B.head][1] += .05 * Math.sin(st.t * 3.1) * talk; }
+    if (w.socialPose === 'sit' && !player && w.injuryState === 'walking') {
+      const R = pose.R;
+      pose.rootY = -.44;
+      pose.rootX = 0;
+      for (const L of ['L', 'R']) {
+        R[B['thigh' + L]] = [1.43, 0, 0];
+        R[B['shin' + L]] = [-1.45, 0, 0];
+        R[B['foot' + L]][0] = .02;
+        R[B['arm' + L]] = [.25, 0, L === 'L' ? -.16 : .16];
+        R[B['fore' + L]] = [.91, 0, 0];
+      }
+    }
+    const effort = w.injuryState === 'walking' ? RC.speechLoudness?.(w) || 0 : 0;
+    st.talk = H.lerp(st.talk || 0, effort, 1 - Math.exp(-dt * (effort > (st.talk || 0) ? 24 : 12)));
+    if (st.talk > .014) {
+      pose.R[B.jaw][0] = -.215 * st.talk;
+      pose.R[B.head][0] -= .034 * st.talk * Math.sin(st.t * 8);
+      pose.R[B.neck][0] += .028 * st.talk;
+    }
+    if (w.stadium53) H.stadium53?.skinPose(w, pose, B, seconds);
+    if (w.airport54Role) H.airport54Life?.skinPose(w, pose, B, seconds);
     seatOverlay(pose, entryTime);
     let key, outfit, scale;
-    if (player) { key = 'hero'; outfit = HERO; scale = 1.04; }
-    else ({ key, outfit, scale } = outfitFor(w));
+    if (player) {
+      const choice = HERO_CLOTHES[w.outfit460] ? w.outfit460 : 0;
+      key = choice ? 'hero:' + choice : 'hero';
+      outfit = HERO_CLOTHES[choice];
+      scale = 1.04;
+    } else if (w.stadium53?.look) {
+      ({ key, outfit, scale } = w.stadium53.look);
+    } else {
+      const kippah = H.stage32HasKippah?.(w, false);
+      if (!st.outfit || st.appearance !== w.appearance || st.style !== w.style || st.kippah !== kippah) {
+        st.outfit = outfitFor(w, kippah);
+        st.appearance = w.appearance;
+        st.style = w.style;
+        st.kippah = kippah;
+      }
+      ({ key, outfit, scale } = st.outfit);
+    }
     // Knocked down: tumble onto the back, lie on the ground, then get back up.
     let pitch = 0, lift = 0;
     if (w.injuryState === 'down') {
@@ -590,8 +777,11 @@ void main(){
       R[B.head] = [-.25 * d, .5 * d, 0]; R[B.spine] = [0, 0, 0]; R[B.chest] = [0, 0, 0];
       pose.rootY = 0; pose.rootX = 0;
     } else st.down = 0;
-    const world = M4.trs(w.x, (w.y || 0) + lift, w.z, pitch, w.yaw || 0, 0, scale);
-    queue.push({ key, outfit, pose, world, x: w.x, z: w.z, player });
+    const slot = poseSlots[queue.length] || (poseSlots[queue.length] = { world: new Float32Array(16), bones: null });
+    const y = w.y || 0;
+    M4.trs(w.x, y + lift, w.z, pitch, w.yaw || 0, 0, scale, slot.world);
+    Object.assign(slot, { key, outfit, pose, x: w.x, y, z: w.z, player, meshRef: null });
+    queue.push(slot);
   }
 
   RC.installers.push(function installCharacters(Game) {
@@ -600,15 +790,16 @@ void main(){
     if (typeof legacyPose !== 'function') return;
     H.streetCharacterPose32 = function realismCharacter(w, out, seconds, player = false, distance = 0, webgl = true, entryTime) {
       const r = RC.renderer;
-      if (webgl && r && r.rcCharacters && w && (w.injuryState === 'walking' || w.injuryState === 'down') && !w.swim445 &&
-        !(w.socialPose === 'sit' && !player) && (player || (distance < 46 && queue.length < 26))) {
+      const oldRange = w?.socialPose !== 'sit' && distance < 46 && queue.length < 26;
+      if (webgl && r?.rcCharacters && w && (w.injuryState === 'walking' || w.injuryState === 'down') && !w.swim445 &&
+        (player || H.quality51?.fixed || oldRange)) {
         enqueue(w, player, seconds, entryTime);
         return;
       }
       return legacyPose.call(this, w, out, seconds, player, distance, webgl, entryTime);
     };
     const build = Game.prototype.buildDynamic;
-    Game.prototype.buildDynamic = function () { queue.length = 0; lastBuild = performance.now(); return build.call(this); };
+    Game.prototype.buildDynamic = function () { queue.length = 0; return build.call(this); };
     const attach = Game.prototype.attachImportedModels441;
     Game.prototype.attachImportedModels441 = function () {
       const result = attach.call(this);
@@ -621,7 +812,6 @@ void main(){
     };
     RC.passes.opaque.push((renderer, frame) => { if (renderer.rcCharacters) renderer.rcCharacters.draw(renderer, frame, queue); });
     RC.passes.shadow.push((renderer, matrix) => { if (renderer.rcCharacters) renderer.rcCharacters.drawShadow(matrix, queue.filter(q => q.player || (q.x - (RC.frame.cam[0])) ** 2 + (q.z - RC.frame.cam[2]) ** 2 < 900)); });
-    void lastBuild;
   });
 
   /* ================================================================== */
@@ -676,21 +866,24 @@ void main(){
       if (has) {
         const angle = Math.atan2(hx * dz - hz * dx, hx * dx + hz * dz);
         if (Math.abs(angle) > 2.3 && speed > 3) speed = Math.max(0, speed - 22 * dt); // plant and pivot
-        const maxTurn = (speed < 1 ? 18 : 14 - speed * .55) * dt;
+        const maxTurn = (w.grounded === false ? 4.5 : speed < 2 ? 22 : 17 - speed * .73) * dt;
         const turn = clamp(angle, -maxTurn, maxTurn);
         const c = Math.cos(turn), sn = Math.sin(turn);
         const nhx = hx * c - hz * sn, nhz = hx * sn + hz * c; hx = nhx; hz = nhz;
-        const accel = speed < target ? (w.grounded === false ? 3.5 : 15 - speed * .65) : 16;
+        const accel = speed < target ? (w.grounded === false ? 3.5 : 21 - speed * .85) : 21;
         speed += clamp(target - speed, -accel * dt, accel * dt);
       } else {
-        speed = Math.max(0, speed - (w.grounded === false ? 1.5 : 14) * dt);
+        speed = Math.max(0, speed - (w.grounded === false ? 1.5 : 23) * dt);
       }
       st.vx = hx * speed; st.vz = hz * speed;
       // Feed the momentum velocity through the original collision/slope solver.
       const moving = speed > .02;
       const fwd = moving ? -st.vz / speed : 0, side = moving ? st.vx / speed : 0;
       const fast = speed > 7.5;
-      const legacyInput = { ...input, forward: fwd, strafe: side, run: fast, viewYaw: 0, speedFactor: clamp(speed / (fast ? 11.4 : 6.15), .25, 1.25) };
+      const base = fast ? 11.4 : 6.15;
+      const factor = clamp(speed / base, .25, 1.25);
+      const fraction = clamp(speed / (base * factor), 0, 1);
+      const legacyInput = { ...input, forward: fwd * fraction, strafe: side * fraction, run: fast, viewYaw: 0, speedFactor: factor };
       if (!moving) { legacyInput.forward = 0; legacyInput.strafe = 0; }
       const result = legacyStep.call(this, w, legacyInput, solids, dt, cars);
       // Respect collisions: if the solver stopped an axis, drop that momentum too.
@@ -823,15 +1016,18 @@ void main(){
     const h = dt / N;
     let braking = false, slipMax = 0;
     for (let k = 0; k < N; k++) {
-      const v = Math.hypot(s.vx, s.vy);
-      // Steering: rate limited, reduced lock at speed (speed-sensitive rack).
-      // GTA-style keyboard steering: the wheel ramps in progressively (slower at
-      // speed), returns quickly to centre, and the lock shrinks with speed.
-      const vfw = Math.max(0, Math.abs(s.vx));
-      const lock = .66 / (1 + vfw / 26);
-      const inRate = steerIn === 0 ? 5.5 : (Math.sign(steerIn) !== Math.sign(s.input || 0) && Math.abs(s.input || 0) > .05 ? 6 : 4.6 / (1 + vfw / 45));
-      s.input = (s.input || 0) + clamp(steerIn - (s.input || 0), -inRate * h, inRate * h);
-      s.steer += clamp(s.input * lock - s.steer, -4 * h, 4 * h);
+      // More wheel lock and quicker steering response through city corners.
+      // The extra response fades out smoothly at highway speeds.
+      const vfw = Math.abs(s.vx);
+      const citySpeed = 1 - clamp((vfw - 9) / 27, 0, 1);
+      const cityResponse = citySpeed * citySpeed * (3 - 2 * citySpeed);
+      const lock = (.66 + .22 * cityResponse) / (1 + vfw / 26);
+      const previous = s.input || 0;
+      const reversingSteer = Math.sign(steerIn) !== Math.sign(previous) && Math.abs(previous) > .05;
+      const inRate = (steerIn === 0 ? 5.5 : reversingSteer ? 6 : 4.6 / (1 + vfw / 45)) + 4.1 * cityResponse;
+      const wheelRate = 4 + 2.5 * cityResponse;
+      s.input = previous + clamp(steerIn - previous, -inRate * h, inRate * h);
+      s.steer += clamp(s.input * lock - s.steer, -wheelRate * h, wheelRate * h);
       const delta = s.steer + (c.steeringBias || 0) * .05;
       // Longitudinal load transfer.
       const Fzf = clamp(m * g * b / L - m * s.ax * hcg / L, m * g * .15, m * g * .85);
@@ -884,10 +1080,10 @@ void main(){
       // grip limit and lateral slip is damped, except on the handbrake (drift).
       if (!handbrake && dyn > 0) {
         const vabs = Math.max(Math.abs(s.vx), 1);
-        const rLimit = 1.6 * g * ground / vabs;   // arcade grip (~1.6 g) for sharp turns
+        const rLimit = (1.6 + .34 * cityResponse) * g * ground / vabs;
         const rTarget = clamp(rKin, -rLimit, rLimit);
-        s.r += (rTarget - s.r) * (1 - Math.exp(-h * 7.5));
-        if (Math.abs(s.r) > rLimit * 1.05) s.r = Math.sign(s.r) * rLimit * 1.05;   // never exceed tyre grip (~1 g)
+        s.r += (rTarget - s.r) * (1 - Math.exp(-h * (7.5 + 3.0 * cityResponse)));
+        if (Math.abs(s.r) > rLimit * 1.05) s.r = Math.sign(s.r) * rLimit * 1.05;
         s.vy *= Math.exp(-h * (throttle < 0 ? 8 : 6.5));   // kill sideways sliding
       }
       else if (handbrake && dyn > 0) {
@@ -909,7 +1105,7 @@ void main(){
       c.x += c.vx * h; c.z += c.vz * h;
     }
     c.yawRate = s.r;
-    c.steer = s.steer / .62;
+    c.steer = clamp(s.steer / .62, -1, 1);
     c.speed = Math.hypot(c.vx, c.vz);
     c.wheelSpin += s.vx / .43 * dt;
     if (Math.abs(c.wheelSpin) > Math.PI * 1000) c.wheelSpin %= H.TAU;
@@ -950,59 +1146,7 @@ void main(){
       }
       return update.call(this, dt);
     };
-    // One camera for foot AND car (same framing, FOV, smoothing and mouse-drag orbit):
-    // on foot the engine puts it 5.65 m behind / 3.66 m up with FOV 63; in the car we keep that
-    // exact look, scaled by the car's length, and add a gentle auto-follow behind the heading.
-    const orbit = { yaw: 0, pitch: 0, idle: 9, drag: false, lx: 0, ly: 0, bound: false };
-    const bindOrbit = game => {
-      if (orbit.bound || typeof document === 'undefined') return;
-      const canvas = document.querySelector('canvas');
-      if (!canvas) return;
-      orbit.bound = true;
-      canvas.addEventListener('pointerdown', e => {
-        if (e.button !== 0 || !game.inVehicle || game.paused || game.over) return;
-        orbit.drag = true; orbit.lx = e.clientX; orbit.ly = e.clientY; orbit.idle = 0;
-      });
-      window.addEventListener('pointermove', e => {
-        if (!orbit.drag || !game.inVehicle) return;
-        orbit.yaw = clamp(orbit.yaw - clamp(e.clientX - orbit.lx, -55, 55) * .0065, -Math.PI, Math.PI);
-        orbit.pitch = clamp(orbit.pitch + clamp(e.clientY - orbit.ly, -55, 55) * .0036, -.3, .5);
-        orbit.lx = e.clientX; orbit.ly = e.clientY; orbit.idle = 0;
-      });
-      const up = () => { orbit.drag = false; };
-      window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
-    };
-    const cam = Game.prototype.updateCamera;
-    Game.prototype.updateCamera = function (dt) {
-      cam.call(this, dt);
-      if (params.has('classicCamera') || !this.inVehicle || this.cameraMode !== 0 || this.vehicleEntry || this.inside || this.cameraTransfer) return;
-      bindOrbit(this);
-      const p = this.player, c = this.cam, st = this.rcChase || (this.rcChase = { heading: p.yaw, x: c.x, y: c.y, z: c.z });
-      dt = Math.min(dt, .05);
-      const sp = Math.hypot(p.vx, p.vz);
-      const travel = sp > 2.5 ? Math.atan2(-p.vx, -p.vz) : p.yaw;
-      const reversing = (p.vx * -Math.sin(p.yaw) + p.vz * -Math.cos(p.yaw)) < -1;
-      const target = reversing ? p.yaw : p.yaw + H.angleDiff(p.yaw, travel) * .55;
-      st.heading += H.angleDiff(st.heading, target) * (1 - Math.exp(-dt * (2.6 + sp * .025)));
-      // After a few quiet seconds the player's manual orbit eases back behind the car.
-      orbit.idle += dt;
-      if (!orbit.drag && orbit.idle > 2.2) { const r = Math.exp(-dt * 1.6); orbit.yaw *= r; orbit.pitch *= r; }
-      const h = st.heading + orbit.yaw, bx = Math.sin(h), bz = Math.cos(h);
-      const ground = H.deckGround443 ? H.deckGround443(p) : 0;
-      const dist = 9.0 + Math.min(2.2, sp * .026), height = 4.35 + Math.min(.9, sp * .011) + orbit.pitch * 5;
-      let dest = { x: p.x + bx * dist, y: ground + height, z: p.z + bz * dist };
-      const eye = { x: p.x, y: ground + 2.1, z: p.z };
-      const hit = this.cameraClearance ? this.cameraClearance(eye, dest, .58) : null;
-      if (hit && hit.blocked) dest = { x: hit.x, y: Math.max(hit.y, ground + 1.7), z: hit.z };
-      const k = 1 - Math.exp(-dt * 9);
-      st.x += (dest.x - st.x) * k; st.y += (dest.y - st.y) * k; st.z += (dest.z - st.z) * k;
-      const pitchKick = clamp((p.rcDyn?.ax || 0) * -.012, -.12, .12);
-      c.x = st.x; c.y = st.y + pitchKick; c.z = st.z;
-      c.tx = p.x - bx * 3.2; c.ty = ground + 1.45 - orbit.pitch * 2; c.tz = p.z - bz * 3.2;
-      const fovT = 63 + Math.min(9, sp * .1) + (this.is && this.is('ShiftLeft', 'ShiftRight') && sp > 25 ? 5 : 0);
-      c.fov += (fovT - c.fov) * (1 - Math.exp(-dt * 4));
-      if (sp > 25) { const sh = Math.min(1, (sp - 25) / 40) * .03; c.y += Math.sin(this.seconds * 37) * sh; c.x += Math.sin(this.seconds * 29) * sh; }
-    };
+
   });
   RC.installers.push(function installLuxuryTraffic(Game) {
     if (params.has('realismPhysicsOff')) return;

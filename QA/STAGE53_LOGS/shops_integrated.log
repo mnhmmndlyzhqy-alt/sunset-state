@@ -1,0 +1,13 @@
+✔ all 59 live storefronts receive readable names and clearance-safe geometry (16.940101ms)
+✔ existing E interaction opens all named shops and allows returning to the street (961.635715ms)
+✔ actual pedestrians browse a nearby display briefly and yield to panic (1.028644ms)
+✔ high-detail skin has normalized geometry, jaw weights and distinct hero clothes (176.959671ms)
+✔ game skin pipeline animates the jaw and actual clothing, preserving imported citizens and stadium poses (55.839827ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28143.22684

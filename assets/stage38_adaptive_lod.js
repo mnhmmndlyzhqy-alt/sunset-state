@@ -16,7 +16,7 @@ var Heatline=globalThis.Heatline||{};
    worldMutations:0,colliderMutations:0,saveChanges:0,byKind:{},
    theoreticalFarTrianglesBefore:0,theoreticalFarTrianglesAfter:0,
    nativeGpuVerified:false,fullHd50FpsVerified:false};
- function enabled(){return globalThis.__SUNSET_STAGE38_LOD_OFF!==true&&
+ function enabled(){return !H.quality51?.fixed&&globalThis.__SUNSET_STAGE38_LOD_OFF!==true&&
    !(typeof location!=='undefined'&&typeof URLSearchParams==='function'&&
      new URLSearchParams(location.search||'').get('stage38LodOff')==='1');}
  // Only surface-level assets; never touch interiors, buildings, special models,

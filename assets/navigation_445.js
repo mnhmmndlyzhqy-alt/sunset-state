@@ -67,6 +67,9 @@ var Heatline=globalThis.Heatline||{};
                 }
             }
             if(world.yard445){const {x,z,entranceZ}=world.yard445;add(point(x,entranceZ),point(x,z),'driveway');}
+            // The private island is a separate graph component; no road crosses open water.
+            for(const road of world.estate53?.roads||[])for(let i=1;i<road.length;i++)
+                add(point(road[i-1].x,road[i-1].z),point(road[i].x,road[i].z),'local');
             // Split real at-grade junctions. A crossing below a bridge keeps its own endpoints.
             for(let i=0;i<paths.length;i++){
                 const {a,b,cuts,kind}=paths[i];
@@ -261,7 +264,8 @@ var Heatline=globalThis.Heatline||{};
             let place=null,nearest=range;
             for(const m of this.places){const d=distance(m,p);if(d<nearest){nearest=d;place=m;}}
             if(place&&!p.story)p=place;
-            if(!Number.isFinite(p.x)||!Number.isFinite(p.z)||Math.abs(p.x)>H.WORLD_LIMIT||Math.abs(p.z)>H.WORLD_LIMIT||
+            if(!Number.isFinite(p.x)||!Number.isFinite(p.z)||((Math.abs(p.x)>H.WORLD_LIMIT||Math.abs(p.z)>H.WORLD_LIMIT)&&
+                  !H.estate53World?.walkable(p.x,p.z)&&!H.islands53?.walkExtension(p.x,p.z))||
                 !H.marinaWalk444(p.x,p.z)){
                 this.info.textContent='בחרו יעד על היבשה או בסמוך לכביש';return false;
             }
@@ -313,10 +317,17 @@ var Heatline=globalThis.Heatline||{};
         }
 
         overviewCenter(){
+            const B=H.estate53World?.mapBounds;if(B)return {x:(B.west+B.east)/2,z:(B.north+B.south)/2};
             const R=H.reference469;return R.world(R.width/2,R.height/2);
         }
         transform(canvas,mini,center=this.center){
             const c=mini?this.actor():center;
+            const B=H.estate53World?.mapBounds;
+            if(!mini&&B){
+                const scale=Math.min(canvas.width/(B.east-B.west+36),canvas.height/(B.south-B.north+36))*this.zoom;
+                const left=c.x-canvas.width/(2*scale),top=c.z-canvas.height/(2*scale);
+                return {scale,left,top,map:(x,z)=>[(x-left)*scale,(z-top)*scale],unmap:(x,z)=>point(left+x/scale,top+z/scale)};
+            }
             if(!mini&&this.aerial&&this.satellite.naturalWidth===H.reference469.width){
                 const R=H.reference469,[cx,cz]=R.pixels(c.x,c.z);
                 const raster=Math.min(canvas.width/(R.width+36),canvas.height/(R.height+26))*this.zoom;
@@ -334,11 +345,13 @@ var Heatline=globalThis.Heatline||{};
         }
         bake(aerial){
             const layer=document.createElement('canvas');layer.width=layer.height=2280;
-            const ctx=layer.getContext('2d'),offset=H.WORLD_LIMIT+100,scale=layer.width/(2*offset);
+            const B=H.estate53World?.mapBounds;
+            const ctx=layer.getContext('2d'),offset=(B?Math.max(Math.abs(B.west),Math.abs(B.east),Math.abs(B.north),Math.abs(B.south)):H.WORLD_LIMIT)+100,scale=layer.width/(2*offset);
             ctx.translate(offset*scale,offset*scale);ctx.scale(scale,scale);
             ctx.fillStyle='#17282d';ctx.fillRect(-offset,-offset,offset*2,offset*2);
             const w=this.world;
             H.paintCoastMap461(ctx,w,aerial);
+            H.estate53World?.paintMap(ctx,w,aerial);
             for(const [i,b] of w.buildings.entries()){
                 const x=b.x-b.w/2,z=b.z-b.d/2;
                 if(aerial){
@@ -380,10 +393,14 @@ var Heatline=globalThis.Heatline||{};
                 ctx.drawImage(layer,(-offset-left)*scale,(-offset-top)*scale,layer.width*scale/baseScale,layer.height*scale/baseScale);
             }
             const radio=this.game.policeRadio;
-            if(radio?.phase==='search'&&this.game.heat>0){
+            if((radio?.phase==='search'||radio?.phase==='approaching')&&this.game.heat>0){
                 const [x,z]=map(radio.lastKnownX,radio.lastKnownZ);
-                ctx.beginPath();ctx.arc(x,z,(38+this.game.heat*7)*scale,0,Math.PI*2);
-                ctx.fillStyle='#d9756747';ctx.fill();ctx.lineWidth=1.35;ctx.strokeStyle='#f1917c';ctx.setLineDash([3,4]);ctx.stroke();ctx.setLineDash([]);
+                const search=radio.phase==='search';
+                const radius=(search?29+this.game.heat*7+Math.min(24,radio.lostSeconds*.85):18+this.game.heat*5)*scale;
+                ctx.beginPath();ctx.arc(x,z,radius,0,Math.PI*2);
+                ctx.fillStyle=search?'#d9756745':'#f6ba5940';ctx.fill();
+                ctx.lineWidth=1.35;ctx.strokeStyle=search?'#f1917c':'#ffca7f';
+                ctx.setLineDash([3,4]);ctx.lineDashOffset=-this.game.seconds*4;ctx.stroke();ctx.setLineDash([]);ctx.lineDashOffset=0;
             }
             const pin=(p,label,fill,size)=>{
                 const [x,z]=map(p.x,p.z);if(x<-12||z<-12||x>w+12||z>h+12)return;
@@ -428,7 +445,8 @@ var Heatline=globalThis.Heatline||{};
             if(H.cityPlan463.showRail)for(const stop of H.RAIL_PLATFORMS||[])pin(stop,mini?'':'T','#b6b79c',mini?2.7:5);
             for(const stop of H.BUS_STOPS||[])pin(stop,mini?'B':'','#acd5b6',mini?4:3.4);
             if(mini){
-                for(const cops of this.game.police)pin(cops,'','#f47b70',2.7);
+                for(const cops of this.game.police)
+                    pin(cops,'',this.game.heat>0&&cops.pursuitRole==='intercept'?'#ffc977':'#f47b70',2.7);
                 for(const bus of this.game.buses)pin(bus,'','#a3d2ac',2.4);
                 const yard=this.world.yard445;
                 if(yard)for(const c of this.game.parked)

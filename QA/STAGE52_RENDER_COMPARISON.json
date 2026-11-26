@@ -1,0 +1,26 @@
+{
+  "candidate": {
+    "vaoBinds": 6225,
+    "bufferBinds": 185,
+    "uploads": 185,
+    "bytes": 15134400,
+    "attribEnables": 0,
+    "attribDivisors": 0,
+    "attribPointers": 58275,
+    "instancedDraws": 17235
+  },
+  "candidateSkinAllocations": 0,
+  "frames": 90,
+  "baseline": {
+    "vaoBinds": 460,
+    "bufferBinds": 18180,
+    "uploads": 6345,
+    "bytes": 15134400,
+    "attribEnables": 86175,
+    "attribPointers": 86175,
+    "attribDivisors": 86175,
+    "instancedDraws": 17235
+  },
+  "baselineSkinAllocations": 70000,
+  "kind": "Actual rendering methods with recording WebGL API; no GPU execution or pixels"
+}

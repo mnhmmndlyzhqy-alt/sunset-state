@@ -1,0 +1,14 @@
+✔ full-map bounds contain both territories and map/inverse transforms survive zoom and aerial mode (69.804022ms)
+✔ estate markers provide cross-water guidance while the road graph stays within the island (15.06883ms)
+✔ manual pilot map position follows the aircraft and keeps air-only guidance above the estate (1.106158ms)
+✔ autosave availability follows the actual slot and transitions defer writes (4.950312ms)
+✔ quota and denied storage preserve the last valid automatic save (2.627973ms)
+✔ checksum failure recovers the previous automatic save and invalid slots are hidden (106.616517ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28765.719966

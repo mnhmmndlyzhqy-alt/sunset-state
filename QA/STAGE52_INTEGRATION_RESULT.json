@@ -1,0 +1,178 @@
+{
+  "version": "52.0",
+  "kind": "Actual game logic with simulated DOM/render/audio devices",
+  "checks": [
+    {
+      "name": "Complete entrypoint scripts loaded in actual order",
+      "pass": true,
+      "detail": {
+        "scripts": 113
+      }
+    },
+    {
+      "name": "No installer/runtime errors during construction",
+      "pass": true,
+      "detail": {
+        "warnings": [
+          "Audio unavailable ReferenceError: AudioContext is not defined"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "name": "Fixed high model fidelity is default",
+      "pass": true
+    },
+    {
+      "name": "Street graph exactly matches supplied Stage 50",
+      "pass": true
+    },
+    {
+      "name": "Existing collision solids exactly match supplied Stage 50",
+      "pass": true
+    },
+    {
+      "name": "Entrances and active interior links exactly match Stage 50",
+      "pass": true
+    },
+    {
+      "name": "All 59 shops and 238 citizens retained",
+      "pass": true
+    },
+    {
+      "name": "Start remains on foot with flight available",
+      "pass": true
+    },
+    {
+      "name": "Unified foot camera remains finite",
+      "pass": true
+    },
+    {
+      "name": "Foot orbit changes view and remains finite",
+      "pass": true
+    },
+    {
+      "name": "Actual car draw keeps its near meshes at 260 metres",
+      "pass": true,
+      "detail": {
+        "near": 34,
+        "far": 34
+      }
+    },
+    {
+      "name": "Fixed car meshes are not faded by legacy LOD thresholds",
+      "pass": true
+    },
+    {
+      "name": "Manual aircraft preloads both high gear variants and waits for textures",
+      "pass": true
+    },
+    {
+      "name": "Actual wildlife selector retains manual high plane before quality override",
+      "pass": true
+    },
+    {
+      "name": "Distant crowd keeps dense skinned characters beyond old queue cap",
+      "pass": true,
+      "detail": {
+        "queued": 40
+      }
+    },
+    {
+      "name": "Original Stage 50 save imports in same schema",
+      "pass": true
+    },
+    {
+      "name": "Original wallet/missions load without losing progress",
+      "pass": true
+    },
+    {
+      "name": "Airport exposes a real boarding interaction",
+      "pass": true
+    },
+    {
+      "name": "Existing E interaction enters pilot mode",
+      "pass": true
+    },
+    {
+      "name": "Real Game update dispatch accelerates and takes off",
+      "pass": true,
+      "detail": {
+        "mode": "climb",
+        "speed": 57.5072778026365,
+        "y": 31.298910703881898
+      }
+    },
+    {
+      "name": "Flight camera follows the aircraft",
+      "pass": true
+    },
+    {
+      "name": "Exit is blocked while airborne",
+      "pass": true
+    },
+    {
+      "name": "Flight save keeps all progress at a safe boarding anchor",
+      "pass": true
+    },
+    {
+      "name": "Flight save resumes safely on foot and clears transient pilot",
+      "pass": true
+    },
+    {
+      "name": "Existing shop interior still opens",
+      "pass": true
+    },
+    {
+      "name": "Shop interior remains saveable",
+      "pass": true
+    },
+    {
+      "name": "Saved shop and wallet restore correctly",
+      "pass": true,
+      "detail": {
+        "shopLoad": {
+          "ok": true,
+          "mode": "retail",
+          "adjusted": false,
+          "transportFallback": false,
+          "racePaused": false,
+          "backup": false
+        },
+        "venue": 0,
+        "expectedVenue": 0,
+        "wallet": 1082,
+        "expectedWallet": 1082
+      }
+    },
+    {
+      "name": "Existing building entry remains functional",
+      "pass": true
+    },
+    {
+      "name": "Special interior camera preserved",
+      "pass": true
+    },
+    {
+      "name": "No unexpected integration warnings after gameplay/save cycles",
+      "pass": true,
+      "detail": {
+        "warnings": [
+          "Audio unavailable ReferenceError: AudioContext is not defined"
+        ],
+        "errors": []
+      }
+    }
+  ],
+  "passed": 30,
+  "total": 30,
+  "limitations": {
+    "liveBrowser": false,
+    "webglPixels": false,
+    "audioListening": false,
+    "native1080p50fpsVerified": false
+  },
+  "simulatedDeviceWarnings": [
+    "Audio unavailable ReferenceError: AudioContext is not defined"
+  ]
+}

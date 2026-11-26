@@ -1,0 +1,13 @@
+{
+  "version": "52.0",
+  "title": "City & Flight",
+  "date": "2026-11-26",
+  "cumulativeSource": "SUNSET_STATE_CITY_UPDATE.zip",
+  "sourceSha256": "03a5a1f1696ed1bb616d237a7157da130b68c9b1c630f3978f0919f7f64c00a7",
+  "previousRelease": "51.0",
+  "launch": "RUN_GAME_WINDOWS.bat",
+  "readme": "README_STAGE52_HE.md",
+  "validation": "QA/STAGE52_VALIDATION_REPORT_HE.md",
+  "browserVerified": false,
+  "gpuFpsVerified": false
+}

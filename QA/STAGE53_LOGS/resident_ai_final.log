@@ -1,0 +1,37 @@
+{
+  "passed": 20,
+  "originalResidentsWalking": 14,
+  "maxShopStepM": 0.075,
+  "metrics": {
+    "decisions": 81,
+    "spots": 13,
+    "slots": 30,
+    "blocked": 4,
+    "yields": 0,
+    "encounters": 2,
+    "visits": 16,
+    "recoveries": 1
+  },
+  "checks": [
+    "Resident AI is installed in the real city build",
+    "Existing city residents still progress through normal pedestrian updates",
+    "City shop has an actual free pedestrian approach segment",
+    "Personality and initial needs are stable for identical resident identity",
+    "Exposed resident state is a read-only snapshot",
+    "A local decision reserves a real shop slot using the existing StreetLife system",
+    "Shop job walks to its destination without snapping and emits one contextual voice event",
+    "Actual nearby conversation claims the same resident actor",
+    "A resident in active conversation holds location and pauses its visit timer",
+    "Closing the conversation returns control to the same ongoing shop task",
+    "The existing shop schedule ends a closed visit and frees its space",
+    "AI declines a venue separated by a local collision wall",
+    "Two neighbors briefly socialize in place and emit one greeting",
+    "Resident observes a blocked crossing and stays at the curb",
+    "Crossing resumes through the normal traffic-aware walker once clear",
+    "Actual danger interrupts ordinary behavior and emits panic only once",
+    "The same frightened actor returns from flee through recovery",
+    "Estate residents never receive city movement or tasks",
+    "Local spot and slot work obey fixed caps, including obstructed decisions",
+    "No unexpected integration warnings or JavaScript errors were recorded"
+  ]
+}

@@ -49,8 +49,10 @@ var Heatline=globalThis.Heatline||{};
     if(w.stage16GlassStats)return w.stage16GlassStats;
     if(off())return null;
     const glazing=w.boxes.filter(b=>b.stage08Part==='glass');
-    if(glazing.length!==1586||w.stage08FacadeStats?.windowBays!==1586||
-       w.city20DistrictBuildings?.length!==130)
+    // Stage53 junction repairs can change a safe facade orientation. Validate
+    // the live facade contract instead of freezing its historical pane count.
+    if(glazing.length<MAX||w.stage08FacadeStats?.windowBays!==glazing.length||
+       new Set(glazing.map(b=>b.stage08Owner)).size!==130||w.city20DistrictBuildings?.length!==130)
       throw Error('Stage16 unexpected Stage08 facade baseline');
     const before={boxes:w.boxes.length,roads:w.roads461.length,solids:w.solids.length,
       props:w.propSolids.length,portals:w.entrancePortals.length,panes:w.glassPanels.length,

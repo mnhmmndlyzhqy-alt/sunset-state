@@ -1,0 +1,13 @@
+✔ each existing lobby can be approached, entered and exited through its own opening (3111.32563ms)
+✔ façade sides cannot trigger entry, and an obstructed entrance will not start an exit (24.312085ms)
+✔ assisted exits hold movement and stop at a clear point if an exterior path becomes blocked (11.57757ms)
+✔ valid elevator stops exclude unreachable roofs and an upper-floor cabin survives saving (186.903207ms)
+✔ private house purchases generate walkable rooms with solid walls, usable ramps, and safe saves (1233.508736ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32625.068757

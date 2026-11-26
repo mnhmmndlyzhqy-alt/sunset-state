@@ -1,4 +1,8 @@
+> גרסה 54 המלאה: טרמינל שאפשר להיכנס אליו, נוסעים וצוות, לוח טיסות, תיקוני שמירה וכל שדרוגי האי והעיר. מדריך הפעלה ושליטה: [README_STAGE54_HE.md](README_STAGE54_HE.md).
+
 # SUNSET STATE
+
+**Living Airport & Your Island (Stage 54)** is the current release. For Windows launch instructions, Hebrew controls and the update notes, open [README_FIRST_HE.md](README_FIRST_HE.md). Detailed update notes: [README_STAGE54_HE.md](README_STAGE54_HE.md).
 
 Open-world browser game (WebGL2, no build step). Original content — inspired by modern open-world games, family-friendly.
 

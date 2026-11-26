@@ -1,0 +1,115 @@
+approach start {
+  x: 1235.7,
+  y: 105,
+  z: 305.6,
+  yaw: 1.982,
+  speed: 64.5,
+  note: 'המטוס חזר לנקודת ההמראה.',
+  mode: 'cruise',
+  airborne: true
+}
+approach {
+  x: 1235.7,
+  y: 105,
+  z: 305.6,
+  yaw: 1.982,
+  speed: 64.5,
+  note: 'המטוס חזר לנקודת ההמראה.',
+  mode: 'cruise',
+  airborne: true
+} -0.03037254337726809
+approach {
+  x: 1373.1,
+  y: 83.8,
+  z: 257.1,
+  yaw: 1.784,
+  speed: 53.58,
+  note: 'המטוס חזר לנקודת ההמראה.',
+  mode: 'cruise',
+  airborne: true
+} -10.46320966273167
+approach {
+  x: 1500.3,
+  y: 59.1,
+  z: 240.8,
+  yaw: 1.64,
+  speed: 50.94,
+  note: 'המטוס חזר לנקודת ההמראה.',
+  mode: 'cruise',
+  airborne: true
+} -9.682148957276135
+approach {
+  x: 1627.5,
+  y: 35,
+  z: 235.8,
+  yaw: 1.588,
+  speed: 51,
+  note: 'המטוס חזר לנקודת ההמראה.',
+  mode: 'approach',
+  airborne: true
+} -9.642238692683469
+approach {
+  x: 1754.9,
+  y: 13.2,
+  z: 233.9,
+  yaw: 1.578,
+  speed: 50.87,
+  note: 'המטוס חזר לנקודת ההמראה.',
+  mode: 'approach',
+  airborne: true
+} -5.20049705911898
+approach {
+  x: 1881.9,
+  y: 4.8,
+  z: 234.3,
+  yaw: 1.567,
+  speed: 50.41,
+  note: 'המטוס חזר לנקודת ההמראה.',
+  mode: 'approach',
+  airborne: true
+} -1.4905790767215743
+{
+  "passed": 38,
+  "ferryM": 2889,
+  "ferrySeconds": 77.7,
+  "checks": [
+    "Portable legacy save exists before the fleet is acquired",
+    "Grounded door boards the genuine airport airliner as a theft source",
+    "The airport cannot be used to stash an airliner",
+    "Stolen aircraft rotates on the city runway",
+    "Manual controls fly across the world bounds to an aligned estate approach",
+    "Landing director selects the private runway near the island",
+    "Manual aircraft touches down on the private runway without jumping between runways",
+    "Private runway rollout stops on pavement",
+    "Stolen aircraft taxis away from the estate runway to the hangar apron",
+    "Aircraft is stationary before storing it",
+    "Storing retains one actual aircraft and hides its airport source",
+    "Stored airliner can be boarded through its estate door",
+    "Stored airliner remains available after a grounded disembark",
+    "Estate has authored safe arrival coordinates and expanded navigable coast",
+    "Water route from an existing island avoids both shorelines",
+    "A public boat can be taken and steered independently",
+    "Manually steered boat actually crosses open water to the estate berth",
+    "Boat slows for safe storage",
+    "Boat storage retains its original paint and produces exactly one boat in the private berth",
+    "Stored boat leaves the private berth in manual control without a duplicate",
+    "Player enters an actual civilian car and acquires its theft identity",
+    "Mainland freight staging point is dry and reachable",
+    "A driver sees a car ferry option from the mainland marina",
+    "Freight passengers carry the original vehicle actor rather than creating a replacement",
+    "Ordinary in-transit car-ferry save preserves exact departure car and mode",
+    "Ferry physically crosses to estate with its route and car payload intact",
+    "Freight unload keeps the same stolen car, paint, class and destination",
+    "Player drives the carried vehicle along the estate road toward the parking bays",
+    "Baseline garage holds one physical slot",
+    "Storage does not acquire a car still moving",
+    "Stopped stolen car parks and retains physical damage, fuel and original appearance",
+    "Storage writes an automatic Stage19 save with all three types",
+    "Full three-class fleet is a valid manual save",
+    "Parked estate car returns to driver control without a second theft",
+    "Checked-out estate car saves its only copy in the assigned bay",
+    "Full-world reuse load reinstates one of each stored vehicle and a grounded safe anchor",
+    "Reload preserves all saved identities and condition without generating extra inventory",
+    "Pre-fleet legacy save removes later stored actors and unblocks the original airport source"
+  ]
+}

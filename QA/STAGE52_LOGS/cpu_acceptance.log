@@ -1,0 +1,20 @@
+PASS cell boundaries, negatives, radius edges, duplicates and stable actor order
+PASS local candidates keep the actual danger decision and first vehicle identity
+PASS crosswalk yielding keeps the actual rule at both city radii
+PASS 60 full actual Game steps preserve traffic, pedestrians, buses and outcomes
+PASS real city updates use fewer candidate visits without actor throttling
+PASS flight light follows aircraft and replaces the on-foot anchor light
+{
+  "passed": 6,
+  "stepsCompared": 60,
+  "scenarios": "seeded downtown simulation; exact actor state comparison every ten steps",
+  "stats": {
+    "builds": 120,
+    "queries": 4775,
+    "fullScanCandidates": 912880,
+    "bucketCandidates": 14062,
+    "returned": 5916
+  },
+  "candidateVisitReductionPct": 98.46,
+  "gpu": false
+}

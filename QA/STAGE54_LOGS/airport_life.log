@@ -1,0 +1,39 @@
+{
+  "actorPool": 63,
+  "boardRows": 4,
+  "localSeconds": 658.5900000000418,
+  "maxStep": 0.13024000000003833,
+  "latestBoarded": 8,
+  "steps": 8233,
+  "moves": 111492,
+  "waves": 35,
+  "yielded": 247,
+  "completed": {
+    "check-in": 44,
+    "screening": 53,
+    "gate": 34
+  },
+  "activities": {
+    "gate-queue": 38,
+    "seated": 73,
+    "check-in": 51,
+    "screening": 57,
+    "cafe": 10,
+    "claim": 4,
+    "arriving": 39,
+    "gate": 2,
+    "information": 1,
+    "leaving": 3,
+    "boarding": 34,
+    "lounge": 88,
+    "waiting": 27,
+    "offstage": 36
+  },
+  "boarded": 33,
+  "recycled": 36,
+  "voice": 1,
+  "drawn": 20,
+  "props": 67,
+  "verified": "Game update, selected skinned poses, queue order, seats, board phases, recycling, chat hold, limits, restart",
+  "browser": false
+}

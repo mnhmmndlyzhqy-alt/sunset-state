@@ -84,7 +84,6 @@ var Heatline=globalThis.Heatline||{};
             const host=g.pedestrians.find(w=>w.storyContact445===speaker);
             if(host)host.storyTalk445=g.seconds+4.7;
             g.audio445.subtitle(speaker,line);
-            try{localStorage.setItem('sunset_story445',String(this.step));}catch{}
             if(this.step===5){
                 H.awardCredits(g.profile,380);g.saveProfile();
                 g.rewardFlash=.95;g.showInfo('קו המים הושלם · 380 קרדיטים',6);
@@ -109,7 +108,8 @@ var Heatline=globalThis.Heatline||{};
     H.canSwim445=(x,z)=>x>-1176&&x<-948&&z>450&&z<857&&H.openSea444(x,z)&&!H.marinaWalk444(x,z);
     H.startSwimming445=g=>{
         const a=g.avatar;
-        a.swim445={depth:0,air:30,stroke:0,hudAt:0};a.grounded=false;a.support=null;
+        a.swim445={depth:0,vertical:0,air:30,stroke:0,hudAt:0,wake:[],nextWake:0};a.grounded=false;a.support=null;
+        a.rcLoco=null;
         a.vy=0;a.deck443=false;g.armed=false;
     };
     H.stepSwim445=(g,gas,strafe,dt)=>{
@@ -122,32 +122,42 @@ var Heatline=globalThis.Heatline||{};
         const solid=g.world.nearby(x,z).some(p=>Math.abs(p.x-x)<p.hw+.39&&Math.abs(p.z-z)<p.hd+.39);
         if(!solid){
             if(H.canSwim445(x,z)){a.x=x;a.z=z;}
-            else if(H.marinaWalk444(x,z)&&s.depth<.37){
+            else if(H.marinaWalk444(x,z)&&s.depth<.37&&H.outdoorHeight(x,z)<1.25){
                 a.x=x;a.z=z;a.y=H.outdoorHeight(x,z);a.vx=a.vz=a.vy=0;a.grounded=true;a.swim445=null;
-                byId('underwater445').classList.remove('active');return;
+                a.rcLoco=null;byId('underwater445').classList.remove('active');return;
             }else{a.vx*=.79;a.vz*=.79;}
         }
         const speed=Math.hypot(a.vx,a.vz);
         if(speed>.22)a.yaw+=H.angleDiff(a.yaw,Math.atan2(-a.vx,-a.vz))*(1-Math.exp(-dt*7));
         s.stroke+=dt*(1.28+speed*1.23);a.stride=H.clamp(speed/2.7,.21,1);a.phase=s.stroke;
         const dive=g.is('ShiftLeft','ShiftRight')&&s.air>1,up=g.is('Space')||s.air<.9;
-        if(dive&&!up)s.depth=Math.min(3.05,s.depth+dt*1.65);
-        else if(up)s.depth=Math.max(0,s.depth-dt*2.15);
+        if(s.air<.9)s.recovering=true;
+        if(s.depth<=.20&&s.air>5)s.recovering=false;
+        s.vertical=H.lerp(s.vertical||0,up||s.recovering?-2.25:dive?1.58:0,1-Math.exp(-dt*8));
+        s.depth=H.clamp(s.depth+s.vertical*dt,0,3.05);
         s.air=H.clamp(s.air+dt*(s.depth>.61?-1:7),0,30);
-        a.y=-s.depth-.31+Math.sin(s.stroke*1.31)*.047;
-        const underwater=s.depth>.52;
-        byId('underwater445').classList.toggle('active',underwater);
+        const swell=Math.sin(a.x*.12+a.z*.08-g.seconds*1.6)*.055;
+        a.y=-s.depth-.31+(swell+Math.sin(s.stroke*1.31)*.036)*Math.max(0,1-s.depth);
+        const wake=s.wake||(s.wake=[]);
+        while(wake.length&&wake[0].at<g.seconds-1.25)wake.shift();
+        if(s.depth<.32&&speed>1.15&&g.seconds>=(s.nextWake||0)){
+            s.nextWake=g.seconds+.12;
+            wake.push({x:a.x-a.vx*.28,z:a.z-a.vz*.28,yaw:a.yaw,at:g.seconds});
+        }
         if(g.seconds>s.hudAt){s.hudAt=g.seconds+.19;g.updateHUD();}
     };
     H.cameraSwim445=(g,dt)=>{
         const a=g.avatar,s=a.swim445,rx=Math.sin(g.footCameraYaw),rz=Math.cos(g.footCameraYaw),deep=s.depth>.55;
-        g.cam.underwater445=deep;
-        const eye={x:a.x,y:deep?a.y-.05:.64,z:a.z},goal={x:a.x+rx*4.4,y:deep?a.y+.12:2.10,z:a.z+rz*4.4};
+        const diveBlend=H.clamp((s.depth-.30)/.68,0,1);
+        const eye={x:a.x,y:H.lerp(.64,a.y-.05,diveBlend),z:a.z};
+        const goal={x:a.x+rx*4.4,y:H.lerp(2.10,a.y+.19,diveBlend),z:a.z+rz*4.4};
         const hit=g.cameraClearance(eye,goal,.20),f=1-Math.exp(-dt*7);
         g.cam.x=H.lerp(g.cam.x,hit.x,f);g.cam.y=H.lerp(g.cam.y,hit.y,f);g.cam.z=H.lerp(g.cam.z,hit.z,f);
         g.cam.tx=H.lerp(g.cam.tx,a.x-rx*1.6,f);g.cam.tz=H.lerp(g.cam.tz,a.z-rz*1.6,f);
         g.cam.ty=H.lerp(g.cam.ty,deep?a.y-.12:.05,f);
         g.cam.fov=H.lerp(g.cam.fov,deep?72:65,f);
+        g.cam.underwater445=g.cam.underwater445?g.cam.y<.06:g.cam.y<-.10;
+        byId('underwater445').classList.toggle('active',g.cam.underwater445);
     };
     H.swimmerPose445=(a,out,t,gl)=>{
         const swimmer=a.swim445,begin=out.length,yaw=-a.yaw,c=Math.cos(yaw),s=Math.sin(yaw);

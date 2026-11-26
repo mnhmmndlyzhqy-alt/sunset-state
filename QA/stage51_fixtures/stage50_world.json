@@ -1,0 +1,22 @@
+{
+  "kind": "Stage 50 all classic scripts + real Game; simulated DOM/render surface",
+  "scripts": 104,
+  "world": {
+    "roads": "101576cbc67ba48fb2c7b3700c71a803f9af0611a2c2584cc15c77d4a7827c94",
+    "solids": "95972b5f09eecd56f0cb52cb702b2ed9aeb24a7f1b68fcca17d6011431473a98",
+    "portals": "d82b440b8cf72af8ae2b31f14724e8616246b565059327b40cd0161eff0800ba",
+    "count": {
+      "roads": 52,
+      "solids": 4595,
+      "propSolids": 796,
+      "portals": 429,
+      "activePortals": 214,
+      "shops": 59,
+      "buildings": 84,
+      "people": 238
+    }
+  },
+  "saveSchema": 19,
+  "warnings": [],
+  "errors": []
+}

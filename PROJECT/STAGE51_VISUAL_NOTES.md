@@ -1,0 +1,11 @@
+# Stage 51 camera and model detail
+
+The on-foot and in-car chase views share drag to orbit, eased framing and wall clearance. The camera retracts as soon as the swept boom meets an obstacle and eases outward after it clears. On foot, drag sets the movement-relative view. The car retains speed-based framing, recentering, the wide view, the hood view and the overhead view. `C` rotates the view on foot and cycles the driving views. Hold `B` to look behind on foot or `Q` while driving. Vehicle entry, transit, interiors, swimming, boats, rooftop helicopters, prison and the player-piloted airplane keep their dedicated camera paths.
+
+The default uses the detailed WebGL2 character rigs and authored mesh variants throughout their visibility ranges. Common character outfits and the hero's kippah and tzitzit use the skinned mesh. Distant or crowded pedestrians retain their high-detail rigs, and seated pedestrians have a seated skeletal pose. The renderer keeps active outfits in the GPU cache, including in crowds that exceed the usual capacity. Buildings and scenery still use frustum and distance culling. Details too small to resolve may be culled. Skyline mass and far horizons continue to use the established whole-city geometry.
+
+Use `?adaptiveQuality=1` on the game page to opt into the earlier model detail thresholds and count limits. With an existing query string, append `&adaptiveQuality=1`. F4 controls render resolution independently. Native Full HD mode requests at least 1920×1080 internal pixels where the graphics limit and screen aspect allow. Inspect the active mesh profile with `Heatline.realism39.fidelity51.mode` and the measured resolution in the F3 diagnostics.
+
+Imported wildlife and aircraft use the existing loading fallback until the authored geometry and textures become available. High-detail geometry raises the GPU load, especially near traffic, large crowds, and wildlife habitats. Canvas fallback continues to use its own geometry and cannot display the WebGL2 rigs. The CPU and mock GL acceptance checks did not measure FPS on the Intel UHD 730.
+
+Run `node QA/stage51_visual_acceptance.cjs` for camera input, handoffs, obstruction and smoothing, skin selection and cache reuse, wildlife asset selection, and native/adaptive pixel sizing.

@@ -1,0 +1,1 @@
+Shader audit: 27 shaders (16 fragment); 0 nonconstant/unresolved loops; 8 expensive calls in loops. Report: QA/SHADER_AUDIT_REPORT.md

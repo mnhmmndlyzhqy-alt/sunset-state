@@ -1,0 +1,13 @@
+✔ original surveyed anchors remain and 56 plotted junctions share their elevation (3.61916ms)
+✔ known north ring underpass retains separate drive heights and collision levels (0.6621ms)
+✔ curbs and parapets open on the real junction while intact rails still return a car (1.990778ms)
+✔ a true car and pedestrian can travel across the connector on the existing physics route (491.038634ms)
+✔ live facade validation preserves the complete selectable glazing system (23.901819ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29095.67558

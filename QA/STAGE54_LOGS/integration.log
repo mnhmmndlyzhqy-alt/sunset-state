@@ -1,0 +1,60 @@
+✔ estate and public-island speakers share real Game speech, priorities and mute (707.727611ms)
+{
+  "passed": 9,
+  "checks": [
+    "Both terminal modules precede services in the actual entry point",
+    "All service desks have reachable, correctly elevated interaction points",
+    "E opens a live airport board before boarding or a nearby conversation",
+    "Airport boards close on pause, map, focus loss and leaving their desk",
+    "Terminal waypoints retain their selected gate and follow walkable interior routes",
+    "Passengers speak about their real name, flight, destination and current task",
+    "Airport chats cannot continue through walls, different levels or transport transitions",
+    "Walking into the terminal never teleports into a plane, while original aircraft doors work",
+    "A terminal save restores the player on the interior floor without an open dialog"
+  ],
+  "airport": {
+    "seats": 148,
+    "queues": 10,
+    "passengers": 50
+  },
+  "browser": false,
+  "gpu": false,
+  "audioPlayback": false
+}
+✔ QA/stage54_airport_integration.cjs (21799.220467ms)
+{
+  "area": {
+    "width": 225.21327014218014,
+    "depth": 58.52713178294573
+  },
+  "pieces": 1267,
+  "wallPieces": 48,
+  "cameraWalls": 54,
+  "routeNodes": 349,
+  "piecesInWorld": 1267,
+  "seats": 148,
+  "queues": 10,
+  "staff": 13,
+  "lights": 29,
+  "signs": 20,
+  "aircraft": 5,
+  "tested": [
+    "real walker entry and exit",
+    "two-way apron doors",
+    "seating and queue routes",
+    "camera collision",
+    "lighting budget"
+  ]
+}
+✔ QA/stage54_airport_world.cjs (27361.124665ms)
+✔ an old service refusal stays on record with its original cause after upgrades, a different lease and reload (815.652054ms)
+✔ rent paid during a building entry is checkpointed when the transition clears (190.267166ms)
+✔ loading a stolen car keeps one copy and an earlier save reinstates its original parking spot (133.188153ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 107803.933413

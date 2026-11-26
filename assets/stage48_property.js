@@ -40,7 +40,26 @@
 
   const load = () => { try { const v = JSON.parse(localStorage.getItem(KEY) || 'null'); if (v && v.schema === 48) return v; } catch { } return { schema: 48, islands: {}, cars: [] }; };
   const S = RC.property = load();
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch { } };
+  const snapshot = () => JSON.parse(JSON.stringify(S));
+  function restore(data) {
+    if (data?.schema !== 48) return false;
+    const islands = {}, cars = [];
+    for (const island of ISLANDS) {
+      const saved = data.islands?.[island.id];
+      if (!saved) continue;
+      const houses = Array.isArray(saved.houses) ? saved.houses.filter(h => h && Number.isInteger(h.plot) &&
+        h.plot >= 0 && h.plot < island.max && Object.hasOwn(HOUSES, h.type)).slice(0, island.max) : [];
+      islands[island.id] = { houses: houses.map(h => ({ plot: h.plot, type: h.type })) };
+    }
+    if (Array.isArray(data.cars)) for (const car of data.cars.slice(0, 6)) {
+      if (car && CARS.some(spec => spec.cls === car.cls))
+        cars.push({ cls: car.cls, paint: Number.isInteger(car.paint) ? H.clamp(car.paint, 0, 6) : 0 });
+    }
+    const changed = JSON.stringify(S.islands) !== JSON.stringify(islands);
+    S.islands = islands;
+    S.cars = cars;
+    return changed;
+  }
 
   // ---------- island plots from the coastal land mask ----------
   let mask = null;
@@ -96,6 +115,7 @@
     return { out, solids, add, palm, ground, flush };
   }
   function buildHouse(w, p, type, seed) {
+    if (H.buildings52?.buildHouse(w, p, type, seed)) return;
     const E = emitter(w), { add, palm } = E, y = E.ground(p.x, p.z), x = p.x, z = p.z;
     const walls = ['#f4ead8', '#efe2c8', '#f7f3ec', '#e9d6bb'][seed % 4];
     const accent = ['#2f8fa8', '#c0603a', '#3f7d58', '#8a5fa8'][seed % 4];
@@ -145,6 +165,7 @@
     E.flush();
   }
   function buildIslandBase(w, isl) {
+    if (H.islands53?.ownedBase(w, isl)) return;
     const E = emitter(w), a = { x: isl.arrival.x + 6, z: isl.arrival.z - 4 }, y = E.ground(a.x, a.z);
     E.add(a.x, y + 3, a.z, .14, 6, .14, '#dcdcdc', 'metal', 3);
     E.add(a.x + .75, y + 5.5, a.z, 1.4, .9, .04, '#2f8fa8', 'fabric', 5, .5);
@@ -307,7 +328,7 @@
     else if (a === 'buyIsland') {
       const i = ISLANDS.find(i => i.id === v);
       if (i && !S.islands[i.id] && pay(g, i.price)) {
-        S.islands[i.id] = { houses: [] }; save();
+        S.islands[i.id] = { houses: [] };
         plotsFor(w, i); buildIslandBase(w, i);
         g.rewardFlash = 1; g.showInfo('🏝 ' + i.name + ' שלך! בנה עליו בתים בלשונית "בתים"', 5);
       }
@@ -315,7 +336,7 @@
       const [id, type] = v.split(':'), i = ISLANDS.find(i => i.id === id), own = S.islands[id], t = HOUSES[type];
       const plots = i && plotsFor(w, i), n = own ? own.houses.length : 99;
       if (i && own && t && n < Math.min(i.max, plots.length) && pay(g, t.price)) {
-        own.houses.push({ plot: n, type }); save();
+        own.houses.push({ plot: n, type });
         buildHouse(w, plots[n], type, n + i.price);
         g.rewardFlash = 1; g.showInfo(t.icon + ' ' + t.name + ' נבנתה ב' + i.name + ' · +' + t.rent + ' שכירות', 5);
       }
@@ -323,7 +344,7 @@
       const c = CARS.find(c => c.cls === v);
       if (c && S.cars.length < 6 && pay(g, c.price)) {
         const spec = { cls: c.cls, paint: (Math.random() * 7) | 0 };
-        S.cars.push(spec); save();
+        S.cars.push(spec);
         placeCar(g, spec, S.cars.length - 1);
         g.rewardFlash = 1; g.showInfo('🚗 ' + c.name + ' חדשה מחכה לך במגרש של אולם הרכב', 5);
       }
@@ -383,8 +404,9 @@
           const risk = Math.min(.8, .3 + witnesses * .12);
           if (Math.random() < risk) {
             const cls = H.carClass(car), fine = cls === 'luxury' || cls === 'sport' ? 650 : 350;
+            const residents = this.pedestrians;
             setTimeout(() => {
-              if (!this.running) return;
+              if (!this.running || this.pedestrians !== residents) return;
               const paid = Math.min(fine, Math.max(0, this.profile.credits));
               this.profile.credits -= paid; this.saveProfile && this.saveProfile(); this.updateHUD && this.updateHUD();
               this.showInfo((witnesses ? '📱 עד דיווח' : '📸 מצלמת תנועה זיהתה') + ' על גניבת רכב · קנס ' + paid + ' קרדיטים', 5);
@@ -409,7 +431,7 @@
         prompt.hidden = !near || !panel.hidden;
         if (near) prompt.textContent = at.office ? '🏢 SUNSET ESTATES · נדל״ן ואיים · Enter' : at.dealer ? '🚗 קניית רכב חדש · Enter' : '🏝 האי שלך · בנייה ונסיעה · Enter';
         if (!panel.hidden && !near) closePanel();
-        tickLift(this);
+        if (!document.body.classList.contains('elevator-city50')) tickLift(this);
         if (!this.paused && rentTotal() > 0) {
           rentClock += dt;
           if (rentClock >= RENT_EVERY) {
@@ -430,5 +452,5 @@
       else if (/^Digit[0-9]$/.test(e.code) && liftPanel && !liftPanel.hidden) { e.preventDefault(); e.stopImmediatePropagation(); liftTo(g, +e.code.slice(5)); }
     }, true);
   });
-  RC.property48 = { ISLANDS, HOUSES, CARS, state: S, open: () => openPanel(game()), act: (a, v) => act(game(), a, v), plotsFor };
+  RC.property48 = { ISLANDS, HOUSES, CARS, state: S, snapshot, restore, open: () => openPanel(game()), act: (a, v) => act(game(), a, v), plotsFor, setupWorld };
 })(Heatline);

@@ -1,0 +1,590 @@
+{
+  "kind": "Sequential Node CPU simulation, dynamic geometry and light selection; not FPS and no GPU",
+  "samplesPerScene": 36,
+  "warmupFramesPerScene": 30,
+  "seed": 520126,
+  "baseline": {
+    "kind": "Node.js CPU simulation and geometry preparation; not FPS",
+    "seed": 520126,
+    "samplesPerScene": 36,
+    "sourceScripts": 108,
+    "node": "v24.22.3",
+    "hardwareClaim": false,
+    "webgl": false,
+    "results": [
+      {
+        "name": "downtown_on_foot",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          2306,
+          2306
+        ],
+        "characters": [
+          29,
+          29
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 14.6185,
+            "p95Ms": 54.4278,
+            "meanMs": 19.7833
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 5.6606,
+            "p95Ms": 11.9048,
+            "meanMs": 6.2646
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0316,
+            "p95Ms": 0.057,
+            "meanMs": 0.0481
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 21.3544,
+            "p95Ms": 61.215,
+            "meanMs": 26.096
+          }
+        },
+        "components": {
+          "world.nearby": {
+            "calls": 1700,
+            "totalMs": 7.621,
+            "perFrameMs": 0.212
+          },
+          "world.nearbyLobbyDoors443": {
+            "calls": 72,
+            "totalMs": 1.033,
+            "perFrameMs": 0.029
+          },
+          "updatePedestrians": {
+            "calls": 36,
+            "totalMs": 202.84,
+            "perFrameMs": 5.634
+          },
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 4.328,
+            "perFrameMs": 0.12
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.021,
+            "perFrameMs": 0.001
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 5.874,
+            "perFrameMs": 0.163
+          }
+        }
+      },
+      {
+        "name": "street_driver",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          2015,
+          2015
+        ],
+        "characters": [
+          27,
+          27
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 14.7396,
+            "p95Ms": 58.643,
+            "meanMs": 20.7738
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 5.8728,
+            "p95Ms": 8.6747,
+            "meanMs": 6.4
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0488,
+            "p95Ms": 0.0898,
+            "meanMs": 0.0636
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 20.4837,
+            "p95Ms": 67.3738,
+            "meanMs": 27.2375
+          }
+        },
+        "components": {
+          "world.nearby": {
+            "calls": 1707,
+            "totalMs": 3.596,
+            "perFrameMs": 0.1
+          },
+          "updatePedestrians": {
+            "calls": 36,
+            "totalMs": 189.829,
+            "perFrameMs": 5.273
+          },
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 3.971,
+            "perFrameMs": 0.11
+          },
+          "world.nearbyLobbyDoors443": {
+            "calls": 36,
+            "totalMs": 0.786,
+            "perFrameMs": 0.022
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.028,
+            "perFrameMs": 0.001
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 4.329,
+            "perFrameMs": 0.12
+          }
+        }
+      },
+      {
+        "name": "airport_flight",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          300,
+          300
+        ],
+        "characters": [
+          0,
+          0
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 16.0207,
+            "p95Ms": 23.111,
+            "meanMs": 16.0767
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 0.8449,
+            "p95Ms": 1.8238,
+            "meanMs": 0.9621
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0393,
+            "p95Ms": 0.076,
+            "meanMs": 0.0428
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 16.7516,
+            "p95Ms": 24.3133,
+            "meanMs": 17.0817
+          }
+        },
+        "components": {
+          "world.nearby": {
+            "calls": 1014,
+            "totalMs": 1.838,
+            "perFrameMs": 0.051
+          },
+          "updatePedestrians": {
+            "calls": 36,
+            "totalMs": 26.966,
+            "perFrameMs": 0.749
+          },
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 3.697,
+            "perFrameMs": 0.103
+          },
+          "world.nearbyLobbyDoors443": {
+            "calls": 36,
+            "totalMs": 0.756,
+            "perFrameMs": 0.021
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.009,
+            "perFrameMs": 0
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 4.208,
+            "perFrameMs": 0.117
+          }
+        }
+      },
+      {
+        "name": "existing_lobby",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          128,
+          128
+        ],
+        "characters": [
+          1,
+          1
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 0.9801,
+            "p95Ms": 2.0655,
+            "meanMs": 1.1204
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 0.1091,
+            "p95Ms": 0.2229,
+            "meanMs": 0.125
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0445,
+            "p95Ms": 0.0728,
+            "meanMs": 0.0556
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 1.1569,
+            "p95Ms": 2.2297,
+            "meanMs": 1.301
+          }
+        },
+        "components": {
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 2.694,
+            "perFrameMs": 0.075
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.013,
+            "perFrameMs": 0
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 2.9,
+            "perFrameMs": 0.081
+          }
+        }
+      }
+    ]
+  },
+  "candidate": {
+    "kind": "Node.js CPU simulation and geometry preparation; not FPS",
+    "seed": 520126,
+    "samplesPerScene": 36,
+    "sourceScripts": 113,
+    "node": "v24.22.3",
+    "hardwareClaim": false,
+    "webgl": false,
+    "results": [
+      {
+        "name": "downtown_on_foot",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          2306,
+          2306
+        ],
+        "characters": [
+          29,
+          29
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 12.0356,
+            "p95Ms": 38.7723,
+            "meanMs": 15.0078
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 6.769,
+            "p95Ms": 9.2436,
+            "meanMs": 7.2316
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0287,
+            "p95Ms": 0.0432,
+            "meanMs": 0.0323
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 20.8042,
+            "p95Ms": 45.8136,
+            "meanMs": 22.2717
+          }
+        },
+        "components": {
+          "world.nearby": {
+            "calls": 1700,
+            "totalMs": 2.905,
+            "perFrameMs": 0.081
+          },
+          "world.nearbyLobbyDoors443": {
+            "calls": 72,
+            "totalMs": 1.013,
+            "perFrameMs": 0.028
+          },
+          "updatePedestrians": {
+            "calls": 36,
+            "totalMs": 130.83,
+            "perFrameMs": 3.634
+          },
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 3.534,
+            "perFrameMs": 0.098
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.013,
+            "perFrameMs": 0
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 5.598,
+            "perFrameMs": 0.156
+          }
+        }
+      },
+      {
+        "name": "street_driver",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          2015,
+          2015
+        ],
+        "characters": [
+          27,
+          27
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 9.2398,
+            "p95Ms": 33.6892,
+            "meanMs": 12.606
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 5.4906,
+            "p95Ms": 8.5026,
+            "meanMs": 5.6733
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0399,
+            "p95Ms": 0.0459,
+            "meanMs": 0.0409
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 14.8647,
+            "p95Ms": 39.3303,
+            "meanMs": 18.3201
+          }
+        },
+        "components": {
+          "world.nearby": {
+            "calls": 1707,
+            "totalMs": 2.266,
+            "perFrameMs": 0.063
+          },
+          "updatePedestrians": {
+            "calls": 36,
+            "totalMs": 110.026,
+            "perFrameMs": 3.056
+          },
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 2.94,
+            "perFrameMs": 0.082
+          },
+          "world.nearbyLobbyDoors443": {
+            "calls": 36,
+            "totalMs": 0.665,
+            "perFrameMs": 0.018
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.016,
+            "perFrameMs": 0
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 2.93,
+            "perFrameMs": 0.081
+          }
+        }
+      },
+      {
+        "name": "airport_flight",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          300,
+          300
+        ],
+        "characters": [
+          0,
+          0
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 10.5026,
+            "p95Ms": 17.5579,
+            "meanMs": 11.0046
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 0.6704,
+            "p95Ms": 1.409,
+            "meanMs": 0.7643
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0148,
+            "p95Ms": 0.0522,
+            "meanMs": 0.0186
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 11.1893,
+            "p95Ms": 19.0511,
+            "meanMs": 11.7875
+          }
+        },
+        "components": {
+          "world.nearby": {
+            "calls": 1014,
+            "totalMs": 1.364,
+            "perFrameMs": 0.038
+          },
+          "updatePedestrians": {
+            "calls": 36,
+            "totalMs": 23.313,
+            "perFrameMs": 0.648
+          },
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 2.94,
+            "perFrameMs": 0.082
+          },
+          "world.nearbyLobbyDoors443": {
+            "calls": 36,
+            "totalMs": 0.478,
+            "perFrameMs": 0.013
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.006,
+            "perFrameMs": 0
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 3.581,
+            "perFrameMs": 0.099
+          }
+        }
+      },
+      {
+        "name": "existing_lobby",
+        "pedestrians": 238,
+        "civilian": 79,
+        "police": 0,
+        "solids": 4596,
+        "staticParts": 261503,
+        "parts": [
+          128,
+          128
+        ],
+        "characters": [
+          1,
+          1
+        ],
+        "metrics": {
+          "update": {
+            "samples": 36,
+            "medianMs": 0.9768,
+            "p95Ms": 1.9724,
+            "meanMs": 1.1746
+          },
+          "geometry": {
+            "samples": 36,
+            "medianMs": 0.1827,
+            "p95Ms": 0.3029,
+            "meanMs": 0.208
+          },
+          "lights": {
+            "samples": 36,
+            "medianMs": 0.0478,
+            "p95Ms": 0.0964,
+            "meanMs": 0.0528
+          },
+          "total": {
+            "samples": 36,
+            "medianMs": 1.2307,
+            "p95Ms": 2.2325,
+            "meanMs": 1.4354
+          }
+        },
+        "components": {
+          "updateCamera": {
+            "calls": 36,
+            "totalMs": 2.926,
+            "perFrameMs": 0.081
+          },
+          "navigator.update": {
+            "calls": 3,
+            "totalMs": 0.009,
+            "perFrameMs": 0
+          },
+          "updateHUD": {
+            "calls": 3,
+            "totalMs": 2.255,
+            "perFrameMs": 0.063
+          }
+        }
+      }
+    ]
+  }
+}

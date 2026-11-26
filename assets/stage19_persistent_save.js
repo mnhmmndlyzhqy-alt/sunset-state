@@ -1,9 +1,7 @@
-/* SUNSET STATE Stage 19 / 35: versioned session saves, atomic browser slots,
-   explicit portable export/import, bounded autosave, guarded restore.
-   Additive layer: existing garage/mission/visit persistence is retained. */
+/* SUNSET STATE — manual session saves with atomic browser slots and portable import/export. */
 (function(H){'use strict';
   const SCHEMA=19, PREFIX='sunset_state_stage19_', MAX_BYTES=512*1024;
-  const SLOTS=['slot1','slot2','slot3','auto'];
+  const SLOTS=['slot1','slot2','slot3'];
   const num=(v,def,min,max)=>typeof v==='number'&&Number.isFinite(v)?Math.min(max,Math.max(min,v)):def;
   const integer=(v,def,min,max)=>Math.round(num(v,def,min,max));
   const plain=v=>v&&typeof v==='object'&&!Array.isArray(v);
@@ -15,7 +13,7 @@
     'damagedWheel','springVelocity','pitchVelocity','rollVelocity','bodyStyle','tuneEngine','tuneGrip',
     'tuneBrakes','burnTime','wreckAge','explosionCount','engineDamage','brakeDamage','suspensionDamage',
     'steeringBias','crashCount','lastImpactSpeed','surfaceGrip','brakeTemperature','fuel'];
-  const carBooleans=['alive','wrecked','policeOrigin','stolenPolice','siren'];
+  const carBooleans=['alive','wrecked','policeOrigin','stolenPolice','siren','owned48'];
   const numFields=['totalCoins','best','score','seconds','heat','crimeHeat','lawEvidence','footHealth',
     'pedestriansHit','barriersBroken','shotsFired','panelsBroken','vehiclesTagged','collectedInRun',
     'shopRobberies44','bankRobberies44','soldCars44','conversations','grenadesLeft','chargesLeft',
@@ -32,7 +30,7 @@
     if(!g?.running||g.over)throw Error('אפשר לשמור רק במהלך משחק פעיל');
     if(g.entryTransition||g.exitTransition||g.vehicleEntry)throw Error('סיים מעבר דלת או כניסה לרכב לפני שמירה');
     const scalars={};for(const key of numFields)if(Number.isFinite(g[key]))scalars[key]=g[key];
-    const a=g.avatar||{},avatar={x:a.x,z:a.z,yaw:a.yaw,appearance:a.appearance,style:a.style,outfit460:a.outfit460||0};
+    const a=g.avatar||{},anchor=H.transport53?.saveAnchor(g)??a,avatar={x:anchor.x,z:anchor.z,yaw:a.yaw,appearance:a.appearance,style:a.style,outfit460:a.outfit460||0};
     const mode=g.indoor?'building':g.retailVisit?'retail':g.inVehicle?'car':g.onTram>=0?'tram':g.onBus>=0?'bus':'foot';
     const visit=[...(g.visitRewards||[])].filter(v=>typeof v==='string'&&v.length<=160).slice(0,5000);
     const record={schema:SCHEMA,scalars,avatar,mode,inVehicle:bit(g.inVehicle),
@@ -51,8 +49,12 @@
         reserves:Array.isArray(g.weaponReserves)?g.weaponReserves.slice(0,8):[]},
       crimeHistory:plain(g.crimeHistory460)?clone(g.crimeHistory460):null,
       story:integer(g.story445?.step,0,0,100),
-      session:{visitTime:g.seconds,at:new Date().toISOString(),build:'STAGE19_OF35'}
+      property48:H.realism39?.property48?.snapshot(),
+      estate53:H.realism39?.estate53?.snapshot(),fleet53:H.privateFleet53?.snapshot(),
+      session:{visitTime:g.seconds,at:new Date().toISOString(),build:'CITY_UPDATE'}
     };
+    const fleetOverride=H.privateFleet53?.captureOverride(g,record);
+    if(fleetOverride)Object.assign(record,fleetOverride);
     return record;
   }
   function envelope(data){return {app:'SUNSET_STATE',schema:SCHEMA,checksum:hash(JSON.stringify(data)),data};}
@@ -63,20 +65,21 @@
       throw Error('גרסת שמירה לא נתמכת');
     if(typeof obj.checksum!=='string'||hash(JSON.stringify(obj.data))!==obj.checksum)throw Error('בדיקת שלמות השמירה נכשלה');
     const d=obj.data;
-    if(!plain(d.scalars)||!plain(d.avatar)||!plain(d.profile)||!plain(d.missions)||!Array.isArray(d.rewards)||!plain(d.car))
+    const parkedFleetCar=d.car===null&&d.mode!=='car'&&plain(d.fleet53)&&d.fleet53.version===1&&Array.isArray(d.fleet53.records)&&d.fleet53.records.some(r=>plain(r)&&r.kind==='car'&&/^car:[1-9][0-9]{0,8}$/.test(r.id));
+    if(!plain(d.scalars)||!plain(d.avatar)||!plain(d.profile)||!plain(d.missions)||!Array.isArray(d.rewards)||(!plain(d.car)&&!parkedFleetCar))
       throw Error('חסרים נתונים חיוניים בשמירה');
     if(!['foot','car','building','retail','bus','tram'].includes(d.mode))throw Error('מצב שחקן לא תקין');
     if(d.rewards.length>5000||d.rewards.some(v=>typeof v!=='string'||v.length>160))throw Error('רשימת ביקורים פגומה');
-    if(!Number.isFinite(d.avatar.x)||!Number.isFinite(d.avatar.z)||!Number.isFinite(d.car.x)||!Number.isFinite(d.car.z))
+    if(!Number.isFinite(d.avatar.x)||!Number.isFinite(d.avatar.z)||(!parkedFleetCar&&(!Number.isFinite(d.car.x)||!Number.isFinite(d.car.z))))
       throw Error('מיקום שחקן או רכב פגום');
-    for(const k of ['x','z'])if(Math.abs(d.avatar[k])>12000||Math.abs(d.car[k])>12000)throw Error('מיקום מחוץ לגבולות');
+    for(const k of ['x','z'])if(Math.abs(d.avatar[k])>12000||(!parkedFleetCar&&Math.abs(d.car[k])>12000))throw Error('מיקום מחוץ לגבולות');
     if(d.missions.schema!==30)throw Error('נתוני משימות לא תואמים');
     return d;
   }
   function validSlot(slot){if(!SLOTS.includes(slot))throw Error('משבצת שמירה לא תקינה');return slot;}
   function storage(){if(typeof localStorage==='undefined')throw Error('אחסון דפדפן אינו זמין');return localStorage;}
   function readSlot(slot){
-    slot=validSlot(slot);let raw=null,backup=false;
+    if(slot!=='auto')slot=validSlot(slot);let raw=null,backup=false;
     try{raw=storage().getItem(PREFIX+slot);}catch{throw Error('אין הרשאה לקרוא מהאחסון המקומי');}
     if(!raw)return null;
     try{return {data:parse(raw),raw,backup};}catch(err){
@@ -86,7 +89,7 @@
     }
   }
   function writeSlot(slot,raw){
-    validSlot(slot);parse(raw);
+    if(slot!=='auto')validSlot(slot);parse(raw);
     const p=PREFIX+slot,st=storage();
     const old=st.getItem(p);let validOld=false;
     try{if(old){parse(old);validOld=true;}}catch{}
@@ -114,6 +117,7 @@
     if(Array.isArray(saved.panelDetached))target.panelDetached=saved.panelDetached.slice(0,6).map(Boolean);
     if(typeof saved.market44==='string')target.market44=saved.market44.slice(0,60);
     if(typeof saved.vehicleClass==='string')target.vehicleClass=saved.vehicleClass.slice(0,32);
+    if(typeof saved.source53Id==='string'&&/^street:-?\d+:-?\d+:[\d.-]+$/.test(saved.source53Id)&&saved.source53Id.length<=80)target.source53Id=saved.source53Id;
     target.vx=num(target.vx,0,-160,160);target.vz=num(target.vz,0,-160,160);
     target.speed=num(target.speed,0,-160,160);
   }
@@ -134,7 +138,12 @@
     if(d.mode==='retail'&&(!plain(d.retail)||!g.world?.retailShops?.some(v=>v.id===d.retail.venueId)))
       throw Error('החנות השמורה אינה קיימת בגרסה הנוכחית');
     // All essential data was validated before restarting: corrupted files cannot reset the session.
-    g.restart({reuseWorld:true});
+    const propertyChanged=H.realism39?.property48?.restore(d.property48)===true;
+    const estateChanged=H.realism39?.estate53?.restore(d.estate53)===true;
+    H.privateFleet53?.restore(d.fleet53);
+    const rebuild=propertyChanged||estateChanged;
+    g.restart({reuseWorld:!rebuild});
+    if(g.world)g.world.__cars48=false;
     const profile=H.parseGarageProfile(clone(d.profile));
     g.profile=profile;g.applyProfileToCar(true);
     g.missions30.load(d.missions);
@@ -165,6 +174,7 @@
         if(Array.isArray(d.weapons[name]))g[key]=d.weapons[name].slice(0,5).map(v=>integer(v,0,0,20000));
     }
     restoreCar(g.player,d.car);
+    H.privateFleet53?.reconcilePlayerCar?.(g);
     const x=num(d.avatar.x,g.avatar.x,-12000,12000),z=num(d.avatar.z,g.avatar.z,-12000,12000);
     const yaw=num(d.avatar.yaw,g.avatar.yaw,-Math.PI*128,Math.PI*128);
     let actual='foot',adjusted=false;
@@ -177,7 +187,7 @@
         if(locationOK(g,x,z)&&x>scene.bounds.xmin+.32&&x<scene.bounds.xmax-.32&&z>scene.bounds.zmin+.32&&z<scene.bounds.zmax-.32){
           g.avatar.x=x;g.avatar.z=z;
         }else{g.avatar.x=scene.entrance.x;g.avatar.z=scene.entrance.z+1.4;adjusted=true;}
-        g.avatar.y=H.cityTerrain42(g.indoor.plan.outerShell.x,g.indoor.plan.outerShell.z)+(g.indoor.floor*g.indoor.plan.floorHeight);
+        g.avatar.y=scene.stage42Base+(g.indoor.floor*g.indoor.plan.floorHeight);
         actual='building';
       }
     } else if(d.mode==='retail'&&plain(d.retail)){
@@ -196,7 +206,7 @@
       const free=safeOutside(g,x,z);
       if(free){g.avatar.x=free.x;g.avatar.z=free.z;adjusted=free.x!==x||free.z!==z;}
       else{adjusted=true;}
-      g.avatar.y=H.outdoorHeight(g.avatar.x,g.avatar.z);g.inVehicle=false;
+      g.avatar.y=H.buildings52?.homeFloor(g.world,g.avatar)??H.outdoorHeight(g.avatar.x,g.avatar.z);g.inVehicle=false;
     }
     g.avatar.yaw=yaw;g.avatar.vx=0;g.avatar.vz=0;
     g.avatar.appearance=integer(d.avatar.appearance,g.avatar.appearance||0,0,4294967295);
@@ -212,12 +222,9 @@
     g.profile=profile;g.visitRewards=new Set(d.rewards);
     if(Array.isArray(d.talkedTo))g.talkedTo=new Set(d.talkedTo.slice(0,1200).filter(v=>typeof v==='number'&&Number.isFinite(v)));
     g.score=num(d.scalars?.score,0,0,10000000);
-    g.saveProfile();g.saveMissions30();g.saveVisitRewards();g.saveCrimeHistory460();
-    g.saveNumber('heatline_coins',integer(d.wallet?.coins,g.totalCoins,0,100000000));
-    g.saveNumber('heatline_best',integer(d.wallet?.best,g.best,0,100000000));
-    g.saveNumber('sunset_story445',integer(d.story,g.story445?.step||0,0,100));
+    g.totalCoins=integer(d.wallet?.coins,g.totalCoins,0,100000000);
+    g.best=integer(d.wallet?.best,g.best,0,100000000);
     if(g.story445)g.story445.step=integer(d.story,g.story445.step,0,100);
-    if(plain(d.weather)&&H.WEATHER_ORDER29.includes(d.weather.control))g.saveNumber?.('sunset_weather_mode_29',d.weather.control);
     if(g.inVehicle){g.cam={x:g.player.x+Math.sin(g.player.yaw)*9,y:7,z:g.player.z+Math.cos(g.player.yaw)*9,
       tx:g.player.x,ty:2,tz:g.player.z,fov:65};}
     else{g.cam={x:g.avatar.x+Math.sin(g.footCameraYaw)*4,y:g.avatar.y+3.6,
@@ -225,22 +232,32 @@
     g.updateGarageUI();g.refreshMissionBoard();g.updateHUD();
     return {mode:actual,adjusted,transportFallback:['bus','tram'].includes(d.mode),racePaused:bit(d.race?.active)};
   }
-  function slotLabel(s){return {slot1:'משבצת 1',slot2:'משבצת 2',slot3:'משבצת 3',auto:'שמירה אוטומטית'}[s]||s;}
+  function slotLabel(s){return {slot1:'משבצת 1',slot2:'משבצת 2',slot3:'משבצת 3',auto:'שמירת האי האוטומטית'}[s]||s;}
   function install(g){
     if(!g||g.__stage19Installed)return;g.__stage19Installed=true;
     const disabled=!!globalThis.__SUNSET_STAGE19_SAVES_OFF||new URLSearchParams(globalThis.location?.search||'').has('stage19SavesOff');
     if(disabled)return;
-    const sys={lastAutosave:-Infinity,status:'',selected:'slot1',autoguard:0,statusEls:[]};
+    const sys={status:'',selected:'slot1',statusEls:[],autoButtons:[],loading:false};
     g.stage19SaveSystem=sys;
     const note=msg=>{sys.status=String(msg);try{g.showInfo(msg,4);}catch{};
       for(const el of sys.statusEls||[])el.textContent=msg;};
     sys.save=(slot='slot1')=>{try{const raw=JSON.stringify(envelope(capture(g)));
       if(raw.length>MAX_BYTES)throw Error('גודל שמירה גדול מדי');
-      writeSlot(slot,raw);sys.lastAutosave=g.seconds;
+      writeSlot(slot,raw);
       note('✓ נשמרה '+slotLabel(slot));return {ok:true,size:raw.length,slot};
-    }catch(e){if(slot==='auto')sys.lastAutosave=g.seconds;note('שמירה נכשלה: '+e.message);return {ok:false,error:e.message};}};
+    }catch(e){note('שמירה נכשלה: '+e.message);return {ok:false,error:e.message};}};
+    sys.refreshAuto=()=>{let exists=false;try{exists=!!readSlot('auto');}catch{};
+      for(const el of sys.autoButtons){el.hidden=!exists;el.disabled=!exists;}return exists;};
+    sys.saveAuto=()=>{
+      if(sys.loading||!g.running||g.over||g.entryTransition||g.exitTransition||g.vehicleEntry)
+        return {ok:false,deferred:true};
+      try{const raw=JSON.stringify(envelope(capture(g)));
+        if(raw.length>MAX_BYTES)throw Error('גודל שמירה גדול מדי');
+        writeSlot('auto',raw);sys.refreshAuto();sys.autoError=null;return {ok:true,size:raw.length,slot:'auto'};
+      }catch(e){if(sys.autoError!==e.message)note('שמירת האי נכשלה: '+e.message);sys.autoError=e.message;return {ok:false,error:e.message};}
+    };
     sys.load=(slot='slot1')=>{try{const found=readSlot(slot);if(!found)throw Error('לא נמצאה שמירה במשבצת');
-      const result=apply(g,found.data);sys.lastAutosave=g.seconds;
+      let result;sys.loading=true;try{result=apply(g,found.data);}finally{sys.loading=false;}
       note('✓ נטענה '+slotLabel(slot)+(found.backup?' (גיבוי תקין)':'')+(result.adjusted?' · מיקום הותאם לבטיחות':'')+
         (result.transportFallback?' · תחבורה ציבורית חודשה בהליכה':'')+(result.racePaused?' · המרוץ הושהה':''));
       return {ok:true,...result,backup:found.backup};
@@ -249,17 +266,9 @@
     sys.importText=(text,slot='slot1')=>{try{const parsed=parse(text);writeSlot(slot,JSON.stringify(envelope(parsed)));
       note('✓ הקובץ יובא אל '+slotLabel(slot)+' · בחר טען כדי להמשיך');return {ok:true};
     }catch(e){note('ייבוא נדחה: '+e.message);return {ok:false,error:e.message};}};
-    sys.list=()=>SLOTS.map(slot=>{try{const entry=readSlot(slot);return {slot,exists:!!entry,backup:!!entry?.backup,at:entry?.data.session?.at||null};}
+    sys.list=()=>[...SLOTS,'auto'].map(slot=>{try{const entry=readSlot(slot);return {slot,exists:!!entry,backup:!!entry?.backup,at:entry?.data.session?.at||null};}
       catch(e){return {slot,exists:false,invalid:true,error:e.message};}});
     g.stage19SaveNow=sys.save;g.stage19LoadNow=sys.load;
-    const oldUpdate=g.update;
-    g.update=function(dt,...args){const result=oldUpdate.call(this,dt,...args);
-      if(this.seconds+1<sys.lastAutosave)sys.lastAutosave=-Infinity;
-      if(this.running&&!this.over&&!this.paused&&!this.entryTransition&&!this.exitTransition&&
-         this.seconds-sys.lastAutosave>=95&&this.seconds>=12){sys.save('auto');}
-      return result;};
-    const pageExit=()=>{if(g.running&&!g.over&&!g.entryTransition&&!g.exitTransition)sys.save('auto');};
-    globalThis.addEventListener?.('pagehide',pageExit);
     globalThis.addEventListener?.('keydown',e=>{
       if(e.code!=='F5'||e.repeat)return;
       if(e.target&&/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName||''))return;
@@ -267,7 +276,7 @@
       if(e.shiftKey){if(g.running&&globalThis.confirm&&!globalThis.confirm('לטעון שמירה ולהחליף את הסשן הנוכחי?'))return;
         sys.load(sys.selected);}else sys.save(sys.selected);
     },true);
-    try{createUI(g,sys,note);}catch(err){/* Headless tests and old browsers still retain API + autosave. */}
+    try{createUI(g,sys,note);}catch(err){/* The manual save API remains available without a DOM. */}
     return sys;
   }
   function createUI(g,sys,note){
@@ -290,6 +299,8 @@
         b.addEventListener('click',fn);actions.appendChild(b);return b;};
       button('💾 שמור',()=>sys.save(sys.selected));
       button('📂 טען',()=>{if(g.running&&globalThis.confirm&&!globalThis.confirm('לטעון שמירה ולהחליף את הסשן הנוכחי?'))return;sys.load(sys.selected);});
+      const auto=button('↪ המשך משמירת האי',()=>{if(g.running&&globalThis.confirm&&!globalThis.confirm('לטעון את שמירת האי ולהחליף את הסשן הנוכחי?'))return;sys.load('auto');});
+      sys.autoButtons.push(auto);sys.refreshAuto();
       button('⬇ ייצא',()=>{try{const txt=sys.exportText(sys.selected);
         const blob=new Blob([txt],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(blob);
         const a=document.createElement('a');a.href=url;a.download='SUNSET_STATE_'+sys.selected+'_save.json';

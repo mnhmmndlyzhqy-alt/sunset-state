@@ -1,0 +1,41 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const classes={standard:{hw:1.1,hd:2.42}};
+const H={realism39:{installers:[]},VEHICLE_CLASSES:classes,carClass:()=> 'standard',
+ vehicleAxes:c=>({fx:-Math.sin(c.yaw),fz:-Math.cos(c.yaw),rx:Math.cos(c.yaw),rz:-Math.sin(c.yaw)}),
+ sameRoadLevel443:(a,b)=>(a.deck||0)===(b.deck||0),pedestrianPredictedDanger:(w,cs)=>cs[0]||null,pedestrianCrossingSafe:(w,cs)=>cs.length===0};
+const ctx={Heatline:H,URLSearchParams,location:{search:''}};
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../assets/stage51_city_safety.js'),'utf8'),ctx);
+class Game{moveCar(c,dt,input){return input;}}
+H.realism39.installers[0](Game);
+const car=(x,z,vx,vz,yaw=0,deck=0)=>({x,z,vx,vz,yaw,deck,type:'civilian',alive:true});
+const a=car(0,0,0,-10), b=car(10,-10,-10,0,Math.PI/2);
+const world=(a,b)=>({seconds:1,civilian:[a,b],police:[],parked:[],buses:[],player:null});
+const risk=H.citySafety51.crossTrafficRisk(world(a,b),a);assert(risk>.5,'yield for real right-side crossing');
+assert.equal(H.citySafety51.crossTrafficRisk(world(a,{...b,deck:1}),a),0,'ignore another deck');
+assert.equal(H.citySafety51.crossTrafficRisk(world(a,car(5,-10,0,-10)),a),0,'parallel lane is not cross traffic');
+assert.equal(H.citySafety51.crossTrafficRisk(world(a,car(10,-10,10,0,-Math.PI/2)),a),0,'traffic moving away is safe');
+assert.equal(H.citySafety51.crossTrafficRisk(world({...a,vz:0},b),{...a,vz:0}),0,'stationary car can restart');
+const left=car(-10,-10,10,0,-Math.PI/2);assert.equal(H.citySafety51.crossTrafficRisk(world(a,left),a),0,'single right-of-way avoids reciprocal locks');
+const g=Object.assign(new Game(),world(a,b));const input=g.moveCar(a,.016,{gas:1,steer:.3,brake:false});
+assert(input.gas<0&&input.steer===.3&&input.brake===false,'normal service brake through actual dispatch');
+assert.equal(H.pedestrianPredictedDanger(a,[{...b,deck:1}]),null,'bridge car cannot scare lower pedestrian');
+assert(H.pedestrianCrossingSafe(a,[{...b,deck:1}],[]),'bridge traffic cannot block lower crossing');
+assert.equal(H.pedestrianPredictedDanger(a,[b]),b,'same-level threat retained');
+const bus={x:10,z:-10,yaw:Math.PI/2,speed:10,deck:0};
+const busGame={...world(a,null),civilian:[a],buses:[bus]};
+assert(H.citySafety51.crossTrafficRisk(busGame,a)>.5,'route-driven bus without vx/vz is crossing traffic');
+assert.equal(H.citySafety51.crossTrafficRisk({...busGame,buses:[{...bus,speed:0}]},a),0,'stopped bus does not create a phantom crossing');
+const fastOwn=car(5,0,0,-25), fastCross=car(64.1,-12,-105,0,Math.PI/2);
+const fastGame=world(fastOwn,fastCross);
+H.citySafety51.crossTrafficRisk(fastGame,fastOwn);
+Object.assign(fastCross,{x:53.6,z:-12.15});fastGame.seconds+=.10;
+assert(H.citySafety51.crossTrafficRisk(fastGame,fastOwn)>.5,'fast crossing traffic follows its current grid cell');
+let levelQueries=0;const realLevel=H.sameRoadLevel443;
+H.sameRoadLevel443=(...args)=>{levelQueries++;return realLevel(...args);};
+H.pedestrianPredictedDanger(a,[car(200,200,0,-10)]);
+assert.equal(levelQueries,0,'distant threats are rejected before expensive road-level queries');
+H.cityLifeRecovery5={stats:{installed:true},disabled:()=>false};
+H.pedestrianPredictedDanger(a,[b]);
+assert.equal(levelQueries,0,'active Recovery 5 retains sole ownership of its existing danger filtering');
+console.log('Stage 51 city safety: 15 assertions passed; CPU logic only.');

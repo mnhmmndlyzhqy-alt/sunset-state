@@ -864,7 +864,8 @@ var Heatline;
         const u = Heatline.clamp(roll.elapsed / roll.duration, 0, 1);
         roll.angle = roll.goal * (u * u * (3 - 2 * u) + Math.sin(u * Math.PI) * .12);
         if (!c.wrecked) {
-            c.x = Heatline.clamp(c.x + c.vx * dt, -Heatline.WORLD_LIMIT, Heatline.WORLD_LIMIT);
+            const estateLimit53=Heatline.estate53World?.contains(c.x,c.z,12)?Heatline.estate53World.bounds.east:Heatline.WORLD_LIMIT;
+            c.x = Heatline.clamp(c.x + c.vx * dt, -Heatline.WORLD_LIMIT, estateLimit53);
             c.z = Heatline.clamp(c.z + c.vz * dt, -Heatline.WORLD_LIMIT, Heatline.WORLD_LIMIT);
             const drag = Math.exp(-(u < .7 ? 2.55 : 5.6) * dt);
             c.vx *= drag;
@@ -2797,7 +2798,7 @@ var Heatline;
                 // 4.7.5: static assets are never deleted to roll back polish.
                 // Stop only the new, optional trim; preserve all other city mass.
                 if(o.stage476Optional && this.groupFlags476?.[o.stage476Optional]!==true)return false;
-                if(o.stage475Optional && this.detailEnabled475!==true)return false;
+                if(o.stage475Optional && this.detailEnabled475!==true && !Heatline.quality51?.fixed)return false;
                 if(o.stage475Optional)cap=Math.min(cap,o.detailCap475||210);
                 const dx = o.x - c.x, dz = o.z - c.z, d2 = dx * dx + dz * dz;
                 if (fast && !o.stage450Proxy && o.layer >= 4 && o.h < 3 &&
@@ -4515,39 +4516,43 @@ var Heatline;
             g.uniformMatrix4fv(this.shadowViewLoc, false, this.shadowMatrix);
             g.cullFace(g.FRONT);
             g.bindVertexArray(this.vao);
-            let twoSided = false;
-            for (const [shape, objects] of groups) {
-                const range = shape === 'cube' ? { offset: 0, count: 36 } : shape === 'wedge' ? { offset: 144, count: 36 } :
-                    shape === 'wheel' || shape === 'rim' ? { offset: 288, count: this.wheelIndexCount } : this.modelRanges.get(shape);
-                if (!range)
-                    continue;
-                const needsBothFaces = hasTwoSidedVehiclePanels(shape);
-                if (needsBothFaces !== twoSided) {
-                    twoSided = needsBothFaces;
-                    if (twoSided)
-                        g.disable(g.CULL_FACE);
-                    else
-                        g.enable(g.CULL_FACE);
+            if (typeof this.drawShadowInstanceGroups52 === 'function') this.drawShadowInstanceGroups52(groups);
+            else {
+                let twoSided = false;
+                for (const [shape, objects] of groups) {
+                    const range = shape === 'cube' ? { offset: 0, count: 36 } : shape === 'wedge' ? { offset: 144, count: 36 } :
+                        shape === 'wheel' || shape === 'rim' ? { offset: 288, count: this.wheelIndexCount } : this.modelRanges.get(shape);
+                    if (!range)
+                        continue;
+                    const needsBothFaces = hasTwoSidedVehiclePanels(shape);
+                    if (needsBothFaces !== twoSided) {
+                        twoSided = needsBothFaces;
+                        if (twoSided)
+                            g.disable(g.CULL_FACE);
+                        else
+                            g.enable(g.CULL_FACE);
+                    }
+                    g.bindBuffer(g.ARRAY_BUFFER, this.shadowBuffer);
+                    g.bufferData(g.ARRAY_BUFFER, this.pack(objects, true), g.DYNAMIC_DRAW);
+                    this.bindInstances(this.shadowBuffer);
+                    g.drawElementsInstanced(g.TRIANGLES, range.count, g.UNSIGNED_INT, range.offset, objects.length);
                 }
-                g.bindBuffer(g.ARRAY_BUFFER, this.shadowBuffer);
-                g.bufferData(g.ARRAY_BUFFER, this.pack(objects, true), g.DYNAMIC_DRAW);
-                this.bindInstances(this.shadowBuffer);
-                g.drawElementsInstanced(g.TRIANGLES, range.count, g.UNSIGNED_INT, range.offset, objects.length);
+                if (twoSided)
+                    g.enable(g.CULL_FACE);
             }
-            if (twoSided)
-                g.enable(g.CULL_FACE);
             g.bindVertexArray(null);
             g.cullFace(g.BACK);
             g.colorMask(true, true, true, true);
             g.bindFramebuffer(g.FRAMEBUFFER, null);
             g.viewport(0, 0, this.glWidth, this.glHeight);
         }
-        pack(objects, reuse = false) {
+        pack(objects, reuse = false, target = null, start = 0) {
             const length = objects.length * 20;
-            if (reuse && length > this.instanceScratch.length)
+            if (!target && reuse && length > this.instanceScratch.length)
                 this.instanceScratch = new Float32Array(Math.max(length, this.instanceScratch.length * 2));
-            const out = reuse ? this.instanceScratch.subarray(0, length) : new Float32Array(length);
-            let n = 0;
+            const out = target || (reuse ? this.instanceScratch.subarray(0, length) : new Float32Array(length));
+            if (target && (start < 0 || start + length > target.length)) throw new RangeError('Instance target is too small');
+            let n = start;
             const decodeColor=Heatline.performanceRecovery6?.activeDecoder();
             for (const o of objects) {
                 const raw = decodeColor ? decodeColor(o.color) :
@@ -12236,11 +12241,19 @@ var Heatline;
         w.vz = Heatline.lerp(w.vz, dz * speed, a);
         const oldX = w.x, oldZ = w.z;
         const walkable = (x, z) => {
-            if (Math.abs(x) > Heatline.WORLD_LIMIT - 2 || Math.abs(z) > Heatline.WORLD_LIMIT - 2)
+            if ((Math.abs(x) > Heatline.WORLD_LIMIT - 2 || Math.abs(z) > Heatline.WORLD_LIMIT - 2) &&
+                !Heatline.islands53?.walkExtension(x,z) && !Heatline.estate53World?.walkable(x,z))
                 return false;
             const rad = .38;
             for (const box of solids) {
-                const cx = Heatline.clamp(x, box.x - box.hw, box.x + box.hw), cz = Heatline.clamp(z, box.z - box.hd, box.z + box.hd);
+                const minX = box.x - box.hw, maxX = box.x + box.hw;
+                if (minX <= maxX && (x < minX - rad || x > maxX + rad))
+                    continue;
+                const minZ = box.z - box.hd, maxZ = box.z + box.hd;
+                if (minZ <= maxZ && (z < minZ - rad || z > maxZ + rad))
+                    continue;
+                // Keep the exact circle check for points near the face or corner.
+                const cx = Heatline.clamp(x, minX, maxX), cz = Heatline.clamp(z, minZ, maxZ);
                 if ((x - cx) ** 2 + (z - cz) ** 2 < (rad * rad))
                     return false;
             }
@@ -12797,7 +12810,8 @@ var Heatline;
         const startled = !player && w.navActivity === 'look' && w.pause > 0 && w.fear > .24;
         const headTurn = !player && distance < 65 ? (w.navActivity === 'look' ? .26 : stride * .11) * Math.sin(seconds * 1.42 + appearance % 17) : 0;
         // Shader LOD bands overlap smoothly for tourists over the same geometry.
-        const lods = player ? ['hi'] :
+        const highDetail51 = player || Heatline.quality51?.fixed;
+        const lods = highDetail51 ? ['hi'] :
             distance <= 5 ? ['hi'] : distance < 81 ? ['hi', 'lo'] : ['lo'];
         const cache = {
             torso: top, armL: top, armR: top, hips: bottom, legL: bottom, legR: bottom,
@@ -12828,7 +12842,7 @@ var Heatline;
                 b.material = 'fabric';
             if (name === 'soleL' || name === 'soleR')
                 b.material = 'rubber';
-            if (!player) {
+            if (!highDetail51) {
                 if (lod === 'hi')
                     b.lodMax = 38;
                 else
@@ -13116,7 +13130,7 @@ var Heatline;
         if (w.navState === 'waiting') {
             w.navWait = Math.max(0, w.navWait - dt);
             w.stride = Heatline.lerp(w.stride, 0, 1 - Math.exp(-dt * 13));
-            if (w.navWait > 0 || !pedestrianCrossingSafe(w, traffic.cars, traffic.trams))
+            if (w.navWait > 0 || !Heatline.pedestrianCrossingSafe(w, traffic.cars, traffic.trams))
                 return;
             w.navState = 'crossing';
             const far = w.navNode + w.navDir * Heatline.PEDESTRIAN_CURB;
@@ -13971,7 +13985,7 @@ var Heatline;
         const level = Heatline.clamp(Math.round(wanted), 0, 6);
         if (level <= 0)
             return Infinity;
-        return [Infinity, 19, 18, 16.5, 16, 16, 15][level] + Math.max(0, activeCount) * 4.5;
+        return [Infinity, 19, 16, 14, 12, 11, 10][level] + Math.max(0, activeCount) * 3.6;
     }
     Heatline.policeDispatchInterval = policeDispatchInterval;
     function policeSafeSpawn(x, z, observer, player, minDistance = 125) {
@@ -15767,12 +15781,18 @@ var Heatline;
             this.weatherWindGain = null;
             this.enabled = false;
             this.volume = .28;
+            this.voiceDucking = 1;
             this.lastCue = new Map();
+        }
+        setVoiceDucking(factor) {
+            this.voiceDucking = Heatline.clamp(Number.isFinite(factor) ? factor : 1, 0, 1);
+            if(this.master&&this.ctx)this.master.gain.setTargetAtTime(
+                this.enabled?this.volume*.56*this.voiceDucking:0,this.ctx.currentTime,this.voiceDucking<1?.06:.16);
         }
         setVolume(v) {
             this.volume = Heatline.clamp(v, 0, 1);
             if (this.master && this.ctx)
-                this.master.gain.setTargetAtTime(this.enabled ? this.volume * .56 : 0, this.ctx.currentTime, .12);
+                this.master.gain.setTargetAtTime(this.enabled ? this.volume * .56 * this.voiceDucking : 0, this.ctx.currentTime, .12);
         }
         setEnabled(on) {
             if (on)
@@ -15781,7 +15801,7 @@ var Heatline;
             if (this.ctx && this.master) {
                 if (on && this.ctx.state === 'suspended')
                     void this.ctx.resume();
-                this.master.gain.setTargetAtTime(on ? this.volume * .56 : 0, this.ctx.currentTime, .09);
+                this.master.gain.setTargetAtTime(on ? this.volume * .56 * this.voiceDucking : 0, this.ctx.currentTime, .09);
             }
         }
         start() {
@@ -16205,10 +16225,19 @@ var Heatline;
                 const b=Heatline.box(x,y,z,w,h,d,color,yaw,4,glow);
                 b.material=mat;b.shape=shape;b.visibilityCap=1150;out.push(b);return b;
             };
-            for(const p of [this.plane,...(this.world.parkedAirliners471||[])]){
-                if(Math.hypot(p.x-viewX,p.z-viewZ)>(p.parked?540:1080)||this.premium43?.has(p))continue;
+            const manualPlane = this.manualPlane51;
+            const parkedPlanes=this.world.parkedAirliners471||[];
+            const visiblePlanes=manualPlane&&!parkedPlanes.includes(manualPlane)?[this.plane,manualPlane,...parkedPlanes]:[this.plane,...parkedPlanes];
+            for(const p of visiblePlanes){
+                if(!p||p.fleetHidden53||Math.hypot(p.x-viewX,p.z-viewZ)>(p.parked?540:1080)||this.premium43?.has(p))continue;
                 const fX=Math.sin(p.yaw),fZ=Math.cos(p.yaw),sX=Math.cos(p.yaw),sZ=-Math.sin(p.yaw);
                 const part=(xx,yy,zz,w,h,d,col,mat='metal',shape='cube',glow=0)=>{
+                    if(p===manualPlane){
+                        const basis={yaw:-p.yaw,roll:p.bank,pitch:-p.pitch};
+                        const offset=Heatline.rotateBoxLocal(basis,xx,yy,zz);
+                        const obj=add(p.x+offset[0],p.y+3.9+offset[1],p.z+offset[2],w,h,d,col,mat,shape,basis.yaw,glow);
+                        obj.roll=basis.roll;obj.pitch=basis.pitch;return obj;
+                    }
                     const obj=add(p.x+sX*xx+fX*zz,p.y+yy,p.z+sZ*xx+fZ*zz,w,h,d,col,mat,shape,p.yaw,glow);
                     obj.roll=p.bank;obj.pitch=p.pitch;return obj;
                 };
@@ -17761,7 +17790,7 @@ class Wildlife43Renderer{
  ready(key){return this.assets.get(key)?.ready===true;}
  selectUrban(actor,distance){
    const key=actor.urbanModel441;
-   if(!key||actor.injuryState!=='walking'||(actor.socialPose==='sit'&&!actor.prisonGuard471)||distance>43||this.urbanCount>=4)return false;
+   if(!key||actor.injuryState!=='walking'||(actor.socialPose==='sit'&&!actor.prisonGuard471)||(!Heatline.quality51?.fixed&&(distance>43||this.urbanCount>=4)))return false;
    this.ensure(key);
    if(!this.assets.get(key)?.texturesReady)return false;
    this.selection.set(actor,key);
@@ -17769,7 +17798,7 @@ class Wildlife43Renderer{
    return true;
  }
  selectFreight(actor,distance){
-   if(distance>290)return false;
+   if(distance>(Heatline.quality51?.fixed?310:290))return false;
    const key=actor.urbanModel441;
    this.ensure(key);
    if(!this.ready(key))return false;
@@ -17799,7 +17828,16 @@ class Wildlife43Renderer{
  }
  makeFishSpecies(f){if(f.kind==='barracuda'||f.species==='barracuda')return 'fish_barracuda';return 'fish_'+(f.species||['sardine','mackerel','reef_perch'][Math.abs(parseInt(f.id.replace(/\D/g,''),10)||0)%3]);}
  prepare(life,c,indoors=false){this.life=life;this.selection.clear();this.urbanCount=0;if(indoors||!life)return;
-   const camera=(a)=>Math.hypot(a.x-c.x,a.z-c.z),budget={flamingo_hi:1,flamingo_mid:3,flamingo_far:8,heron_hi:1,heron_far:3,fish_unique:6,fish_sardine:4,fish_mackerel:4,fish_reef_perch:5,fish_barracuda:2};
+   const camera=(a)=>Math.hypot(a.x-c.x,a.z-c.z);
+   const manual=life.manualPlane51;
+   if(manual&&camera(manual)<1080){
+     const high=manual.gear>.52?'airliner_hi':'airliner_cruise_hi';
+     this.ensure('airliner_hi');
+     this.ensure('airliner_cruise_hi');
+     if(this.ready(high)&&this.assets.get(high)?.texturesReady)this.selection.set(manual,high);
+   }
+   if(Heatline.quality51?.prepareWildlife(this,life,c))return;
+   const budget={flamingo_hi:1,flamingo_mid:3,flamingo_far:8,heron_hi:1,heron_far:3,fish_unique:6,fish_sardine:4,fish_mackerel:4,fish_reef_perch:5,fish_barracuda:2};
    const birds=life.wildlife.filter(a=>a.kind==='flamingo'||a.kind==='heron').sort((a,b)=>camera(a)-camera(b));
    for(const a of birds){const d=camera(a);let keys=a.kind==='flamingo'?(d<22?['flamingo_hi','flamingo_mid','flamingo_far']:d<75?['flamingo_mid','flamingo_far']:['flamingo_far']):
                  (d<21?['heron_hi','heron_far']:['heron_far']);
@@ -17869,6 +17907,7 @@ class Wildlife43Renderer{
    const parked=life.world.parkedAirliners471||[];
    let detail=null,distanceToDetail=Infinity;
    for(const airliner of parked){
+      if(airliner===life.manualPlane51||airliner.fleetHidden53)continue;
       const distance=camera(airliner);
       if(distance>(c.y>65?900:555)&&!c.satellite468)continue;
       if(distance<distanceToDetail){detail=airliner;distanceToDetail=distance;}
@@ -18286,9 +18325,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             } catch (_) { }
             return { arrests: 0, fines: 0, voluntary: 0 };
         }
-        saveCrimeHistory460() {
-            try { localStorage.setItem('sunset_crime_history_460', JSON.stringify(this.crimeHistory460)); } catch (_) { }
-        }
+        saveCrimeHistory460() {} // Case history is captured with the manually saved session.
         lawNote460(message, seconds = 4) {
             const law = this.law460;
             if (!law) return;
@@ -18339,7 +18376,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             const directOfficer=reporter==='officer' || reporter==='police' ||
                 type==='face identification' || type==='repeat identification' || this.officerWitness460(x,z);
             if(directOfficer) { channel='officer'; delay=0; }
-            else if(type==='bank robbery') { channel='alarm'; delay=.95; }
+            else if(type==='bank robbery') { channel='alarm'; delay=.72; }
             else if(camera && (reporter==='yard-camera' || reporter==='camera')) { channel='camera'; delay=1.65; }
             else if(type==='shop robbery' || type==='shop threat') { channel='clerk'; delay=2.1 + (event.id%4)*.35; }
             else if(camera && severity>=3) { channel='camera'; delay=2.5; }
@@ -18400,6 +18437,8 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             }
             this.calmTimer=0;
             if(level>0) Heatline.policeReport(this.policeRadio,this.seconds,event.x,event.z,level);
+            if(event.type === 'bank robbery' && level > 0 && this.police.length === 0)
+                this.spawnClock = Math.max(this.spawnClock, Heatline.policeDispatchInterval(level, 0) - 4);
             id.zoneX=event.x;id.zoneZ=event.z;
             const reporter=event.reporter;
             const video=reporter==='camera' || reporter==='alarm' || reporter==='clerk';
@@ -18434,6 +18473,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 if(ev.callAt>this.seconds)continue;
                 law.pending.splice(i,1);
                 if(ev.witness && ev.witness.injuryState!=='walking'){
+                    ev.witness._witness460=0;
                     law.reportsAvoided++;continue;
                 }
                 this.dispatchIncident460(ev);
@@ -18463,7 +18503,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
         }
         checkLawRecognition460(){
             const law=this.law460,id=law.identity;
-            if(this.crimeHeat>0 || this.inside || this.onBus>=0 || this.onTram>=0 || this.roofVisit?.pilot ||
+            if(this.crimeHeat>0 || this.inside || this.onBus>=0 || this.onTram>=0 || this.roofVisit?.pilot || this.flight51?.pilot ||
                this.seconds-law.lastReportAt<11 || this.seconds-law.targetAt<24) return;
             const p=this.inVehicle?this.player:this.avatar;
             if(Math.hypot(id.zoneX-p.x,id.zoneZ-p.z)>225)return;
@@ -19415,10 +19455,14 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             }
             $('garage-paint').addEventListener('click', () => this.cyclePaint());
             $('garage-repair').addEventListener('click', () => this.repairInGarage());
-            $('camera-button').addEventListener('click', () => { if (this.inVehicle)
-                this.cameraMode = (this.cameraMode + 1) % 4;
-            else if (this.onTram < 0 && this.onBus < 0)
-                this.footCameraYaw += Math.PI / 4; });
+            $('camera-button').addEventListener('click', () => {
+                if (this.flight51?.pilot) {
+                    if (typeof this.flight51.cycleCamera === 'function') this.flight51.cycleCamera();
+                    else this.flight51.wide = !this.flight51.wide;
+                }
+                else if (this.inVehicle) this.cameraMode = (this.cameraMode + 1) % 4;
+                else if (this.onTram < 0 && this.onBus < 0) this.footCameraYaw += Math.PI / 4;
+            });
             $('map-button').addEventListener('click', () => this.nav445.open());
             $('missions-button').addEventListener('click', () => this.toggleMissionBoard());
             $('mission-close').addEventListener('click', () => this.toggleMissionBoard(false));
@@ -19572,12 +19616,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 return Heatline.defaultGarageProfile();
             }
         }
-        saveProfile() {
-            try {
-                localStorage.setItem('sunset_state_profile_v8', JSON.stringify(this.profile));
-            }
-            catch { }
-        }
+        saveProfile() {} // Retained for gameplay hooks. Only the manual slot commits progress.
         applyProfileToCar(equip = false) {
             if (equip) {
                 this.player.bodyStyle = this.profile.selected;
@@ -19708,12 +19747,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             return on ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm12-1q5 4 0 8m2-11q8 7 0 14"/></svg>' :
                 '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm13 1 5 5m0-5-5 5"/></svg>';
         }
-        saveMissions30() {
-            try {
-                localStorage.setItem('sunset_state_missions_v30', JSON.stringify(this.missions30.serialize()));
-            }
-            catch { }
-        }
+        saveMissions30() {} // The manual slot captures the journal with the rest of the session.
         missionAction30(action) {
             const result = this.missions30.action(action);
             if (!result)
@@ -19870,7 +19904,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             return true;
         }
         takeMissionPhoto30() {
-            if (!this.running || this.paused || this.over || this.missionBoardOpen || this.inVehicle || this.inside || this.onTram >= 0 || this.onBus >= 0)
+            if (!this.running || this.paused || this.over || this.missionBoardOpen || this.inVehicle || this.flight51?.pilot || this.inside || this.onTram >= 0 || this.onBus >= 0)
                 return false;
             const step = this.missions30.objective;
             if (!step || step.type !== 'photo')
@@ -20014,6 +20048,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 }
                 if (e.code === 'F4') {
                     e.preventDefault();
+                    if (Heatline.render52?.toggleAdaptive(this)) return;
                     this.visualMode450=this.visualMode450==='native1080'?'adaptive50':'native1080';
                     this.graphicsMode=this.visualMode450;
                     this.renderer.renderPolicy475=this.visualMode450;
@@ -20154,7 +20189,8 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 .filter(car=>Heatline.sameRoadLevel443(this.avatar,car));
         }
         walkerPositionFree(x, z, ignoreCar) {
-            if (Math.abs(x) > Heatline.WORLD_LIMIT - 2 || Math.abs(z) > Heatline.WORLD_LIMIT - 2)
+            if ((Math.abs(x) > Heatline.WORLD_LIMIT - 2 || Math.abs(z) > Heatline.WORLD_LIMIT - 2) &&
+                !Heatline.islands53?.walkExtension(x,z) && !Heatline.estate53World?.walkable(x,z))
                 return false;
             const rad = .55;
             if (this.trams.some(t => Heatline.tramFootContact(t, x, z, rad)))
@@ -20194,12 +20230,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 this.visitRewards = new Set();
             }
         }
-        saveVisitRewards() {
-            try {
-                localStorage.setItem('sunset_state_indoor_v16', JSON.stringify([...this.visitRewards]));
-            }
-            catch { }
-        }
+        saveVisitRewards() {} // The manual slot captures these rewards with the profile.
         showInfo(text, duration = 3.0) { this.infoMessage = text; this.infoClock = duration; }
         nearestEntrance() {
             if (this.inVehicle || this.inside || this.onTram >= 0 || this.onBus >= 0)
@@ -20438,7 +20469,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             let scene=this.indoorSceneCache.get(key);
             if(scene){this.indoorSceneCache.delete(key);this.indoorSceneCache.set(key,scene);return scene;}
             scene=Heatline.polishInterior461(Heatline.refineInterior455(Heatline.enhanceInterior450(Heatline.makeInteriorScene(plan,floor),plan),plan),plan,floor);
-            const rise=Heatline.cityTerrain42(plan.outerShell.x,plan.outerShell.z);
+            const rise=Heatline.interiorGrade52?.(plan,this.world) ?? Heatline.cityTerrain42(plan.outerShell.x,plan.outerShell.z);
             if(Math.abs(rise)>.00001){
                 for(const part of scene.boxes)part.y+=rise;
                 for(const lamp of scene.lights)lamp.y+=rise;
@@ -20517,7 +20548,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 this.avatar=Heatline.createWalker(sx,sz,sy,1);
                 this.footCameraYaw=sy;
             }
-            this.avatar.y=Heatline.cityTerrain42(plan.outerShell.x,plan.outerShell.z);
+            this.avatar.y=scene.stage42Base;
             this.armed = false;
             if(!this.stage42PreserveEntryPose)this.keys.clear();
             this.cameraTransfer = 0;
@@ -20567,7 +20598,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             if(!p){this.exitTransition=null;return;}
             this.avatar.x=Heatline.lerp(q.x,q.targetX,e);
             this.avatar.z=Heatline.lerp(q.z,q.targetZ,e);
-            this.avatar.y=this.indoor?Heatline.cityTerrain42(p.buildingX,p.buildingZ):
+            this.avatar.y=this.indoor?this.indoor.scene.stage42Base:
                 Heatline.outdoorHeight(this.avatar.x,this.avatar.z);
             this.avatar.yaw=Heatline.stage06Orientation?.isActive(p)?
                 Math.atan2(-Heatline.stage06Orientation.dir(p).x,-Heatline.stage06Orientation.dir(p).z):0;
@@ -20667,7 +20698,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 this.indoor = v;
                 v.liftMenuOpen = false;
                 this.avatar = Heatline.createWalker(v.scene.lift.x, v.scene.lift.z - 4.65, 0, 1);
-                this.avatar.y = v.floor * v.plan.floorHeight + Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
+                this.avatar.y = v.floor * v.plan.floorHeight + v.scene.stage42Base;
                 this.cam = { x: this.avatar.x, y: this.avatar.y + 2.8, z: this.avatar.z + 2.5,
                     tx: this.avatar.x, ty: this.avatar.y + 1.5, tz: this.avatar.z - 2.1, fov: 65 };
                 this.keys.clear();
@@ -20701,8 +20732,9 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 const adjust=v.hover443==null?0:Heatline.clamp((v.hover443-h.y)*1.7,-2.4,2.4);
                 const verticalSpeed=vertical>0?9.6:vertical<0?(h.y-roof.y<8?-2.8:-7.6):adjust;
                 h.vy=Heatline.lerp(h.vy||0,verticalSpeed,1-Math.exp(-dt*4.1));
-                const xx = Heatline.clamp(h.x + h.vx * dt, -Heatline.WORLD_LIMIT, Heatline.WORLD_LIMIT);
-                const zz = Heatline.clamp(h.z + h.vz * dt, -Heatline.WORLD_LIMIT, Heatline.WORLD_LIMIT);
+                const airBounds53=Heatline.estate53World?.flightBounds;
+                const xx = Heatline.clamp(h.x + h.vx * dt, airBounds53?.west??-Heatline.WORLD_LIMIT, airBounds53?.east??Heatline.WORLD_LIMIT);
+                const zz = Heatline.clamp(h.z + h.vz * dt, airBounds53?.north??-Heatline.WORLD_LIMIT, airBounds53?.south??Heatline.WORLD_LIMIT);
                 let clearY=Heatline.outdoorHeight(xx,zz)+2.15;
                 const bridge=this.world.overpass443;
                 if(bridge&&Math.abs(xx-bridge.x)<bridge.halfWidth+2)clearY+=Heatline.deckRise443(zz);
@@ -20821,7 +20853,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             Heatline.setLiftDoorBarrier(visit.scene, false);
             this.avatar.x = visit.scene.lift.x;
             this.avatar.z = visit.scene.lift.z + .45;
-            this.avatar.y=visit.floor*visit.plan.floorHeight+Heatline.cityTerrain42(visit.plan.outerShell.x,visit.plan.outerShell.z);
+            this.avatar.y=visit.floor*visit.plan.floorHeight+visit.scene.stage42Base;
             this.avatar.vx = this.avatar.vz = this.avatar.vy = 0;
             this.avatar.grounded = true;
             this.keys.clear();
@@ -20855,14 +20887,17 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 return false;
             }
             v.stairTrip = Heatline.makeStairTravel(v.plan, st, v.floor, target);
-            const stairRise=Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
-            if(Math.abs(stairRise)>.0001)for(const part of v.stairTrip.boxes)part.y+=stairRise;
+            const stairRise=v.scene.stage42Base;
+            if(Math.abs(stairRise)>.0001){
+                for(const part of v.stairTrip.boxes)part.y+=stairRise;
+                for(const lamp of v.stairTrip.lights)lamp.y+=stairRise;
+            }
             v.liftMenuOpen = false;
             Heatline.setLiftDoorBarrier(v.scene, false);
             const pos = Heatline.interiorStairPose(st, Math.min(v.floor, target), v.plan.floorHeight, v.stairTrip.progress);
             this.avatar.x = pos.x;
             this.avatar.z = pos.z;
-            this.avatar.y=pos.y+Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
+            this.avatar.y=pos.y+v.scene.stage42Base;
             this.avatar.vx = this.avatar.vz = this.avatar.vy = 0;
             this.avatar.grounded = true;
             this.footCameraYaw = 0;
@@ -20883,7 +20918,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             const st = v.scene.stairs, pos = Heatline.interiorStairPose(st, Math.min(trip.from, trip.to), v.plan.floorHeight, trip.progress);
             this.avatar.x = pos.x;
             this.avatar.z = pos.z;
-            this.avatar.y=pos.y+Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
+            this.avatar.y=pos.y+v.scene.stage42Base;
             this.avatar.vx = this.avatar.vz = this.avatar.vy = 0;
             this.avatar.grounded = true;
             this.avatar.stride = gas === 0 ? 0 : .74;
@@ -20904,7 +20939,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 const next = v.floor > trip.from ? v.scene.stairs.down : v.scene.stairs.up;
                 this.avatar.x = next.x;
                 this.avatar.z = next.z;
-                this.avatar.y = v.floor * v.plan.floorHeight + Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
+                this.avatar.y = v.floor * v.plan.floorHeight + v.scene.stage42Base;
                 this.avatar.vx = this.avatar.vz = this.avatar.vy = 0;
                 this.cam.x = this.avatar.x + 1.15;
                 this.cam.z = this.avatar.z + 2.0;
@@ -21035,7 +21070,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 ride.travelledFloors=ride.start+(ride.destination-ride.start)*ease;
                 v.liftDoorOpen = ride.phase==='closing'?1-ride.elapsed/close :
                     ride.phase==='opening'?(ride.elapsed-(ride.duration-open))/open:0;
-                this.avatar.y=ride.travelledFloors*v.plan.floorHeight+Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
+                this.avatar.y=ride.travelledFloors*v.plan.floorHeight+v.scene.stage42Base;
                 this.avatar.vx = this.avatar.vz = this.avatar.vy = 0;
                 this.avatar.grounded = true;
                 if (ride.elapsed >= ride.duration - 1e-5) {
@@ -21062,7 +21097,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                     // opened landing doors yourself, on the selected floor.
                     this.avatar.x = v.scene.lift.x;
                     this.avatar.z = v.scene.lift.z + .45;
-                    this.avatar.y = v.floor * v.plan.floorHeight + Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
+                    this.avatar.y = v.floor * v.plan.floorHeight + v.scene.stage42Base;
                     this.avatar.vy = 0;
                     this.avatar.yaw = 0;
                     this.footCameraYaw = 0;
@@ -21079,7 +21114,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 }
                 return;
             }
-            const ground = v.floor * v.plan.floorHeight + Heatline.cityTerrain42(v.plan.outerShell.x,v.plan.outerShell.z);
+            const ground = v.floor * v.plan.floorHeight + v.scene.stage42Base;
             this.avatar.y -= ground;
             Heatline.stepWalker(this.avatar, { forward: gas, strafe: -steer, run: this.is('ShiftLeft', 'ShiftRight'),
                 viewYaw: this.footCameraYaw, speedFactor: .76 }, v.scene.solids, dt, []);
@@ -21320,7 +21355,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             // Nearby police and pedestrians also meet a solid train, not a ghost prop.
             const people = [this.avatar, ...this.pedestrians, ...this.officers.map(o => o.walker)];
             for (const w of people) {
-                if (w === this.avatar && (this.inVehicle || this.onTram >= 0))
+                if (w === this.avatar && (this.inVehicle || this.onTram >= 0 || this.flight51?.pilot))
                     continue;
                 for (const t of this.trams) {
                     const hit = Heatline.tramFootContact(t, w.x, w.z);
@@ -21925,7 +21960,9 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             this.lastActivity = '';
             this.policeRadio = Heatline.createPoliceRadio();
             this.policeInSight = false;
-            this.loadVisitRewards();
+            this.pursuitLead50 = null;
+            this.nextPursuitRoles50 = 0;
+            if (!this.running) this.loadVisitRewards();
             this.wrecks = [];
             this.grenadesThrown = [];
             this.pedestriansHit = 0;
@@ -22001,7 +22038,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             this.trafficClock = 0;
             this.hudClock = 0;
             this.collisionFlash = 0;
-            this.showInfo('ברוך הבא ל־SUNSET STATE · K למשימות · V לשיחה · O לקנייה · E לחקר', 7.5);
+            this.showInfo('ברוך הבא ל־SUNSET STATE · M למפת העיר והאי שלך · K למשימות · E לאינטראקציה', 7.5);
             this.roadblockClock = 0;
             this.dispatchedRoadblocks = 0;
             this.nav445.open(false);this.nav445.clear();
@@ -22174,7 +22211,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
         scanPoliceRadio(dt) {
             const target = this.inVehicle ? this.player : this.avatar;
             let visible = false;
-            if (!this.inside && this.crimeHeat > 0) {
+            if (!this.inside && !this.flight51?.pilot && this.crimeHeat > 0) {
                 const night = Heatline.daylightFromHour(this.worldHour) < .40;
                 const unrecognized = this.inVehicle && this.unrecognizedCar === this.player;
                 for (const officer of this.officers) {
@@ -22188,7 +22225,8 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                         continue;
                     const midX = (target.x + eye.x) * .5, midZ = (target.z + eye.z) * .5;
                     const contact = unrecognized ? Heatline.seesVehicleAction : Heatline.policeVisualContact;
-                    if (contact({ x: eye.x, z: eye.z, yaw: eye.yaw, radius }, target, this.world.nearby(midX, midZ), night)) {
+                    if (Heatline.sameRoadLevel443(eye, target) &&
+                        contact({ x: eye.x, z: eye.z, yaw: eye.yaw, radius }, target, this.world.nearby(midX, midZ), night)) {
                         visible = true;
                         this.unrecognizedCar = null;
                         break;
@@ -23056,7 +23094,8 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                     c.yawRate *= .38;
                 }
             }
-            const limit = Heatline.WORLD_LIMIT;
+            const limit = Heatline.estate53World?.contains(c.x,c.z,12)?
+                Math.max(Heatline.WORLD_LIMIT,Heatline.estate53World.bounds.east):Heatline.WORLD_LIMIT;
             if (Math.abs(c.x) > limit) {
                 if (Math.abs(c.vx) > contactSpeed) {
                     contactSpeed = Math.abs(c.vx);
@@ -23132,18 +23171,19 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             // Stage 14: when the suspect leaves asphalt, pursuing patrol cars must
             // traverse open turf instead of circling a road node forever. Building
             // collision, rail crossings and vehicle contacts remain fully physical.
-            const crossCountry = this.inVehicle && !Heatline.isAsphalt(p.x, p.z) && dist < 165;
+            const crossCountry = fresh && this.inVehicle && !Heatline.isAsphalt(p.x, p.z) && dist < 110;
             if (crossCountry) {
                 routeTarget = { x: p.x + p.vx * .34, z: p.z + p.vz * .34 };
                 c.aiClock = 0;
             }
-            else if (dist < 61 && commonRoad) {
+            else if (fresh && dist < 61 && commonRoad && (c.pursuitRole !== 'intercept' || dist < 28)) {
                 routeTarget = { x: p.x + p.vx * .28, z: p.z + p.vz * .28 };
             }
             else {
                 c.aiClock -= dt;
                 if (c.aiClock <= 0 || Math.hypot(c.routeX - c.x, c.routeZ - c.z) < 14) {
-                    const predicted = Heatline.interceptRoadNode(p, c.pursuitRole === 'intercept' ? 2.5 : .62);
+                    const lead = c.pursuitRole === 'intercept' ? Heatline.clamp(dist / 28, .9, 2.7) : .48;
+                    const predicted = Heatline.interceptRoadNode(p, lead);
                     const nearest = Heatline.roadNode(c.x, c.z);
                     const plan = Heatline.findRoadRoute(nearest, predicted);
                     let index = plan.length > 1 ? 1 : 0;
@@ -23256,7 +23296,8 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             return true;
         }
         updateOfficers(dt) {
-            const target = this.inVehicle ? this.player : this.avatar;
+            const flying = this.flight51?.pilot;
+            const target = flying ? this.flight51.plane : this.inVehicle ? this.player : this.avatar;
             for (const officer of this.officers) {
                 const w = officer.walker;
                 const dx = target.x - w.x, dz = target.z - w.z;
@@ -23273,23 +23314,23 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 const contact = unrecognized ? Heatline.seesVehicleAction : Heatline.policeVisualContact;
                 const footVisibility=(unrecognized ? 19 : 83)*
                     (1-.36*Heatline.clamp(this.weather.rain,0,1));
-                const hasSight = !this.inside && Heatline.sameRoadLevel443(w,target) && contact({ x: w.x, z: w.z, yaw: w.yaw, radius: footVisibility }, target, this.world.nearby((w.x + target.x) * .5, (w.z + target.z) * .5), Heatline.daylightFromHour(this.worldHour) < .4);
+                const hasSight = !this.inside && !flying && Heatline.sameRoadLevel443(w,target) && contact({ x: w.x, z: w.z, yaw: w.yaw, radius: footVisibility }, target, this.world.nearby((w.x + target.x) * .5, (w.z + target.z) * .5), Heatline.daylightFromHour(this.worldHour) < .4);
                 const aim = hasSight ? { x: target.x, z: target.z } : this.policeSearchPosition(officer.id);
                 const expiredSearch = this.policeRadio.phase === 'search' && this.policeRadio.lostSeconds > 23;
                 const event = Heatline.tickPoliceOfficer(officer, { targetX: aim.x, targetZ: aim.z,
-                    targetInCar: this.inVehicle || this.onTram >= 0 || this.onBus >= 0 || expiredSearch,
+                    targetInCar: this.inVehicle || this.onTram >= 0 || this.onBus >= 0 || expiredSearch || flying,
                     targetCar: this.inVehicle ? { x: this.player.x, z: this.player.z, yaw: this.player.yaw, speed: this.player.speed } : undefined,
                     wanted: this.heat, dt, solids: nearSolids, hasSight });
                 if (event.doorAttempt && this.inVehicle) {
                     this.showInfo('🚓 שוטר מנסה לפתוח את דלת הנהג! אפשר לברוח בנסיעה', 3.4);
                     this.synth.cue('metal', .22);
                 }
-                if (event.arrested && (event.vehicleArrested || !this.inVehicle) &&
+                if (!flying && event.arrested && (event.vehicleArrested || !this.inVehicle) &&
                     this.onTram<0&&this.onBus<0&&Heatline.sameRoadLevel443(w,target)) {
                     this.resolveArrest442();
                     return true;
                 }
-                if (event.fired) {
+                if (!flying && event.fired) {
                     const distance = Math.hypot(dx, dz) || 1;
                     const source = { x: w.x, y: 1.55, z: w.z };
                     const destination = { x: target.x + this.rng.range(-.34, .34), y: this.inVehicle ? 1.6 : 1.45,
@@ -23312,6 +23353,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             }
         }
         updateTraffic(dt) {
+            const pedestrianIndex52 = Heatline.cpu52?.enabled ? Heatline.cpu52.createLocalIndex(this.pedestrians) : null;
             for (let i = 0; i < this.civilian.length; i++) {
                 const c = this.civilian[i];
                 if (c.wrecked) {
@@ -23333,7 +23375,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 if(c.route477){
                     const signal=Heatline.signalStops461(this.world,c,this.seconds);
                     const rail=Heatline.gateBrakeRequired(this.railGates,c.x,c.z,c.vz);
-                    const walk=this.pedestrians.some(w=>Math.abs(w.x-c.x)<18&&Math.abs(w.z-c.z)<18&&Heatline.civilianYieldForCrossing(c,w));
+                    const walk=(pedestrianIndex52?.querySquare(c.x,c.z,18)||this.pedestrians).some(w=>Math.abs(w.x-c.x)<18&&Math.abs(w.z-c.z)<18&&Heatline.civilianYieldForCrossing(c,w));
                     const control=Heatline.trafficControl477(this,c,{mustStop:signal||rail,giveWay:walk,emergency:false});
                     if(c.route477.finished){this.civilian[i]=this.createTraffic();continue;}
                     this.moveCar(c,dt,control);
@@ -23342,7 +23384,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 const ahead = (viewer.x - c.x) * (-Math.sin(c.yaw)) + (viewer.z - c.z) * (-Math.cos(c.yaw));
                 const signalStop=Heatline.signalStops461(this.world,c,this.seconds);
                 const mustStop = signalStop || Heatline.gateBrakeRequired(this.railGates, c.x, c.z, c.vz);
-                const giveWay = this.pedestrians.some(w => Math.abs(w.x - c.x) < 74 && Math.abs(w.z - c.z) < 74 && Heatline.civilianYieldForCrossing(c, w));
+                const giveWay = (pedestrianIndex52?.querySquare(c.x,c.z,74) || this.pedestrians).some(w => Math.abs(w.x - c.x) < 74 && Math.abs(w.z - c.z) < 74 && Heatline.civilianYieldForCrossing(c, w));
                 // When a real responding cruiser is about to cross this civilian
                 // driver's path, the civilian gives way before the junction.
                 // No imaginary sirens or proxy cars are spawned.
@@ -23446,7 +23488,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             for (const t of this.trams)
                 for (const c of pool) {
                     if ((t.y || 0) > 2.8) continue; // cars pass under raised rail
-                    if (!c.alive || !Heatline.sameRoadLevel443(c,t) || Math.abs(c.x-t.x)>39.3||Math.abs(c.z-t.z)>4.0)
+                    if (!c.alive || Math.abs(c.x-t.x)>39.3||Math.abs(c.z-t.z)>4.0 || !Heatline.sameRoadLevel443(c,t))
                         continue;
                     const side = c.z < t.z ? -1 : 1;
                     c.z = t.z + side * 4.02;
@@ -23470,7 +23512,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             const cars = [this.player, ...this.civilian, ...this.police];
             for (const bus of this.buses)
                 for (const car of cars) {
-                    if (!car.alive || car.wrecked || !Heatline.sameRoadLevel443(car,bus)||Math.abs(car.x-bus.x)>10||Math.abs(car.z-bus.z)>10)
+                    if (!car.alive || car.wrecked || Math.abs(car.x-bus.x)>10||Math.abs(car.z-bus.z)>10 || !Heatline.sameRoadLevel443(car,bus))
                         continue;
                     const dx = car.x - bus.x, dz = car.z - bus.z;
                     const lateral = dx * Math.cos(bus.yaw) + dz * Math.sin(bus.yaw);
@@ -23611,6 +23653,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             const p = this.inVehicle ? this.player : this.avatar;
             let alarmCount = 0;
             const movingCars = [this.player, ...this.civilian, ...this.police];
+            const trafficIndex52 = Heatline.cpu52?.enabled ? Heatline.cpu52.createLocalIndex(movingCars) : null;
             // Stage 22: fixed-size neighbourhood lookup, avoiding per-frame O(N²)
             // crowd separation as more citizens are added in later milestones.
             const crowdGrid = Heatline.pedestrianBuckets(this.pedestrians);
@@ -23625,9 +23668,10 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 if (Math.hypot(w.x - p.x, w.z - p.z) > 320)
                     continue;
                 if(w.prisonActor471)continue;
+                const localCars52 = trafficIndex52?.querySquare(w.x,w.z,38) || movingCars;
                 let impacting = null;
-                for (const c of movingCars) {
-                    if (c.wrecked || !c.alive || c.speed < 6.5 || !Heatline.sameRoadLevel443(w,c))
+                for (const c of localCars52) {
+                    if (c.wrecked || !c.alive || c.speed < 6.5 || Math.abs(w.x-c.x)>=3.5 || Math.abs(w.z-c.z)>=3.5 || !Heatline.sameRoadLevel443(w,c))
                         continue;
                     if (Math.abs(w.x - c.x) < 3.5 && Math.abs(w.z - c.z) < 3.5 &&
                         Heatline.carWalkerContact(c, w.x, w.z, .43)) {
@@ -23679,7 +23723,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 // A passing car does NOT frighten the whole pavement: only cars whose
                 // closing velocity predicts a real impact create a nearby warning.
                 if (w.panic <= 0 && w.reaction <= 0) {
-                    const danger = Heatline.pedestrianPredictedDanger(w, movingCars);
+                    const danger = Heatline.pedestrianPredictedDanger(w, localCars52);
                     if (danger && Heatline.scarePedestrian(w, danger.x, danger.z, .75)) {
                         w.navAxis = null;
                         w.pause = 0;
@@ -23687,6 +23731,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                             this.synth.cue('panic', .17);
                     }
                 }
+                Heatline.residentAI53?.observe(this,w,simDt);
                 if (w.stumble > 0) {
                     w.stumble = Math.max(0, w.stumble - simDt);
                     continue;
@@ -23717,10 +23762,12 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 }
                 if(Heatline.stepGang461(w,this,dt,movingCars))continue;
                 const neighbours = Heatline.pedestrianNeighbours(w, crowdGrid);
+                if(Heatline.residentAI53?.holdConversation(this,w,simDt))continue;
                 if (this.updateFlightCrew441(w,simDt,movingCars)||this.updateUrbanResidence441(w,simDt,movingCars))continue;
+                if(Heatline.residentAI53?.advance(this,w,simDt,neighbours))continue;
                 if (this.streetLife.advanceCitizen(w, this.world, simDt, this.worldHour, neighbours, this.weather.rain))
                     continue;
-                Heatline.walkPedestrianRoute(w, { world: this.world, simDt, cars: movingCars, trams: this.trams,
+                Heatline.walkPedestrianRoute(w, { world: this.world, dt: simDt, cars: movingCars, trams: this.trams,
                     others: neighbours });
             }
         }
@@ -23786,7 +23833,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 this.avatar.yaw += Heatline.angleDiff(this.avatar.yaw, this.footCameraYaw) * (1 - Math.exp(-dt * 12));
             }
             // Police aviation is tied to the actual crime heat; zero helicopters in free-roam.
-            this.updateFaceMemory442();
+            if (!this.flight51?.pilot) this.updateFaceMemory442();
             this.scanPoliceRadio(dt);
             const airTarget = { x: this.policeRadio.lastKnownX, z: this.policeRadio.lastKnownZ };
             const required = this.heat >= 5 && this.policeRadio.lastSeenAt >= 0 &&
@@ -23858,13 +23905,17 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             else if (this.vehicleEntry) {
                 this.updateVehicleEntry(dt);
             }
+            else if (this.flight51?.pilot) {
+                this.flight51.step(dt);
+            }
             else {
                 // Vehicle steer is +left / -right; walker strafe is +screen-right / -screen-left.
                 // Previous code accidentally reused steering sign for walking, mirroring A and D.
                 if(this.avatar.swim445)Heatline.stepSwim445(this,gas,-steer,dt);
                 else{
                     Heatline.stepWalker(this.avatar, { forward: gas, strafe: -steer, run: this.is('ShiftLeft', 'ShiftRight'), viewYaw: this.footCameraYaw, outdoors: true, roadWorld:this.world,allowWater:true }, Heatline.drivingSolids443(this.world,this.avatar), dt, this.footCollisionCars());
-                    if(Heatline.canSwim445(this.avatar.x,this.avatar.z))Heatline.startSwimming445(this);
+                    if(!this.avatar.deck443 && !this.avatar.support && this.avatar.y < .68 &&
+                        Heatline.canSwim445(this.avatar.x,this.avatar.z))Heatline.startSwimming445(this);
                 }
                 // Shops and the bank also have an open glass entrance. Transition
                 // seamlessly when walking at the threshold, without requiring E.
@@ -23891,7 +23942,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                     this.synth.cue('footstep', .23);
             }
             // Discovery spheres and road circuits reward exploration, not just reckless driving.
-            if (this.onTram < 0 && this.onBus < 0 && !this.inside) {
+            if (this.onTram < 0 && this.onBus < 0 && !this.inside && !this.flight51?.pilot) {
                 const focus = this.inVehicle ? this.player : this.avatar;
                 Heatline.DISCOVERY_SPOTS.forEach((spot, index) => {
                     if (!this.profile.collected.includes(index) && Math.hypot(focus.x - spot.x, focus.z - spot.z) < 4.5) {
@@ -23956,7 +24007,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             this.advanceWrecks(dt);
             // Cars are advanced AFTER foot controls. Reconcile their swept positions
             // against the walker once more, so traffic never tunnels through the avatar.
-            if (!this.inVehicle && !this.vehicleEntry && this.onTram < 0 && this.onBus < 0 && !this.inside) {
+            if (!this.inVehicle && !this.flight51?.pilot && !this.vehicleEntry && this.onTram < 0 && this.onBus < 0 && !this.inside) {
                 Heatline.keepWalkerOutsideCarBodies(this.avatar, this.footCollisionCars());
                 if (this.avatar.grounded && !this.avatar.support)
                     this.avatar.y = Heatline.walkerGround473(this.avatar);
@@ -24027,7 +24078,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 this.policeQuiet = 0;
                 if (!this.inside) {
                     this.spawnClock += dt;
-                    if (this.police.length < (this.heat >= 5 && this.dispatchedRoadblocks === 0 ? 4 : Heatline.patrolCap(this.heat)) && this.spawnClock > 12.5 &&
+                    if (this.police.length < (this.heat >= 5 && this.dispatchedRoadblocks === 0 ? 4 : Heatline.patrolCap(this.heat)) && this.spawnClock > 10 &&
                         this.spawnClock > Heatline.policeDispatchInterval(this.heat, this.police.length)) {
                         if (this.spawnPolice())
                             this.spawnClock = 0;
@@ -24312,6 +24363,10 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 this.stage31CanvasCarGraphics(c, out, t);
             else
                 this.stage20CanvasCarGraphics(c, out, t);
+            // Fixed detail draws the original near meshes throughout visibility.
+            if (Heatline.quality51?.fixed && this.renderer instanceof Heatline.GLRenderer) {
+                for (let i = first; i < out.length; i++) out[i].lodMax = 0;
+            }
             const entry = this.vehicleEntry;
             if (entry?.car === c) {
                 const angle = Heatline.driverDoorAngle(entry.elapsed - entry.approachTime);
@@ -24791,7 +24846,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             }
             const variant = Heatline.interceptorVariant31(c), colors = Heatline.INTERCEPTOR31_PALETTE[variant];
             const model = colors.source;
-            const yaw = -c.yaw, range = Math.hypot(c.x - this.cam.x, c.z - this.cam.z), anchor = 1.02;
+            const yaw = -c.yaw, range = Heatline.quality51?.fixed ? 0 : Math.hypot(c.x - this.cam.x, c.z - this.cam.z), anchor = 1.02;
             const posture = Heatline.box(0, 0, 0, 1, 1, 1, '#ffffff', yaw, 4);
             posture.pitch = c.bodyPitch;
             posture.roll = c.bodyRoll;
@@ -25036,7 +25091,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             const family = Heatline.stage20VehicleFamily(c), spec = Heatline.stage20VehicleDimensions(family);
             const color = Heatline.stage20Paint(c), yaw = -c.yaw, anchor = 1.02;
             const luxury = Heatline.carClass(c) === 'luxury', lengthScale = luxury ? 1.105 : 1;
-            const range = Math.hypot(c.x - this.cam.x, c.z - this.cam.z);
+            const range = Heatline.quality51?.fixed ? 0 : Math.hypot(c.x - this.cam.x, c.z - this.cam.z);
             if (luxury && range < 145 && !c.wrecked && c.frontDamage < .86 && c.rearDamage < .86) {
                 Heatline.drawGT442(c, out, range);
                 return;
@@ -25346,7 +25401,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             const bodyHalfLength = model === 'suv' ? 2.575 : model === 'sport' ? 2.31 : 2.39;
             const bodyHalfWidth = model === 'suv' ? .9306 : .8789;
             const front = -bodyHalfLength, rear = bodyHalfLength;
-            const renderDistance = Math.hypot(c.x - this.cam.x, c.z - this.cam.z);
+            const renderDistance = Heatline.quality51?.fixed ? 0 : Math.hypot(c.x - this.cam.x, c.z - this.cam.z);
             // Both LOD hulls coexist through the 93-177m dither transition.
             // Cutoffs are padded so that source creation itself never pops onscreen.
             const near = renderDistance < 187;
@@ -25598,11 +25653,13 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                     Heatline.makeElevatorCabin(visit.scene.lift.x, visit.scene.lift.z, this.avatar.y, out, visit.liftDoorOpen);
                 }
                 else {
-                    const elevation=visit.floor*visit.plan.floorHeight+Heatline.cityTerrain42(visit.plan.outerShell.x,visit.plan.outerShell.z);
+                    const elevation=visit.floor*visit.plan.floorHeight+visit.scene.stage42Base;
                     // The car stays physically visible at rest, not just in transit.
-                    Heatline.makeElevatorCabin(visit.scene.lift.x, visit.scene.lift.z, elevation, out, visit.liftDoorOpen);
+                    if (this.elevatorBuilding52?.(visit) !== false && this.elevatorCarAt52?.(visit) !== false)
+                        Heatline.makeElevatorCabin(visit.scene.lift.x, visit.scene.lift.z, elevation, out, visit.liftDoorOpen);
                     Heatline.interiorDoorGeometry(visit.scene, out);
-                    Heatline.elevatorDoorsGeometry(visit.scene, visit.liftDoorOpen, out);
+                    if (this.elevatorBuilding52?.(visit) !== false)
+                        Heatline.elevatorDoorsGeometry(visit.scene, visit.liftDoorOpen, out);
                     for (const item of visit.scene.pickups) {
                         if (this.visitRewards.has(item.id))
                             continue;
@@ -25660,7 +25717,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                     if (!here || !air?.pilot) {
                         const parked = here && air ? air.aircraft : Heatline.createPoliceHelicopter(p.id, p.x, p.z);
                         parked.y = p.y + 1.35;
-                        Heatline.helicopterBoxes(parked, out, here ? 10 : Math.sqrt(distance), true);
+                        Heatline.helicopterBoxes(parked, out, (here || Heatline.quality51?.fixed) ? 10 : Math.sqrt(distance), true);
                     }
                 }
                 if (p.portalId < 0 && distance < 31 ** 2 && !air) {
@@ -25672,21 +25729,21 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                 }
             }
             if (Math.hypot(this.player.x - this.cam.x, this.player.z - this.cam.z) < visibleCarsRadius &&
-                drawable42(this.player.x,this.player.z,8))emitCar(this.player);
+                this.transport53?.trip?.car!==this.player&&drawable42(this.player.x,this.player.z,8))emitCar(this.player);
             const entry = this.vehicleEntry;
             if(this.avatar.swim445)Heatline.swimmerPose445(this.avatar,out,t,this.renderer instanceof Heatline.GLRenderer);
-            else if (!this.inVehicle && !this.boat444 && !this.roofVisit?.pilot)
+            else if (!this.inVehicle && !this.boat444 && !this.roofVisit?.pilot && !this.flight51?.pilot)
                 Heatline.streetCharacterPose32(this.avatar, out, t, true, 0, this.renderer instanceof Heatline.GLRenderer, entry ? entry.elapsed - entry.approachTime : undefined);
             for (const bus of this.buses) {
                 const distance = Math.hypot(bus.x - this.cam.x, bus.z - this.cam.z);
                 if (distance < 560 && drawable42(bus.x,bus.z,22))
-                    Heatline.cityBusGeometry(bus, out, distance < 195);
+                    Heatline.cityBusGeometry(bus, out, Heatline.quality51?.fixed || distance < 195);
             }
             for (const tram of this.trams) {
                 const railDistance = Math.hypot(tram.x - this.cam.x, tram.z - this.cam.z);
                 if (railDistance > 550 || !drawable42(tram.x,tram.z,42))
                     continue;
-                const close = railDistance < 230;
+                const close = Heatline.quality51?.fixed || railDistance < 230;
                 if (close && this.renderer.name.startsWith('WebGL2'))
                     Heatline.trainBodyStage12(tram, out);
                 else
@@ -25697,24 +25754,25 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             Heatline.emitFreight441(this.world.freight441,out,t,this.cam,this.renderer);
             for (const h of this.helicopters)
                 if(drawable42(h.x,h.z,75))
-                    Heatline.helicopterBoxes(h, out, Math.hypot(h.x - this.cam.x, h.z - this.cam.z));
-            const focus = this.inVehicle ? this.player : this.avatar;
+                    Heatline.helicopterBoxes(h, out, Heatline.quality51?.fixed ? 0 : Math.hypot(h.x - this.cam.x, h.z - this.cam.z));
+            const focus = this.flight51?.pilot ? this.flight51.plane : this.inVehicle ? this.player : this.avatar;
             for (const prop of this.world.impactProps) {
                 if (Math.abs(prop.x - focus.x) > 270 || Math.abs(prop.z - focus.z) > 270 ||
                     !drawable42(prop.x,prop.z,8))continue;
                 Heatline.impactPropPose(prop, out);
             }
-            Heatline.gateGraphics(this.railGates, out, t, this.inVehicle ? this.player.x : this.avatar.x, this.inVehicle ? this.player.z : this.avatar.z);
+            Heatline.gateGraphics(this.railGates, out, t, focus.x, focus.z);
             if (this.streetLife.activeEvent && !this.streetLife.activeEvent.completed) {
                 const event = this.streetLife.activeEvent;
                 if (Math.hypot(event.x - this.cam.x, event.z - this.cam.z) < 175)
                     Heatline.streetEventGeometry(event, out, this.seconds);
             }
-            const centre = this.inVehicle ? this.player : this.avatar;
+            const centre = focus;
             const detailedCrowd = this.renderer instanceof Heatline.GLRenderer;
             const viewX = this.cam.tx - this.cam.x, viewZ = this.cam.tz - this.cam.z;
             const viewLength = Math.hypot(viewX, viewZ) || 1;
-            if(!this.inVehicle && !this.inside && (this.avatar.outfit460||0)>0 &&
+            if(!this.inVehicle && !this.inside && !this.flight51?.pilot && (this.avatar.outfit460||0)>0 &&
+                !(this.renderer.rcCharacters && Heatline.realism39?.character53 && !this.avatar.swim445) &&
                 Math.hypot(this.cam.x-this.avatar.x,this.cam.z-this.avatar.z)<95){
                 const a=this.avatar;
                 const dark=a.outfit460===2;
@@ -25941,7 +25999,8 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             // add hundreds of per-object lights to the WebGL2 uniform budget.
             const p = this.player, front = Heatline.vehicleAxes(p), lights = [];
             const streetLevel = Heatline.clamp((.73 - Heatline.daylightFromHour(this.worldHour)) / .63 + this.weather.cloud * .35, 0, 1);
-            const focus = this.inVehicle ? this.player : this.avatar;
+            const plane52 = this.flight51?.pilot ? this.flight51.plane : null;
+            const focus = plane52 || (this.inVehicle ? this.player : this.avatar);
             const nearby = Heatline.performanceRecovery6
                 ? Heatline.performanceRecovery6.nearestStreetLights(this.world.lights,focus)
                 : this.world.lights.filter(l=>l.radius>0&&Math.hypot(l.x-focus.x,l.z-focus.z)<165)
@@ -25969,9 +26028,9 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
             lights.push(...nearby.slice(0, Math.max(4, 10 - this.helicopters.length * 2)).map(l => ({
                 ...l, r: l.r * (.20 + streetLevel * .80), g: l.g * (.20 + streetLevel * .80), b: l.b * (.20 + streetLevel * .80)
             })));
-            if (!this.inVehicle && this.onTram < 0)
+            if (!this.inVehicle && !plane52 && this.onTram < 0)
                 lights.push({ x: this.avatar.x, y: this.avatar.y + 3, z: this.avatar.z, radius: 13, r: .85, g: .62, b: .40 });
-            if (this.muzzleClock > 0 && this.armed && !this.inVehicle)
+            if (this.muzzleClock > 0 && this.armed && !this.inVehicle && !plane52)
                 lights.push({ x: this.avatar.x, y: this.avatar.y + 1.6, z: this.avatar.z - 1, radius: 15, r: 1, g: .68, b: .30 });
             if (this.inVehicle)
                 for (const side of [-1, 1])
@@ -25980,6 +26039,13 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                         radius: 78, r: .33 + streetLevel * .95, g: .30 + streetLevel * .82, b: .26 + streetLevel * .72,
                         dirX: front.fx, dirY: -.12, dirZ: front.fz, cone: .82, priority: 2
                     });
+            // One forward landing beam shares the existing twelve-light budget.
+            if (plane52 && plane52.gear > .5 && plane52.y - Heatline.outdoorHeight(plane52.x,plane52.z) < 100) {
+                const fx = Math.sin(plane52.yaw), fz = Math.cos(plane52.yaw);
+                lights.push({ x: plane52.x + fx*12, y: plane52.y+3.1, z: plane52.z+fz*12,
+                    radius: 82, r: .80, g: .77, b: .66, dirX: fx, dirY: Math.sin(plane52.pitch||0)-.18,
+                    dirZ: fz, cone: .86, priority: 2, landing52: true });
+            }
             // Two nearby real civilian headlights at night, within 12 shader sources.
             if (streetLevel > .36) {
                 const traffic = this.civilian.filter(c => c.alive && !c.wrecked && Math.hypot(c.x - focus.x, c.z - focus.z) < 90)
@@ -26565,7 +26631,7 @@ if (Heatline.stage32WildlifePolish) Heatline.stage32WildlifePolish.install(Heatl
                     stage42ManualWalkOut:()=>{if(!g.indoor)return false;
                         const p=g.world.entrancePortals[g.indoor.portalId];
                         g.avatar.x=p.x;g.avatar.z=p.z+.90;
-                        g.avatar.y=Heatline.cityTerrain42(p.buildingX,p.buildingZ);
+                        g.avatar.y=g.indoor.scene.stage42Base;
                         g.updateInterior(.03,0,0);return !g.indoor;},
                     stage42ManualExit:()=>{if(!g.indoor)return false;
                         const v=g.indoor;const p=g.world.entrancePortals[v.portalId];

@@ -1,0 +1,62 @@
+{
+  "passed": 31,
+  "corrections": [
+    {
+      "portal": 311,
+      "oldHeightM": 27.32,
+      "floorM": 2.49,
+      "maxEntryStepM": 0
+    },
+    {
+      "portal": 348,
+      "oldHeightM": 27.08,
+      "floorM": 2.84,
+      "maxEntryStepM": 0.09
+    },
+    {
+      "portal": 344,
+      "oldHeightM": 24.82,
+      "floorM": 2.74,
+      "maxEntryStepM": 0.001
+    },
+    {
+      "portal": 340,
+      "oldHeightM": 24.82,
+      "floorM": 2.85,
+      "maxEntryStepM": 0.002
+    }
+  ],
+  "checks": [
+    "Stage 52 shared grade helper and building runtime load from the game entry point",
+    "All 130 CITY20 interiors use their surveyed facade foundations",
+    "Legacy interior still matches its authored exterior datum",
+    "Portal 311 prepares a furnished lobby on the exterior foundation",
+    "Portal 311 starts the real assisted entry",
+    "Portal 311 reaches the lobby without a height jump",
+    "Portal 311 opens the original egress",
+    "Portal 311 returns to the same exterior grade",
+    "Portal 348 prepares a furnished lobby on the exterior foundation",
+    "Portal 348 starts the real assisted entry",
+    "Portal 348 reaches the lobby without a height jump",
+    "Portal 348 opens the original egress",
+    "Portal 348 returns to the same exterior grade",
+    "Portal 344 prepares a furnished lobby on the exterior foundation",
+    "Portal 344 starts the real assisted entry",
+    "Portal 344 reaches the lobby without a height jump",
+    "Portal 344 opens the original egress",
+    "Portal 344 returns to the same exterior grade",
+    "Portal 340 prepares a furnished lobby on the exterior foundation",
+    "Portal 340 starts the real assisted entry",
+    "Portal 340 reaches the lobby without a height jump",
+    "Portal 340 opens the original egress",
+    "Portal 340 returns to the same exterior grade",
+    "Upper-floor check uses a corrected multi-floor building",
+    "Elevator starts at the corrected foundation height",
+    "Riding elevator, light and camera track the same corrected height",
+    "Elevator arrival and generated upper-floor geometry agree",
+    "Schema-19 upper-floor save restores the corrected walk height immediately",
+    "Stair trip aligns its modeled steps and lights with the occupied floor",
+    "Stair exit puts the walker on the corrected lobby floor",
+    "Schema-19 foot-mode house save restores its raised finished floor immediately"
+  ]
+}

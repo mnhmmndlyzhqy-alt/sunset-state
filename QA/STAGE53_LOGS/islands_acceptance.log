@@ -1,0 +1,46 @@
+{
+  "passed": 5,
+  "results": [
+    "five public island docks and six helipads have finite geometry",
+    "all public paths, ramps and pier boarding points are physically walkable",
+    "outer pier extension remains restricted to authored supported corridors",
+    "property plots remain free of new scenery and paths survive all largest homes",
+    "local island walkers animate and remain on the public path"
+  ],
+  "ports": [
+    {
+      "id": "shell",
+      "pathPoints": 2,
+      "palms": 8,
+      "cafe": true
+    },
+    {
+      "id": "reef",
+      "pathPoints": 2,
+      "palms": 8,
+      "cafe": true
+    },
+    {
+      "id": "sunset",
+      "pathPoints": 4,
+      "palms": 8,
+      "cafe": true
+    },
+    {
+      "id": "dolphin",
+      "pathPoints": 7,
+      "palms": 8,
+      "cafe": true
+    },
+    {
+      "id": "palms",
+      "pathPoints": 4,
+      "palms": 8,
+      "cafe": true
+    }
+  ],
+  "staticParts": 1701,
+  "collisionProps": 143,
+  "browser": false,
+  "gpu": false
+}

@@ -1,0 +1,250 @@
+{
+  "kind": "Node.js CPU simulation and geometry preparation; not FPS",
+  "results": [
+    {
+      "name": "downtown_on_foot",
+      "metrics": {
+        "update": {
+          "samples": 36,
+          "medianMs": 9.3514,
+          "p95Ms": 26.5463,
+          "meanMs": 13.8376
+        },
+        "geometry": {
+          "samples": 36,
+          "medianMs": 6.586,
+          "p95Ms": 8.4961,
+          "meanMs": 6.8541
+        },
+        "lights": {
+          "samples": 36,
+          "medianMs": 0.0246,
+          "p95Ms": 0.1113,
+          "meanMs": 0.0313
+        },
+        "total": {
+          "samples": 36,
+          "medianMs": 16.1734,
+          "p95Ms": 33.2545,
+          "meanMs": 20.723
+        }
+      },
+      "parts": [
+        2255,
+        2255
+      ],
+      "components": {
+        "world.nearby": {
+          "calls": 1707,
+          "totalMs": 3.701,
+          "perFrameMs": 0.103
+        },
+        "world.nearbyLobbyDoors443": {
+          "calls": 72,
+          "totalMs": 0.707,
+          "perFrameMs": 0.02
+        },
+        "updatePedestrians": {
+          "calls": 36,
+          "totalMs": 54.372,
+          "perFrameMs": 1.51
+        },
+        "updateCamera": {
+          "calls": 36,
+          "totalMs": 3.484,
+          "perFrameMs": 0.097
+        },
+        "navigator.update": {
+          "calls": 3,
+          "totalMs": 0.02,
+          "perFrameMs": 0.001
+        },
+        "updateHUD": {
+          "calls": 3,
+          "totalMs": 4.464,
+          "perFrameMs": 0.124
+        }
+      }
+    },
+    {
+      "name": "street_driver",
+      "metrics": {
+        "update": {
+          "samples": 36,
+          "medianMs": 10.0287,
+          "p95Ms": 26.976,
+          "meanMs": 12.857
+        },
+        "geometry": {
+          "samples": 36,
+          "medianMs": 6.417,
+          "p95Ms": 8.565,
+          "meanMs": 6.6045
+        },
+        "lights": {
+          "samples": 36,
+          "medianMs": 0.0409,
+          "p95Ms": 0.0755,
+          "meanMs": 0.0454
+        },
+        "total": {
+          "samples": 36,
+          "medianMs": 16.3784,
+          "p95Ms": 33.7852,
+          "meanMs": 19.5069
+        }
+      },
+      "parts": [
+        2010,
+        2010
+      ],
+      "components": {
+        "world.nearby": {
+          "calls": 1719,
+          "totalMs": 2.499,
+          "perFrameMs": 0.069
+        },
+        "updatePedestrians": {
+          "calls": 36,
+          "totalMs": 47.812,
+          "perFrameMs": 1.328
+        },
+        "updateCamera": {
+          "calls": 36,
+          "totalMs": 3.088,
+          "perFrameMs": 0.086
+        },
+        "world.nearbyLobbyDoors443": {
+          "calls": 36,
+          "totalMs": 0.651,
+          "perFrameMs": 0.018
+        },
+        "navigator.update": {
+          "calls": 3,
+          "totalMs": 0.026,
+          "perFrameMs": 0.001
+        },
+        "updateHUD": {
+          "calls": 3,
+          "totalMs": 5.486,
+          "perFrameMs": 0.152
+        }
+      }
+    },
+    {
+      "name": "airport_flight",
+      "metrics": {
+        "update": {
+          "samples": 36,
+          "medianMs": 12.4527,
+          "p95Ms": 18.5826,
+          "meanMs": 11.7202
+        },
+        "geometry": {
+          "samples": 36,
+          "medianMs": 0.7806,
+          "p95Ms": 1.3225,
+          "meanMs": 0.8289
+        },
+        "lights": {
+          "samples": 36,
+          "medianMs": 0.0154,
+          "p95Ms": 0.0386,
+          "meanMs": 0.0171
+        },
+        "total": {
+          "samples": 36,
+          "medianMs": 13.1741,
+          "p95Ms": 19.4125,
+          "meanMs": 12.5661
+        }
+      },
+      "parts": [
+        301,
+        301
+      ],
+      "components": {
+        "world.nearby": {
+          "calls": 1030,
+          "totalMs": 1.196,
+          "perFrameMs": 0.033
+        },
+        "updatePedestrians": {
+          "calls": 36,
+          "totalMs": 14.807,
+          "perFrameMs": 0.411
+        },
+        "updateCamera": {
+          "calls": 36,
+          "totalMs": 3.393,
+          "perFrameMs": 0.094
+        },
+        "world.nearbyLobbyDoors443": {
+          "calls": 36,
+          "totalMs": 0.4,
+          "perFrameMs": 0.011
+        },
+        "navigator.update": {
+          "calls": 3,
+          "totalMs": 0.012,
+          "perFrameMs": 0
+        },
+        "updateHUD": {
+          "calls": 3,
+          "totalMs": 4.774,
+          "perFrameMs": 0.133
+        }
+      }
+    },
+    {
+      "name": "existing_lobby",
+      "metrics": {
+        "update": {
+          "samples": 36,
+          "medianMs": 1.1382,
+          "p95Ms": 2.0688,
+          "meanMs": 1.2544
+        },
+        "geometry": {
+          "samples": 36,
+          "medianMs": 0.2093,
+          "p95Ms": 0.4465,
+          "meanMs": 0.2552
+        },
+        "lights": {
+          "samples": 36,
+          "medianMs": 0.0481,
+          "p95Ms": 0.1143,
+          "meanMs": 0.0591
+        },
+        "total": {
+          "samples": 36,
+          "medianMs": 1.4312,
+          "p95Ms": 2.3172,
+          "meanMs": 1.5687
+        }
+      },
+      "parts": [
+        128,
+        128
+      ],
+      "components": {
+        "updateCamera": {
+          "calls": 36,
+          "totalMs": 3.09,
+          "perFrameMs": 0.086
+        },
+        "navigator.update": {
+          "calls": 3,
+          "totalMs": 0.034,
+          "perFrameMs": 0.001
+        },
+        "updateHUD": {
+          "calls": 3,
+          "totalMs": 2.655,
+          "perFrameMs": 0.074
+        }
+      }
+    }
+  ]
+}

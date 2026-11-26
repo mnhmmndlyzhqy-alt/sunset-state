@@ -57,11 +57,12 @@
       if (store) catalog.push({ id: 'heist_corner48', icon: '💰', title: 'הקופה הראשונה',
         description: 'היכנס לחנות, עמוד ליד הדלפק ולחץ U. אחר כך ברח מהמשטרה והיעלם בעיר.', reward: 650, xp: 150,
         steps: [{ type: 'heist', shop: 'shop', x: store.x, z: store.z, label: 'שדוד חנות כלשהי · שלוף נשק, כוון אל המוכר ולחץ U' }, escape] });
+      const entrance = world.stage44Bank || bank;
       if (bank) catalog.push({ id: 'heist_bank48', icon: '🏦', title: 'השוד הגדול של סאנסט',
         description: 'תכנן את השוד: צלם את הבנק, החנה רכב מילוט ליד הכניסה, רוקן את הכספת והיעלם.', reward: 3000, xp: 420,
-        steps: [{ type: 'photo', x: bank.x, z: bank.z, label: 'סיור מקדים: צלם את ' + bank.label + ' · Z' },
-          { type: 'park', x: bank.x, z: bank.z, label: 'החנה רכב מילוט ליד הבנק (עד 8 קמ״ש)' },
-          { type: 'heist', shop: 'bank', x: bank.x, z: bank.z, label: 'היכנס לבנק, לחץ U בדלפק ואז בכספת' }, escape] });
+        steps: [{ type: 'photo', x: entrance.x, z: entrance.z, label: 'סיור מקדים: צלם את ' + bank.label + ' · Z' },
+          { type: 'park', x: entrance.x, z: entrance.z, label: 'החנה רכב מילוט ליד הבנק (עד 8 קמ״ש)' },
+          { type: 'heist', shop: 'bank', x: entrance.x, z: entrance.z, label: 'היכנס לבנק, לחץ U בדלפק ואז בכספת' }, escape] });
       catalog.push({ id: 'getaway48', icon: '🚓', title: 'נהג מילוט',
         description: 'משוך את תשומת לב המשטרה ונער אותם מאחור. עדיף ברכב מהיר.', reward: 550, xp: 160,
         steps: [{ type: 'wanted', label: 'קבל לפחות כוכב משטרה אחד' }, escape] });
@@ -95,7 +96,7 @@
         } else if (step.type === 'escape') {
           const h = this.heist48 || (this.heist48 = { at: this.seconds, x: this.avatar.x, z: this.avatar.z });
           const f = this.inVehicle ? this.player : this.avatar;
-          if (this.crimeHeat === 0 && this.seconds - h.at > 6 && Math.hypot(f.x - h.x, f.z - h.z) > 90) {
+          if (this.crimeHeat === 0 && !this.law460.pending.some(event => event.severity >= 3) && this.seconds - h.at > 6 && Math.hypot(f.x - h.x, f.z - h.z) > 90) {
             this.heist48 = null;
             this.missionAction30({ type: 'escape' });
           }

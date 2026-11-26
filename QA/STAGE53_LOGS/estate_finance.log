@@ -1,0 +1,13 @@
+✔ the island is owned at start and housing, furnishings and vehicle facilities require actual payment (766.405182ms)
+✔ tenants choose eligible vacancies and take no occupancy until both parties agree (35.51508ms)
+✔ rent accrues exactly once per signed lease and displays upkeep and debt (19.696812ms)
+✔ manual and automatic slots store the same wallet, signed leases and unsettled offers atomically (74.430868ms)
+✔ versioned state rejects duplicate leases and absent estate fields restore a bare island (30411.886856ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60187.297556

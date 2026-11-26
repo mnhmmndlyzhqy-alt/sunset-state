@@ -1,0 +1,17 @@
+✔ starts Web Audio during Play or save restart, then retries an unavailable manifest and speech bridge (21.098801ms)
+✔ engine initialization failure recovers on the next gesture without replacing its unlocked context (2.873786ms)
+✔ chat sequentially speaks lines after a clip HTTP error, decode error and a missing entry (55.217412ms)
+✔ pausing cancels a pending download, restarting cancels the gap, and hiding stops synthesized speech (7.079129ms)
+✔ master mute and the independent voice slider survive starts and stop current speech (4.133736ms)
+✔ isolated conversation replies remember names and landmarks, and rotate recurring lines (14.438805ms)
+✔ chat interaction gives flight priority, retries its bank, and clears pending UI on restart (2.752937ms)
+✔ recorded fetch timeout aborts the transport and falls back for nearby ambient speech (6.16354ms)
+✔ aircraft position replaces the boarding anchor and entering flight cancels old audio (4.693187ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 224.61735

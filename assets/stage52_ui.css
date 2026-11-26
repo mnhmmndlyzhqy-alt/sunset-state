@@ -1,0 +1,12 @@
+/* Resolution controls fit the existing keyboard-accessible pause menu. */
+#settings51 .render-panel52{margin:12px 0;padding:13px 14px;border:1px solid #88baaa69;border-radius:12px;background:#0a242a90;min-width:0}
+.render-panel52 legend{padding:0 7px;color:#f6d4a3;font-size:15px;font-weight:650}
+.render-row52{display:grid;grid-template-columns:minmax(100px,.85fr) minmax(0,1.5fr);align-items:center;gap:9px 14px;margin:9px 0}
+.render-row52 select,.render-row52 input[type=number]{width:100%;box-sizing:border-box;min-height:36px;font:14px system-ui,Arial,sans-serif;color:#f8f1df;background:#204148;border:1px solid #95beb08c;border-radius:7px;padding:6px 8px;color-scheme:dark}
+.render-row52 .scale-wrap52{display:flex;gap:10px;align-items:center;min-width:0}
+.scale-wrap52 input{width:100%;min-width:0;direction:ltr}.scale-wrap52 output{min-width:40px;text-align:center;direction:ltr}
+#settings51 .render-panel52 p{font-size:12px;color:#bdd7cb;overflow-wrap:anywhere}
+#settings51 #render-status52,#settings51 #render-fps52{font-variant-numeric:tabular-nums}
+#render-reset52{font:600 12px system-ui,Arial,sans-serif;border:1px solid #8eb2a377;border-radius:7px;padding:6px 10px;background:#2b4c4c;color:#f5e5c4;cursor:pointer;margin-top:6px;min-height:32px}
+.render-panel52 :is(button,select,input):focus-visible{outline:2px solid #f1c68a;outline-offset:3px}
+@media(max-width:480px){.render-row52{grid-template-columns:1fr;gap:5px;margin:10px 0}#settings51 .render-panel52{padding:10px}}

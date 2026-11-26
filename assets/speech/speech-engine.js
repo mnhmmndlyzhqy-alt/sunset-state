@@ -39,17 +39,22 @@ const DROPPED = Promise.resolve("dropped");
  */
 export class WebSpeechBackend {
   constructor(synth = globalThis.speechSynthesis, Utterance = globalThis.SpeechSynthesisUtterance) {
-    this.synth = synth; this.Utterance = Utterance; this._voices = [];
+    this.synth = synth; this.Utterance = Utterance; this._voices = []; this._finish = null;
   }
   async init() {
-    if (!this.synth) throw new Error("Web Speech API לא זמין בסביבה הזו");
+    if (!this.synth || !this.Utterance) throw new Error("Web Speech API לא זמין בסביבה הזו");
     const load = () => (this._voices = this.synth.getVoices()).length;
     if (load()) return;
     await new Promise(res => {
-      const done = () => { load(); res(); };
+      const done = () => {
+        clearTimeout(timer);
+        this.synth.removeEventListener?.("voiceschanged", done);
+        res();
+      };
+      const timer = setTimeout(done, 1500);
       this.synth.addEventListener?.("voiceschanged", done, { once: true });
-      setTimeout(done, 1500);
     });
+    load();
   }
   getVoices() { return this._voices.map(v => ({ id: v.voiceURI, name: v.name, lang: v.lang })); }
   speak(text, p, hooks = {}) {
@@ -57,11 +62,25 @@ export class WebSpeechBackend {
     const v = this._voices.find(x => x.voiceURI === p.voiceId);
     if (v) u.voice = v;
     u.lang = p.lang || "he-IL"; u.pitch = p.pitch; u.rate = p.rate; u.volume = p.volume;
-    u.onstart = () => hooks.onStart?.(); u.onend = hooks.onEnd; u.onerror = hooks.onError;
-    this.synth.speak(u);
+    const finish = result => {
+      if (this._finish !== finish) return;
+      this._finish = null;
+      clearTimeout(timer);
+      u.onstart = u.onend = u.onerror = null;
+      if (result === "timeout") {
+        try { this.synth.cancel(); } finally { hooks.onError?.(); }
+      } else if (result === "done") hooks.onEnd?.();
+      else if (result === "error") hooks.onError?.();
+    };
+    const timer = setTimeout(() => finish("timeout"), Math.min(20000, Math.max(3000, 1500 + text.length * 125 / p.rate)));
+    this._finish = finish;
+    u.onstart = () => hooks.onStart?.();
+    u.onend = () => finish("done");
+    u.onerror = () => finish("error");
+    try { this.synth.speak(u); } catch { finish("error"); }
     return u;
   }
-  cancel() { this.synth.cancel(); }
+  cancel() { this._finish?.("cancelled"); this.synth.cancel(); }
 }
 
 /** backend לבדיקות: לא משמיע, מדמה משך לפי אורך הטקסט */
@@ -94,7 +113,8 @@ export class FormantBackend {
   get stats() { return this._c; }
   async init() { this._ensureCtx(); }
   _ensureCtx() {
-    if (!this.ctx && typeof globalThis.AudioContext !== "undefined") this.ctx = new globalThis.AudioContext();
+    const AC = globalThis.AudioContext || globalThis.webkitAudioContext;
+    if (!this.ctx && AC) this.ctx = new AC();
     return this.ctx;
   }
   fork() {
@@ -131,7 +151,7 @@ export class FormantBackend {
       this._timer = setTimeout(() => hooks.onEnd?.(), r.duration * 1000 * this.timeScale);
       return info;
     }
-    if (ctx.state === "suspended") ctx.resume?.();
+    if (ctx.state !== "running") { hooks.onError?.(); return; }
     if (!e.buf) {                                       // AudioBuffer ממוטמן — בלי העתקה בכל השמעה
       e.buf = ctx.createBuffer(1, r.samples.length, r.sampleRate); e.buf.copyToChannel(r.samples, 0);
       e.bytes += r.samples.byteLength; this._c.bytes += r.samples.byteLength;
@@ -139,12 +159,28 @@ export class FormantBackend {
     const src = ctx.createBufferSource(); src.buffer = e.buf;
     const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = clamp(p.lowpass || 18000, 200, 20000);
     const gain = ctx.createGain(); gain.gain.value = p.volume;
+    const envelope = ctx.createGain(), time = ctx.currentTime, duration = r.duration;
+    if (duration > .06 && envelope.gain.setValueAtTime && envelope.gain.linearRampToValueAtTime) {
+      envelope.gain.setValueAtTime(0, time);
+      envelope.gain.linearRampToValueAtTime(1, time + .018);
+      envelope.gain.setValueAtTime(1, time + duration - .03);
+      envelope.gain.linearRampToValueAtTime(0, time + duration);
+    } else envelope.gain.value = 1;
     const pan = ctx.createStereoPanner?.(); if (pan) pan.pan.value = clamp(p.pan || 0, -1, 1);
-    src.connect(lp); lp.connect(gain); pan ? (gain.connect(pan), pan.connect(ctx.destination)) : gain.connect(ctx.destination);
-    this._n = { gain, pan, lp };
-    src.onended = () => { if (this._src === src) { this._src = null; this._n = null; } hooks.onEnd?.(); };
+    src.connect(envelope); envelope.connect(lp); lp.connect(gain);
+    if (pan) { gain.connect(pan); pan.connect(ctx.destination); }
+    else gain.connect(ctx.destination);
+    const disconnect = () => {
+      for (const node of [src, envelope, lp, gain, pan]) node?.disconnect();
+    };
+    this._n = { gain, pan, lp, disconnect };
+    src.onended = () => {
+      if (this._src === src) { this._src = null; this._n = null; }
+      disconnect();
+      hooks.onEnd?.();
+    };
+    try { src.start(); } catch { disconnect(); this._n = null; hooks.onError?.(); return; }
     this._src = src;
-    src.start();
     hooks.onStart?.(info);
     return info;
   }
@@ -157,20 +193,24 @@ export class FormantBackend {
     n.lp.frequency.setTargetAtTime(clamp(lowpass, 200, 20000), t, 0.06);
   }
   cancel() {
-    clearTimeout(this._timer); this._timer = null; this._n = null;
+    clearTimeout(this._timer); this._timer = null;
     if (this._src) { const s = this._src; this._src = null; s.onended = null; try { s.stop(); } catch { /* already stopped */ } }
+    this._n?.disconnect();
+    this._n = null;
   }
 }
 
 // ───────────────────────── המנוע ─────────────────────────
 const FEMALE_HINTS = /carmit|hila|female|woman|נקבה|כרמית|הילה|zira|yael|שירה/i;
 const MALE_HINTS = /asaf|avri|male\b|man\b|זכר|אסף|אברי|david|ofer/i;
-const EVENTS = ["pointerdown", "keydown", "touchend"];
+const EVENTS = ["pointerdown", "pointerup", "keydown", "touchend", "click"];
 
 export class SpeechEngine {
   /**
    * @param {object} o
    * @param {SpeechBackend} o.backend   backend מותאם (גובר על mode)
+   * @param {AudioContext} o.audioContext    Web Audio context supplied by the host
+   * @param {boolean} o.autoUnlock    register gesture and visibility handling
    * @param {'formant'|'system'|'auto'} o.mode
    * @param {object[]} o.profiles
    * @param {number} o.maxQueue
@@ -182,9 +222,12 @@ export class SpeechEngine {
    * @param {number} o.duck               מכפיל עוצמה לרקע בזמן שורה חשובה (0..1)
    */
   constructor({ backend, mode = "formant", profiles = VOICE_PROFILES, lang = "he-IL", maxQueue = 12, channels = 3,
-    speakerCooldownMs = 400, maxDistance = 30, ttlMs = 4000, minAudible = 0.03, duck = 0.45, pauseOnHidden = true } = {}) {
+    speakerCooldownMs = 400, maxDistance = 30, ttlMs = 4000, minAudible = 0.03, duck = 0.45, pauseOnHidden = true,
+    audioContext = null, autoUnlock = true } = {}) {
     this.mode = mode;
-    this.backend = backend ?? (mode === "system" ? new WebSpeechBackend() : new FormantBackend());
+    this.backend = backend ?? (mode === "system" ? new WebSpeechBackend() : new FormantBackend({ audioContext }));
+    this.audioContext = audioContext;
+    this.autoUnlock = autoUnlock;
     this._customBackend = !!backend;
     this.profiles = new Map(profiles.map(p => [p.id, { ...p }]));
     Object.assign(this, { lang, maxQueue, speakerCooldownMs, maxDistance, ttlMs, minAudible, duck, pauseOnHidden, _wantChannels: channels });
@@ -198,28 +241,29 @@ export class SpeechEngine {
     if (this.mode === "auto" && !this._customBackend) {
       try {
         const sys = new WebSpeechBackend(); await sys.init();
-        this.backend = sys.getVoices().some(v => /^he/i.test(v.lang)) ? sys : new FormantBackend();
-      } catch { this.backend = new FormantBackend(); }
+        if (sys.getVoices().some(v => /^(he|iw)\b/i.test(v.lang))) this.backend = sys;
+      } catch { /* Keep the built-in backend. */ }
     }
     await this.backend.init();
     const n = this.backend.fork ? Math.max(1, this._wantChannels | 0) : 1;
     this._channels = Array.from({ length: n }, (_, i) => ({ backend: i ? this.backend.fork() : this.backend, item: null }));
     this._assignBaseVoices();
-    this._unlock();
+    if (this.autoUnlock) this._unlock();
     return this;
   }
 
   /** דפדפנים מחייבים מחווה משתמש לפני שמע — מחכים לראשונה ומשחררים */
   _unlock() {
     const g = globalThis; if (!g.addEventListener) return;
-    const h = () => {
-      const c = this.backend.ctx; c?.resume?.();
-      if (!c || c.state === "running") EVENTS.forEach(e => g.removeEventListener(e, h, true));
-    };
+    const c = this.backend.ctx;
+    if (!c || this._gestureUnlock) return;
+    const h = () => { if (c.state !== "running" && c.state !== "closed") c.resume()?.catch(() => {}); };
+    this._gestureUnlock = h;
+    h();
     EVENTS.forEach(e => g.addEventListener(e, h, true));
-    g.document?.addEventListener("visibilitychange", () => {
-      const c = this.backend.ctx;
-      if (c && this.pauseOnHidden) g.document.hidden ? c.suspend?.() : c.resume?.();
+    if (this.pauseOnHidden) g.document?.addEventListener("visibilitychange", () => {
+      if (g.document.hidden) { this.stop(); c.suspend()?.catch(() => {}); }
+      else h();
     });
   }
 
@@ -286,6 +330,7 @@ export class SpeechEngine {
    * @param {object} o
    * @param {string} o.voice  @param {number} o.priority  @param {boolean} o.interrupt
    * @param {string|object} o.mood
+   * @param {number} o.rateScale — optional stable variation of the speaker's delivery
    * @param {{x,y?,z}|(()=>{x,y?,z}|undefined)} o.position  מיקום הדובר (אובייקט חי או פונקציה) — מתעדכן ב-update()
    * @param {number} o.distance  @param {number} o.pan  חלופה סטטית ל-position
    * @param {string} o.speakerId  cooldown, ייחודיות ו-lipSync   @param {number} o.seed
@@ -296,10 +341,15 @@ export class SpeechEngine {
    */
   speak(text, o = {}) {
     const {
-      voice = "woman_calm", priority = Priority.NORMAL, interrupt = false, mood, position, seed,
+      voice = "woman_calm", priority = Priority.NORMAL, interrupt = false, mood, position, seed, rateScale = 1,
       maxDistance = this.maxDistance, speakerId = voice, ttl = this.ttlMs, occlusion = 0, onStart, onEnd, onTimeline,
     } = o;
     const eff = this._effective(voice, mood);
+    const scale = clamp(Number.isFinite(rateScale) ? rateScale : 1, .85, 1.15);
+    if (scale !== 1) {
+      eff.rate = clamp(eff.rate * scale, .1, 3);
+      eff.synth = { ...eff.synth, rate: eff.synth.rate * scale };
+    }
     const s = String(text ?? "").trim();
     if (this.muted || !/[\p{L}\p{N}]/u.test(s)) return DROPPED;
 
@@ -377,18 +427,34 @@ export class SpeechEngine {
 
   _start(ch, it) {
     ch.item = it; it.started = it.t0 = now(); this._lastSpoke.set(it.speakerId, now());
-    it.onStart?.();
+    let played = false;
     const next = i => {
       if (ch.item !== it) return;
-      if (i >= it.parts.length) { ch.item = null; it.onEnd?.(); it.resolve("done"); return this._pump(); }
+      if (i >= it.parts.length) {
+        ch.item = null;
+        it.resolve(played ? "done" : "dropped");
+        it.onEnd?.();
+        return this._pump();
+      }
       let fired = false;
-      const go = () => { if (!fired) { fired = true; next(i + 1); } };
+      const go = done => {
+        if (fired || ch.item !== it) return;
+        fired = true;
+        played ||= done;
+        next(i + 1);
+      };
       try {
         ch.backend.speak(it.parts[i], this._params(it, this._duckFor(it)), {
-          onStart: info => { if (info && i === 0) { it.info = info; it.t0 = now(); it.onTimeline?.(info); } },
-          onEnd: go, onError: go,
+          onStart: info => {
+            if (ch.item !== it) return;
+            if (i === 0) {
+              it.onStart?.();
+              if (info) { it.info = info; it.t0 = now(); it.onTimeline?.(info); }
+            }
+          },
+          onEnd: () => go(true), onError: () => go(false),
         });
-      } catch { go(); }
+      } catch { go(false); }
     };
     next(0);
   }
@@ -441,6 +507,15 @@ export class SpeechEngine {
 
   isSpeaking(speakerId) { return this._channels.some(c => c.item && (speakerId == null || c.item.speakerId === speakerId)); }
 
+  stopSpeaker(speakerId) {
+    this._queue = this._queue.filter(it => {
+      if (it.speakerId !== speakerId) return true;
+      it.resolve("cancelled");
+      return false;
+    });
+    for (const c of this._channels) if (c.item?.speakerId === speakerId) this._cancelChannel(c);
+    this._pump();
+  }
   stop() {
     this._queue.splice(0).forEach(i => i.resolve("cancelled"));
     for (const c of this._channels) if (c.item) this._cancelChannel(c);

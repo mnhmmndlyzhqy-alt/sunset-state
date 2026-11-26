@@ -1,0 +1,9 @@
+PASS fresh launch never reports the initial synthetic 60 as measured FPS
+PASS opening the actual pause menu refreshes measured status
+PASS resolution select reaches the actual policy and resizes the target
+PASS custom slider previews without reallocating until committed
+PASS native keyboard editing stays with sliders and number fields
+PASS opt-in target and F4 restore the previous fixed mode
+PASS defaults restore full internal resolution and detailed model policy
+PASS diagnostics distinguish measured FPS, selected mode and framebuffer limits
+Stage 52 resolution interface: 8 checks passed; simulated renderer, no GPU claim.

@@ -1,0 +1,14 @@
+{
+  "passed": 6,
+  "stepsCompared": 60,
+  "scenarios": "seeded downtown simulation; exact actor state comparison every ten steps",
+  "stats": {
+    "builds": 120,
+    "queries": 4775,
+    "fullScanCandidates": 912880,
+    "bucketCandidates": 14062,
+    "returned": 5916
+  },
+  "candidateVisitReductionPct": 98.46,
+  "gpu": false
+}

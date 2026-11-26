@@ -1,22 +1,29 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-where py >nul 2>nul
+py -3 --version >nul 2>nul
 if not errorlevel 1 (
-  start "SUNSET STATE Server" cmd /k "py -3 -m http.server 8765 --bind 127.0.0.1"
-  timeout /t 2 /nobreak >nul
-  start "" "http://127.0.0.1:8765/"
-  exit /b 0
+  start "SUNSET STATE Stage 54 Server" cmd /k "py -3 -m http.server 8765 --bind 127.0.0.1"
+  goto open_game
 )
-where python >nul 2>nul
+python -c "import sys; sys.exit(sys.version_info[0] != 3)" >nul 2>nul
 if not errorlevel 1 (
-  start "SUNSET STATE Server" cmd /k "python -m http.server 8765 --bind 127.0.0.1"
-  timeout /t 2 /nobreak >nul
-  start "" "http://127.0.0.1:8765/"
-  exit /b 0
+  start "SUNSET STATE Stage 54 Server" cmd /k "python -m http.server 8765 --bind 127.0.0.1"
+  goto open_game
 )
-echo Python was not found. Opening the game directly in your default browser.
-echo A local server is recommended for the most reliable browser behavior.
+node --version >nul 2>nul
+if not errorlevel 1 (
+  start "SUNSET STATE Stage 54 Server" cmd /k "node TOOLS\serve_game.cjs 8765"
+  goto open_game
+)
+echo SUNSET STATE needs Python 3 or Node.js to serve the game and voice files.
+echo Install one of them, then run this file again.
+echo Direct file opening cannot load the voice manifest and speech modules reliably.
 pause
-start "" "%~dp0index.html"
+exit /b 1
+:open_game
+timeout /t 2 /nobreak >nul
+start "" "http://127.0.0.1:8765/?build=54"
+echo Keep the server window open while playing.
+echo If another version opens, close the older SUNSET STATE server and run again.
 endlocal

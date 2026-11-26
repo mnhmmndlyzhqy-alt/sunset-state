@@ -1,0 +1,223 @@
+:root {
+  --city-inset: clamp(12px, 2.1vw, 30px);
+  --city-panel: #12232deb;
+  --city-line: #93b7bc52;
+  --city-ink: #f8f3e6;
+  --city-soft: #b7cbd0;
+  --city-sign: #ffda9c;
+  --city-radius: 12px;
+  --city-map: clamp(118px, 15vh, 155px);
+}
+
+button:focus-visible, summary:focus-visible, #minimap:focus-visible {
+  outline: 2px solid #ffd998;
+  outline-offset: 3px;
+}
+
+#main-menu {
+  justify-items: end;
+  align-items: center;
+  padding: clamp(24px, 7vw, 108px);
+  background: linear-gradient(265deg, #07151af5 2%, #0b2029ea 36%, #0d273271 70%, #0d243030 100%);
+}
+#main-menu .welcome-brief {
+  position: relative;
+  inset: auto;
+  width: min(590px, 100%);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  text-align: right;
+  pointer-events: auto;
+}
+#main-menu h1 {
+  font-size: clamp(44px, 8.2vw, 124px);
+  text-align: right;
+  font-family: Impact, 'Arial Narrow', sans-serif;
+  line-height: .93;
+  letter-spacing: .015em;
+  font-weight: 800;
+  margin: 0 0 20px;
+  color: var(--city-sign);
+  text-shadow: 0 8px 28px #080e16a0;
+}
+#main-menu .welcome-brief p {
+  max-width: 34ch;
+  margin: 0 0 23px auto;
+  font-size: clamp(14px, 2vw, 20px);
+}
+#main-menu .hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: auto;
+  height: auto;
+  min-height: 52px;
+  padding: 10px 19px;
+  border-radius: 10px;
+  background: #f6d39a;
+  color: #15252c;
+  font: 750 17px system-ui, sans-serif;
+  box-shadow: 0 10px 24px #0a1319a0;
+}
+#main-menu .hero-button:hover { transform: translateY(-2px); background: #ffe4b6; }
+#main-menu .hero-button svg { width: 19px; height: 19px; }
+.welcome-controls {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px 17px;
+  flex-wrap: wrap;
+  color: #d8e5e6;
+  margin-top: 19px;
+  font-size: 12px;
+}
+.welcome-controls kbd { color: var(--city-sign); font: 700 11px ui-monospace, monospace; }
+#stage19-main-save-panel {
+  left: var(--city-inset);
+  bottom: var(--city-inset);
+  transform: none;
+  background: var(--city-panel);
+  border-color: var(--city-line);
+  border-radius: var(--city-radius);
+}
+
+.hud-top { padding: var(--city-inset); }
+.hud-actions, .heat-panel, .map-shell, .clock-panel, #city-discovery50, #mission-tracker,
+.right-gauge.driving, #interior-panel, #law-status-460, #route-guide445, #transit-panel {
+  background: var(--city-panel);
+  border: 1px solid var(--city-line);
+  border-radius: var(--city-radius);
+  box-shadow: 0 5px 18px #060e174d;
+  backdrop-filter: none;
+}
+.hud-actions { gap: 2px; padding: 4px 5px; }
+.hud-actions .icon-button { border-radius: 7px; }
+.hud-actions .icon-button:hover, #mission-filters50 button:hover { transform: none; background: #cde9ec25; }
+.heat-panel { position: relative; gap: 5px; padding: 6px 9px; min-height: 35px; }
+.heat-panel .lamps { gap: 5px; }
+.heat-panel .lamps i { width: 14px; height: 14px; }
+.heat-panel .chase-symbol { color: var(--city-soft); width: 17px; height: 17px; }
+.heat-panel:has(.lamps i.active) .chase-symbol { color: var(--city-sign); }
+#police-status { font-size: 11px; max-width: 185px; }
+.minimap-top { top: calc(var(--city-inset) + 49px); left: var(--city-inset); padding: 4px; }
+.minimap-top canvas { width: var(--city-map); height: var(--city-map); border-radius: 8px; }
+#route-guide445 { top: calc(var(--city-inset) + 49px); left: calc(var(--city-inset) + var(--city-map) + 18px); }
+#city-discovery50 {
+  position: absolute;
+  top: calc(var(--city-inset) + var(--city-map) + 64px);
+  left: var(--city-inset);
+  max-width: min(275px, 42vw);
+  color: var(--city-soft);
+  pointer-events: auto;
+  font-size: 12px;
+}
+#city-discovery50 summary { padding: 6px 9px; cursor: pointer; color: var(--city-ink); }
+#city-discovery50 #explore-progress, #city-discovery50 #street-guide, #city-discovery50 #streetlife-panel {
+  position: static;
+  padding: 5px 9px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  max-width: none;
+}
+#hud.indoor-active #city-discovery50 { display: none; }
+#mission-tracker {
+  top: auto;
+  bottom: var(--city-inset);
+  left: var(--city-inset);
+  width: min(252px, 37vw);
+  overflow: hidden;
+}
+#mission-title { color: var(--city-sign); }
+#mission-tracker-button { padding: 8px 11px; }
+#hud:not(.mission-active) #mission-goal { display: none; }
+#stage33-start-suggested { margin-bottom: 6px; }
+.clock-panel { top: calc(var(--city-inset) + 56px); right: var(--city-inset); padding: 4px 6px; gap: 5px; }
+.clock-panel input { width: 66px; }
+.clock-panel button { width: 25px; height: 25px; font-size: 15px; }
+.clock-panel #day-phase { display: none; }
+#law-status-460 { top: calc(var(--city-inset) + 112px); right: var(--city-inset); font-size: 12px; }
+.weapon-panel { top: calc(var(--city-inset) + 112px); right: var(--city-inset); }
+#hud:has(#weapon-panel:not(.hidden)) #law-status-460 { top: calc(var(--city-inset) + 204px); }
+#interior-panel { top: calc(var(--city-inset) + 111px); right: var(--city-inset); }
+#transit-panel { top: calc(var(--city-inset) + 112px); right: var(--city-inset); }
+.hud-bottom { justify-content: flex-end; left: auto; bottom: var(--city-inset); right: var(--city-inset); }
+.right-gauge { align-items: center; }
+.right-gauge .integrity { margin: 0; width: 94px; height: auto; }
+.right-gauge.driving { display: grid; grid-template-columns: auto auto; gap: 6px 11px; }
+.right-gauge.driving .integrity { grid-column: 1 / -1; width: 100%; padding: 0; background: transparent; border: 0; box-shadow: none; }
+.right-gauge.driving .integrity-line { height: 3px; }
+.right-gauge.driving .meter { grid-column: 1; flex: 0 0 auto; }
+#drive-gear50 { color: var(--city-sign); font-size: 12px; font-weight: 700; padding-top: 4px; }
+#mode-icons { bottom: 10px; }
+#mode-icons .mode-indicator { width: 34px; height: 34px; padding: 7px; }
+#mode-icons .mode-indicator svg { width: 19px; height: 19px; }
+#interact-hint { bottom: 105px; max-width: min(520px, 67vw); background: var(--city-panel); border-color: var(--city-line); }
+#business-panel44 { bottom: 116px; }
+body:has(#elevator50:not([hidden])) #interact-hint { bottom: 132px; }
+body:has(#vault-console50:not([hidden])) #business-panel44 { display: none; }
+body:has(#pause-menu:not(.hidden)) :is(#elevator50, #vault-console50, #voices-caption50) { display: none; }
+body:has(#large-map:not(.hidden)) :is(#elevator50, #vault-console50, #voices-caption50) { display: none; }
+#vault-console50 { bottom: 118px; }
+#voices-caption50 { bottom: 130px; }
+
+.mission-dialog { max-height: 92vh; max-height: 92dvh; }
+.mission-dialog header h2 { color: var(--city-sign); }
+.mission-dialog header { padding-bottom: 10px; }
+#mission-filters50 { display: flex; flex-wrap: wrap; gap: 5px; margin: 4px 20px 9px; }
+#mission-filters50 button { border: 1px solid var(--city-line); border-radius: 7px; padding: 4px 9px; font: 650 12px system-ui, sans-serif; }
+#mission-filters50 button[aria-pressed=true] { background: #eec78d; color: #17272d; }
+#mission-list .mission-card[hidden], #mission-empty50[hidden] { display: none; }
+#mission-empty50 { margin: 14px 21px; color: var(--city-soft); }
+#mission-finance50 { margin: 0 21px 5px; font-size: 11px; color: var(--city-soft); }
+#mission-finance50 summary { cursor: pointer; margin-bottom: 3px; }
+#mission-finance50 #stage33-economy, #mission-finance50 #stage33-receipts { margin-inline: 0; }
+#stage33-brief { display: none; }
+.mission-card { min-height: 120px; }
+
+@media (max-width: 740px) {
+  :root { --city-map: clamp(78px, 15vh, 105px); }
+  #police-status { font-size: 9px; max-width: 84px; }
+  .heat-panel .lamps { gap: 4px; }
+  .heat-panel .lamps i { width: 11px; height: 11px; }
+  .hud-actions .icon-button { width: 30px; height: 30px; padding: 6px; }
+  .sound-slider { width: 37px; }
+  #mission-tracker { width: min(185px, 43vw); }
+  #mission-tracker-button { padding: 6px 8px; }
+  #interact-hint { font-size: 11px; max-width: 73vw; }
+  #interior-panel { width: min(45vw, 200px); min-width: 0; }
+  #mission-filters50 { margin-inline: 13px; }
+}
+@media (max-width: 700px) {
+  #main-menu { align-items: start; padding-top: clamp(30px, 9vh, 69px); }
+  #stage19-main-save-panel { left: 50%; transform: translateX(-50%); }
+}
+@media (max-width: 396px) {
+  .sound-slider { visibility: hidden; width: 0; margin: 0; }
+  .heat-panel { min-height: 33px; padding-inline: 5px; }
+  .hud-top { gap: 2px; }
+  .clock-panel input { width: 45px; }
+  #weather-status { display: none; }
+  #route-guide445 { max-width: 107px; }
+}
+@media (pointer: coarse) {
+  #mode-icons { display: none; }
+  #mission-tracker { bottom: 168px; }
+  #city-discovery50 { display: none; }
+  #interact-hint { bottom: 179px; }
+  #business-panel44, #vault-console50 { bottom: 216px; }
+  #elevator50 { bottom: 174px; }
+  body:has(#elevator50:not([hidden])) #interact-hint { bottom: 268px; }
+  #voices-caption50 { bottom: 225px; }
+}
+@media (max-height: 500px) and (pointer: coarse) {
+  #mission-tracker { bottom: 135px; }
+  #touch-controls { transform: scale(.83); transform-origin: bottom center; }
+  .hud-bottom { bottom: 145px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #main-menu .hero-button:hover { transform: none; }
+}

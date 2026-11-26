@@ -266,6 +266,7 @@ var Heatline=globalThis.Heatline||{};
     }
     function stadium(w){
         const {x,z}=H.reference469.world(1063,289),base=y(x,z)+.43,rx=51,rz=77,yaw=.26;
+        const match=H.stadium53?.layout({x,z,base,rx,rz,yaw});
         const c=Math.cos(yaw),s=Math.sin(yaw);
         const local=(u,v)=>[x+c*u-s*v,z+s*u+c*v];
         const at=(u,height,v)=>{const [px,pz]=local(u,v);return [px,base+height,pz];};
@@ -286,35 +287,48 @@ var Heatline=globalThis.Heatline||{};
             for(const post of [-1,1])box(post*9.6,side*29.35,.138,.13,.012,8.3,'#e7e7ce','paint','cube');
         }
         box(0,0,.138,44,.012,.14,'#e7e7ce','paint','cube');
-        const ring=(a,b,ha,hb,color,material,steps=48)=>{
-            const rows=Array.from({length:steps+1},(_,i)=>{
-                const t=i/steps*TAU,[u,v]=oval(t,rx+a,rz+a),[q,p]=oval(t,rx+b,rz+b);
-                return [at(u,ha,v),at(q,hb,p)];
-            });
-            H.addRibbon444(w,rows,{color,material,visibility:1900,layer:4});
+        const ring=(a,b,ha,hb,color,material,steps=48,passage=true)=>{
+            const rays=Array.from({length:steps+1},(_,i)=>i/steps*TAU);
+            const breaks=match&&passage?
+                [[0,match.gateAngle-match.halfOpening],[match.gateAngle+match.halfOpening,TAU]]:[[0,TAU]];
+            for(const [start,end] of breaks){
+                const rows=[start,...rays.filter(t=>t>start&&t<end),end].map(t=>{
+                    const [u,v]=oval(t,rx+a,rz+a),[q,p]=oval(t,rx+b,rz+b);
+                    return [at(u,ha,v),at(q,hb,p)];
+                });
+                H.addRibbon444(w,rows,{color,material,visibility:1900,layer:4});
+            }
         };
         ring(0,0,10.9,-.28,'#a7a398','concrete');
         ring(.09,.09,9.8,3.22,'#476872','vehicle_glass444');
         for(const [height,color] of [[.54,'#858479'],[3.24,'#b7b3a0'],[9.65,'#c4c2b4']])
             ring(.20,.20,height+.27,height-.21,color,'masonry');
+        if(match)ring(-21.3,-18.4,-.02,1.05,'#9a9b8e','paving');
         ring(-18.4,-1,1.05,10.2,'#7d837e','concrete');
         for(let i=0;i<6;i++)ring(-17+i*2.57,-16.05+i*2.57,1.74+i*1.29,1.74+i*1.29,
             ['#394e56','#526a6c','#567172'][i%3],'concrete');
         // Open centre, weather-proof spectator canopy and two supported fascia edges.
-        ring(-10.8,2.5,12.27,13.95,'#d9d6c8','metal');
-        ring(2.5,3.20,13.95,13.46,'#e8e1ce','metal');
-        ring(3.20,3.20,13.46,12.27,'#a6a59a','metal');
-        ring(-10.8,-10.8,12.27,11.91,'#aaad9e','metal');
+        ring(-10.8,2.5,12.27,13.95,'#d9d6c8','metal',48,false);
+        ring(2.5,3.20,13.95,13.46,'#e8e1ce','metal',48,false);
+        ring(3.20,3.20,13.46,12.27,'#a6a59a','metal',48,false);
+        ring(-10.8,-10.8,12.27,11.91,'#aaad9e','metal',48,false);
         for(let i=0;i<36;i++){
             const angle=i*TAU/36,[u,v]=oval(angle,rx+.41,rz+.41),[p,q]=local(u,v);
-            part(w,p,base+6.14,q,.64,12.65,.80,'#c2c0ad','concrete','rounded',yaw-angle,1450);
-            const [a,b]=oval(angle+.5*TAU/36,rx-.22,rz-.22),[sx,sz]=local(a,b);
-            solid(w,sx,sz,Math.max(2,Math.abs(Math.sin(angle+yaw))*10.7),Math.max(2,Math.abs(Math.cos(angle+yaw))*11.7));
+            if(!match?.passage(angle,.022))
+                part(w,p,base+6.14,q,.64,12.65,.80,'#c2c0ad','concrete','rounded',yaw-angle,1450);
+            const sector=angle+.5*TAU/36;
+            if(!match?.passage(sector,.095)){
+                const [a,b]=oval(sector,rx-.22,rz-.22),[sx,sz]=local(a,b);
+                const width=Math.max(2,Math.abs(Math.sin(angle+yaw))*10.7),depth=Math.max(2,Math.abs(Math.cos(angle+yaw))*11.7);
+                solid(w,sx,sz,width,depth);
+                if(match)H.stadium53.cameraWall(w,sx,sz,width,depth,base);
+            }
             if(i%6===0)part(w,p,base+11.22,q,2.46,.24,.56,'#e4dcc2','light_emissive','rounded',yaw-angle,620);
         }
         const [px,pz]=local(48,13.5);
         part(w,px,base+3.65,pz,7.3,.33,13.6,'#c5c1aa','metal','rounded',yaw,1380);
         w.mapFeatures461.push({id:'stadium',x,z,width:(rx+3.2)*2,depth:(rz+3.2)*2,color:'#c7c9bb',yaw});
+        if(match)H.stadium53.decorate(w,match);
     }
     function parking(w){
         const R=H.reference469,near=R.world(1002,343),far=R.world(1078,479);
@@ -413,17 +427,20 @@ var Heatline=globalThis.Heatline||{};
         const a=R.world(631,616),b=R.world(741,641),x=(a.x+b.x)/2,z=(a.z+b.z)/2,ww=b.x-a.x,dd=b.z-a.z;
         const terminal=(dx,height,dz,wid,ht,dep,color,material,shape='cube')=>
             part(w,x+dx,base+height,z+dz,wid,ht,dep,color,material,shape,0,2360);
-        terminal(0,.58,0,ww,.92,dd,'#a19b89','travertine471','rounded');
-        terminal(0,7.73,0,ww-.18,13.55,dd-.13,'#76949b','tower_glass469','rounded');
-        terminal(0,2.1,0,ww*.89,.49,dd*.92,'#767b73','concrete');
-        terminal(0,5.8,0,ww*.90,.33,dd*.91,'#af9b79','bronze471');
-        terminal(0,13.18,0,ww+.57,.63,dd+.54,'#8a9597','anodized471','rounded');
+        const openTerminal=H.airport54World,columns=[];
+        if(!openTerminal){
+            terminal(0,.58,0,ww,.92,dd,'#a19b89','travertine471','rounded');
+            terminal(0,7.73,0,ww-.18,13.55,dd-.13,'#76949b','tower_glass469','rounded');
+            terminal(0,2.1,0,ww*.89,.49,dd*.92,'#767b73','concrete');
+            terminal(0,5.8,0,ww*.90,.33,dd*.91,'#af9b79','bronze471');
+            terminal(0,13.18,0,ww+.57,.63,dd+.54,'#8a9597','anodized471','rounded');
+        }
         const top=t=>15.0+3.5*Math.cos(t*Math.PI)+1.95*t**6;
         const span=Array.from({length:31},(_,i)=>{
             const t=i/15-1,px=x+t*(ww/2+6.3),level=base+top(t),depth=dd/2+6.3+Math.cos(t*Math.PI/2)*6.1;
             return {px,level,depth};
         });
-        for(const [v0,v1,material,color] of [[-.98,-.12,'anodized471','#b4c0c4'],[-.12,.12,'tower_glass469','#759ea9'],[.12,.98,'anodized471','#b4c0c4']]){
+        for(const [v0,v1,material,color] of [[-.98,-.12,'anodized471','#b4c0c4'],[-.12,.12,openTerminal?'clear_glass472':'tower_glass469','#759ea9'],[.12,.98,'anodized471','#b4c0c4']]){
             H.addRibbon444(w,span.map(({px,level,depth})=>[[px,level,z+depth*v1],[px,level,z+depth*v0]]),
                 {color,material,visibility:2520,layer:4});
         }
@@ -441,6 +458,7 @@ var Heatline=globalThis.Heatline||{};
                 const dx=col*ww/16,depth=side*(dd/2+1.7),level=top(2*dx/ww)-.22;
                 terminal(dx,level/2,depth,.42,level,.52,'#849193','anodized471','rounded');
                 terminal(dx,3.16,depth,.49,.12,.59,'#af9979','bronze471','rounded');
+                if(openTerminal)columns.push({u:dx,v:depth,height:level-.29});
             }
         }
         const forecourt=z-dd/2-10.0;
@@ -450,8 +468,10 @@ var Heatline=globalThis.Heatline||{};
             part(w,p,base+.24,forecourt,4.6,.48,3.5,'#858579','travertine471','rounded');
             palm(w,p,forecourt,6.65);
         }
-        solid(w,x,z,ww,dd);mark(w,'terminal',x,z,ww,dd,'#a6b8bd');
         const entry=R.world(703,610);
+        if(openTerminal)openTerminal.decorate(w,{x,z,base,width:ww,depth:dd,entry,columns});
+        else solid(w,x,z,ww,dd);
+        mark(w,'terminal',x,z,ww,dd,'#a6b8bd');
         const stands=[[663,662,Math.PI],[708,661,Math.PI],[784,645,-1.35],[898,617,-.16],[505,654,1.55]];
         w.parkedAirliners471=stands.map(([u,v,yaw])=>({...R.world(u,v),y:base+.075,yaw,gear:1,parked:true}));
         for(const [i,site] of w.parkedAirliners471.slice(0,2).entries()){

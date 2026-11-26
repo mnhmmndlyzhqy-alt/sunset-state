@@ -77,6 +77,7 @@ var Heatline=globalThis.Heatline||{};
         const moving=game.boat444;
         const local=(x,z,range)=>(x-game.cam.x)**2+(z-game.cam.z)**2<range*range;
         for(const berth of marina.berths){
+            if(moving?.id!==berth.id&&H.privateFleet53?.sourceBlocked('boat',String(berth.id)))continue;
             const boat=moving?.id===berth.id?moving:berth;
             if(local(boat.x,boat.z,245))H.maritimeModel444(boat,out,game.seconds,!game.renderer.gl);
         }

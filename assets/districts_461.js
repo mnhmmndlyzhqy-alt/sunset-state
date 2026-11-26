@@ -172,7 +172,8 @@ var Heatline=globalThis.Heatline||{};
         return out;
     }
     const widthPoint=(p,w,dy)=>[p.x+p.nx*w,p.y+dy,p.z+p.nz*w];
-    const ribbon=(world,run,l,r,y,color,material,layer=3,visibility=1400)=>H.addRibbon444(world,
+    const ribbon=(world,run,l,r,y,color,material,layer=3,visibility=1400)=>H.roads53?
+        H.roads53.ribbon(world,run,l,r,y,color,material,layer,visibility):H.addRibbon444(world,
         run.map(p=>[widthPoint(p,l,y),widthPoint(p,r,y)]),{color,material,visibility,layer});
     function buildRoads(world){
         const roads=G.roads.map(road=>({...road,samples:roadSamples(road)}));
@@ -201,7 +202,8 @@ var Heatline=globalThis.Heatline||{};
                 let bridge=[];
                 const cap=()=>{
                     if(bridge.length>1)for(const side of [-1,1])
-                        H.addRetainingWall444(world,bridge.map(p=>({
+                      for(const railRun of (H.roads53?.railRuns(road,bridge,side)||[bridge]))
+                        H.addRetainingWall444(world,railRun.map(p=>({
                             x:p.x+p.nx*half*side,z:p.z+p.nz*half*side,nx:p.nx,nz:p.nz,
                             bottom:p.y-.28,top:p.y+(H.city20Stage04BridgeCrest?.(road,p)??.79)
                         })),H.city20Stage04ParapetWidth?.()??.23,{face:'#8d8e85',trim:'#aea997',cap:'#b6ae9b'});

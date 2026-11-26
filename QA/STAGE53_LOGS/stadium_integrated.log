@@ -1,0 +1,10 @@
+Stage 53 stadium acceptance passed (genuine world and Game, CPU surface). {
+  score: [ 5, 7 ],
+  passes: 49,
+  shots: 37,
+  saves: 20,
+  goals: 12,
+  looseKicks: 0,
+  restarts: 5,
+  visibleSkinnedActors: 43
+}

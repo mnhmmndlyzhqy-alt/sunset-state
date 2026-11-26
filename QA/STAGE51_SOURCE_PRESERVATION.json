@@ -1,0 +1,24 @@
+{
+  "source_archive": "SUNSET_STATE_CITY_UPDATE.zip",
+  "source_sha256": "03a5a1f1696ed1bb616d237a7157da130b68c9b1c630f3978f0919f7f64c00a7",
+  "original_files": 3417,
+  "unchanged_original_files": 3405,
+  "changed_original_files": [
+    "assets/speech/speech-engine.js",
+    "assets/stage38_adaptive_lod.js",
+    "assets/stage39_city_voices.js",
+    "assets/stage39_realism_core.js",
+    "assets/stage39_realism_render.js",
+    "assets/stage39_speech_bridge.js",
+    "assets/stage48_chat.js",
+    "assets/stage50_city.js",
+    "engine44.js",
+    "index.html",
+    "RUN_GAME_WINDOWS.bat",
+    "START_GAME.html"
+  ],
+  "missing_original_files": [],
+  "excluded_archival_or_tool_files": [],
+  "unchanged_binary_assets": 2412,
+  "result": "pass"
+}

@@ -372,10 +372,14 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
           float shaft=(.64+.36*(1.0-fresnel))*mix(.53,1.0,night);
           float alphaOut=matId==9.0?.12*shaft:matId==10.0?.15*shaft:matId==8.0?.46:matId==16.0?.16+fresnel*.23:1.0;
           if(uUnderwater445>.5){
-            float fogWater=1.0-exp(-dist*.076);
+            float depth=max(0.0,-vPosition.y);
+            float fogWater=1.0-exp(-dist*(.060+.013*min(depth,3.4)));
             color=mix(color*vec3(.55,.80,.82),vec3(.012,.07,.085),fogWater*.96);
-            float caustic=sin(vPosition.x*3.81+sin(vPosition.z*2.36)+uTime*1.57)*sin(vPosition.z*4.6+uTime*.63);
-            color+=vec3(.02,.06,.05)*smoothstep(.6,.99,caustic)*(1.0-fogWater)*max(.18,abs(n.y));
+            vec2 ca=vPosition.xz+vec2(.31,.24)*depth;
+            float a0=sin(ca.x*3.25+sin(ca.y*1.9+uTime*.41)+uTime*1.18);
+            float b0=sin(ca.y*3.72+cos(ca.x*1.8-uTime*.54)-uTime*.81);
+            float caustic=pow(1.0-abs(a0-b0)*.5,7.0);
+            color+=vec3(.045,.13,.10)*caustic*(1.0-fogWater)*exp(-depth*.31)*max(0.0,n.y)*max(0.0,sun.y);
           }
           outputColor=vec4(rcEmit(color),alphaOut);
           rcLinear_=true;
@@ -463,18 +467,27 @@ vec3 rcCityFacade(float material,vec3 n,vec3 v,vec3 sun,float dist){
             float sunUp=smoothstep(-.035,.06,sun.y);
             float NoL=max(dot(wn,sun),0.0);
             vec3 hv=normalize(sun+v);
-            float rgh=clamp(.045+.04*wind+foot*.003,.04,.26);
+            float rgh=clamp(.040+.035*wind+foot*.003+.024*abs(rip),.04,.26);
             float glint=rcGGX(max(dot(wn,hv),0.0),pow(rgh,4.0))*rcVis(NoL,NoV,rgh)*F*NoL*3.14159;
             // Water body: absorption/scattering, turquoise shallows to deep ocean blue.
             // Tropical palette: bright turquoise over sand, saturated blue offshore.
             vec3 shallowC=vec3(.030,.330,.330),deepC=vec3(.004,.050,.135);
             vec3 body=mix(shallowC,deepC,smoothstep(.04,.85,deep))*(rcSkyUp*.9+rcSunColor*max(sun.y,0.0)*.35);
+            float shallows=(1.0-smoothstep(.10,.46,deep))*(1.0-smoothstep(65.0,180.0,d))*sunUp;
+            if(shallows>.01){
+              vec2 ca=p*.76+slope*.6;
+              float pattern=sin(ca.x+sin(ca.y*1.5+uTime*.52))*sin(ca.y-sin(ca.x*1.3-uTime*.73));
+              body+=vec3(.08,.15,.115)*rcSunColor*shallows*smoothstep(.54,.92,pattern);
+            }
             body+=vec3(.02,.10,.08)*rcSunColor*sunUp*pow(max(0.0,dot(-v,sun)),3.0)*(.5+wsum*4.0)*.25;
             vec3 col=mix(body,refl,F)+rcSunColor*sunUp*min(glint,60.0);
             // Breaking foam along the shore.
             float shore=outside>.5?0.0:smoothstep(.36,.54,coast.g);
             float foamN=smoothNoise(p*.45+vec2(uTime*.35,0.0))*.6+smoothNoise(p*1.3-uTime*.25)*.4;
-            float foam=shore*smoothstep(.45,.75,foamN+.25*sin(deep*70.0-uTime*1.6))*(1.0-calm*.7);
+            float breaker=sin(deep*91.0-uTime*1.7+foamN*1.7);
+            float edge=1.0-smoothstep(.17,.73,abs(breaker-.48));
+            float swash=shore*edge*smoothstep(.31,.72,foamN)*(1.0-calm*.7);
+            float foam=max(swash,smoothstep(.47,.56,coast.g)*.32*max(0.0,breaker));
             // Small whitecaps on wave crests offshore (fade with distance to avoid shimmer).
             float cap=smoothstep(.70,.92,smoothNoise(p*.21+vec2(uTime*.12,uTime*.07)))*smoothstep(.0,.05,wsum)*(1.0-calm)*(1.0-smoothstep(120.0,520.0,d))*.32*wind;
             foam=max(foam,cap);
@@ -1052,6 +1065,7 @@ uniform vec3 whiteBalance,lift;
 uniform vec2 sunUV;uniform float sunVis;uniform vec3 sunCol;
 uniform bool antialias;
 uniform bool hdrInput;
+uniform bool upscale;
 uniform float sharpen;
 uniform int aoTaps,shaftTaps;
 in vec2 uv;out vec4 result;
@@ -1077,7 +1091,7 @@ vec3 sampleCR(vec2 p){
 }
 void main(){
   vec2 dx=vec2(pixelSize.x,0.0),dy=vec2(0.0,pixelSize.y);
-  vec3 color=sharpen>.001?sampleCR(uv):texture(sceneColor,uv).rgb;
+  vec3 color=upscale?sampleCR(uv):texture(sceneColor,uv).rgb;
   if(any(isnan(color))||any(isinf(color)))color=vec3(0.0);
   if(antialias){
     // FXAA (edge-directed blur along the edge): removes the stair-steps of a non-MSAA frame.
@@ -1096,11 +1110,15 @@ void main(){
   }
   if(sharpen>.001){
     // Contrast-adaptive sharpening of the upscaled scene (luma-weighted, clamped).
-    vec3 n4=texture(sceneColor,uv+vec2(pixelSize.x,0.0)).rgb+texture(sceneColor,uv-vec2(pixelSize.x,0.0)).rgb+
-            texture(sceneColor,uv+vec2(0.0,pixelSize.y)).rgb+texture(sceneColor,uv-vec2(0.0,pixelSize.y)).rgb;
-    vec3 detail=color-n4*.25;
-    float lc=dot(color,vec3(.2126,.7152,.0722));
-    color=max(vec3(0.0),color+detail*sharpen/(1.0+lc*.6));
+    vec3 nl=texture(sceneColor,uv-dx).rgb,nr=texture(sceneColor,uv+dx).rgb;
+    vec3 nb=texture(sceneColor,uv-dy).rgb,nt=texture(sceneColor,uv+dy).rgb;
+    vec3 detail=color-(nl+nr+nb+nt)*.25;
+    float lc=luma(color);
+    // Keep local contrast without bright/dark outlines along strong edges.
+    vec3 lo=min(color,min(min(nl,nr),min(nb,nt)));
+    vec3 hi=max(color,max(max(nl,nr),max(nb,nt)));
+    vec3 limit=.04*(hi-lo)+.002;
+    color=clamp(color+detail*sharpen/(1.0+lc*.6),max(vec3(0.0),lo-limit),hi+limit);
   }
   float depth=depthAt(uv);
   if(aoStrength>.02&&aoTaps>0&&depth<60.0){
@@ -1212,10 +1230,18 @@ void main(){
       this.levels = [];
       this.loc = {};
       for (const name of ['sceneColor', 'sceneDepth', 'bloomTex', 'pixelSize', 'projectionScale', 'nearPlane', 'aoStrength',
-        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput', 'sunUV', 'sunVis', 'sunCol', 'sharpen', 'aoTaps', 'shaftTaps'])
+        'bloomStrength', 'grain', 'time', 'vignette', 'saturation', 'contrast', 'whiteBalance', 'lift', 'antialias', 'hdrInput', 'sunUV', 'sunVis', 'sunCol', 'upscale', 'sharpen', 'aoTaps', 'shaftTaps'])
         this.loc[name] = gl.getUniformLocation(this.final, name);
       this.downLoc = { src: gl.getUniformLocation(this.down, 'src'), texel: gl.getUniformLocation(this.down, 'texel'), prefilter: gl.getUniformLocation(this.down, 'prefilter') };
       this.upLoc = { src: gl.getUniformLocation(this.up, 'src'), texel: gl.getUniformLocation(this.up, 'texel'), radius: gl.getUniformLocation(this.up, 'radius') };
+      // Sampler slots belong to these programs and stay fixed for their lifetime.
+      gl.useProgram(this.final);
+      gl.uniform1i(this.loc.sceneColor, 0); gl.uniform1i(this.loc.sceneDepth, 1); gl.uniform1i(this.loc.bloomTex, 2);
+      gl.useProgram(this.down);
+      gl.uniform1i(this.downLoc.src, 0);
+      gl.useProgram(this.up);
+      gl.uniform1i(this.upLoc.src, 0);
+      gl.uniform1f(this.upLoc.radius, 1);
       const internal = hdr ? gl.RGBA16F : gl.RGBA8;
       let colorSamples = [];
       try { colorSamples = Array.from(gl.getInternalformatParameter(gl.RENDERBUFFER, internal, gl.SAMPLES) || []); } catch { colorSamples = []; }
@@ -1291,7 +1317,6 @@ void main(){
       if (!L.length) return null;
       g.bindVertexArray(this.vao);
       g.useProgram(this.down);
-      g.uniform1i(this.downLoc.src, 0);
       g.activeTexture(g.TEXTURE0);
       let srcTex = this.color, sw = this.width, sh = this.height;
       for (let i = 0; i < L.length; i++) {
@@ -1304,8 +1329,6 @@ void main(){
         srcTex = L[i].tex; sw = L[i].w; sh = L[i].h;
       }
       g.useProgram(this.up);
-      g.uniform1i(this.upLoc.src, 0);
-      g.uniform1f(this.upLoc.radius, 1.0);
       g.enable(g.BLEND);
       g.blendFunc(g.ONE, g.ONE);
       for (let i = L.length - 1; i > 0; i--) {
@@ -1337,7 +1360,6 @@ void main(){
       g.activeTexture(g.TEXTURE1); g.bindTexture(g.TEXTURE_2D, this.depth);
       g.activeTexture(g.TEXTURE2); g.bindTexture(g.TEXTURE_2D, bloomTex || this.color);
       const L = this.loc;
-      g.uniform1i(L.sceneColor, 0); g.uniform1i(L.sceneDepth, 1); g.uniform1i(L.bloomTex, 2);
       g.uniform2f(L.pixelSize, 1 / this.width, 1 / this.height);
       g.uniform2f(L.projectionScale, field * this.width / this.height, field);
       g.uniform1f(L.nearPlane, nearPlane);
@@ -1352,6 +1374,7 @@ void main(){
       g.uniform3fv(L.lift, grade.lift);
       g.uniform1i(L.antialias, this.multisample ? 0 : 1);
       g.uniform1i(L.hdrInput, this.hdr ? 1 : 0);
+      g.uniform1i(L.upscale, grade.outW > this.width || grade.outH > this.height ? 1 : 0);
       g.uniform1f(L.sharpen, grade.sharpen || 0);
       g.uniform1i(L.aoTaps, grade.aoTaps == null ? 8 : grade.aoTaps); g.uniform1i(L.shaftTaps, grade.shaftTaps == null ? 22 : grade.shaftTaps);
       g.uniform2fv(L.sunUV, grade.sunUV || [0, 0]); g.uniform1f(L.sunVis, grade.sunVis || 0); g.uniform3fv(L.sunCol, grade.sunCol || [0, 0, 0]);
@@ -1466,7 +1489,7 @@ void main(){
         RC.stats.adapter = adapter; RC.stats.integratedProfile = this.rcIntegrated;
         if (this.rcIntegrated) {
           if (this.rcComposite) this.rcComposite.maxSamplesOverride = 0;
-          this.rcResScale = params.has('realismFullRes') ? 1 : .9;
+          this.rcResScale = H.quality51?.fixed || params.has('realismFullRes') ? 1 : .9;
           if (this.shadowReady && this.shadowSize > 2048) {
             const oldTex = this.shadowTexture, oldFb = this.shadowFrame;
             this.shadowSize = 2048;
@@ -1519,7 +1542,7 @@ void main(){
         RC.stats.prepass = !!this.rcPrepass;
         return this.rcPrepass;
       }
-      pack(objects, reuse = false) {
+      pack(objects, reuse = false, target = null, start = 0) {
         // Unknown material names (e.g. 'stone') used to upload NaN, which blanked the
         // whole frame once such an object entered view. Map them to concrete.
         // Root cause of the "pink screen when turning the camera": 166 recovery
@@ -1529,9 +1552,110 @@ void main(){
           if (typeof o.color !== 'string') o.color = '#a8a296';
           if (o.material === 'stone') o.material = 'concrete';
         }
-        const out = super.pack(objects, reuse);
-        for (let i = 19; i < out.length; i += 20) if (out[i] !== out[i]) out[i] = -6;
-        return out;
+        const out = super.pack(objects, reuse, target, start);
+        const first = target && out === target ? start : 0;
+        const end = first + objects.length * 20;
+        for (let i = first + 19; i < end; i += 20) if (out[i] !== out[i]) out[i] = -6;
+        if (target && out !== target) target.set(out, start);
+        return target || out;
+      }
+      bindStaticInstances52(buffer) {
+        const g = this.gl;
+        if (this.rcStaticBindings52 === undefined) {
+          g.bindVertexArray(this.vao);
+          const vertex = g.getVertexAttrib(0, g.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING);
+          const index = g.getParameter(g.ELEMENT_ARRAY_BUFFER_BINDING);
+          this.rcStaticBindings52 = vertex && index ? { vertex, index, vaos: new WeakMap() } : null;
+        }
+        const shared = this.rcStaticBindings52;
+        let vao = shared?.vaos.get(buffer);
+        if (!vao && shared) {
+          vao = g.createVertexArray();
+          if (vao) {
+            g.bindVertexArray(vao);
+            g.bindBuffer(g.ARRAY_BUFFER, shared.vertex);
+            for (let i = 0; i < 2; i++) {
+              g.enableVertexAttribArray(i);
+              g.vertexAttribPointer(i, 3, g.FLOAT, false, 24, i * 12);
+            }
+            g.bindBuffer(g.ELEMENT_ARRAY_BUFFER, shared.index);
+            this.bindInstances(buffer);
+            shared.vaos.set(buffer, vao);
+            return;
+          }
+        }
+        g.bindVertexArray(vao || this.vao);
+        if (!vao) this.bindInstances(buffer);
+      }
+      drawInstanceGroups52(groups, pass) {
+        const g = this.gl, opaque = pass === 'opaque', shadow = pass === 'shadow';
+        const streams = this.rcStreams52 || (this.rcStreams52 = {});
+        const stream = streams[pass] || (streams[pass] = { batches: [], data: new Float32Array(0), buffer: null });
+        let floats = 0, count = 0;
+        const append = (shape, list) => {
+          if (!list?.length) return;
+          const range = this.modelRanges.get(shape);
+          let indices, offset;
+          if (shape === 'cube' || shape === 'wedge') {
+            indices = 36;
+            offset = shape === 'cube' ? 0 : 144;
+          } else if (shape === 'wheel' || (shadow && shape === 'rim')) {
+            indices = this.wheelIndexCount;
+            offset = 288;
+          } else if (range) {
+            indices = range.count;
+            offset = range.offset;
+          } else return;
+          const batch = stream.batches[count] || (stream.batches[count] = {});
+          count++;
+          batch.list = list;
+          batch.indices = indices;
+          batch.offset = offset;
+          batch.start = floats;
+          batch.twoSided = pass !== 'glass' && TWO_SIDED(shape);
+          floats += list.length * 20;
+        };
+        if (opaque) for (const shape of ['cube', 'wedge', 'wheel']) append(shape, groups.get(shape));
+        for (const [shape, list] of groups) {
+          if (opaque && (shape === 'cube' || shape === 'wedge' || shape === 'wheel')) continue;
+          append(shape, list);
+        }
+        if (!count) return;
+        if (stream.data.length < floats)
+          stream.data = new Float32Array(Math.max(4096, floats, stream.data.length * 2));
+        if (!stream.buffer) stream.buffer = shadow ? this.shadowBuffer : g.createBuffer();
+        if (!stream.buffer) return;
+        for (let i = 0; i < count; i++) {
+          const b = stream.batches[i];
+          this.pack(b.list, true, stream.data, b.start);
+        }
+        g.bindVertexArray(this.vao);
+        g.bindBuffer(g.ARRAY_BUFFER, stream.buffer);
+        g.bufferData(g.ARRAY_BUFFER, stream.data, g.STREAM_DRAW, 0, floats);
+        // The main VAO uses instanced attributes for its whole lifetime. Only
+        // their base offsets change between batches.
+        if (!this.rcInstanceAttribs52) {
+          for (let i = 0; i < 5; i++) {
+            g.enableVertexAttribArray(2 + i);
+            g.vertexAttribDivisor(2 + i, 1);
+          }
+          this.rcInstanceAttribs52 = true;
+        }
+        let bothFaces = false;
+        for (let j = 0; j < count; j++) {
+          const b = stream.batches[j];
+          if (b.twoSided !== bothFaces) {
+            bothFaces = b.twoSided;
+            if (bothFaces) g.disable(g.CULL_FACE); else g.enable(g.CULL_FACE);
+          }
+          for (let i = 0; i < 5; i++) g.vertexAttribPointer(2 + i, 4, g.FLOAT, false, 80, b.start * 4 + i * 16);
+          g.drawElementsInstanced(g.TRIANGLES, b.indices, g.UNSIGNED_INT, b.offset, b.list.length);
+          b.list = null;
+        }
+        if (bothFaces) g.enable(g.CULL_FACE);
+      }
+      drawShadowInstanceGroups52(groups) {
+        this.drawInstanceGroups52(groups, 'shadow');
       }
       uploadLUT() {
         const g = this.gl, A = this.atmosphere;
@@ -1547,13 +1671,22 @@ void main(){
         this.displayRatio463 = window.devicePixelRatio || 1;
         const maxSide = this.maxSide463 || 4096;
         const maxRatio = Math.min(maxSide / cssW, maxSide / cssH, Math.sqrt(8300000 / (cssW * cssH)));
-        // The canvas always stays at full display resolution (crisp UI/edges); the 3-D
-        // scene renders at rcResScale internally and the composite upscales + sharpens.
-        const outRatio = Math.min(Math.min(this.displayRatio463, 1.5), maxRatio);
-        const ow = Math.max(1, Math.round(cssW * outRatio)), oh = Math.max(1, Math.round(cssH * outRatio));
-        const scale = this.rcComposite ? clamp(this.rcResScale || 1, .5, 1) : 1;
-        const w = Math.max(1, Math.round(ow * scale)), h = Math.max(1, Math.round(oh * scale));
-        this.renderNative475 = true; this.framebufferLimited475 = false; this.realPixelRatio475 = outRatio * scale;
+        // Preserve native Full HD in native mode, including on smaller desktop
+        // windows. The explicit adaptive render mode can composite a smaller frame.
+        const native = this.renderPolicy475 === 'native1080';
+        const targetRatio = native ? Math.max(1920 / cssW, 1080 / cssH) : Math.min(this.displayRatio463, 1.5);
+        const outRatio = Math.min(targetRatio, maxRatio);
+        const requested = H.render52?.measure(cssW, cssH, this.displayRatio463, maxSide, this.rcResScale);
+        const legacyW = Math.max(1, Math.round(cssW * outRatio)), legacyH = Math.max(1, Math.round(cssH * outRatio));
+        const scale = this.rcComposite && !native ? clamp(this.rcResScale || 1, .5, 1) : 1;
+        const w = requested?.w ?? Math.max(1, Math.round(legacyW * scale));
+        const h = requested?.h ?? Math.max(1, Math.round(legacyH * scale));
+        const ow = this.rcComposite ? requested?.outW ?? legacyW : w;
+        const oh = this.rcComposite ? requested?.outH ?? legacyH : h;
+        this.renderNative475 = native && w >= 1920 && h >= 1080;
+        this.rcFramebufferLimited52 = requested?.limited ?? false;
+        this.framebufferLimited475 = requested?.limited ?? (native && !this.renderNative475);
+        this.realPixelRatio475 = requested?.ratio ?? outRatio * scale;
         if (this.canvas.width !== ow || this.canvas.height !== oh) { this.canvas.width = ow; this.canvas.height = oh; }
         this.rcOutW = ow; this.rcOutH = oh;
         if (this.glWidth === w && this.glHeight === h) return;
@@ -1595,7 +1728,7 @@ void main(){
         // Grading drifts warm at golden hour, cool and slightly desaturated at night.
         const golden = clamp(1 - Math.abs(sun[1] - .12) / .22, 0, 1) * (1 - night);
         const G = this.rcGrade;
-        G.whiteBalance = RC.tropical ? [1.055, 1.0, .925] : [1 + .035 * golden - .05 * night, 1 - .005 * golden - .01 * night, 1 - .05 * golden + .07 * night];
+        G.whiteBalance = RC.tropical ? [1.085, 1.012, .902] : [1 + .035 * golden - .05 * night, 1 - .005 * golden - .01 * night, 1 - .05 * golden + .07 * night];
         G.saturation = (RC.tropical ? 1.14 : 1.07) - .14 * night - .12 * cloud;
         G.contrast = .17 - .05 * cloud;
         G.lift = [.006 * night, .008 * night, .014 * night];
@@ -1606,8 +1739,8 @@ void main(){
       drawSunShadows(statics, dynamics, c) {
         // Tiny decorative parts (bulbs, flowers, rails) cost GPU time in the
         // shadow map but cast no visible shadow: skip them.
-        if (statics !== this.rcShadowSource) {
-          this.rcShadowSource = statics;
+        if (statics !== this.rcShadowSource || statics.length !== this.rcShadowCount53) {
+          this.rcShadowSource = statics; this.rcShadowCount53 = statics.length;
           this.rcShadowCasters = statics.filter(o => !(Math.max(o.w, o.h, o.d) < 1.1 || (o.cityLife39 && o.h < .5 && Math.min(o.w, o.d) < 2)));
         }
         super.drawSunShadows(this.rcShadowCasters, dynamics, c);
@@ -1660,7 +1793,7 @@ void main(){
         const nearStatic = this.getVisibleStatic(staticObjects, c, scene);
         // Screen-size LOD for moving parts: car bodies are 12k triangles and each
         // alloy rim 3.7k; far away they are a few pixels. Lights always stay.
-        if (!params.has('realismDynLodOff') && dynamicObjects.length) {
+        if (!H.quality51?.fixed && !params.has('realismDynLodOff') && dynamicObjects.length) {
           const px = .92 * Math.min(this.glWidth, this.glHeight) / Math.tan(clamp(c.fov || 67, 54, 92) * Math.PI / 360) * .5;
           const mr = this.modelRanges, keepList = [];
           for (const o of dynamicObjects) {
@@ -1680,7 +1813,7 @@ void main(){
         }
         const daylight = H.daylightFromHour(hour);
         window.__SUNSET_STAGE17_VISIBILITY = { renderer: this.name, gpuMs: this.rcGpuMs, ...this.getVisibilityInfo(),
-          staticInstances: scene.cubeCount, quality: this.qualityScale, fadeMeters: 70, lodBlendMeters: 84, resolutionScale: this.rcResScale };
+          staticInstances: scene.cubeCount, quality: this.qualityScale, fadeMeters: 70, lodBlendMeters: 84, resolutionScale: this.glWidth / this.rcOutW, modelFidelity: H.quality51?.mode };
         this.sunlightHour = hour;
         this.updateAtmosphere(hour, weather, indoors, c, t);
         const sun29 = RC.frame.sunDir;
@@ -1699,7 +1832,15 @@ void main(){
           this.shadowFrameIndex = 1;
         }
         const composited = !!this.rcComposite && this.glWidth * this.glHeight <= 16600000 && this.rcComposite.begin(this.glWidth, this.glHeight);
-        if (!composited) { g.bindFramebuffer(g.FRAMEBUFFER, null); g.viewport(0, 0, this.glWidth, this.glHeight); }
+        if (!composited) {
+          if (this.canvas.width !== this.glWidth || this.canvas.height !== this.glHeight) {
+            // A failed offscreen target still gets a correctly sized direct view.
+            this.canvas.width = this.rcOutW = this.glWidth;
+            this.canvas.height = this.rcOutH = this.glHeight;
+          }
+          g.bindFramebuffer(g.FRAMEBUFFER, null);
+          g.viewport(0, 0, this.glWidth, this.glHeight);
+        }
         const projectionField = Math.tan(clamp(c.fov || 67, 54, 92) * Math.PI / 360);
         const viewProjection = viewProjOf(c, this.glWidth / this.glHeight);
         this.rcViewProjection = viewProjection;
@@ -1756,7 +1897,6 @@ void main(){
           else g.bufferData(g.ARRAY_BUFFER, this.pack(list, this.reuseStaticPacking475 === true), g.STATIC_DRAW);
         };
         if (scene.uploaded !== nearStatic) {
-          g.bindBuffer(g.ARRAY_BUFFER, scene.cubes);
           const groups = new Map(), sea = [];
           scene.glazing = [];
           for (const item of nearStatic) {
@@ -1767,7 +1907,7 @@ void main(){
             a.push(item); groups.set(key, a);
           }
           const cubes = groups.get('cube') || [], wedges = groups.get('wedge') || [];
-          upload(scene.cubes, cubes);
+          g.bindBuffer(g.ARRAY_BUFFER, scene.cubes); upload(scene.cubes, cubes);
           g.bindBuffer(g.ARRAY_BUFFER, scene.sea); upload(scene.sea, sea);
           g.bindBuffer(g.ARRAY_BUFFER, scene.wedges); upload(scene.wedges, wedges);
           for (const entry of scene.extra.values()) entry.count = 0;
@@ -1782,13 +1922,15 @@ void main(){
           scene.uploaded = nearStatic;
         }
         const drawStatics = () => {
-          this.bindInstances(scene.cubes);
-          if (scene.cubeCount) g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 0, scene.cubeCount);
-          if (scene.wedgeCount) { this.bindInstances(scene.wedges); g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 144, scene.wedgeCount); }
+          if (scene.cubeCount) {
+            this.bindStaticInstances52(scene.cubes);
+            g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 0, scene.cubeCount);
+          }
+          if (scene.wedgeCount) { this.bindStaticInstances52(scene.wedges); g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 144, scene.wedgeCount); }
           for (const [name, entry] of scene.extra) {
             if (entry.count === 0) continue;
             const range = this.modelRanges.get(name);
-            this.bindInstances(entry.buffer);
+            this.bindStaticInstances52(entry.buffer);
             g.drawElementsInstanced(g.TRIANGLES, range.count, g.UNSIGNED_INT, range.offset, entry.count);
           }
         };
@@ -1822,55 +1964,7 @@ void main(){
           const a = dg.get(k) || [];
           a.push(o); dg.set(k, a);
         }
-        const cubes = dg.get('cube') || [], wedges = dg.get('wedge') || [], wheels = dg.get('wheel') || [];
-        if (cubes.length) {
-          g.bindBuffer(g.ARRAY_BUFFER, this.dynamicBuffer);
-          g.bufferData(g.ARRAY_BUFFER, this.pack(cubes, true), g.DYNAMIC_DRAW);
-          this.bindInstances(this.dynamicBuffer);
-          g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 0, cubes.length);
-        }
-        if (wedges.length) {
-          g.bindBuffer(g.ARRAY_BUFFER, this.wedgeBuffer);
-          g.bufferData(g.ARRAY_BUFFER, this.pack(wedges, true), g.DYNAMIC_DRAW);
-          this.bindInstances(this.wedgeBuffer);
-          g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 144, wedges.length);
-        }
-        if (wheels.length) {
-          g.bindBuffer(g.ARRAY_BUFFER, this.wheelBuffer);
-          g.bufferData(g.ARRAY_BUFFER, this.pack(wheels, true), g.DYNAMIC_DRAW);
-          this.bindInstances(this.wheelBuffer);
-          g.drawElementsInstanced(g.TRIANGLES, this.wheelIndexCount, g.UNSIGNED_INT, 288, wheels.length);
-        }
-        // All per-shape dynamic instances go up in ONE buffer upload; each shape
-        // then draws from its offset (was ~170 separate uploads per frame).
-        let twoSided = false;
-        const batches = [];
-        let floats = 0;
-        for (const [shape, list] of dg) {
-          const range = this.modelRanges.get(shape);
-          if (!range) continue;
-          batches.push({ shape, list, range, first: floats / 20 });
-          floats += list.length * 20;
-        }
-        if (batches.length) {
-          if (!this.rcDynArray || this.rcDynArray.length < floats) this.rcDynArray = new Float32Array(Math.max(floats, (this.rcDynArray?.length || 0) * 2, 4096));
-          let o = 0;
-          for (const b of batches) { const packed = this.pack(b.list, true); this.rcDynArray.set(packed, o); o += packed.length; }
-          if (!this.rcDynBuffer) this.rcDynBuffer = g.createBuffer();
-          g.bindBuffer(g.ARRAY_BUFFER, this.rcDynBuffer);
-          g.bufferData(g.ARRAY_BUFFER, this.rcDynArray.subarray(0, floats), g.STREAM_DRAW);
-          for (const b of batches) {
-            const both = TWO_SIDED(b.shape);
-            if (both !== twoSided) { twoSided = both; if (twoSided) g.disable(g.CULL_FACE); else g.enable(g.CULL_FACE); }
-            for (let i = 0; i < 5; i++) {
-              g.enableVertexAttribArray(2 + i);
-              g.vertexAttribPointer(2 + i, 4, g.FLOAT, false, 80, b.first * 80 + i * 16);
-              g.vertexAttribDivisor(2 + i, 1);
-            }
-            g.drawElementsInstanced(g.TRIANGLES, b.range.count, g.UNSIGNED_INT, b.range.offset, b.list.length);
-          }
-        }
-        if (twoSided) g.enable(g.CULL_FACE);
+        this.drawInstanceGroups52(dg, 'opaque');
         const frame = { viewProjection, c, t, hour, weather, indoors, daylight, shadowMode, sun: sun29, width: this.glWidth, height: this.glHeight };
         RC.lastFrame = frame;
         this.runOpaquePasses(frame);
@@ -1882,7 +1976,7 @@ void main(){
           g.bindVertexArray(this.vao);
         }
         if (scene.seaCount) {
-          this.bindInstances(scene.sea);
+          this.bindStaticInstances52(scene.sea);
           g.drawElementsInstanced(g.TRIANGLES, 36, g.UNSIGNED_INT, 0, scene.seaCount);
         }
         if (!indoors) {
@@ -1920,17 +2014,7 @@ void main(){
           g.blendFunc(g.SRC_ALPHA, g.ONE_MINUS_SRC_ALPHA);
           g.depthMask(false);
           g.disable(g.CULL_FACE);
-          for (const [shape, list] of panes) {
-            const range = shape === 'cube' ? { offset: 0, count: 36 } : shape === 'wedge' ? { offset: 144, count: 36 } :
-              shape === 'wheel' ? { offset: 288, count: this.wheelIndexCount } : this.modelRanges.get(shape);
-            if (!range) continue;
-            let buffer = this.modelBuffers.get('glass:' + shape);
-            if (!buffer) { buffer = g.createBuffer(); this.modelBuffers.set('glass:' + shape, buffer); }
-            g.bindBuffer(g.ARRAY_BUFFER, buffer);
-            g.bufferData(g.ARRAY_BUFFER, this.pack(list, true), g.DYNAMIC_DRAW);
-            this.bindInstances(buffer);
-            g.drawElementsInstanced(g.TRIANGLES, range.count, g.UNSIGNED_INT, range.offset, list.length);
-          }
+          this.drawInstanceGroups52(panes, 'glass');
           g.depthMask(true);
           g.disable(g.BLEND);
           g.enable(g.CULL_FACE);
@@ -2000,7 +2084,8 @@ void main(){
             const e = RC.frame.exposure[0];
             G.sunCol = RC.frame.sunColor.map(x => x * e);
           } else G.sunVis = 0;
-          G.outW = this.rcOutW; G.outH = this.rcOutH; G.sharpen = this.rcResScale < .99 ? .28 + (1 - this.rcResScale) * .8 : .15;
+          const renderScale = this.glWidth / this.rcOutW;
+          G.outW = this.rcOutW; G.outH = this.rcOutH; G.sharpen = renderScale < .99 ? .28 + (1 - renderScale) * .8 : .15;
           this.rcComposite.present(projectionField, indoors, nearPlaneOf(c), G);
         }
         if (this.rcQueryOpen) { g.endQuery(this.rcTimerExt.TIME_ELAPSED_EXT); this.rcQueryOpen = false; }
@@ -2018,7 +2103,7 @@ void main(){
         ['Math.abs(c.y-(scene.cullY??c.y))<7 && turn<.38)', 'Math.abs(c.y-(scene.cullY??c.y))<7 && turn<.21)'],
         ['rotateBoxLocal(', 'Heatline.rotateBoxLocal('],
         ['if (o.lodMin !== undefined && o.lodMin > lodPreload &&',
-          'if(d2>150*150&&o.layer>=3&&!(o.glow>.5)&&!o.stage450Proxy&&!o.terrainTile42){const a=o.w,b=o.h,e=o.d;const mid=a>b?(b>e?b:(a>e?e:a)):(a>e?a:(b>e?e:b));if(mid*pixelScale475<(Heatline.realism39.cullPx||2.6)*Math.sqrt(d2))return false;}\n                if (o.lodMin !== undefined && o.lodMin > lodPreload &&']
+          'if(d2>150*150&&o.layer>=3&&!(o.glow>.5)&&!o.stage450Proxy&&!o.terrainTile42){const a=o.w,b=o.h,e=o.d;const mid=a>b?(b>e?b:(a>e?e:a)):(a>e?a:(b>e?e:b));if(mid*pixelScale475<(Heatline.quality51?.fixed?1:(Heatline.realism39.cullPx||2.6))*Math.sqrt(d2))return false;}\n                if (o.lodMin !== undefined && o.lodMin > lodPreload &&']
       ];
       for (const [a, b] of swaps) {
         if (src.split(a).length !== 2) throw Error('cull anchor: ' + a.slice(0, 40));
@@ -2038,10 +2123,10 @@ void main(){
   RC.installGame = function (Game) {
     if (!Game || Game.prototype.__realism39Render) return;
     Game.prototype.__realism39Render = true;
-    // Fixed tropical afternoon: no day/night cycle, warm golden light, clear skies.
+    // Stage53: bright warm daytime. The higher sun retains daylight while the grade adds amber warmth.
     RC.tropical = !params.has('dayNight');
     if (RC.tropical) {
-      const TROPICAL_HOUR = 17.35;
+      const TROPICAL_HOUR = 16.4;
       const upd = Game.prototype.update;
       Game.prototype.update = function (dt) {
         this.worldHour = TROPICAL_HOUR; this.clockRunning = false;
@@ -2054,8 +2139,10 @@ void main(){
     const legacyQuality = Game.prototype.manageVisualQuality450;
     Game.prototype.manageVisualQuality450 = function (active, now) {
       const r = this.renderer;
+      if (H.render52?.observe(this, active, now)) return;
       if (!r || !r.atmosphere) return legacyQuality.call(this, active, now);
       this.nativeTier475 = 0; r.nativeTier475 = 0;
+      if (r.renderPolicy475 === 'native1080') return;
       if (!active || this.graphicsLost || this.activeFrames < 240 || now - (this.rcQualityLast || 0) < 4000) return;
       this.rcQualityLast = now;
       const frame = this.frameTimeMs || 16;

@@ -1,0 +1,107 @@
+{
+  "passed": 55,
+  "takeoff": {
+    "speedKmh": 131,
+    "x": -150
+  },
+  "touchdown": {
+    "speedKmh": 174,
+    "x": 87,
+    "z": 782
+  },
+  "steering": [
+    {
+      "speed": 2,
+      "baseline": 0.0854,
+      "stage51": 0.1654,
+      "changePct": 94
+    },
+    {
+      "speed": 7,
+      "baseline": 0.1607,
+      "stage51": 0.3056,
+      "changePct": 90
+    },
+    {
+      "speed": 14,
+      "baseline": 0.1853,
+      "stage51": 0.2762,
+      "changePct": 49
+    },
+    {
+      "speed": 22,
+      "baseline": 0.1547,
+      "stage51": 0.1929,
+      "changePct": 25
+    },
+    {
+      "speed": 36,
+      "baseline": 0.1043,
+      "stage51": 0.1043,
+      "changePct": 0
+    },
+    {
+      "speed": 55,
+      "baseline": 0.0703,
+      "stage51": 0.0703,
+      "changePct": 0
+    }
+  ],
+  "checks": [
+    "Steering symmetry and reverse at 2 m/s",
+    "Limited lateral motion at 2 m/s",
+    "Expected steering response at 2 m/s",
+    "Steering symmetry and reverse at 7 m/s",
+    "Limited lateral motion at 7 m/s",
+    "Expected steering response at 7 m/s",
+    "Steering symmetry and reverse at 14 m/s",
+    "Limited lateral motion at 14 m/s",
+    "Expected steering response at 14 m/s",
+    "Steering symmetry and reverse at 22 m/s",
+    "Limited lateral motion at 22 m/s",
+    "Expected steering response at 22 m/s",
+    "Steering symmetry and reverse at 36 m/s",
+    "Limited lateral motion at 36 m/s",
+    "Expected steering response at 36 m/s",
+    "Steering symmetry and reverse at 55 m/s",
+    "Limited lateral motion at 55 m/s",
+    "Expected steering response at 55 m/s",
+    "Manual plane has a separate airport actor",
+    "Manual airport marker is at the physical terminal",
+    "Boarding does not capture ordinary street interaction",
+    "Terminal access position is walkable",
+    "Terminal boarding action is visible",
+    "Ordinary preflight save works",
+    "E boards the stationary plane on the actual runway",
+    "C changes the flight camera",
+    "HUD camera button controls flight camera",
+    "Throttle produces real taxi movement before rotation",
+    "Space applies wheel brakes during taxi",
+    "Throttle and pitch take off manually",
+    "Aircraft climbs with rise input",
+    "Throttle decreases during flight",
+    "Flight camera and minimap follow the aircraft",
+    "Flight does not walk or teleport the saved boarding position",
+    "E cannot exit in mid-air",
+    "Menu/pause stops flight inputs",
+    "Saving in air uses compatible grounded fallback",
+    "Schema 19 and the parked road car are preserved",
+    "Manual descent touches down on the runway",
+    "Touchdown is grounded and correctly aligned",
+    "Moving aircraft refuses exit",
+    "Space stops the aircraft during rollout",
+    "E restores a safe grounded walker at the aircraft door",
+    "Aircraft renders with the original fallback parts",
+    "The stopped aircraft can be boarded directly",
+    "Arrow pitch raises the aircraft above the airport",
+    "Left input banks and turns the aircraft left",
+    "Airliner retracts gear at cruise altitude",
+    "Swept obstacle checks include CITY20 tower heights",
+    "Collision returns the aircraft to a usable runway",
+    "Aircraft can pass safely above buildings",
+    "Crossing the map boundary recovers safely",
+    "Ambient flight, static world and road car retain identity",
+    "Loading from the cockpit clears flight and restores grounded character",
+    "Preflight save loads through the same save system"
+  ]
+}
